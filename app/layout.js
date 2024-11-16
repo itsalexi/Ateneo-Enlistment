@@ -30,6 +30,11 @@ export default function RootLayout({ children }) {
           <Nav />
           {children}
         </FavoriteCoursesProvider>
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "2aafb9d1938641b7aa527cbb43014b2e"}'
+        ></script>
       </body>
     </html>
   );

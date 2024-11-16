@@ -213,18 +213,18 @@ export default function Calendar({
   }, [selectedCourses]);
 
   return (
-    <CardContent className="p-0 bg-gray-900 text-gray-100 w-full">
+    <CardContent className="p-0 bg-[#121212] text-gray-100 w-full">
       <div className="overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-20 bg-gray-800 text-gray-100">
+              <TableHead className="w-20 bg-[#1e1e1e] text-gray-100">
                 Time
               </TableHead>
               {days.map((day) => (
                 <TableHead
                   key={day}
-                  className="text-center bg-gray-800 text-gray-100"
+                  className="text-center bg-[#1e1e1e] text-gray-100"
                 >
                   {day}
                 </TableHead>
@@ -234,7 +234,7 @@ export default function Calendar({
           <TableBody>
             {timeSlots.map((time) => (
               <TableRow key={time} className="h-12">
-                <TableCell className="font-medium bg-gray-800 text-gray-100">
+                <TableCell className="font-medium bg-gray-900 text-gray-100">
                   {formatTime(time, use24Hour)}
                 </TableCell>
                 {days.map((day, index) => {

@@ -73,10 +73,10 @@ export default function FavoritesPopout({
                         <MapPin className="h-3 w-3 flex-shrink-0" />
                         <span className="truncate">{course.room}</span>
                       </div>
-                      <div className="flex items-center gap-1 text-gray-400">
-                        <Notebook className="h-3 w-3 flex-shrink-0" />
-                        <span className="truncate">{course.remarks}</span>
-                      </div>
+                    </div>
+                    <div className="flex items-center gap-1 text-gray-400">
+                      <Notebook className="h-3 w-3 flex-shrink-0" />
+                      <span className="">{course.remarks}</span>
                     </div>
                   </CardContent>
                 </Card>
@@ -96,7 +96,11 @@ export default function FavoritesPopout({
   );
 
   return (
-    <Sheet open={isFavoritesOpen} onOpenChange={setIsFavoritesOpen}>
+    <Sheet
+      className="text-white"
+      open={isFavoritesOpen}
+      onOpenChange={setIsFavoritesOpen}
+    >
       <SheetTrigger asChild>
         <Button
           variant="outline"

@@ -1,7 +1,9 @@
 'use client';
 
 import Calendar from '@/components/Calendar';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { useFavoriteCourses } from '@/lib/context';
+import { parseTimeRange } from '@/lib/helper';
 import {
   Box,
   Button,
@@ -11,6 +13,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useState } from 'react';
+import Tooltip from '@mui/material/Tooltip';
 
 const darkTheme = createTheme({
   palette: {
@@ -61,73 +64,108 @@ export default function Page() {
               <Typography variant="h6" gutterBottom>
                 Favorite Courses
               </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                {favoriteCourses.filter(
-                  (course) => !selectedCourses.includes(course)
-                ).length > 0 ? (
-                  favoriteCourses
-                    .filter((course) => !selectedCourses.includes(course))
-                    .map((course) => (
-                      <Paper
-                        key={course.id}
-                        elevation={1}
-                        sx={{
-                          p: 2,
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: 2,
-                          borderRadius: '8px',
-                          border: '1px solid',
-                          borderColor: selectedCourses.includes(course)
-                            ? 'primary.main'
-                            : 'neutral.700',
-                          backgroundColor: selectedCourses.includes(course)
-                            ? 'rgba(144, 202, 249, 0.2)'
-                            : 'background.paper',
-                        }}
-                      >
-                        <Box sx={{ flex: 1 }}>
-                          <Typography
-                            variant="subtitle1"
-                            sx={{ fontWeight: 'bold' }}
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 2,
+                }}
+              >
+                <ScrollArea className="h-[300px]">
+                  {favoriteCourses.filter(
+                    (course) => !selectedCourses.includes(course)
+                  ).length > 0 ? (
+                    <div className="flex flex-col gap-2">
+                      {favoriteCourses
+                        .filter((course) => !selectedCourses.includes(course))
+                        .map((course) => (
+                          <Paper
+                            key={course.id}
+                            elevation={1}
+                            sx={{
+                              p: 2,
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: 2,
+                              borderRadius: '8px',
+                              border: '1px solid',
+                              borderColor: selectedCourses.includes(course)
+                                ? 'primary.main'
+                                : 'neutral.700',
+                              backgroundColor: selectedCourses.includes(course)
+                                ? 'rgba(144, 202, 249, 0.2)'
+                                : 'background.paper',
+                            }}
                           >
-                            {course.catNo}
-                          </Typography>
-                          <Typography
-                            variant="body2"
-                            sx={{ color: 'text.secondary' }}
-                          >
-                            {course.time}
-                          </Typography>
-                          <Typography
-                            variant="body2"
-                            sx={{ color: 'text.secondary' }}
-                          >
-                            {course.courseTitle}
-                          </Typography>
-                        </Box>
-                        <Button
-                          variant="outlined"
-                          color="secondary"
-                          onClick={() =>
-                            setSelectedCourses([...selectedCourses, course])
-                          }
-                          size="small"
-                        >
-                          Add
-                        </Button>
-                      </Paper>
-                    ))
-                ) : (
-                  <Typography color="text.secondary">
-                    There are no favorite courses available. Add more to your
-                    favorites!
-                  </Typography>
-                )}
+                            <Box sx={{ flex: 1 }}>
+                              <Typography
+                                variant="subtitle1"
+                                sx={{ fontWeight: 'bold' }}
+                              >
+                                {course.catNo}
+                              </Typography>
+                              <Typography
+                                variant="body2"
+                                sx={{ color: 'text.secondary' }}
+                              >
+                                {course.time}
+                              </Typography>
+                              <Typography
+                                variant="body2"
+                                sx={{ color: 'text.secondary' }}
+                              >
+                                {course.courseTitle}
+                              </Typography>
+                              <Typography
+                                variant="body2"
+                                sx={{
+                                  color: 'text.secondary',
+                                  fontStyle: 'italic',
+                                  fontSize: 10,
+                                }}
+                              >
+                                {course.remarks}
+                              </Typography>
+                            </Box>
+                            <Tooltip
+                              title={
+                                parseTimeRange(course.time) === null
+                                  ? 'no timestamp'
+                                  : ''
+                              }
+                            >
+                              <span>
+                                <Button
+                                  variant="outlined"
+                                  color="secondary"
+                                  onClick={() =>
+                                    setSelectedCourses([
+                                      ...selectedCourses,
+                                      course,
+                                    ])
+                                  }
+                                  disabled={
+                                    parseTimeRange(course.time) === null
+                                  }
+                                  size="small"
+                                >
+                                  Add
+                                </Button>
+                              </span>
+                            </Tooltip>
+                          </Paper>
+                        ))}
+                    </div>
+                  ) : (
+                    <Typography color="text.secondary">
+                      There are no favorite courses available. Add more to your
+                      favorites!
+                    </Typography>
+                  )}
+                </ScrollArea>
               </Box>
             </Paper>
 
-            {/* Selected Courses Section */}
             <Paper
               elevation={0}
               sx={{
@@ -141,60 +179,74 @@ export default function Page() {
                 Selected Courses
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                {selectedCourses.length > 0 ? (
-                  selectedCourses.map((course) => (
-                    <Paper
-                      key={course.id}
-                      elevation={1}
-                      sx={{
-                        p: 2,
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 2,
-                        borderRadius: '8px',
-                        border: '1px solid primary.main',
-                        backgroundColor: 'rgba(144, 202, 249, 0.2)',
-                      }}
-                    >
-                      <Box sx={{ flex: 1 }}>
-                        <Typography
-                          variant="subtitle1"
-                          sx={{ fontWeight: 'bold' }}
+                <ScrollArea className="h-[300px]">
+                  {selectedCourses.length > 0 ? (
+                    <div className="flex flex-col gap-2">
+                      {selectedCourses.map((course) => (
+                        <Paper
+                          key={course.id}
+                          elevation={1}
+                          sx={{
+                            p: 2,
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 2,
+                            borderRadius: '8px',
+                            border: '1px solid primary.main',
+                            backgroundColor: 'rgba(144, 202, 249, 0.2)',
+                          }}
                         >
-                          {course.catNo}
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{ color: 'text.secondary' }}
-                        >
-                          {course.time}
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{ color: 'text.secondary' }}
-                        >
-                          {course.courseTitle}
-                        </Typography>
-                      </Box>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={() =>
-                          setSelectedCourses(
-                            selectedCourses.filter((c) => c !== course)
-                          )
-                        }
-                        size="small"
-                      >
-                        Remove
-                      </Button>
-                    </Paper>
-                  ))
-                ) : (
-                  <Typography color="text.secondary">
-                    No courses selected yet!
-                  </Typography>
-                )}
+                          <Box sx={{ flex: 1 }}>
+                            <Typography
+                              variant="subtitle1"
+                              sx={{ fontWeight: 'bold' }}
+                            >
+                              {course.catNo}
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              sx={{ color: 'text.secondary' }}
+                            >
+                              {course.time}
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              sx={{ color: 'text.secondary' }}
+                            >
+                              {course.courseTitle}
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                color: 'text.secondary',
+                                fontStyle: 'italic',
+                                fontSize: 10,
+                              }}
+                            >
+                              {course.remarks}
+                            </Typography>
+                          </Box>
+                          <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={() =>
+                              setSelectedCourses(
+                                selectedCourses.filter((c) => c !== course)
+                              )
+                            }
+                            size="small"
+                          >
+                            Remove
+                          </Button>
+                        </Paper>
+                      ))}
+                    </div>
+                  ) : (
+                    <Typography color="text.secondary">
+                      No courses selected yet!
+                    </Typography>
+                  )}
+                </ScrollArea>
               </Box>
             </Paper>
 

@@ -81,6 +81,7 @@ export default function Home() {
     isMobile ? initialCardVisibility : initialTableVisibility
   );
   const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const updateURL = () => {
@@ -164,6 +165,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchOffering = async () => {
+      setIsLoading(true);
       if (selectedDepartment?.length > 0) {
         const data = await fetch(
           `/api/offerings?deptCode=${selectedDepartment}`
@@ -172,6 +174,7 @@ export default function Home() {
         setSubjectOffering(offering);
         setPage(1);
       }
+      setIsLoading(false);
     };
 
     fetchOffering();
@@ -363,7 +366,6 @@ export default function Home() {
                 />
               )}
             </Box>
-
             {filteredCourses.length > 0 ? (
               <>
                 {isMobile ? (
@@ -422,12 +424,15 @@ export default function Home() {
                     />
                   </>
                 )}
+                {isLoading && <div>Loading..</div>}
               </>
             ) : (
-              <Typography variant="body1" sx={{ textAlign: 'center', py: 4 }}>
-                There are no offerings available with your filter settings. Try
-                adjusting your filters.
-              </Typography>
+              !isLoading && (
+                <Typography variant="body1" sx={{ textAlign: 'center', py: 4 }}>
+                  There are no offerings available with your filter settings.
+                  Try adjusting your filters.
+                </Typography>
+              )
             )}
           </Paper>
         </Box>
