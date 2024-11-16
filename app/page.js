@@ -242,103 +242,127 @@ export default function Home() {
             flexDirection: { xs: 'column', md: 'row' },
           }}
         >
-          <Paper
-            elevation={0}
-            sx={{
-              p: 2,
-              width: { xs: '100%', md: '300px' },
-              flexShrink: 0,
-            }}
-            className="rounded-lg border-[1px] border-neutral-700"
-          >
-            <Typography variant="h6" gutterBottom>
-              Filters
-            </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Autocomplete
-                multiple
-                value={selectedInstructors}
-                options={instructors}
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    label="Filter by Instructor"
-                    variant="outlined"
-                    size="small"
-                  />
-                )}
-                renderTags={(value, getTagProps) =>
-                  value.map((option, index) => {
-                    const { key, ...tagProps } = getTagProps({ index });
-                    return (
-                      <Chip
-                        key={`instructor-${index}`}
-                        variant="outlined"
-                        label={option}
-                        {...tagProps}
-                      />
-                    );
-                  })
-                }
-                onChange={(_, newValue) => setSelectedInstructors(newValue)}
-              />
-              <Autocomplete
-                multiple
-                options={catNos}
-                value={selectedCatNos}
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    label="Filter by Course Number"
-                    variant="outlined"
-                    size="small"
-                  />
-                )}
-                renderTags={(value, getTagProps) =>
-                  value.map((option, index) => {
-                    const { key, ...tagProps } = getTagProps({ index });
-                    return (
-                      <Chip
-                        key={`cat-${index}`}
-                        variant="outlined"
-                        label={option}
-                        {...tagProps}
-                      />
-                    );
-                  })
-                }
-                onChange={(_, newValue) => setSelectedCatNos(newValue)}
-              />
-              <Autocomplete
-                multiple
-                options={courseTitles}
-                value={selectedCourseTitles}
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    label="Filter by Course Title"
-                    variant="outlined"
-                    size="small"
-                  />
-                )}
-                renderTags={(value, getTagProps) =>
-                  value.map((option, index) => {
-                    const { key, ...tagProps } = getTagProps({ index });
-                    return (
-                      <Chip
-                        key={`courseTitle-${index}`}
-                        variant="outlined"
-                        label={option}
-                        {...tagProps}
-                      />
-                    );
-                  })
-                }
-                onChange={(_, newValue) => setSelectedCourseTitles(newValue)}
-              />
-            </Box>
-          </Paper>
-
+          <div className="flex flex-col gap-5 ">
+            <Paper
+              elevation={0}
+              sx={{
+                p: 2,
+                width: { xs: '100%', md: '400px' },
+                flexShrink: 0,
+              }}
+              className="rounded-lg border-[1px] border-neutral-700"
+            >
+              <Typography variant="h6" gutterBottom>
+                Filters
+              </Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                <Autocomplete
+                  multiple
+                  value={selectedInstructors}
+                  options={instructors}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      label="Filter by Instructor"
+                      variant="outlined"
+                      size="small"
+                    />
+                  )}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => {
+                      const { key, ...tagProps } = getTagProps({ index });
+                      return (
+                        <Chip
+                          key={`instructor-${index}`}
+                          variant="outlined"
+                          label={option}
+                          {...tagProps}
+                        />
+                      );
+                    })
+                  }
+                  onChange={(_, newValue) => setSelectedInstructors(newValue)}
+                />
+                <Autocomplete
+                  multiple
+                  options={catNos}
+                  value={selectedCatNos}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      label="Filter by Course Number"
+                      variant="outlined"
+                      size="small"
+                    />
+                  )}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => {
+                      const { key, ...tagProps } = getTagProps({ index });
+                      return (
+                        <Chip
+                          key={`cat-${index}`}
+                          variant="outlined"
+                          label={option}
+                          {...tagProps}
+                        />
+                      );
+                    })
+                  }
+                  onChange={(_, newValue) => setSelectedCatNos(newValue)}
+                />
+                <Autocomplete
+                  multiple
+                  options={courseTitles}
+                  value={selectedCourseTitles}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      label="Filter by Course Title"
+                      variant="outlined"
+                      size="small"
+                    />
+                  )}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => {
+                      const { key, ...tagProps } = getTagProps({ index });
+                      return (
+                        <Chip
+                          key={`courseTitle-${index}`}
+                          variant="outlined"
+                          label={option}
+                          {...tagProps}
+                        />
+                      );
+                    })
+                  }
+                  onChange={(_, newValue) => setSelectedCourseTitles(newValue)}
+                />
+              </Box>
+            </Paper>
+            <Paper
+              elevation={0}
+              sx={{
+                p: 2,
+                width: { xs: '100%', md: '400px' },
+                flexShrink: 0,
+              }}
+              className="rounded-lg border-[1px] border-neutral-700"
+            >
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 2,
+                }}
+                className="text-center"
+              >
+                <p>Made with ❤️ by Alexi!</p>
+                <a className="text-center" href="https://alexi.life">
+                  Click here for his other projects
+                </a>
+              </Box>
+            </Paper>
+          </div>
           <Paper
             elevation={0}
             sx={{
@@ -370,6 +394,7 @@ export default function Home() {
                 {isMobile ? (
                   <Box
                     sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
+                    className="w-full"
                   >
                     <Pagination
                       count={pageCount}
@@ -378,7 +403,7 @@ export default function Home() {
                       color="primary"
                       variant="outlined"
                       shape="rounded"
-                      className="pb-5"
+                      className="pb-5 w-full"
                       size={isMobile ? 'small' : 'medium'}
                     />
                     {paginatedCourses.map((course) => (

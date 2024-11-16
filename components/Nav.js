@@ -10,7 +10,7 @@ export default function Nav({ favoriteCourses }) {
       <nav className="top-8 flex w-fit items-center gap-6 rounded-lg border-[1px] border-neutral-700 bg-neutral-900 p-2 text-sm text-neutral-500">
         <Logo />
 
-        <NavLink>Home</NavLink>
+        <NavLink>Enlistment Helper</NavLink>
 
         <FavoritesPopout favoriteCourses={favoriteCourses} />
       </nav>
