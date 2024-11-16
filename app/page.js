@@ -16,7 +16,7 @@ import {
   Typography,
   useMediaQuery,
 } from '@mui/material';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useFavoriteCourses } from '@/lib/context';
 
@@ -60,7 +60,10 @@ const darkTheme = createTheme({
 
 const ITEMS_PER_PAGE = 10;
 
-export default function Home() {
+const currentSemesterString = 'Second Semester';
+const lastUpdated = 'November 16, 2024';
+
+function HomeContent() {
   const isMobile = useMediaQuery(darkTheme.breakpoints.down('sm'));
   const searchParams = useSearchParams();
   const initialDepartment = searchParams.get('dept') || '';
@@ -185,7 +188,7 @@ export default function Home() {
   }, [selectedInstructors, selectedCatNos]);
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <>
       <CssBaseline />
 
       <Box
@@ -233,6 +236,7 @@ export default function Home() {
               <Typography variant="h6" gutterBottom>
                 Filters
               </Typography>
+
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 <Autocomplete
                   multiple
@@ -357,7 +361,14 @@ export default function Home() {
                 mb: 2,
               }}
             >
-              <Typography variant="h6">Course Offering</Typography>
+              <div>
+                <Typography variant="h6">
+                  Course Offering for {currentSemesterString}
+                </Typography>
+                <span className="text-secondary text-xs">
+                  Last updated: {lastUpdated}
+                </span>
+              </div>
               {!isMobile && (
                 <ColumnToggle
                   columns={Object.keys(initialCardVisibility)}
@@ -437,6 +448,16 @@ export default function Home() {
           </Paper>
         </Box>
       </Box>
+    </>
+  );
+}
+
+export default function Home() {
+  return (
+    <ThemeProvider theme={darkTheme}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <HomeContent />
+      </Suspense>
     </ThemeProvider>
   );
 }
