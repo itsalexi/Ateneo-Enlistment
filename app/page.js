@@ -1,12 +1,44 @@
-"use client"
-import ColumnToggle from "@/components/ColumnToggle";
-import CourseCard from "@/components/CourseCard";
-import DepartmentSelector from "@/components/DepartmentSelector";
-import OfferingsTable from "@/components/OfferingsTable";
-import { Autocomplete, Chip, Pagination, TextField } from "@mui/material";
-import { useState, useEffect, useMemo } from "react";
+'use client';
+import ColumnToggle from '@/components/ColumnToggle';
+import CourseCard from '@/components/CourseCard';
+import DepartmentSelector from '@/components/DepartmentSelector';
+import OfferingsTable from '@/components/OfferingsTable';
+import {
+  Autocomplete,
+  Box,
+  Chip,
+  Container,
+  createTheme,
+  CssBaseline,
+  Grid2,
+  Pagination,
+  Paper,
+  styled,
+  TextField,
+  ThemeProvider,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
+import { useState, useEffect, useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
+import FavoritesPopout from '@/components/FavoritePopout';
 
-const initialColumnVisibility = {
+import { School, FilterIcon, Heart } from 'lucide-react';
+import Nav from '@/components/Nav';
+
+const initialTableVisibility = {
+  catNo: true,
+  section: false,
+  courseTitle: true,
+  units: false,
+  time: true,
+  room: false,
+  instructor: true,
+  remarks: true,
+};
+
+const initialCardVisibility = {
   catNo: true,
   section: true,
   courseTitle: true,
@@ -14,145 +46,392 @@ const initialColumnVisibility = {
   time: true,
   room: true,
   instructor: true,
-}
+  remarks: true,
+};
 
-const ITEMS_PER_PAGE = 10
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#90caf9',
+    },
+    secondary: {
+      main: '#f48fb1',
+    },
+    background: {
+      default: '#121212',
+      paper: '#1e1e1e',
+    },
+  },
+});
+
+const StyledBox = styled(Box)(({ theme }) => ({
+  padding: theme.spacing(3),
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: theme.palette.background.paper,
+}));
+
+const ITEMS_PER_PAGE = 10;
 
 export default function Home() {
-  const [selectedDepartment, setSelectedDepartment] = useState('');
+  const isMobile = useMediaQuery(darkTheme.breakpoints.down('sm'));
+  const searchParams = useSearchParams();
+  const initialDepartment = searchParams.get('dept') || '';
+  const initialInstructors = searchParams.getAll('instructor');
+  const initialCatNos = searchParams.getAll('catNo');
+  const initialCourseTitle = searchParams.getAll('courseTitle');
+
+  const [selectedDepartment, setSelectedDepartment] =
+    useState(initialDepartment);
+  const [selectedInstructors, setSelectedInstructors] =
+    useState(initialInstructors);
+  const [selectedCatNos, setSelectedCatNos] = useState(initialCatNos);
+  const [selectedCourseTitles, setSelectedCourseTitles] =
+    useState(initialCourseTitle);
   const [subjectOffering, setSubjectOffering] = useState([]);
-  const [columnVisibility, setColumnVisibility] = useState(initialColumnVisibility)
-  const [isMobile, setIsMobile] = useState(false)
-
-  const [selectedInstructors, setSelectedInstructors] = useState([])
-  const [selectedCatNos, setSelectedCatNos] = useState([])
-
-  const [page, setPage] = useState(1)
-
-
-  const filteredCourses = useMemo(() => {
-    return subjectOffering.filter(course => 
-      (selectedInstructors.length === 0 || selectedInstructors.includes(course.instructor)) &&
-      (selectedCatNos.length === 0 || selectedCatNos.includes(course.catNo))
-    )
-  }, [selectedInstructors, selectedCatNos, subjectOffering])
-
-  const paginatedCourses = useMemo(() => {
-    const startIndex = (page - 1) * ITEMS_PER_PAGE
-    return filteredCourses.slice(startIndex, startIndex + ITEMS_PER_PAGE)
-  }, [filteredCourses, page])
-
-  const pageCount = Math.ceil(filteredCourses.length / ITEMS_PER_PAGE)
-
-  const instructors = useMemo(() => Array.from(new Set(subjectOffering.map(course => course.instructor))), [subjectOffering])
-  const catNos = useMemo(() => Array.from(new Set(subjectOffering.map(course => course.catNo))), [subjectOffering])
+  const [favoriteCourses, setFavoriteCourses] = useState([]);
+  const [columnVisibility, setColumnVisibility] = useState(
+    isMobile ? initialCardVisibility : initialTableVisibility
+  );
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    const checkIfMobile = () => setIsMobile(window.innerWidth < 768);
-    checkIfMobile();
-    window.addEventListener('resize', checkIfMobile);
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
+    const updateURL = () => {
+      const params = new URLSearchParams();
+      if (selectedDepartment) params.set('dept', selectedDepartment);
+      if (selectedInstructors.length > 0)
+        selectedInstructors.forEach((instructor) =>
+          params.append('instructor', instructor)
+        );
+      if (selectedCatNos.length > 0)
+        selectedCatNos.forEach((catNo) => params.append('catNo', catNo));
+      if (selectedCourseTitles.length > 0)
+        selectedCourseTitles.forEach((courseTitle) =>
+          params.append('courseTitle', courseTitle)
+        );
+
+      const newUrl = `${window.location.pathname}?${params.toString()}`;
+      window.history.replaceState(null, '', newUrl);
+    };
+
+    updateURL();
+  }, [
+    selectedDepartment,
+    selectedInstructors,
+    selectedCatNos,
+    selectedCourseTitles,
+  ]);
+
+  const filteredCourses = useMemo(() => {
+    return subjectOffering.filter(
+      (course) =>
+        (selectedInstructors.length === 0 ||
+          selectedInstructors.includes(course.instructor)) &&
+        (selectedCatNos.length === 0 ||
+          selectedCatNos.includes(course.catNo)) &&
+        (selectedCourseTitles.length === 0 ||
+          selectedCourseTitles.includes(course.courseTitle))
+    );
+  }, [
+    selectedInstructors,
+    selectedCatNos,
+    subjectOffering,
+    selectedCourseTitles,
+  ]);
+
+  const paginatedCourses = useMemo(() => {
+    const startIndex = (page - 1) * ITEMS_PER_PAGE;
+    return filteredCourses.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [filteredCourses, page]);
+
+  const pageCount = Math.ceil(filteredCourses.length / ITEMS_PER_PAGE);
+
+  const instructors = useMemo(
+    () =>
+      Array.from(new Set(subjectOffering.map((course) => course.instructor))),
+    [subjectOffering]
+  );
+  const catNos = useMemo(
+    () => Array.from(new Set(subjectOffering.map((course) => course.catNo))),
+    [subjectOffering]
+  );
+  const courseTitles = useMemo(
+    () =>
+      Array.from(new Set(subjectOffering.map((course) => course.courseTitle))),
+    [subjectOffering]
+  );
+
+  useEffect(() => {
+    if (isMobile) {
+      setColumnVisibility(initialCardVisibility);
+    }
+  }, [isMobile]);
 
   const toggleColumnVisibility = (column) => {
-    setColumnVisibility(prev => ({ ...prev, [column]: !prev[column] }))
-  }
+    setColumnVisibility((prev) => ({ ...prev, [column]: !prev[column] }));
+  };
 
   const handlePageChange = (event, value) => {
-    setPage(value)
-  }
+    setPage(value);
+  };
+
+  const toggleFavorite = (course) => {
+    setFavoriteCourses((prev) => {
+      const index = prev.findIndex((c) => c.id === course.id);
+      if (index > -1) {
+        return prev.filter((c) => c.id !== course.id);
+      } else {
+        return [...prev, course];
+      }
+    });
+  };
 
   useEffect(() => {
     const fetchOffering = async () => {
-      const data = await fetch(`/api/offerings?deptCode=${selectedDepartment}`);
-      const offering = await data.json();
-      setSubjectOffering(offering);
-      setPage(1);
-    }
-    if (selectedDepartment?.length > 0) {
-      fetchOffering();
-    }
-  }, [selectedDepartment])
+      if (selectedDepartment?.length > 0) {
+        const data = await fetch(
+          `/api/offerings?deptCode=${selectedDepartment}`
+        );
+        const offering = await data.json();
+        setSubjectOffering(offering);
+        setPage(1);
+      }
+    };
+
+    fetchOffering();
+  }, [selectedDepartment]);
 
   useEffect(() => {
-    setPage(1)
-  }, [selectedInstructors, selectedCatNos])
+    setPage(1);
+  }, [selectedInstructors, selectedCatNos]);
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Course Selection</h1>
-        <DepartmentSelector setDepartment={setSelectedDepartment}/>
-        <Autocomplete
-  multiple
-  options={instructors}
-  renderInput={(params) => <TextField {...params} label="Filter by Instructor" />}
-  renderTags={(value, getTagProps) =>
-    value.map((option, index) => {
-      const { key, ...tagProps } = getTagProps({ index }); // Exclude the conflicting key
-      return (
-        <Chip
-          key={`instructor-${index}`} // Use your own key
-          variant="outlined"
-          label={option}
-          {...tagProps} // Spread other props
-        />
-      );
-    })
-  }
-  onChange={(_, newValue) => setSelectedInstructors(newValue)}
-  className="w-full"
-/>
-<Autocomplete
-  multiple
-  options={catNos}
-  renderInput={(params) => <TextField {...params} label="Filter by Course Number" />}
-  renderTags={(value, getTagProps) =>
-    value.map((option, index) => {
-      const { key, ...tagProps } = getTagProps({ index });
-      return (
-        <Chip
-          key={`cat-${index}`}
-          variant="outlined"
-          label={option}
-          {...tagProps}
-        />
-      );
-    })
-  }
-  onChange={(_, newValue) => setSelectedCatNos(newValue)}
-  className="w-full"
-/>
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-semibold">Courses</h2>
-        {!isMobile &&
-          <ColumnToggle
-            columns={Object.keys(initialColumnVisibility)}
-            columnVisibility={columnVisibility}
-            onToggle={toggleColumnVisibility}
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Nav favoriteCourses={favoriteCourses} />
+
+      <Box
+        sx={{
+          minHeight: '95vh',
+          p: 1,
+          gap: 3,
+          display: 'flex',
+          flexDirection: 'column',
+          bgcolor: 'background.default',
+          paddingX: '2em',
+        }}
+      >
+        <Paper
+          elevation={0}
+          sx={{
+            p: 2,
+            width: '100%',
+          }}
+          className="rounded-lg border-[1px] border-neutral-700"
+        >
+          <DepartmentSelector
+            value={selectedDepartment}
+            setDepartment={setSelectedDepartment}
           />
-        }
-      </div>
-      {isMobile ? (
-        <div>
-          {paginatedCourses?.length > 0 ?           paginatedCourses?.map(course => (
-            <CourseCard key={course.id} course={course} columnVisibility={columnVisibility} />
-          )): <div>There are no offerings available with your filter settings, try other filters.</div>}
-        </div>
-      ) : (
-        <OfferingsTable offerings={paginatedCourses} columnVisibility={columnVisibility} />
-      )}
-            {filteredCourses.length > 0 && (
-        <div className="mt-4 flex justify-center">
-          <Pagination
-            count={pageCount}
-            page={page}
-            onChange={handlePageChange}
-            color="primary"
-            showFirstButton
-            showLastButton
-          />
-        </div>
-      )}
-    </div>
-  )
+        </Paper>
+
+        <Box
+          sx={{
+            display: 'flex',
+            gap: 3,
+            flexDirection: { xs: 'column', md: 'row' },
+          }}
+        >
+          <Paper
+            elevation={0}
+            sx={{
+              p: 2,
+              width: { xs: '100%', md: '300px' },
+              flexShrink: 0,
+            }}
+            className="rounded-lg border-[1px] border-neutral-700"
+          >
+            <Typography variant="h6" gutterBottom>
+              Filters
+            </Typography>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+              <Autocomplete
+                multiple
+                value={selectedInstructors}
+                options={instructors}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Filter by Instructor"
+                    variant="outlined"
+                    size="small"
+                  />
+                )}
+                renderTags={(value, getTagProps) =>
+                  value.map((option, index) => {
+                    const { key, ...tagProps } = getTagProps({ index });
+                    return (
+                      <Chip
+                        key={`instructor-${index}`}
+                        variant="outlined"
+                        label={option}
+                        {...tagProps}
+                      />
+                    );
+                  })
+                }
+                onChange={(_, newValue) => setSelectedInstructors(newValue)}
+              />
+              <Autocomplete
+                multiple
+                options={catNos}
+                value={selectedCatNos}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Filter by Course Number"
+                    variant="outlined"
+                    size="small"
+                  />
+                )}
+                renderTags={(value, getTagProps) =>
+                  value.map((option, index) => {
+                    const { key, ...tagProps } = getTagProps({ index });
+                    return (
+                      <Chip
+                        key={`cat-${index}`}
+                        variant="outlined"
+                        label={option}
+                        {...tagProps}
+                      />
+                    );
+                  })
+                }
+                onChange={(_, newValue) => setSelectedCatNos(newValue)}
+              />
+              <Autocomplete
+                multiple
+                options={courseTitles}
+                value={selectedCourseTitles}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Filter by Course Title"
+                    variant="outlined"
+                    size="small"
+                  />
+                )}
+                renderTags={(value, getTagProps) =>
+                  value.map((option, index) => {
+                    const { key, ...tagProps } = getTagProps({ index });
+                    return (
+                      <Chip
+                        key={`courseTitle-${index}`}
+                        variant="outlined"
+                        label={option}
+                        {...tagProps}
+                      />
+                    );
+                  })
+                }
+                onChange={(_, newValue) => setSelectedCourseTitles(newValue)}
+              />
+            </Box>
+          </Paper>
+
+          <Paper
+            elevation={0}
+            sx={{
+              p: 2,
+              flex: 1,
+            }}
+            className="rounded-lg border-[1px] border-neutral-700"
+          >
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                mb: 2,
+              }}
+            >
+              <Typography variant="h6">Course Offering</Typography>
+              {!isMobile && (
+                <ColumnToggle
+                  columns={Object.keys(initialCardVisibility)}
+                  columnVisibility={columnVisibility}
+                  onToggle={toggleColumnVisibility}
+                />
+              )}
+            </Box>
+
+            {filteredCourses.length > 0 ? (
+              <>
+                {isMobile ? (
+                  <Box
+                    sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
+                  >
+                    <Pagination
+                      count={pageCount}
+                      page={page}
+                      onChange={handlePageChange}
+                      color="primary"
+                      variant="outlined"
+                      shape="rounded"
+                      className="pb-5"
+                      size={isMobile ? 'small' : 'medium'}
+                    />
+                    {paginatedCourses.map((course) => (
+                      <CourseCard
+                        key={course.id}
+                        course={course}
+                        onToggleFavorite={() => toggleFavorite(course)}
+                        isFavorite={favoriteCourses.some(
+                          (c) => c.id === course.id
+                        )}
+                        columnVisibility={columnVisibility}
+                      />
+                    ))}
+                  </Box>
+                ) : (
+                  <>
+                    <Box
+                      sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}
+                    >
+                      <Pagination
+                        count={pageCount}
+                        page={page}
+                        onChange={handlePageChange}
+                        color="primary"
+                        variant="outlined"
+                        shape="rounded"
+                        className="pb-5"
+                        size={isMobile ? 'small' : 'medium'}
+                      />
+                    </Box>
+                    <OfferingsTable
+                      onToggleFavorite={(courseId) => {
+                        const course = subjectOffering.find(
+                          (c) => c.id === courseId
+                        );
+                        if (course) toggleFavorite(course);
+                      }}
+                      favoriteCourses={favoriteCourses.map((c) => c.id)}
+                      offerings={paginatedCourses}
+                      columnVisibility={columnVisibility}
+                    />
+                  </>
+                )}
+              </>
+            ) : (
+              <Typography variant="body1" sx={{ textAlign: 'center', py: 4 }}>
+                There are no offerings available with your filter settings. Try
+                adjusting your filters.
+              </Typography>
+            )}
+          </Paper>
+        </Box>
+      </Box>
+    </ThemeProvider>
+  );
 }
