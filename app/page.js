@@ -7,25 +7,18 @@ import {
   Autocomplete,
   Box,
   Chip,
-  Container,
   createTheme,
   CssBaseline,
-  Grid2,
   Pagination,
   Paper,
-  styled,
   TextField,
   ThemeProvider,
   Typography,
   useMediaQuery,
-  useTheme,
 } from '@mui/material';
 import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
-import FavoritesPopout from '@/components/FavoritePopout';
-
-import { School, FilterIcon, Heart } from 'lucide-react';
-import Nav from '@/components/Nav';
+import { useFavoriteCourses } from '@/lib/context';
 
 const initialTableVisibility = {
   catNo: true,
@@ -65,12 +58,6 @@ const darkTheme = createTheme({
   },
 });
 
-const StyledBox = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(3),
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: theme.palette.background.paper,
-}));
-
 const ITEMS_PER_PAGE = 10;
 
 export default function Home() {
@@ -89,7 +76,7 @@ export default function Home() {
   const [selectedCourseTitles, setSelectedCourseTitles] =
     useState(initialCourseTitle);
   const [subjectOffering, setSubjectOffering] = useState([]);
-  const [favoriteCourses, setFavoriteCourses] = useState([]);
+  const { favoriteCourses, toggleFavorite } = useFavoriteCourses();
   const [columnVisibility, setColumnVisibility] = useState(
     isMobile ? initialCardVisibility : initialTableVisibility
   );
@@ -175,17 +162,6 @@ export default function Home() {
     setPage(value);
   };
 
-  const toggleFavorite = (course) => {
-    setFavoriteCourses((prev) => {
-      const index = prev.findIndex((c) => c.id === course.id);
-      if (index > -1) {
-        return prev.filter((c) => c.id !== course.id);
-      } else {
-        return [...prev, course];
-      }
-    });
-  };
-
   useEffect(() => {
     const fetchOffering = async () => {
       if (selectedDepartment?.length > 0) {
@@ -208,7 +184,6 @@ export default function Home() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Nav favoriteCourses={favoriteCourses} />
 
       <Box
         sx={{
