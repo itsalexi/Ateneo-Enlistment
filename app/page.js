@@ -22,7 +22,7 @@ import { useFavoriteCourses } from '@/lib/context';
 
 const initialTableVisibility = {
   catNo: true,
-  section: false,
+  section: true,
   courseTitle: true,
   units: false,
   time: true,

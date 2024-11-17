@@ -270,10 +270,14 @@ export default function Calendar({
                           }`}
                         >
                           <span className="text-xs font-semibold text-gray-100">
-                            {scheduleBlock.course.catNo}
+                            {scheduleBlock.course.catNo} -{' '}
+                            {scheduleBlock.course.section}
                           </span>
                           <span className="text-xs text-gray-300">
                             {scheduleBlock.course.time}
+                          </span>
+                          <span className="text-xs text-gray-300">
+                            {scheduleBlock.course.instructor}
                           </span>
                         </div>
                       )}

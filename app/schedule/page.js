@@ -2,7 +2,7 @@
 
 import Calendar from '@/components/Calendar';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { useFavoriteCourses } from '@/lib/context';
+import { useFavoriteCourses, useSelectedCourses } from '@/lib/context';
 import { parseTimeRange } from '@/lib/helper';
 import {
   Box,
@@ -12,8 +12,16 @@ import {
   ThemeProvider,
   Typography,
 } from '@mui/material';
-import { useState } from 'react';
 import Tooltip from '@mui/material/Tooltip';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import { useMediaQuery, useTheme } from '@mui/material';
 
 const darkTheme = createTheme({
   palette: {
@@ -33,8 +41,133 @@ const darkTheme = createTheme({
 
 export default function Page() {
   const { favoriteCourses } = useFavoriteCourses();
+  const { selectedCourses, toggleSelected } = useSelectedCourses();
 
-  const [selectedCourses, setSelectedCourses] = useState([]);
+  const CourseTable = ({ courses, type }) => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+    if (isMobile) {
+      return (
+        <div className="flex flex-col gap-2">
+          {courses.length > 0 ? (
+            courses.map((course) => (
+              <Paper
+                key={course.id}
+                elevation={1}
+                sx={{
+                  p: 2,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 2,
+                  borderRadius: '8px',
+                  border: '1px solid',
+                  borderColor: 'neutral.700',
+                  backgroundColor: 'background.paper',
+                }}
+              >
+                <Box sx={{ flex: 1 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
+                    {course.catNo} - {course.section}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    {course.time}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    {course.courseTitle}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    {course.instructor}
+                  </Typography>
+                </Box>
+                <Tooltip
+                  title={
+                    parseTimeRange(course.time) === null ? 'no timestamp' : ''
+                  }
+                >
+                  <span>
+                    <Button
+                      variant={type === 'favorite' ? 'outlined' : 'contained'}
+                      color="secondary"
+                      onClick={() => toggleSelected(course)}
+                      disabled={
+                        type === 'favorite' &&
+                        parseTimeRange(course.time) === null
+                      }
+                      size="small"
+                    >
+                      {type === 'favorite' ? 'Add' : 'Remove'}
+                    </Button>
+                  </span>
+                </Tooltip>
+              </Paper>
+            ))
+          ) : (
+            <Typography
+              color="text.secondary"
+              sx={{ textAlign: 'center', py: 2 }}
+            >
+              {type === 'favorite'
+                ? 'No favorite courses available. Add more to your favorites!'
+                : 'No courses selected yet!'}
+            </Typography>
+          )}
+        </div>
+      );
+    }
+
+    return (
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="text-center">Course</TableHead>
+            <TableHead className="text-center">Section</TableHead>
+            <TableHead className="text-center">Title</TableHead>
+            <TableHead className="text-center">Instructor</TableHead>
+            <TableHead className="text-center">Time</TableHead>
+            <TableHead className="text-center">Action</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {courses.length > 0 ? (
+            courses.map((course) => (
+              <TableRow key={course.id}>
+                <TableCell className="text-center">{course.catNo}</TableCell>
+                <TableCell className="text-center">{course.section}</TableCell>
+                <TableCell className="text-center">
+                  {course.courseTitle}
+                </TableCell>
+                <TableCell className="text-center">
+                  {course.instructor}
+                </TableCell>
+                <TableCell className="text-center">{course.time}</TableCell>
+                <TableCell className="text-center">
+                  <Button
+                    variant={type === 'favorite' ? 'outline' : 'default'}
+                    onClick={() => toggleSelected(course)}
+                    disabled={
+                      type === 'favorite' &&
+                      parseTimeRange(course.time) === null
+                    }
+                  >
+                    {type === 'favorite' ? 'Add' : 'Remove'}
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={6} className="text-center">
+                {type === 'favorite'
+                  ? 'No favorite courses available. Add more to your favorites!'
+                  : 'No courses selected yet!'}
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+    );
+  };
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -46,18 +179,17 @@ export default function Page() {
           display: 'flex',
           bgcolor: 'background.default',
           paddingX: '2em',
-          flexDirection: { xs: 'column', md: 'row' },
+          flexDirection: 'column',
           width: '100%',
         }}
       >
         <div className="">
-          <div className="flex flex-col gap-5 ">
+          <div className="flex flex-col md:flex-row gap-5 ">
             <Paper
               elevation={0}
               sx={{
                 p: 2,
-                width: { xs: '100%', md: '400px' },
-                flexShrink: 0,
+                flex: '1',
               }}
               className="rounded-lg border-[1px] border-neutral-700"
             >
@@ -72,96 +204,13 @@ export default function Page() {
                 }}
               >
                 <ScrollArea className="h-[300px]">
-                  {favoriteCourses.filter(
-                    (course) => !selectedCourses.includes(course)
-                  ).length > 0 ? (
-                    <div className="flex flex-col gap-2">
-                      {favoriteCourses
-                        .filter((course) => !selectedCourses.includes(course))
-                        .map((course) => (
-                          <Paper
-                            key={course.id}
-                            elevation={1}
-                            sx={{
-                              p: 2,
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: 2,
-                              borderRadius: '8px',
-                              border: '1px solid',
-                              borderColor: selectedCourses.includes(course)
-                                ? 'primary.main'
-                                : 'neutral.700',
-                              backgroundColor: selectedCourses.includes(course)
-                                ? 'rgba(144, 202, 249, 0.2)'
-                                : 'background.paper',
-                            }}
-                          >
-                            <Box sx={{ flex: 1 }}>
-                              <Typography
-                                variant="subtitle1"
-                                sx={{ fontWeight: 'bold' }}
-                              >
-                                {course.catNo}
-                              </Typography>
-                              <Typography
-                                variant="body2"
-                                sx={{ color: 'text.secondary' }}
-                              >
-                                {course.time}
-                              </Typography>
-                              <Typography
-                                variant="body2"
-                                sx={{ color: 'text.secondary' }}
-                              >
-                                {course.courseTitle}
-                              </Typography>
-                              <Typography
-                                variant="body2"
-                                sx={{
-                                  color: 'text.secondary',
-                                  fontStyle: 'italic',
-                                  fontSize: 10,
-                                }}
-                              >
-                                {course.remarks}
-                              </Typography>
-                            </Box>
-                            <Tooltip
-                              title={
-                                parseTimeRange(course.time) === null
-                                  ? 'no timestamp'
-                                  : ''
-                              }
-                            >
-                              <span>
-                                <Button
-                                  variant="outlined"
-                                  color="secondary"
-                                  onClick={() =>
-                                    setSelectedCourses([
-                                      ...selectedCourses,
-                                      course,
-                                    ])
-                                  }
-                                  disabled={
-                                    parseTimeRange(course.time) === null
-                                  }
-                                  size="small"
-                                >
-                                  Add
-                                </Button>
-                              </span>
-                            </Tooltip>
-                          </Paper>
-                        ))}
-                    </div>
-                  ) : (
-                    <Typography color="text.secondary">
-                      There are no favorite courses available. Add more to your
-                      favorites!
-                    </Typography>
-                  )}
+                  <CourseTable
+                    courses={favoriteCourses.filter(
+                      (course) =>
+                        !selectedCourses.some((sc) => sc.id === course.id)
+                    )}
+                    type="favorite"
+                  />
                 </ScrollArea>
               </Box>
             </Paper>
@@ -170,8 +219,7 @@ export default function Page() {
               elevation={0}
               sx={{
                 p: 2,
-                width: { xs: '100%', md: '400px' },
-                flexShrink: 0,
+                flex: '1',
               }}
               className="rounded-lg border-[1px] border-neutral-700"
             >
@@ -180,81 +228,15 @@ export default function Page() {
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 <ScrollArea className="h-[300px]">
-                  {selectedCourses.length > 0 ? (
-                    <div className="flex flex-col gap-2">
-                      {selectedCourses.map((course) => (
-                        <Paper
-                          key={course.id}
-                          elevation={1}
-                          sx={{
-                            p: 2,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 2,
-                            borderRadius: '8px',
-                            border: '1px solid primary.main',
-                            backgroundColor: 'rgba(144, 202, 249, 0.2)',
-                          }}
-                        >
-                          <Box sx={{ flex: 1 }}>
-                            <Typography
-                              variant="subtitle1"
-                              sx={{ fontWeight: 'bold' }}
-                            >
-                              {course.catNo}
-                            </Typography>
-                            <Typography
-                              variant="body2"
-                              sx={{ color: 'text.secondary' }}
-                            >
-                              {course.time}
-                            </Typography>
-                            <Typography
-                              variant="body2"
-                              sx={{ color: 'text.secondary' }}
-                            >
-                              {course.courseTitle}
-                            </Typography>
-                            <Typography
-                              variant="body2"
-                              sx={{
-                                color: 'text.secondary',
-                                fontStyle: 'italic',
-                                fontSize: 10,
-                              }}
-                            >
-                              {course.remarks}
-                            </Typography>
-                          </Box>
-                          <Button
-                            variant="contained"
-                            color="primary"
-                            onClick={() =>
-                              setSelectedCourses(
-                                selectedCourses.filter((c) => c !== course)
-                              )
-                            }
-                            size="small"
-                          >
-                            Remove
-                          </Button>
-                        </Paper>
-                      ))}
-                    </div>
-                  ) : (
-                    <Typography color="text.secondary">
-                      No courses selected yet!
-                    </Typography>
-                  )}
+                  <CourseTable courses={selectedCourses} type="selected" />
                 </ScrollArea>
               </Box>
             </Paper>
-
             <Paper
               elevation={0}
               sx={{
                 p: 2,
-                width: { xs: '100%', md: '400px' },
+                flex: { xs: '1', md: '0.5' },
                 flexShrink: 0,
               }}
               className="rounded-lg border-[1px] border-neutral-700"
@@ -263,6 +245,8 @@ export default function Page() {
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   gap: 2,
                 }}
                 className="text-center"

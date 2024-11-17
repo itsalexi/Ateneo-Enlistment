@@ -1,6 +1,9 @@
 import localFont from 'next/font/local';
 import './globals.css';
-import { FavoriteCoursesProvider } from '@/lib/context';
+import {
+  FavoriteCoursesProvider,
+  SelectedCoursesProvider,
+} from '@/lib/context';
 import Nav from '@/components/Nav';
 
 const geistSans = localFont({
@@ -26,10 +29,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <FavoriteCoursesProvider>
-          <Nav />
-          {children}
-        </FavoriteCoursesProvider>
+        <SelectedCoursesProvider>
+          <FavoriteCoursesProvider>
+            <Nav />
+            {children}
+          </FavoriteCoursesProvider>
+        </SelectedCoursesProvider>
         <script
           defer
           src="https://static.cloudflareinsights.com/beacon.min.js"
