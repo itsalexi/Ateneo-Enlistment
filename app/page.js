@@ -62,7 +62,7 @@ const darkTheme = createTheme({
 const ITEMS_PER_PAGE = 10;
 
 const currentSemesterString = 'Second Semester';
-const lastUpdated = 'November 18, 2024';
+const lastUpdated = 1731937155507;
 
 function HomeContent() {
   const isMobile = useMediaQuery(darkTheme.breakpoints.down('sm'));
@@ -408,7 +408,7 @@ function HomeContent() {
                   Course Offering for {currentSemesterString}
                 </Typography>
                 <span className="text-secondary text-xs">
-                  Last updated: {lastUpdated}
+                  Last updated: {new Date(lastUpdated).toLocaleString()}. If the data is not up to date please contact me! @alexi_canamo on IG or @itsalexi on discord.
                 </span>
               </div>
               {!isMobile && (
