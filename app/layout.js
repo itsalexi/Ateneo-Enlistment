@@ -5,6 +5,7 @@ import {
   SelectedCoursesProvider,
 } from '@/lib/context';
 import Nav from '@/components/Nav';
+import { Toaster } from '@/components/ui/toaster';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
         <SelectedCoursesProvider>
           <FavoriteCoursesProvider>
             <Nav />
+            <Toaster />
             {children}
           </FavoriteCoursesProvider>
         </SelectedCoursesProvider>

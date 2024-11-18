@@ -1,12 +1,13 @@
 'use client';
 
+import { useState, useRef } from 'react';
 import Calendar from '@/components/Calendar';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useFavoriteCourses, useSelectedCourses } from '@/lib/context';
 import { parseTimeRange } from '@/lib/helper';
+
 import {
   Box,
-  Button,
   createTheme,
   Paper,
   ThemeProvider,
@@ -23,7 +24,18 @@ import {
 } from '@/components/ui/table';
 import { useMediaQuery, useTheme } from '@mui/material';
 import { toPng } from 'html-to-image';
-import { useRef } from 'react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { toast } from '@/hooks/use-toast';
+import { Button } from '@/components/ui/button';
 
 const darkTheme = createTheme({
   palette: {
@@ -42,9 +54,13 @@ const darkTheme = createTheme({
 });
 
 export default function Page() {
-  const { favoriteCourses } = useFavoriteCourses();
-  const { selectedCourses, toggleSelected } = useSelectedCourses();
+  const { favoriteCourses, setFavoriteCourses } = useFavoriteCourses();
+  const { selectedCourses, toggleSelected, setSelectedCourses } =
+    useSelectedCourses();
   const tableRef = useRef();
+  const [importModalOpen, setImportModalOpen] = useState(false);
+  const [importType, setImportType] = useState('');
+  const [importData, setImportData] = useState('');
 
   const exportTableAsImage = () => {
     if (tableRef.current) {
@@ -58,6 +74,51 @@ export default function Page() {
         .catch((err) => {
           console.error('Failed to export table:', err);
         });
+    }
+  };
+
+  const exportCoursesAsJSON = (courses, type) => {
+    const jsonString = JSON.stringify(courses, null, 2);
+    navigator.clipboard
+      .writeText(jsonString)
+      .then(() => {
+        toast({
+          title: 'Exported Successfully',
+          description: `${type} courses JSON copied to clipboard.`,
+        });
+      })
+      .catch((err) => {
+        console.error('Failed to copy JSON to clipboard:', err);
+        toast({
+          title: 'Export Failed',
+          description: 'Failed to copy JSON to clipboard. Please try again.',
+          variant: 'destructive',
+        });
+      });
+  };
+
+  const importCoursesFromJSON = () => {
+    try {
+      const data = JSON.parse(importData);
+      if (importType === 'Favorite') {
+        setFavoriteCourses(data);
+      } else if (importType === 'Selected') {
+        setSelectedCourses(data);
+      }
+      setImportModalOpen(false);
+      setImportData('');
+      toast({
+        title: 'Import Successful',
+        description: `${importType} courses have been imported.`,
+      });
+    } catch (error) {
+      console.error('Error parsing JSON:', error);
+      toast({
+        title: 'Import Failed',
+        description:
+          'Failed to parse JSON data. Please check the format and try again.',
+        variant: 'destructive',
+      });
     }
   };
 
@@ -161,7 +222,7 @@ export default function Page() {
                 <TableCell className="text-center">{course.time}</TableCell>
                 <TableCell className="text-center">
                   <Button
-                    variant={type === 'favorite' ? 'outline' : 'default'}
+                    variant={type === 'favorite' ? 'secondary' : 'destructive'}
                     onClick={() => toggleSelected(course)}
                     disabled={
                       type === 'favorite' &&
@@ -230,6 +291,23 @@ export default function Page() {
                     type="favorite"
                   />
                 </ScrollArea>
+                <div className="flex justify-between">
+                  <Button
+                    onClick={() =>
+                      exportCoursesAsJSON(favoriteCourses, 'Favorite')
+                    }
+                  >
+                    Export Favorites
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      setImportType('Favorite');
+                      setImportModalOpen(true);
+                    }}
+                  >
+                    Import Favorites
+                  </Button>
+                </div>
               </Box>
             </Paper>
 
@@ -248,6 +326,23 @@ export default function Page() {
                 <ScrollArea className="h-[300px]">
                   <CourseTable courses={selectedCourses} type="selected" />
                 </ScrollArea>
+                <div className="flex justify-between">
+                  <Button
+                    onClick={() =>
+                      exportCoursesAsJSON(selectedCourses, 'Selected')
+                    }
+                  >
+                    Export Selected
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      setImportType('Selected');
+                      setImportModalOpen(true);
+                    }}
+                  >
+                    Import Selected
+                  </Button>
+                </div>
               </Box>
             </Paper>
             <Paper
@@ -295,6 +390,34 @@ export default function Page() {
           <Calendar selectedCourses={selectedCourses} use24Hour={true} />
         </Paper>
       </Box>
+      <Dialog open={importModalOpen} onOpenChange={setImportModalOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Import {importType} Courses</DialogTitle>
+            <DialogDescription>
+              Paste the JSON data for {importType.toLowerCase()} courses below.
+              This will overwrite your current list of{' '}
+              {importType.toLowerCase()} courses.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="importData" className="text-right">
+                JSON Data
+              </Label>
+              <Input
+                id="importData"
+                className="col-span-3"
+                value={importData}
+                onChange={(e) => setImportData(e.target.value)}
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button onClick={importCoursesFromJSON}>Import</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </ThemeProvider>
   );
 }
