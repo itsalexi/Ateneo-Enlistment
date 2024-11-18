@@ -19,6 +19,7 @@ import {
 import { useState, useEffect, useMemo, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useFavoriteCourses } from '@/lib/context';
+import { sortTimeslots } from '@/lib/helper';
 
 const initialTableVisibility = {
   catNo: true,
@@ -70,6 +71,7 @@ function HomeContent() {
   const initialInstructors = searchParams.getAll('instructor');
   const initialCatNos = searchParams.getAll('catNo');
   const initialCourseTitle = searchParams.getAll('courseTitle');
+  const initialTime = searchParams.getAll('time');
 
   const [selectedDepartment, setSelectedDepartment] =
     useState(initialDepartment);
@@ -78,6 +80,7 @@ function HomeContent() {
   const [selectedCatNos, setSelectedCatNos] = useState(initialCatNos);
   const [selectedCourseTitles, setSelectedCourseTitles] =
     useState(initialCourseTitle);
+  const [selectedTime, setSelectedTime] = useState(initialTime);
   const [subjectOffering, setSubjectOffering] = useState([]);
   const { favoriteCourses, toggleFavorite } = useFavoriteCourses();
   const [columnVisibility, setColumnVisibility] = useState(
@@ -100,6 +103,8 @@ function HomeContent() {
         selectedCourseTitles.forEach((courseTitle) =>
           params.append('courseTitle', courseTitle)
         );
+      if (selectedTime.length > 0)
+        selectedTime.forEach((time) => params.append('time', time));
 
       const newUrl = `${window.location.pathname}?${params.toString()}`;
       window.history.replaceState(null, '', newUrl);
@@ -111,6 +116,7 @@ function HomeContent() {
     selectedInstructors,
     selectedCatNos,
     selectedCourseTitles,
+    selectedTime,
   ]);
 
   const filteredCourses = useMemo(() => {
@@ -121,13 +127,15 @@ function HomeContent() {
         (selectedCatNos.length === 0 ||
           selectedCatNos.includes(course.catNo)) &&
         (selectedCourseTitles.length === 0 ||
-          selectedCourseTitles.includes(course.courseTitle))
+          selectedCourseTitles.includes(course.courseTitle)) &&
+        (selectedTime.length === 0 || selectedTime.includes(course.time))
     );
   }, [
     selectedInstructors,
     selectedCatNos,
     subjectOffering,
     selectedCourseTitles,
+    selectedTime,
   ]);
 
   const paginatedCourses = useMemo(() => {
@@ -151,6 +159,15 @@ function HomeContent() {
       Array.from(new Set(subjectOffering.map((course) => course.courseTitle))),
     [subjectOffering]
   );
+  const times = useMemo(() => {
+    const uniqueTimes = Array.from(
+      new Set(subjectOffering.map((course) => course.time))
+    );
+
+    return sortTimeslots(uniqueTimes);
+  }, [subjectOffering]);
+
+  console.log(times);
 
   useEffect(() => {
     if (isMobile) {
@@ -318,6 +335,33 @@ function HomeContent() {
                     })
                   }
                   onChange={(_, newValue) => setSelectedCourseTitles(newValue)}
+                />
+                <Autocomplete
+                  multiple
+                  options={times}
+                  value={selectedTime}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      label="Filter by Time"
+                      variant="outlined"
+                      size="small"
+                    />
+                  )}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => {
+                      const { key, ...tagProps } = getTagProps({ index });
+                      return (
+                        <Chip
+                          key={`courseTime-${index}`}
+                          variant="outlined"
+                          label={option}
+                          {...tagProps}
+                        />
+                      );
+                    })
+                  }
+                  onChange={(_, newValue) => setSelectedTime(newValue)}
                 />
               </Box>
             </Paper>
