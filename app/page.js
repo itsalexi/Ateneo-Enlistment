@@ -200,7 +200,7 @@ function HomeContent() {
 
   useEffect(() => {
     setPage(1);
-  }, [selectedInstructors, selectedCatNos]);
+  }, [selectedInstructors, selectedCatNos, selectedTime, selectedCourseTitles]);
 
   return (
     <>
