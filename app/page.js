@@ -167,8 +167,6 @@ function HomeContent() {
     return sortTimeslots(uniqueTimes);
   }, [subjectOffering]);
 
-  console.log(times);
-
   useEffect(() => {
     if (isMobile) {
       setColumnVisibility(initialCardVisibility);
