@@ -408,7 +408,9 @@ function HomeContent() {
                   Course Offering for {currentSemesterString}
                 </Typography>
                 <span className="text-secondary text-xs">
-                  Last updated: {new Date(lastUpdated).toLocaleString()}. If the data is not up to date please contact me! @alexi_canamo on IG or @itsalexi on discord.
+                  Last updated: {new Date(lastUpdated).toLocaleString()}. If the
+                  data is not up to date please contact me! @alexi_canamo on IG
+                  or @heyitsalexi on discord.
                 </span>
               </div>
               {!isMobile && (
