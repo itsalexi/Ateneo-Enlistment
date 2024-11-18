@@ -280,6 +280,9 @@ export default function Calendar({
                           <span className="text-xs text-gray-300">
                             {scheduleBlock.course.instructor}
                           </span>
+                          <span className="text-xs text-gray-300">
+                            {scheduleBlock.course.room}
+                          </span>
                         </div>
                       )}
                     </TableCell>
