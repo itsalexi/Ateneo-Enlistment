@@ -22,6 +22,8 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { useMediaQuery, useTheme } from '@mui/material';
+import { toPng } from 'html-to-image';
+import { useRef } from 'react';
 
 const darkTheme = createTheme({
   palette: {
@@ -42,6 +44,22 @@ const darkTheme = createTheme({
 export default function Page() {
   const { favoriteCourses } = useFavoriteCourses();
   const { selectedCourses, toggleSelected } = useSelectedCourses();
+  const tableRef = useRef();
+
+  const exportTableAsImage = () => {
+    if (tableRef.current) {
+      toPng(tableRef.current, { pixelRatio: 3 })
+        .then((dataUrl) => {
+          const link = document.createElement('a');
+          link.href = dataUrl;
+          link.download = 'schedule.png';
+          link.click();
+        })
+        .catch((err) => {
+          console.error('Failed to export table:', err);
+        });
+    }
+  };
 
   const CourseTable = ({ courses, type }) => {
     const theme = useTheme();
@@ -238,6 +256,9 @@ export default function Page() {
                 p: 2,
                 flex: { xs: '1', md: '0.5' },
                 flexShrink: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
               className="rounded-lg border-[1px] border-neutral-700"
             >
@@ -255,6 +276,9 @@ export default function Page() {
                 <a className="text-center" href="https://alexi.life">
                   Click here for his other projects
                 </a>
+                <Button onClick={exportTableAsImage}>
+                  Export Schedule as PNG
+                </Button>
               </Box>
             </Paper>
           </div>
@@ -266,6 +290,7 @@ export default function Page() {
             flex: 1,
           }}
           className="rounded-lg border-[1px] border-neutral-700"
+          ref={tableRef}
         >
           <Calendar selectedCourses={selectedCourses} use24Hour={true} />
         </Paper>

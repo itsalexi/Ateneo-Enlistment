@@ -11,6 +11,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { isTimeInRange, parseTimeRange } from '@/lib/helper';
+import { toPng } from 'html-to-image';
 
 const timeSlots = Array.from({ length: 29 }, (_, i) => {
   const hour = Math.floor(i / 2) + 7;
