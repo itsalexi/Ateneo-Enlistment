@@ -159,8 +159,10 @@ class AISISClient:
         
         return courses
 
-
 def main():
+    # Get the repository root (where the script is run from in the GitHub Action)
+    repo_root = os.getcwd()
+    
     client = AISISClient()
     
     # Get credentials from environment variables
@@ -202,10 +204,16 @@ def main():
         except Exception as e:
             print(f"Error retrieving courses for {dept_code}: {e}")
 
-    with open("courses.json", "w") as json_file:
+    # Create data directory in the repository root
+    data_dir = os.path.join(repo_root, 'data')
+    os.makedirs(data_dir, exist_ok=True)
+    
+    # Save to data/courses.json using absolute path
+    output_path = os.path.join(data_dir, 'courses.json')
+    with open(output_path, "w") as json_file:
         json.dump(all_courses, json_file, indent=4)
 
-    print("All courses have been written to courses.json")
+    print(f"All courses have been written to {output_path}")
 
 if __name__ == "__main__":
     main()
