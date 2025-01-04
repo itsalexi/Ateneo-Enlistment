@@ -158,20 +158,19 @@ class AISISClient:
                     courses.append(course)
         
         return courses
-
 def main():
-    # Get the repository root (where the script is run from in the GitHub Action)
-    repo_root = os.getcwd()
-    
     client = AISISClient()
     
-    # Get credentials from environment variables
+    # Get credentials and period from environment variables
     username = os.environ.get('AISIS_USERNAME')
     password = os.environ.get('AISIS_PASSWORD')
+    applicable_period = os.environ.get('APPLICABLE_PERIOD', '2024-2')  # Default fallback
     
     if not username or not password:
         print("Error: AISIS credentials not found in environment variables")
         return
+    
+    print(f"Running scraper for period: {applicable_period}")
     
     if not client.session.cookies:
         print("Session expired.")
@@ -189,7 +188,6 @@ def main():
         "SA", "TH", "TMP"
     ]
     
-    applicable_period = "2024-2"
     all_courses = []
     
     # Run warmup before starting
@@ -204,12 +202,11 @@ def main():
         except Exception as e:
             print(f"Error retrieving courses for {dept_code}: {e}")
 
-    # Create data directory in the repository root
-    data_dir = os.path.join(repo_root, 'data')
-    os.makedirs(data_dir, exist_ok=True)
+    # Create data directory if it doesn't exist
+    os.makedirs('data', exist_ok=True)
     
-    # Save to data/courses.json using absolute path
-    output_path = os.path.join(data_dir, 'courses.json')
+    # Save to data/courses.json
+    output_path = os.path.join('data', 'courses.json')
     with open(output_path, "w") as json_file:
         json.dump(all_courses, json_file, indent=4)
 
