@@ -1,0 +1,60 @@
+name: Update AISIS Courses
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every day
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-courses:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4
+
+      - name: Create empty cookies file
+        run: |
+          echo "{}" > cookies.pkl
+
+      - name: Run AISIS scraper
+        env:
+          AISIS_USERNAME: ${{ secrets.AISIS_USERNAME }}
+          AISIS_PASSWORD: ${{ secrets.AISIS_PASSWORD }}
+        run: python aisis_scraper.py
+
+      - name: Update lastUpdated timestamp
+        run: |
+          # Get current timestamp in milliseconds
+          timestamp=$(python -c "import time; print(int(time.time() * 1000))")
+          
+          # Update the timestamp in page.js using sed
+          sed -i "s/const lastUpdated = [0-9]\+;/const lastUpdated = $timestamp;/" app/page.js
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Commit and push if changed
+        run: |
+          git add courses.json app/page.js
+          git diff --staged --quiet || (git commit -m "Auto-update courses and timestamp [skip ci]" && git push)
+
+      - name: Cleanup
+        if: always()
+        run: |
+          rm -f cookies.pkl
