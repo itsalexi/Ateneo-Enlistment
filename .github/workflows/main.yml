@@ -1,10 +1,12 @@
 name: Update AISIS Courses
 
 on:
-  schedule:
-    # Runs at 00:00 UTC every day
-    - cron: '0 0 * * *'
   workflow_dispatch:
+    inputs:
+      period:
+        description: 'Applicable Period (e.g., 2024-2)'
+        required: false
+        type: string
 
 jobs:
   update-courses:
@@ -13,8 +15,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -30,7 +30,7 @@ jobs:
         run: |
           python -c "import pickle; pickle.dump({}, open('cookies.pkl', 'wb'))"
 
-      - name: Check secrets availability
+      - name: Check secrets and variables
         run: |
           if [ -z "${{ secrets.AISIS_USERNAME }}" ]; then
             echo "Error: AISIS_USERNAME secret is not set"
@@ -40,15 +40,32 @@ jobs:
             echo "Error: AISIS_PASSWORD secret is not set"
             exit 1
           fi
-          echo "Secrets are properly configured"
+          if [ -z "${{ vars.APPLICABLE_PERIOD }}" ]; then
+            echo "Error: APPLICABLE_PERIOD variable is not set"
+            exit 1
+          fi
+          echo "Secrets and variables are properly configured"
+
+      - name: Set applicable period
+        id: set_period
+        run: |
+          if [ ! -z "${{ inputs.period }}" ]; then
+            # Use input period if provided
+            echo "period=${{ inputs.period }}" >> $GITHUB_OUTPUT
+          else
+            # Use repository variable as default
+            echo "period=${{ vars.APPLICABLE_PERIOD }}" >> $GITHUB_OUTPUT
+          fi
+          echo "Using period: $(cat $GITHUB_OUTPUT | grep period | cut -d'=' -f2)"
 
       - name: Run AISIS scraper
         id: scraper
         env:
           AISIS_USERNAME: ${{ secrets.AISIS_USERNAME }}
           AISIS_PASSWORD: ${{ secrets.AISIS_PASSWORD }}
+          APPLICABLE_PERIOD: ${{ steps.set_period.outputs.period }}
         run: |
-          echo "Running scraper with configured credentials"
+          echo "Running scraper with configured credentials for period $APPLICABLE_PERIOD"
           python aisis_scraper.py
           if [ -f "data/courses.json" ] && [ -s "data/courses.json" ]; then
             echo "scraper_success=true" >> $GITHUB_OUTPUT
@@ -59,21 +76,30 @@ jobs:
 
       - name: Update lastUpdated timestamp
         if: steps.scraper.outputs.scraper_success == 'true'
+        id: update_timestamp
         run: |
           timestamp=$(python -c "import time; print(int(time.time() * 1000))")
           sed -i "s/const lastUpdated = [0-9]\+;/const lastUpdated = $timestamp;/" app/page.js
+          echo "timestamp=$timestamp" >> $GITHUB_OUTPUT
 
-      - name: Configure Git
+      - name: Create Pull Request
         if: steps.scraper.outputs.scraper_success == 'true'
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-
-      - name: Commit and push if changed
-        if: steps.scraper.outputs.scraper_success == 'true'
-        run: |
-          git add data/courses.json app/page.js
-          git diff --staged --quiet || (git commit -m "Auto-update courses and timestamp [skip ci]" && git push)
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Update courses and timestamp for period ${{ steps.set_period.outputs.period }}"
+          title: "🔄 Update Course Listings for ${{ steps.set_period.outputs.period }}"
+          body: |
+            Automated course update from AISIS
+            
+            - Updated course listings in data/courses.json for period ${{ steps.set_period.outputs.period }}
+            - Updated lastUpdated timestamp to ${{ steps.update_timestamp.outputs.timestamp }}
+            
+            Please review the changes before merging.
+          branch: update-courses
+          branch-suffix: timestamp
+          delete-branch: true
+          base: main
 
       - name: Cleanup
         if: always()
