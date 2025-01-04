@@ -28,7 +28,7 @@ jobs:
 
       - name: Create empty cookies file
         run: |
-          echo "{}" > cookies.pkl
+          python -c "import pickle; pickle.dump({}, open('cookies.pkl', 'wb'))"
 
       - name: Run AISIS scraper
         env:
