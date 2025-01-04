@@ -51,7 +51,7 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          git add courses.json app/page.js
+          git add data/courses.json app/page.js
           git diff --staged --quiet || (git commit -m "Auto-update courses and timestamp [skip ci]" && git push)
 
       - name: Cleanup
