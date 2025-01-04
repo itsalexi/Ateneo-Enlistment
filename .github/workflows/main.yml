@@ -26,6 +26,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests beautifulsoup4
 
+      - name: Setup gitignore
+        run: |
+          echo "cookies.pkl" >> .gitignore
+
       - name: Create empty cookies file
         run: |
           python -c "import pickle; pickle.dump({}, open('cookies.pkl', 'wb'))"
@@ -82,6 +86,10 @@ jobs:
           sed -i "s/const lastUpdated = [0-9]\+;/const lastUpdated = $timestamp;/" app/page.js
           echo "timestamp=$timestamp" >> $GITHUB_OUTPUT
 
+      - name: Clean up before commit
+        run: |
+          rm -f cookies.pkl
+
       - name: Create Pull Request
         if: steps.scraper.outputs.scraper_success == 'true'
         uses: peter-evans/create-pull-request@v5
@@ -100,8 +108,6 @@ jobs:
           branch-suffix: timestamp
           delete-branch: true
           base: main
-
-      - name: Cleanup
-        if: always()
-        run: |
-          rm -f cookies.pkl
+          add-paths: |
+            data/courses.json
+            app/page.js
