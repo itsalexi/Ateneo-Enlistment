@@ -14,7 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -30,26 +30,47 @@ jobs:
         run: |
           python -c "import pickle; pickle.dump({}, open('cookies.pkl', 'wb'))"
 
+      - name: Check secrets availability
+        run: |
+          if [ -z "${{ secrets.AISIS_USERNAME }}" ]; then
+            echo "Error: AISIS_USERNAME secret is not set"
+            exit 1
+          fi
+          if [ -z "${{ secrets.AISIS_PASSWORD }}" ]; then
+            echo "Error: AISIS_PASSWORD secret is not set"
+            exit 1
+          fi
+          echo "Secrets are properly configured"
+
       - name: Run AISIS scraper
+        id: scraper
         env:
           AISIS_USERNAME: ${{ secrets.AISIS_USERNAME }}
           AISIS_PASSWORD: ${{ secrets.AISIS_PASSWORD }}
-        run: python aisis_scraper.py
+        run: |
+          echo "Running scraper with configured credentials"
+          python aisis_scraper.py
+          if [ -f "data/courses.json" ] && [ -s "data/courses.json" ]; then
+            echo "scraper_success=true" >> $GITHUB_OUTPUT
+          else
+            echo "scraper_success=false" >> $GITHUB_OUTPUT
+            exit 1
+          fi
 
       - name: Update lastUpdated timestamp
+        if: steps.scraper.outputs.scraper_success == 'true'
         run: |
-          # Get current timestamp in milliseconds
           timestamp=$(python -c "import time; print(int(time.time() * 1000))")
-          
-          # Update the timestamp in page.js using sed
           sed -i "s/const lastUpdated = [0-9]\+;/const lastUpdated = $timestamp;/" app/page.js
 
       - name: Configure Git
+        if: steps.scraper.outputs.scraper_success == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
       - name: Commit and push if changed
+        if: steps.scraper.outputs.scraper_success == 'true'
         run: |
           git add data/courses.json app/page.js
           git diff --staged --quiet || (git commit -m "Auto-update courses and timestamp [skip ci]" && git push)
