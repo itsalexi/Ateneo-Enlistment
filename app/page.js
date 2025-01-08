@@ -62,7 +62,7 @@ const darkTheme = createTheme({
 const ITEMS_PER_PAGE = 10;
 
 const currentSemesterString = 'Second Semester';
-const lastUpdated = 1736009299224;
+const lastUpdated = 1736295447061;
 
 function HomeContent() {
   const isMobile = useMediaQuery(darkTheme.breakpoints.down('sm'));
