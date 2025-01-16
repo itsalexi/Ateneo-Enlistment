@@ -167,51 +167,58 @@ export default function Calendar({
 
   const schedule = useMemo(() => {
     const scheduleMap = new Map();
-
+  
     selectedCourses.forEach((course) => {
-      const { days, startTime, endTime } = parseTimeRange(course.time);
-      const timeSlotCount = calculateTimeSlots(startTime, endTime);
-      days.forEach((day) => {
-        if (!scheduleMap.has(day)) {
-          scheduleMap.set(day, new Map());
-        }
-        const daySchedule = scheduleMap.get(day);
-        if (!daySchedule) return;
-
-        let time = startTime;
-        let isFirst = true;
-        while (time < endTime) {
-          const hour = Math.floor(time / 100);
-          const minute = time % 100;
-          const formattedTime = `${String(hour).padStart(2, '0')}:${String(
-            minute
-          ).padStart(2, '0')}`;
-
-          if (isFirst) {
-            daySchedule.set(formattedTime, {
-              course,
-              rowspan: timeSlotCount,
-              isStart: true,
-            });
-            isFirst = false;
-          } else {
-            daySchedule.set(formattedTime, {
-              course,
-              rowspan: timeSlotCount,
-              isStart: false,
-            });
+      const timeSegments = parseTimeRange(course.time);
+  
+      timeSegments.forEach((segment) => {
+        const { days, startTime, endTime } = segment;
+        const timeSlotCount = calculateTimeSlots(startTime, endTime);
+  
+        days.forEach((day) => {
+          if (!scheduleMap.has(day)) {
+            scheduleMap.set(day, new Map());
           }
-
-          time += 30;
-          if (minute + 30 >= 60) {
-            time = (hour + 1) * 100 + (minute + 30 - 60);
+  
+          const daySchedule = scheduleMap.get(day);
+          if (!daySchedule) return;
+  
+          let time = startTime;
+          let isFirst = true;
+  
+          while (time < endTime) {
+            const hour = Math.floor(time / 100);
+            const minute = time % 100;
+            const formattedTime = `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
+  
+            if (isFirst) {
+              daySchedule.set(formattedTime, {
+                course,
+                rowspan: timeSlotCount,
+                isStart: true,
+              });
+              isFirst = false;
+            } else {
+              daySchedule.set(formattedTime, {
+                course,
+                rowspan: timeSlotCount,
+                isStart: false,
+              });
+            }
+  
+            time += 30;
+            if (minute + 30 >= 60) {
+              time = (hour + 1) * 100 + (minute + 30 - 60);
+            }
           }
-        }
+        });
       });
     });
-
+  
     return scheduleMap;
   }, [selectedCourses]);
+  
+
 
   return (
     <CardContent className="p-0 bg-[#121212] text-gray-100 w-full">
@@ -270,17 +277,17 @@ export default function Calendar({
                             ] || ''
                           }`}
                         >
-                          <span className="text-xs font-semibold text-gray-100">
+                          <span className="text-xs font-semibold text-gray-100 text-center">
                             {scheduleBlock.course.catNo} -{' '}
                             {scheduleBlock.course.section}
                           </span>
-                          <span className="text-xs text-gray-300">
+                          <span className="text-xs text-gray-300 text-center">
                             {scheduleBlock.course.time}
                           </span>
-                          <span className="text-xs text-gray-300">
+                          <span className="text-xs text-gray-300 text-center">
                             {scheduleBlock.course.instructor}
                           </span>
-                          <span className="text-xs text-gray-300">
+                          <span className="text-xs text-gray-300 text-center">
                             {scheduleBlock.course.room}
                           </span>
                         </div>
