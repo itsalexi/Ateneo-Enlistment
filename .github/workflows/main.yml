@@ -1,5 +1,4 @@
 name: Update AISIS Courses
-
 on:
   workflow_dispatch:
     inputs:
@@ -7,7 +6,6 @@ on:
         description: 'Applicable Period (e.g., 2024-2)'
         required: false
         type: string
-
 jobs:
   update-courses:
     runs-on: ubuntu-latest
@@ -17,25 +15,20 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT_TOKEN }}  # Use PAT for checkout
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests beautifulsoup4
-
       - name: Setup gitignore
         run: |
           echo "cookies.pkl" >> .gitignore
-
       - name: Create empty cookies file
         run: |
           python -c "import pickle; pickle.dump({}, open('cookies.pkl', 'wb'))"
-
       - name: Check secrets and variables
         run: |
           if [ -z "${{ secrets.AISIS_USERNAME }}" ]; then
@@ -51,7 +44,6 @@ jobs:
             exit 1
           fi
           echo "Secrets and variables are properly configured"
-
       - name: Set applicable period
         id: set_period
         run: |
@@ -61,7 +53,25 @@ jobs:
             echo "period=${{ vars.APPLICABLE_PERIOD }}" >> $GITHUB_OUTPUT
           fi
           echo "Using period: $(cat $GITHUB_OUTPUT | grep period | cut -d'=' -f2)"
-
+      - name: Determine semester string
+        id: set_semester
+        run: |
+          period=$(cat $GITHUB_OUTPUT | grep period | cut -d'=' -f2)
+          period_suffix=${period##*-}
+          year=${period%-*}
+          next_year=$((year+1))
+          
+          if [ "$period_suffix" = "0" ]; then
+            echo "semester_string=Intersession ${year}-${next_year}" >> $GITHUB_OUTPUT
+          elif [ "$period_suffix" = "1" ]; then
+            echo "semester_string=First Semester ${year}-${next_year}" >> $GITHUB_OUTPUT
+          elif [ "$period_suffix" = "2" ]; then
+            echo "semester_string=Second Semester ${year}-${next_year}" >> $GITHUB_OUTPUT
+          else
+            echo "Unknown period suffix: $period_suffix, using default"
+            echo "semester_string=Unknown Semester" >> $GITHUB_OUTPUT
+          fi
+          echo "Determined semester string: $(cat $GITHUB_OUTPUT | grep semester_string | cut -d'=' -f2)"
       - name: Run AISIS scraper
         id: scraper
         env:
@@ -77,31 +87,37 @@ jobs:
             echo "scraper_success=false" >> $GITHUB_OUTPUT
             exit 1
           fi
-
-      - name: Update lastUpdated timestamp
+      - name: Update timestamps and semester string
         if: steps.scraper.outputs.scraper_success == 'true'
-        id: update_timestamp
+        id: update_info
         run: |
           timestamp=$(python -c "import time; print(int(time.time() * 1000))")
+          semester_string="${{ steps.set_semester.outputs.semester_string }}"
+          
+          # Update timestamp
           sed -i "s/const lastUpdated = [0-9]\+;/const lastUpdated = $timestamp;/" app/page.js
+          
+          # Update semester string
+          sed -i "s/const currentSemesterString = '[^']*';/const currentSemesterString = '$semester_string';/" app/page.js
+          
           echo "timestamp=$timestamp" >> $GITHUB_OUTPUT
-
+          echo "semester_string=$semester_string" >> $GITHUB_OUTPUT
       - name: Clean up before commit
         run: |
           rm -f cookies.pkl
-
       - name: Create Pull Request
         if: steps.scraper.outputs.scraper_success == 'true'
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.PAT_TOKEN }}  # Use PAT for PR creation
-          commit-message: "Update courses and timestamp for period ${{ steps.set_period.outputs.period }}"
+          commit-message: "Update courses and info for period ${{ steps.set_period.outputs.period }}"
           title: "🔄 Update Course Listings for ${{ steps.set_period.outputs.period }}"
           body: |
             Automated course update from AISIS
             
             - Updated course listings in data/courses.json for period ${{ steps.set_period.outputs.period }}
-            - Updated lastUpdated timestamp to ${{ steps.update_timestamp.outputs.timestamp }}
+            - Updated lastUpdated timestamp to ${{ steps.update_info.outputs.timestamp }}
+            - Updated semester string to "${{ steps.update_info.outputs.semester_string }}"
             
             Please review the changes before merging.
           branch: update-courses
