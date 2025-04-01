@@ -48,30 +48,39 @@ jobs:
         id: set_period
         run: |
           if [ ! -z "${{ inputs.period }}" ]; then
-            echo "period=${{ inputs.period }}" >> $GITHUB_OUTPUT
+            PERIOD="${{ inputs.period }}"
           else
-            echo "period=${{ vars.APPLICABLE_PERIOD }}" >> $GITHUB_OUTPUT
+            PERIOD="${{ vars.APPLICABLE_PERIOD }}"
           fi
-          echo "Using period: $(cat $GITHUB_OUTPUT | grep period | cut -d'=' -f2)"
+          echo "period=$PERIOD" >> $GITHUB_OUTPUT
+          echo "Using period: $PERIOD"
       - name: Determine semester string
         id: set_semester
         run: |
-          period=$(cat $GITHUB_OUTPUT | grep period | cut -d'=' -f2)
-          period_suffix=${period##*-}
-          year=${period%-*}
-          next_year=$((year+1))
+          PERIOD="${{ steps.set_period.outputs.period }}"
+          echo "Processing period: $PERIOD"
           
-          if [ "$period_suffix" = "0" ]; then
-            echo "semester_string=Intersession ${year}-${next_year}" >> $GITHUB_OUTPUT
-          elif [ "$period_suffix" = "1" ]; then
-            echo "semester_string=First Semester ${year}-${next_year}" >> $GITHUB_OUTPUT
-          elif [ "$period_suffix" = "2" ]; then
-            echo "semester_string=Second Semester ${year}-${next_year}" >> $GITHUB_OUTPUT
+          # Extract year and suffix
+          YEAR=${PERIOD%%-*}
+          SUFFIX=${PERIOD##*-}
+          
+          NEXT_YEAR=$((YEAR+1))
+          
+          echo "Year: $YEAR, Suffix: $SUFFIX, Next year: $NEXT_YEAR"
+          
+          if [ "$SUFFIX" = "0" ]; then
+            SEMESTER_STRING="Intersession ${YEAR}-${NEXT_YEAR}"
+          elif [ "$SUFFIX" = "1" ]; then
+            SEMESTER_STRING="First Semester ${YEAR}-${NEXT_YEAR}"
+          elif [ "$SUFFIX" = "2" ]; then
+            SEMESTER_STRING="Second Semester ${YEAR}-${NEXT_YEAR}"
           else
-            echo "Unknown period suffix: $period_suffix, using default"
-            echo "semester_string=Unknown Semester" >> $GITHUB_OUTPUT
+            echo "Unknown period suffix: $SUFFIX, using default"
+            SEMESTER_STRING="Unknown Semester"
           fi
-          echo "Determined semester string: $(cat $GITHUB_OUTPUT | grep semester_string | cut -d'=' -f2)"
+          
+          echo "semester_string=$SEMESTER_STRING" >> $GITHUB_OUTPUT
+          echo "Determined semester string: $SEMESTER_STRING"
       - name: Run AISIS scraper
         id: scraper
         env:
@@ -91,17 +100,21 @@ jobs:
         if: steps.scraper.outputs.scraper_success == 'true'
         id: update_info
         run: |
-          timestamp=$(python -c "import time; print(int(time.time() * 1000))")
-          semester_string="${{ steps.set_semester.outputs.semester_string }}"
+          TIMESTAMP=$(python -c "import time; print(int(time.time() * 1000))")
+          SEMESTER_STRING="${{ steps.set_semester.outputs.semester_string }}"
+          
+          echo "Updating timestamp to: $TIMESTAMP"
+          echo "Updating semester string to: $SEMESTER_STRING"
           
           # Update timestamp
-          sed -i "s/const lastUpdated = [0-9]\+;/const lastUpdated = $timestamp;/" app/page.js
+          sed -i "s/const lastUpdated = [0-9]\+;/const lastUpdated = $TIMESTAMP;/" app/page.js
           
-          # Update semester string
-          sed -i "s/const currentSemesterString = '[^']*';/const currentSemesterString = '$semester_string';/" app/page.js
+          # Update semester string - escape single quotes for sed
+          SEMESTER_STRING_ESCAPED=$(echo "$SEMESTER_STRING" | sed "s/'/\\\\'/g")
+          sed -i "s/const currentSemesterString = '[^']*';/const currentSemesterString = '$SEMESTER_STRING_ESCAPED';/" app/page.js
           
-          echo "timestamp=$timestamp" >> $GITHUB_OUTPUT
-          echo "semester_string=$semester_string" >> $GITHUB_OUTPUT
+          echo "timestamp=$TIMESTAMP" >> $GITHUB_OUTPUT
+          echo "semester_string=$SEMESTER_STRING" >> $GITHUB_OUTPUT
       - name: Clean up before commit
         run: |
           rm -f cookies.pkl
