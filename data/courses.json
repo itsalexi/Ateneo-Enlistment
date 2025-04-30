@@ -1,6 +1,30 @@
 [
     {
-        "id": "4211f5c2-33f0-4d9a-8449-8facd049df95",
+        "id": "d7d396ed-c6e4-4b62-b1dc-b831cc11c6e3",
+        "deptCode": "BIO",
+        "catNo": "BIO 12.01",
+        "section": "C",
+        "courseTitle": "BIOTECHNOLOGY FOR EVERYONE, LECTURE",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "SEC-A116",
+        "instructor": "ZULUETA, Marjorie",
+        "remarks": "-"
+    },
+    {
+        "id": "556b0234-2f3a-4bb4-8378-0ff481e09109",
+        "deptCode": "BIO",
+        "catNo": "BIO 12.01",
+        "section": "F",
+        "courseTitle": "BIOTECHNOLOGY FOR EVERYONE, LECTURE",
+        "units": "3",
+        "time": "D 1530-1700",
+        "room": "CTC 216",
+        "instructor": "RAGAZA, JANICE A.",
+        "remarks": "-"
+    },
+    {
+        "id": "e76c126f-52da-4132-bb58-5571ae6f8872",
         "deptCode": "BIO",
         "catNo": "BIO 32",
         "section": "B",
@@ -12,7 +36,151 @@
         "remarks": "-"
     },
     {
-        "id": "5185f62f-cb66-498c-a1fb-1b92cd85f672",
+        "id": "6a57cb7b-296b-4733-905b-99f8e2aa3811",
+        "deptCode": "BIO",
+        "catNo": "BIO 100.01",
+        "section": "C",
+        "courseTitle": "GENERAL ZOOLOGY, LECTURE",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "SEC-A117",
+        "instructor": "GARCIA, Maia Patricia",
+        "remarks": "-"
+    },
+    {
+        "id": "7e6838c9-7fea-4cf3-8474-86bd421564c9",
+        "deptCode": "BIO",
+        "catNo": "BIO 100.02",
+        "section": "LAB-KL",
+        "courseTitle": "GENERAL ZOOLOGY, LABORATORY",
+        "units": "2",
+        "time": "M-W-F 1300-1700",
+        "room": "SEC-B107A",
+        "instructor": "GARCIA, Maia Patricia",
+        "remarks": "-"
+    },
+    {
+        "id": "3a5d52f8-b55e-4976-ab0e-e4628ad4aca9",
+        "deptCode": "BIO",
+        "catNo": "BIO 120.01",
+        "section": "A",
+        "courseTitle": "MICROBIOLOGY, LECTURE",
+        "units": "3",
+        "time": "D 0800-0930",
+        "room": "SEC-A116",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "7a0d9b17-1bb1-45e2-b4b3-8b5e4eba81e6",
+        "deptCode": "BIO",
+        "catNo": "BIO 120.01",
+        "section": "A1",
+        "courseTitle": "MICROBIOLOGY, LECTURE",
+        "units": "3",
+        "time": "D 0800-0930",
+        "room": "B-102",
+        "instructor": "BAGONOC, REJ B.",
+        "remarks": "ALL SLOTS FOR BS BIO MAJORS. ALL SLOTS FOR BS LfSci MAJORS."
+    },
+    {
+        "id": "8bd3fd7a-a72c-474d-b1e7-370437fd307e",
+        "deptCode": "BIO",
+        "catNo": "BIO 120.01",
+        "section": "B",
+        "courseTitle": "MICROBIOLOGY, LECTURE",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "SEC-A117",
+        "instructor": "ABISADO, RHEA G.",
+        "remarks": "-"
+    },
+    {
+        "id": "611152ac-7a4d-4539-b3dc-61f0a94895c6",
+        "deptCode": "BIO",
+        "catNo": "BIO 120.01",
+        "section": "D",
+        "courseTitle": "MICROBIOLOGY, LECTURE",
+        "units": "3",
+        "time": "D 1230-1400",
+        "room": "SEC-A116",
+        "instructor": "GATCHALIAN, Pamela",
+        "remarks": "-"
+    },
+    {
+        "id": "4babd8b9-6d13-4f2a-9018-f68bb28bea71",
+        "deptCode": "BIO",
+        "catNo": "BIO 120.01",
+        "section": "F",
+        "courseTitle": "MICROBIOLOGY, LECTURE",
+        "units": "3",
+        "time": "D 1530-1700",
+        "room": "SEC-A116",
+        "instructor": "DE GUZMAN, Ivan Adrian",
+        "remarks": "-"
+    },
+    {
+        "id": "27613a3c-082e-4a4b-9e52-303a1c0afa77",
+        "deptCode": "BIO",
+        "catNo": "BIO 120.02",
+        "section": "LAB-II",
+        "courseTitle": "MICROBIOLOGY, LABORATORY",
+        "units": "2",
+        "time": "M-T-TH 0800-1200",
+        "room": "SEC-B216A",
+        "instructor": "DE GUZMAN, Ivan Adrian",
+        "remarks": "-"
+    },
+    {
+        "id": "2d6229dd-ae2a-45c5-9d13-1233837fc61e",
+        "deptCode": "BIO",
+        "catNo": "BIO 120.02",
+        "section": "LAB-IJ",
+        "courseTitle": "MICROBIOLOGY, LABORATORY",
+        "units": "2",
+        "time": "M-W-F 0800-1200",
+        "room": "SEC-B305A",
+        "instructor": "GATCHALIAN, Pamela",
+        "remarks": "-"
+    },
+    {
+        "id": "e13ec409-db18-4d9b-9212-23b2b6a2b13c",
+        "deptCode": "BIO",
+        "catNo": "BIO 120.02",
+        "section": "LAB-JO",
+        "courseTitle": "MICROBIOLOGY, LABORATORY",
+        "units": "2",
+        "time": "M-T-TH 1300-1700",
+        "room": "SEC-B106A",
+        "instructor": "LIBUNAO, Joseph Conrad",
+        "remarks": "-"
+    },
+    {
+        "id": "d5b128d2-bdf5-4ac2-a83d-703e8da9fef5",
+        "deptCode": "BIO",
+        "catNo": "BIO 120.02",
+        "section": "LAB-KL",
+        "courseTitle": "MICROBIOLOGY, LABORATORY",
+        "units": "2",
+        "time": "M-W-F 1300-1700",
+        "room": "SEC-B305A",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "fe2382f9-14e4-4c6c-a5d8-e2593ee5dd9d",
+        "deptCode": "BIO",
+        "catNo": "BIO 120.02",
+        "section": "LAB-NO",
+        "courseTitle": "MICROBIOLOGY, LABORATORY",
+        "units": "2",
+        "time": "T-TH-F 1300-1700",
+        "room": "SEC-B307A",
+        "instructor": "ABISADO, RHEA G.",
+        "remarks": "-"
+    },
+    {
+        "id": "0659c9c3-a36e-4baf-a58e-3adc2a798fdd",
         "deptCode": "BIO",
         "catNo": "BIO 143.01",
         "section": "A",
@@ -24,7 +192,103 @@
         "remarks": "-"
     },
     {
-        "id": "83fd8e87-bc27-4803-b3f3-1a23681cf6a9",
+        "id": "3ef8511a-045c-44e6-924d-4003a412dee4",
+        "deptCode": "BIO",
+        "catNo": "BIO 143.02",
+        "section": "LAB-KL",
+        "courseTitle": "BIOTECHNOLOGY, LABORATORY",
+        "units": "2",
+        "time": "M-W-F 1300-1700",
+        "room": "SEC-B216A",
+        "instructor": "BRAGAIS, Edward Kevin",
+        "remarks": "-"
+    },
+    {
+        "id": "accf416c-dca8-453c-9a7c-6e9911144d3d",
+        "deptCode": "BIO",
+        "catNo": "BIO 143.02",
+        "section": "LAB-NOS",
+        "courseTitle": "BIOTECHNOLOGY, LABORATORY",
+        "units": "2",
+        "time": "T-TH-S 1300-1700",
+        "room": "SEC-B216A",
+        "instructor": "RELLES, John Moises",
+        "remarks": "-"
+    },
+    {
+        "id": "9e5dfa7c-cfc4-4b1d-afa7-deb684a6421e",
+        "deptCode": "BIO",
+        "catNo": "BIO 160.01",
+        "section": "A",
+        "courseTitle": "EVOLUTIONARY BIOLOGY, LECTURE",
+        "units": "3",
+        "time": "D 0800-0930",
+        "room": "CTC 216",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "adcacdd6-1330-4f32-9f9a-94e9a5289b3a",
+        "deptCode": "BIO",
+        "catNo": "BIO 160.01",
+        "section": "B",
+        "courseTitle": "EVOLUTIONARY BIOLOGY, LECTURE",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "CTC 216",
+        "instructor": "CRUZ, RONALD ALLAN L.",
+        "remarks": "-"
+    },
+    {
+        "id": "66b1ec72-9cb1-4d4a-bcec-bbc727689d72",
+        "deptCode": "BIO",
+        "catNo": "BIO 160.01",
+        "section": "E",
+        "courseTitle": "EVOLUTIONARY BIOLOGY, LECTURE",
+        "units": "3",
+        "time": "D 1400-1530",
+        "room": "SEC-A117",
+        "instructor": "CASISON, Vhey",
+        "remarks": "-"
+    },
+    {
+        "id": "3647ee6c-889f-420d-b929-457bbebc78e5",
+        "deptCode": "BIO",
+        "catNo": "BIO 160.01",
+        "section": "F",
+        "courseTitle": "EVOLUTIONARY BIOLOGY, LECTURE",
+        "units": "3",
+        "time": "D 1530-1700",
+        "room": "SEC-A117",
+        "instructor": "CASISON, Vhey",
+        "remarks": "-"
+    },
+    {
+        "id": "98326c06-f3cd-4988-9078-89eef35cebc8",
+        "deptCode": "BIO",
+        "catNo": "BIO 160.02",
+        "section": "LAB-IJ",
+        "courseTitle": "EVOLUTIONARY BIOLOGY, LABORATORY",
+        "units": "2",
+        "time": "M-W-F 0800-1200",
+        "room": "SEC-B107A",
+        "instructor": "GELLYNCK, MARC P.",
+        "remarks": "-"
+    },
+    {
+        "id": "f1adb2ad-55e8-481c-a6f9-b6bdff9fb460",
+        "deptCode": "BIO",
+        "catNo": "BIO 160.02",
+        "section": "LAB-KL1",
+        "courseTitle": "EVOLUTIONARY BIOLOGY, LABORATORY",
+        "units": "2",
+        "time": "M-W-F 1300-1700",
+        "room": "SEC-B105A",
+        "instructor": "GARCES, Jhoana",
+        "remarks": "-"
+    },
+    {
+        "id": "67fe290d-e6f6-4c70-8594-288b9dbf22ca",
         "deptCode": "BIO",
         "catNo": "BIO 197",
         "section": "YYY",
@@ -32,11 +296,71 @@
         "units": "3",
         "time": "TBA",
         "room": "TBA",
-        "instructor": "SORGON, Kent Elson",
+        "instructor": "BAGONOC, REJ B., SORGON, Kent Elson",
         "remarks": "-"
     },
     {
-        "id": "ba308cda-1611-4582-b45c-2ac1ecbef58f",
+        "id": "a1a6684f-2d41-4a69-9f15-53fb2534d59f",
+        "deptCode": "BIO",
+        "catNo": "BIO 299.6",
+        "section": "SUB-A",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "a8571118-5647-41af-8f7a-ddb1500e3640",
+        "deptCode": "BIO",
+        "catNo": "BIO 299.7",
+        "section": "SUB-B",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "25414fea-ef73-44a9-aa77-34815f57a1d3",
+        "deptCode": "BIO",
+        "catNo": "BIO 399.6",
+        "section": "SUB-A",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "9364b538-bd99-4447-8ed9-f503a0de6511",
+        "deptCode": "BIO",
+        "catNo": "BIO 399.7",
+        "section": "SUB-B",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "8bd87840-460e-4126-ab75-7f70f347e557",
+        "deptCode": "BIO",
+        "catNo": "SCIED 275",
+        "section": "ZZZ",
+        "courseTitle": "INTEGRATED SCIENCE 5 - INTERACTIONS AND CYCLES",
+        "units": "3",
+        "time": "TUTORIAL 0000-0000",
+        "room": "TBA",
+        "instructor": "CRUZ, RONALD ALLAN L.",
+        "remarks": "-"
+    },
+    {
+        "id": "e01e1797-f4e9-494a-847b-292f04baa149",
         "deptCode": "BIO",
         "catNo": "SCIED 290",
         "section": "TWOD",
@@ -44,11 +368,83 @@
         "units": "1",
         "time": "TBA",
         "room": "TBA",
-        "instructor": "CRUZ, RONALD ALLAN L.",
+        "instructor": "RAGAZA, JANICE A.",
         "remarks": "-"
     },
     {
-        "id": "0cce7fa1-3865-49d5-a14c-1a89484cb859",
+        "id": "55d3a82c-80dd-434d-8a92-f9efd59b1f82",
+        "deptCode": "BIO",
+        "catNo": "SCIED 296",
+        "section": "COMP",
+        "courseTitle": "COMPREHENSIVE EXAMINATIONS",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "RAGAZA, JANICE A.",
+        "remarks": "-"
+    },
+    {
+        "id": "336a529c-1d33-4a47-90df-9be2e4cfc45f",
+        "deptCode": "BIO",
+        "catNo": "SCIED 299.1",
+        "section": "THES/DISS",
+        "courseTitle": "THESIS I",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "ADARLO, GENEJANE M., NGO, GALVIN RADLEY L.",
+        "remarks": "-"
+    },
+    {
+        "id": "9a1c5086-68c6-4931-a04c-fc58f7d8aaaf",
+        "deptCode": "BIO",
+        "catNo": "SCIED 299.2",
+        "section": "THES",
+        "courseTitle": "THESIS II",
+        "units": "0",
+        "time": "TBA",
+        "room": "TBA",
+        "instructor": "GUIDOTE, JR., ARMANDO M.",
+        "remarks": "-"
+    },
+    {
+        "id": "d8a0981a-0cb3-4bdb-a794-8e8a845e6878",
+        "deptCode": "BIO",
+        "catNo": "SCIED 299.2",
+        "section": "THES1",
+        "courseTitle": "THESIS II",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "ADARLO, GENEJANE M.",
+        "remarks": "-"
+    },
+    {
+        "id": "c103e147-8786-4cea-914c-33c875cfb155",
+        "deptCode": "BIO",
+        "catNo": "SCIED 299.6",
+        "section": "SUB-A",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "c603f2f9-2526-45b5-bd57-e25de7b0d6d8",
+        "deptCode": "BIO",
+        "catNo": "SCIED 299.7",
+        "section": "SUB-A",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "30209254-6518-4822-8e3c-438f53719b19",
         "deptCode": "CH",
         "catNo": "CHEM 53.10",
         "section": "A",
@@ -60,7 +456,7 @@
         "remarks": "-"
     },
     {
-        "id": "856a1eea-47b4-4686-8ccb-8f924c622791",
+        "id": "c326a330-3e43-4225-a946-0e290690b859",
         "deptCode": "CH",
         "catNo": "CHEM 131.01",
         "section": "E",
@@ -72,7 +468,19 @@
         "remarks": "-"
     },
     {
-        "id": "f64c08e7-0ec7-4296-8426-f5e2568733b6",
+        "id": "f0bb5ec0-474e-4ed2-8d62-823bc91aaa0b",
+        "deptCode": "CH",
+        "catNo": "CHEM 131.02",
+        "section": "LAB-IJ",
+        "courseTitle": "QUANTITATIVE CHEMICAL ANALYSIS, LABORATORY",
+        "units": "2",
+        "time": "M-W-F 0800-1200",
+        "room": "C-309",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "8b74223e-9c1e-4089-ac1f-36255def2f2a",
         "deptCode": "CH",
         "catNo": "CHEM 161.41",
         "section": "A2",
@@ -84,7 +492,7 @@
         "remarks": "25 SLOT(S) FOR BS CH MAJORS."
     },
     {
-        "id": "ccceec16-aaed-4b4c-8b1d-26da18dddc46",
+        "id": "6ebc67bc-8fec-4abf-90b4-2710cc5bc745",
         "deptCode": "CH",
         "catNo": "CHEM 161.41",
         "section": "B",
@@ -96,7 +504,7 @@
         "remarks": "-"
     },
     {
-        "id": "ba01751d-01a8-4504-84fc-4e2b75395033",
+        "id": "907590da-cc49-482d-95dc-f6302931b8b0",
         "deptCode": "CH",
         "catNo": "CHEM 197",
         "section": "B1",
@@ -108,7 +516,7 @@
         "remarks": "-"
     },
     {
-        "id": "7279e770-91bd-4999-8bcb-b5f46d35f7b7",
+        "id": "a9ecfb3d-bdcd-4c34-ba0f-7ced1be1a561",
         "deptCode": "CH",
         "catNo": "CHEM 292",
         "section": "YYY",
@@ -120,7 +528,7 @@
         "remarks": "-"
     },
     {
-        "id": "f1ac6d25-a5bf-4e41-b25b-7d63431d29a5",
+        "id": "be956b55-c330-4d72-937c-68a0615e05ae",
         "deptCode": "CH",
         "catNo": "CHEM 299.5",
         "section": "YYY1",
@@ -132,7 +540,7 @@
         "remarks": "-"
     },
     {
-        "id": "afa25733-e089-41ac-83ab-eba4cca39aa8",
+        "id": "2f68c1c0-997e-4a8f-b05a-796545748600",
         "deptCode": "CH",
         "catNo": "CHEM 299.6",
         "section": "SUB-A",
@@ -144,7 +552,7 @@
         "remarks": "-"
     },
     {
-        "id": "0c165055-c98c-4454-90de-63fb9dc9bb9e",
+        "id": "c6c07be8-7f75-4467-a47f-7d926153e39e",
         "deptCode": "CH",
         "catNo": "CHEM 299.7",
         "section": "SUB-B",
@@ -156,7 +564,7 @@
         "remarks": "-"
     },
     {
-        "id": "49ad1c62-5ada-4ede-a18d-72986d2dba5d",
+        "id": "b7b9d7fc-9217-4fba-964d-67c652c7e354",
         "deptCode": "CH",
         "catNo": "CHEM 399.11",
         "section": "YYY",
@@ -168,7 +576,7 @@
         "remarks": "-"
     },
     {
-        "id": "8d3627ae-4c61-4fbe-b996-c08c6364d9e8",
+        "id": "78660f6e-116c-4490-85b8-2f7a73c8d8fd",
         "deptCode": "CH",
         "catNo": "CHEM 399.5",
         "section": "YYY1",
@@ -180,7 +588,7 @@
         "remarks": "-"
     },
     {
-        "id": "47173e18-0a9d-4909-9648-ca3e5cbfbe89",
+        "id": "8ab20196-66b5-42f0-b059-b051a9ed7bc8",
         "deptCode": "CH",
         "catNo": "CHEM 399.6",
         "section": "SUB-A",
@@ -192,7 +600,7 @@
         "remarks": "-"
     },
     {
-        "id": "5e1dc6a8-1fcc-4b92-8136-28984fe8bfc9",
+        "id": "b1c108a7-59d9-4d79-bdab-5b29b205282e",
         "deptCode": "CH",
         "catNo": "CHEM 399.7",
         "section": "SUB-B",
@@ -204,7 +612,7 @@
         "remarks": "-"
     },
     {
-        "id": "79387fca-b8f5-4cde-9465-3b8daf79f56e",
+        "id": "2875767c-9da5-4c16-80ef-0c6942d5e880",
         "deptCode": "CH",
         "catNo": "CHEM 81.51",
         "section": "C",
@@ -216,7 +624,43 @@
         "remarks": "-"
     },
     {
-        "id": "9efa021f-19ec-41b7-b5ab-49c715874f8d",
+        "id": "ca0d72e5-8e93-4d37-b6af-d2c399e15c00",
+        "deptCode": "CH",
+        "catNo": "CHEM 81.52",
+        "section": "LAB-KL",
+        "courseTitle": "INDUSTRIAL CHEMICAL REACTIONS AND PROCESSES, LABORATORY",
+        "units": "2",
+        "time": "M-W-F 1300-1700",
+        "room": "C-207",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "ad71701d-f685-438e-8cf9-e0bafdbfc21f",
+        "deptCode": "CH",
+        "catNo": "MATSE 106.2",
+        "section": "LAB-IJ",
+        "courseTitle": "MATERIALS AND TESTING LABORATORY II",
+        "units": "3",
+        "time": "M-W-F 0800-1200",
+        "room": "SEC-C207A",
+        "instructor": "CHAN, BENJAMIN O., MAHINAY, CHRISTIAN LORENZ S., REYES, Jude",
+        "remarks": "-"
+    },
+    {
+        "id": "604c97f8-ce65-4076-9567-191637aed73f",
+        "deptCode": "CH",
+        "catNo": "MATSE 106.2",
+        "section": "MNS",
+        "courseTitle": "MATERIALS AND TESTING LABORATORY II",
+        "units": "3",
+        "time": "T-TH-S 0800-1200",
+        "room": "SEC-C207A",
+        "instructor": "CHAN, BENJAMIN O., MAHINAY, CHRISTIAN LORENZ S., REYES, Jude",
+        "remarks": "-"
+    },
+    {
+        "id": "27c86e4b-9ddf-4123-b2f4-32751bb6f1ff",
         "deptCode": "CH",
         "catNo": "MATSE 180.1",
         "section": "C",
@@ -228,7 +672,7 @@
         "remarks": "-"
     },
     {
-        "id": "5db8aa43-9970-4649-9543-662e55ddb0fa",
+        "id": "df97f9af-8fe4-438d-95e4-83deab19e2d2",
         "deptCode": "CH",
         "catNo": "MATSE 180.1",
         "section": "D",
@@ -240,7 +684,7 @@
         "remarks": "-"
     },
     {
-        "id": "b196ce99-5b1a-47e2-9fa9-659ed7109b76",
+        "id": "932189d0-166e-4fdd-ae39-8e1c39e2f7dd",
         "deptCode": "CH",
         "catNo": "MATSE 199.1",
         "section": "F",
@@ -252,7 +696,7 @@
         "remarks": "-"
     },
     {
-        "id": "b11e585f-b9d3-46d0-948a-d3056166e5d3",
+        "id": "79890973-c9ed-4da2-b6fb-b9127055bb86",
         "deptCode": "CH",
         "catNo": "MATSE 199.1",
         "section": "G1",
@@ -264,7 +708,7 @@
         "remarks": "-"
     },
     {
-        "id": "1e2cd0d5-0820-4047-883f-9399f3923e34",
+        "id": "91e0482e-55b3-4d07-b66d-e0d7353cf86f",
         "deptCode": "CH",
         "catNo": "MATSE 199.1",
         "section": "G2",
@@ -276,7 +720,7 @@
         "remarks": "-"
     },
     {
-        "id": "86f101ce-df88-4187-82bd-a38ebaf83249",
+        "id": "0fb1d7c0-b44f-41bf-8df5-87d905360f27",
         "deptCode": "CH",
         "catNo": "MATSE 199.1",
         "section": "G3",
@@ -288,7 +732,7 @@
         "remarks": "-"
     },
     {
-        "id": "d5325ea0-7872-4681-bbf4-bc0d4c1590cf",
+        "id": "52b9ed25-76ad-49d9-9ad9-9edfd0ca0a57",
         "deptCode": "CH",
         "catNo": "MATSE 199.1",
         "section": "G4",
@@ -300,7 +744,7 @@
         "remarks": "-"
     },
     {
-        "id": "3f0e4118-d943-489c-971f-e661357d4c56",
+        "id": "bfe9f7c6-88ae-4ff4-9baa-04f702aa26da",
         "deptCode": "CH",
         "catNo": "MATSE 199.1",
         "section": "G5",
@@ -312,7 +756,7 @@
         "remarks": "-"
     },
     {
-        "id": "95d113da-427d-42f5-aa5b-62838d9d7b17",
+        "id": "1b300a28-2f88-4a3b-86b9-721d7d2ef54d",
         "deptCode": "CH",
         "catNo": "MATSE 199.1",
         "section": "G6",
@@ -324,7 +768,7 @@
         "remarks": "-"
     },
     {
-        "id": "cacc4d9a-8ea0-4574-a2bc-e3e439d047f6",
+        "id": "de66d55c-b731-4440-9da7-5bce6b7f5d9c",
         "deptCode": "CH",
         "catNo": "MATSE 199.1",
         "section": "YYY1",
@@ -336,7 +780,7 @@
         "remarks": "*D 1530-1700"
     },
     {
-        "id": "2764f798-c84b-44b5-967e-90477dd39832",
+        "id": "7fb20e11-8047-481c-a582-5db04b70e5a7",
         "deptCode": "CH",
         "catNo": "MATSE 199.2",
         "section": "YYY1",
@@ -348,7 +792,7 @@
         "remarks": "-"
     },
     {
-        "id": "5aa8c5b9-75e2-4636-8594-7bfab6189fab",
+        "id": "b73671f7-ee7e-48a9-9547-88732866618b",
         "deptCode": "CH",
         "catNo": "MATSE 199.2",
         "section": "YYY2",
@@ -360,7 +804,151 @@
         "remarks": "-"
     },
     {
-        "id": "f4d25483-1769-4fbf-b950-2947b09a8d50",
+        "id": "f7b8ae07-939f-481e-932e-2f80de66320f",
+        "deptCode": "CHN",
+        "catNo": "CSP 11",
+        "section": "A",
+        "courseTitle": "CHINESE MANDARIN AND CULTURE 1",
+        "units": "3",
+        "time": "D 0800-0930",
+        "room": "LH 206",
+        "instructor": "ONG, JUBILEE G.",
+        "remarks": "-"
+    },
+    {
+        "id": "8ef3bb22-2080-487e-bf78-e6b0c83fe619",
+        "deptCode": "CHN",
+        "catNo": "CSP 11",
+        "section": "B",
+        "courseTitle": "CHINESE MANDARIN AND CULTURE 1",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "LH 206",
+        "instructor": "ONG, JUBILEE G.",
+        "remarks": "-"
+    },
+    {
+        "id": "1ef2628d-f727-4f35-ace0-78e36dc33b9a",
+        "deptCode": "CHN",
+        "catNo": "CSP 11",
+        "section": "B1",
+        "courseTitle": "CHINESE MANDARIN AND CULTURE 1",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "CTC 204",
+        "instructor": "CHIANG, Jarred Irwin",
+        "remarks": "-"
+    },
+    {
+        "id": "799fdf74-321f-4a4c-9340-39e9c5c95df9",
+        "deptCode": "CHN",
+        "catNo": "CSP 11",
+        "section": "C",
+        "courseTitle": "CHINESE MANDARIN AND CULTURE 1",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "CTC 204",
+        "instructor": "CHIANG, Jarred Irwin",
+        "remarks": "-"
+    },
+    {
+        "id": "cd263f8b-7d40-4b8e-ac10-d2990c7c74d1",
+        "deptCode": "CHN",
+        "catNo": "CSP 11",
+        "section": "D",
+        "courseTitle": "CHINESE MANDARIN AND CULTURE 1",
+        "units": "3",
+        "time": "D 1230-1400",
+        "room": "LH 206",
+        "instructor": "BATA, SIDNEY CHRISTOPHER T.",
+        "remarks": "-"
+    },
+    {
+        "id": "ce42f147-3f09-47bb-9bfb-6caa1176ccfb",
+        "deptCode": "CHN",
+        "catNo": "CSP 11",
+        "section": "D1",
+        "courseTitle": "CHINESE MANDARIN AND CULTURE 1",
+        "units": "3",
+        "time": "D 1230-1400",
+        "room": "CTC 204",
+        "instructor": "YUGIOKSING, JANE T.",
+        "remarks": "-"
+    },
+    {
+        "id": "39b69b07-cb08-469b-85db-7f576e4d8407",
+        "deptCode": "CHN",
+        "catNo": "CSP 11",
+        "section": "E",
+        "courseTitle": "CHINESE MANDARIN AND CULTURE 1",
+        "units": "3",
+        "time": "D 1400-1530",
+        "room": "LH 206",
+        "instructor": "BATA, SIDNEY CHRISTOPHER T.",
+        "remarks": "-"
+    },
+    {
+        "id": "9c9bf361-5145-429b-af7e-613b463af270",
+        "deptCode": "CHN",
+        "catNo": "CSP 11",
+        "section": "E1",
+        "courseTitle": "CHINESE MANDARIN AND CULTURE 1",
+        "units": "3",
+        "time": "D 1400-1530",
+        "room": "CTC 204",
+        "instructor": "YUGIOKSING, JANE T.",
+        "remarks": "-"
+    },
+    {
+        "id": "ed533c34-6e50-4368-9268-55538be2c06a",
+        "deptCode": "CHN",
+        "catNo": "CSP 18",
+        "section": "F",
+        "courseTitle": "HOKKIEN 1",
+        "units": "3",
+        "time": "D 1530-1700",
+        "room": "CTC 204",
+        "instructor": "YUGIOKSING, JANE T.",
+        "remarks": "-"
+    },
+    {
+        "id": "ab3e61e6-d515-4737-b5be-238cc05f66cf",
+        "deptCode": "CHN",
+        "catNo": "CSP 35",
+        "section": "C",
+        "courseTitle": "INTRODUCTION TO CHINESE SOCIETY",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "LH 206",
+        "instructor": "BATA, SIDNEY CHRISTOPHER T.",
+        "remarks": "-"
+    },
+    {
+        "id": "da8f85a7-ec74-4548-9c74-392343517df3",
+        "deptCode": "CHN",
+        "catNo": "CSP 61i",
+        "section": "E",
+        "courseTitle": "SCIENCE AND TECHNOLOGY IN CHINA",
+        "units": "3",
+        "time": "D 1400-1530",
+        "room": "LH 206",
+        "instructor": "ANG, Harveen Jhendall",
+        "remarks": "-"
+    },
+    {
+        "id": "9d1c065e-b23b-446e-85aa-cff3562f7780",
+        "deptCode": "CHN",
+        "catNo": "CSP 71i",
+        "section": "E",
+        "courseTitle": "CHINESE ART AND SOCIETY",
+        "units": "3",
+        "time": "D 1400-1530",
+        "room": "TBA",
+        "instructor": "MEDINA, Aaron Joseph",
+        "remarks": "-"
+    },
+    {
+        "id": "51f36f04-4965-4a1c-973c-f6d6101a0d54",
         "deptCode": "COM",
         "catNo": "COMM 191.03",
         "section": "B",
@@ -372,7 +960,7 @@
         "remarks": "-"
     },
     {
-        "id": "cc0c149e-c358-4d55-9ed2-63b87e7bee99",
+        "id": "70beccee-5a9e-4620-a16f-60589a52c9ec",
         "deptCode": "COM",
         "catNo": "COMM 197",
         "section": "B",
@@ -384,7 +972,7 @@
         "remarks": "ALL SLOTS FOR 4TH YEAR AB COM MAJORS. *PRE-REQ: COMM 190, COMM 193, COMM 194"
     },
     {
-        "id": "697f4fd6-78fc-4651-b837-b75ea60012b3",
+        "id": "f32dba89-17fb-4057-9b3c-2a0bb8342c84",
         "deptCode": "COM",
         "catNo": "COMM 197",
         "section": "C",
@@ -396,7 +984,7 @@
         "remarks": "ALL SLOTS FOR 4TH YEAR AB COM MAJORS. *PRE-REQ: COMM 190, COMM 193, COMM 194"
     },
     {
-        "id": "a8f6efb3-d8a6-4f0c-8fbb-05cd9dd8da14",
+        "id": "aef4733a-7cde-407d-83e1-d775c184137e",
         "deptCode": "COM",
         "catNo": "COMM 197",
         "section": "M1",
@@ -408,7 +996,7 @@
         "remarks": "ALL SLOTS FOR 4TH YEAR AB COM MAJORS. *PRE-REQ: COMM 190, COMM 193, COMM 194"
     },
     {
-        "id": "bc3b1736-b9c0-416e-898d-c507e5b13e8f",
+        "id": "f6328cb9-2ff0-4f18-9394-3ff276942ed2",
         "deptCode": "COM",
         "catNo": "COMM 197",
         "section": "M2",
@@ -420,7 +1008,7 @@
         "remarks": "ALL SLOTS FOR 4TH YEAR AB COM MAJORS. *PRE-REQ: COMM 190, COMM 193, COMM 194"
     },
     {
-        "id": "56016d25-7db5-4ef5-85a4-5ffb04a49c26",
+        "id": "6fb7f6ac-ad34-4599-9327-ef0133bd0d4d",
         "deptCode": "COM",
         "catNo": "COMM 197",
         "section": "N1",
@@ -432,7 +1020,7 @@
         "remarks": "ALL SLOTS FOR 4TH YEAR AB COM MAJORS. *PRE-REQ: COMM 190, COMM 193, COMM 194"
     },
     {
-        "id": "29d64b92-1cce-4978-902b-0aaf5fc05166",
+        "id": "6775f21a-0d9e-4592-bf48-35a479079ce6",
         "deptCode": "COM",
         "catNo": "COMM 197",
         "section": "N2",
@@ -444,7 +1032,7 @@
         "remarks": "ALL SLOTS FOR 4TH YEAR AB COM MAJORS. *PRE-REQ: COMM 190, COMM 193, COMM 194"
     },
     {
-        "id": "558e954e-7b46-4d68-a435-cc7df80ef8dc",
+        "id": "8ed2e671-1f05-41e3-9e20-3863be60fd4a",
         "deptCode": "COM",
         "catNo": "COMM 298",
         "section": "CAPS",
@@ -456,7 +1044,7 @@
         "remarks": "-"
     },
     {
-        "id": "a5d1516e-00d4-4b88-a7f6-beff0d7fcd52",
+        "id": "961cc6fa-07b6-4cdc-ad69-46fa03b26f3a",
         "deptCode": "COM",
         "catNo": "COMM 298",
         "section": "CAPS1",
@@ -468,7 +1056,7 @@
         "remarks": "-"
     },
     {
-        "id": "158d3756-b20f-497f-98d7-77b4f401ec03",
+        "id": "47f0be3e-950e-4436-9b1b-50a592d767fa",
         "deptCode": "COM",
         "catNo": "COMM 299.1",
         "section": "THES1",
@@ -480,7 +1068,7 @@
         "remarks": "-"
     },
     {
-        "id": "2cef7c8c-47f0-428a-92c4-fe9b8d4d05f1",
+        "id": "8657f579-a30b-4c85-bbe9-5ff2421df490",
         "deptCode": "COM",
         "catNo": "COMM 299.2",
         "section": "THES1",
@@ -492,7 +1080,7 @@
         "remarks": "-"
     },
     {
-        "id": "d5ffa937-528e-4d31-a7a3-c88a90280671",
+        "id": "108b14a9-caec-4d61-a9a6-c5f36f5de9ab",
         "deptCode": "COM",
         "catNo": "COMM 299.2",
         "section": "THES2",
@@ -504,7 +1092,7 @@
         "remarks": "-"
     },
     {
-        "id": "15136bd7-b805-4f3e-89da-12c16e5445f8",
+        "id": "d4e74a0d-21dd-447f-bf38-59f859ba19f9",
         "deptCode": "COM",
         "catNo": "COMM 299.2",
         "section": "THES3",
@@ -516,7 +1104,7 @@
         "remarks": "-"
     },
     {
-        "id": "da975125-a469-4665-87e3-9d1596605f3d",
+        "id": "7c592758-9059-4211-8750-bbbbf08a23b2",
         "deptCode": "COM",
         "catNo": "COMM 113",
         "section": "I",
@@ -528,7 +1116,19 @@
         "remarks": "-"
     },
     {
-        "id": "9d5243e0-d92b-4eda-a9a4-f284c0e29a89",
+        "id": "097b95c6-539f-4cc0-a581-080648c63ac7",
+        "deptCode": "CPA",
+        "catNo": "CPA 296",
+        "section": "COMP",
+        "courseTitle": "COMPREHENSIVE EXAMINATIONS",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "NICDAO, RHODORA F.",
+        "remarks": "-"
+    },
+    {
+        "id": "0904bc77-c6d6-44b8-8797-a8bea00f1aab",
         "deptCode": "CPA",
         "catNo": "CPA 298.2",
         "section": "CAPS",
@@ -540,7 +1140,7 @@
         "remarks": "-"
     },
     {
-        "id": "f2f6b30c-dd20-4c1f-90c4-f5a4e269bd68",
+        "id": "5b0a284d-7c23-4ad7-85a4-63fadb020e54",
         "deptCode": "CPA",
         "catNo": "CPA 298.3",
         "section": "CAPS",
@@ -552,7 +1152,7 @@
         "remarks": "-"
     },
     {
-        "id": "7db0469c-695c-46f3-8e71-b2f2377c9879",
+        "id": "5518ff8c-2e0b-4ec3-9d52-0425ded6e917",
         "deptCode": "CPA",
         "catNo": "CPA 298",
         "section": "CAPS",
@@ -560,11 +1160,11 @@
         "units": "6",
         "time": "TBA()",
         "room": "TBA",
-        "instructor": "ALEJO, MA RESURRECCION P., TBA, -",
+        "instructor": "TBA, -",
         "remarks": "-"
     },
     {
-        "id": "ce5c08cb-4f12-41cb-9d03-508a2351b0d8",
+        "id": "89a5c3ed-6928-4adc-bb45-82057658523d",
         "deptCode": "CPA",
         "catNo": "CPA 299.6",
         "section": "SUB-A",
@@ -576,7 +1176,7 @@
         "remarks": "-"
     },
     {
-        "id": "807fe6ae-9c37-40ea-ab8b-038936836586",
+        "id": "012dae1a-5336-4d84-942d-3bf282397e6c",
         "deptCode": "CPA",
         "catNo": "CPA 299.7",
         "section": "SUB-B",
@@ -588,7 +1188,19 @@
         "remarks": "-"
     },
     {
-        "id": "64b9334f-db17-4482-9174-f12956eacba6",
+        "id": "a5eba4d4-6bfe-47f7-a611-1a8476672a34",
+        "deptCode": "CPA",
+        "catNo": "CPA 396",
+        "section": "COMP",
+        "courseTitle": "COMPREHENSIVE EXAM",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "NICDAO, RHODORA F.",
+        "remarks": "-"
+    },
+    {
+        "id": "0637fb91-5e3d-4d8d-b7c2-faebd669216e",
         "deptCode": "CPA",
         "catNo": "EDUC 101i",
         "section": "M",
@@ -600,7 +1212,7 @@
         "remarks": "-"
     },
     {
-        "id": "68b0e3bc-c073-4aaa-ba38-31ce16655a7d",
+        "id": "a5e1821c-6440-4a5a-a9b0-a01464981ecf",
         "deptCode": "CPA",
         "catNo": "EDUC 132i",
         "section": "N",
@@ -612,7 +1224,7 @@
         "remarks": "-"
     },
     {
-        "id": "fa5ad616-5d8c-406e-ba4a-22a835d38553",
+        "id": "afecf876-a8cf-4365-a39b-b266aef1637e",
         "deptCode": "ELM",
         "catNo": "ELM 296",
         "section": "COMP",
@@ -624,7 +1236,7 @@
         "remarks": "-"
     },
     {
-        "id": "6405406c-923c-4457-970c-2551793b8035",
+        "id": "38a6caf7-b119-47f7-a02e-f870c275fd3d",
         "deptCode": "ELM",
         "catNo": "ELM 299.6",
         "section": "SUB-A",
@@ -636,7 +1248,7 @@
         "remarks": "-"
     },
     {
-        "id": "e877238f-8bfc-498f-a1bf-38e63256e2c6",
+        "id": "1e401a93-a5c5-4677-9d28-6f89942850f3",
         "deptCode": "ELM",
         "catNo": "ELM 299.7",
         "section": "SUB-B",
@@ -648,7 +1260,7 @@
         "remarks": "-"
     },
     {
-        "id": "ed3757fd-0ebb-497d-add8-7aec238adb0c",
+        "id": "cc48e488-c432-499c-8d6a-b7ecb6e60bad",
         "deptCode": "ELM",
         "catNo": "ELM 396",
         "section": "COMP",
@@ -660,7 +1272,7 @@
         "remarks": "-"
     },
     {
-        "id": "8787c020-e40d-4d0f-98c9-bdf6f02021c6",
+        "id": "bdbaa4ec-80e5-4f45-9ca9-981cff94204c",
         "deptCode": "DS",
         "catNo": "DEV 183.19",
         "section": "YYY",
@@ -668,11 +1280,11 @@
         "units": "3",
         "time": "TBA",
         "room": "DS DEPT",
-        "instructor": "ABENIR, Mark Anthony, PUNAY, Maria Victoria",
+        "instructor": "ABENIR, Mark Anthony",
         "remarks": "*ATENEO DEVELOPMENT FIELD SCHOOL (ADFS) 2025 from June 9 to July 12, 2025."
     },
     {
-        "id": "6d77df98-cf6d-4efa-9cb8-3640d3ef7312",
+        "id": "e9424fb8-f14d-4bd9-9404-b955607227ce",
         "deptCode": "DS",
         "catNo": "DEV 183.19",
         "section": "YYY1",
@@ -680,11 +1292,11 @@
         "units": "3",
         "time": "TBA",
         "room": "DS DEPT",
-        "instructor": "ABENIR, Mark Anthony, PUNAY, Maria Victoria",
+        "instructor": "PUNAY, Maria Victoria",
         "remarks": "*ATENEO DEVELOPMENT FIELD SCHOOL (ADFS) 2025 from June 9 to July 12, 2025."
     },
     {
-        "id": "89ad14e2-86ac-4fd5-8825-ebf18e9a01e0",
+        "id": "9a4b6d1e-ebfd-4483-851f-68dfa8c5599b",
         "deptCode": "DS",
         "catNo": "DEV 183.23i",
         "section": "I",
@@ -696,7 +1308,31 @@
         "remarks": "*Credited elective for the minor/specialization in Development Management, minor in Health & Development, minor in Humanitarian Action, minor/specialization in Development & the Law and minor/specialization in Urban & Regional Development."
     },
     {
-        "id": "c29fb8e0-985d-443c-b4a3-447e3b10d92e",
+        "id": "b49c8fcb-8253-435b-a0e9-b83869a648aa",
+        "deptCode": "DS",
+        "catNo": "DEV 183.36",
+        "section": "AF",
+        "courseTitle": "SPECIAL TOPICS IN DEVELOPMENT MANAGEMENT: COMMUNITY ORGANIZATION",
+        "units": "3",
+        "time": "D 0800-1700",
+        "room": "CTC 307",
+        "instructor": "ABENIR, Mark Anthony",
+        "remarks": "*ATENEO DEVELOPMENT FIELD SCHOOL (ADFS) 2025 - from June 9 to July 12, 2025."
+    },
+    {
+        "id": "b4c381a2-70ca-44b3-beb4-c2fdef390901",
+        "deptCode": "DS",
+        "catNo": "DEV 183.36",
+        "section": "YYY",
+        "courseTitle": "SPECIAL TOPICS IN DEVELOPMENT MANAGEMENT: COMMUNITY ORGANIZATION",
+        "units": "3",
+        "time": "TBA",
+        "room": "CTC 307",
+        "instructor": "PUNAY, Maria Victoria",
+        "remarks": "*ATENEO DEVELOPMENT FIELD SCHOOL (ADFS) 2025 - from June 9 to July 12, 2025."
+    },
+    {
+        "id": "b731cee8-fcc7-4c0f-909a-de93c8c9cf30",
         "deptCode": "DS",
         "catNo": "DEV 186.99i",
         "section": "O",
@@ -708,7 +1344,19 @@
         "remarks": "*Credited elective for the minor/specialization in Development & the Law and minor/specialization in Urban & Regional Development."
     },
     {
-        "id": "08d16b32-c6e9-446a-aab2-e8836932fa9d",
+        "id": "8265465d-7bd7-4acf-9626-210e5dafc1f3",
+        "deptCode": "DS",
+        "catNo": "DEV 186.39",
+        "section": "N",
+        "courseTitle": "SPECIAL TOPICS IN DEVELOPMENT STUDIES: GENDER AND DEVELOPMENT",
+        "units": "3",
+        "time": "F 1200-1600; T 1130-1500",
+        "room": "B-106; B-106",
+        "instructor": "CLAVERIA, Jeannette Nina",
+        "remarks": "*Credited as an elective for the minor/specialization in Development Management, minor in Health & Development and minor in Humanitarian Action."
+    },
+    {
+        "id": "b8a43822-e99c-45ee-82d9-fe9d5f47d8bf",
         "deptCode": "DS",
         "catNo": "DEV 186.26",
         "section": "O",
@@ -720,7 +1368,7 @@
         "remarks": "*Credited elective for the minor/specialization in Development Management and minor/specialization in Urban & Regional Development."
     },
     {
-        "id": "032c2be3-e356-4bb7-9ddb-a62a043ed386",
+        "id": "993212aa-de3f-4604-9825-abaee7924923",
         "deptCode": "DS",
         "catNo": "DEV 189.83i",
         "section": "A",
@@ -732,7 +1380,7 @@
         "remarks": "*Required subject for the minor in Health & Development. Credited Elective for the minor/specialization in Development & the Law and minor/specialization in Urban & Regional Development."
     },
     {
-        "id": "0ae1081c-53b9-46c6-b529-81c36c39165e",
+        "id": "048ad025-bd4c-4d56-b1cc-d9d6eb67099d",
         "deptCode": "DS",
         "catNo": "DEV 197.1",
         "section": "YYY",
@@ -744,7 +1392,7 @@
         "remarks": "ALL SLOTS FOR 4TH YEAR AB DS MAJORS. *Practicum Class"
     },
     {
-        "id": "883a4efb-fdba-4af4-96fd-c8e97f4817a0",
+        "id": "f379fde0-061b-42fc-974f-ba028643efc8",
         "deptCode": "DS",
         "catNo": "DEV 198.1",
         "section": "YYY",
@@ -756,7 +1404,7 @@
         "remarks": "ALL SLOTS FOR 4TH YEAR AB DS MAJORS. *Thesis Class"
     },
     {
-        "id": "dba40b51-8826-4f56-b377-2387d4d31baa",
+        "id": "a5a3e419-f603-4542-a68f-20df60c0da15",
         "deptCode": "DS",
         "catNo": "DEV 198.2",
         "section": "ZZZ",
@@ -768,7 +1416,7 @@
         "remarks": "ALL SLOTS FOR 4TH YEAR AB DS MAJORS. *Thesis Class"
     },
     {
-        "id": "f487dbb3-b487-4268-bd05-42c359bf6b12",
+        "id": "732c9ce3-13f2-48be-b289-9102a8a25995",
         "deptCode": "EC",
         "catNo": "ECON 110",
         "section": "A",
@@ -780,7 +1428,7 @@
         "remarks": "ALL SLOTS FOR 3RD YEAR BS COMTECH MAJORS. ALL SLOTS FOR 3RD YEAR BS MGT-H MAJORS. ALL SLOTS FOR 3RD YEAR BS AMDSc-M DSc MAJORS. ALL SLOTS FOR 3RD YEAR BS MA MAJORS. ALL SLOTS FOR 3RD YEAR BSM AMF MAJORS. ALL SLOTS FOR 4TH YEAR BS MGT MAJORS. ALL SLOTS FOR 4TH YEAR BS MAC MAJORS."
     },
     {
-        "id": "caab9421-6442-47ed-a5b8-cb5cf6164d94",
+        "id": "53bbb55b-2fee-4613-b14b-f437883ab0ec",
         "deptCode": "EC",
         "catNo": "ECON 110",
         "section": "B",
@@ -792,7 +1440,7 @@
         "remarks": "ALL SLOTS FOR 3RD YEAR BS COMTECH MAJORS. ALL SLOTS FOR 3RD YEAR BS MGT-H MAJORS. ALL SLOTS FOR 3RD YEAR BS AMDSc-M DSc MAJORS. ALL SLOTS FOR 3RD YEAR BS MA MAJORS. ALL SLOTS FOR 3RD YEAR BSM AMF MAJORS. ALL SLOTS FOR 4TH YEAR BS MGT MAJORS. ALL SLOTS FOR 4TH YEAR BS MAC MAJORS."
     },
     {
-        "id": "a33d7c7a-3772-441f-9ed8-7140e9d761e6",
+        "id": "c5a10e1f-765f-46de-81f2-4cae216822c6",
         "deptCode": "EC",
         "catNo": "ECON 110",
         "section": "D",
@@ -804,7 +1452,7 @@
         "remarks": "ALL SLOTS FOR 3RD YEAR BS COMTECH MAJORS. ALL SLOTS FOR 3RD YEAR BS MGT-H MAJORS. ALL SLOTS FOR 3RD YEAR BS AMDSc-M DSc MAJORS. ALL SLOTS FOR 3RD YEAR BS MA MAJORS. ALL SLOTS FOR 3RD YEAR BSM AMF MAJORS. ALL SLOTS FOR 4TH YEAR BS MGT MAJORS. ALL SLOTS FOR 4TH YEAR BS MAC MAJORS."
     },
     {
-        "id": "1b42d6fa-5557-4941-81e8-2461a84cc27b",
+        "id": "216a10d4-da34-4081-9de9-f2d3aeccba4b",
         "deptCode": "EC",
         "catNo": "ECON 110",
         "section": "D1",
@@ -816,7 +1464,7 @@
         "remarks": "ALL SLOTS FOR 3RD YEAR BS COMTECH MAJORS. ALL SLOTS FOR 3RD YEAR BS MGT-H MAJORS. ALL SLOTS FOR 3RD YEAR BS AMDSc-M DSc MAJORS. ALL SLOTS FOR 3RD YEAR BS MA MAJORS. ALL SLOTS FOR 3RD YEAR BSM AMF MAJORS. ALL SLOTS FOR 4TH YEAR BS MGT MAJORS. ALL SLOTS FOR 4TH YEAR BS MAC MAJORS."
     },
     {
-        "id": "75c05416-ebac-402f-b88d-7f915b2dc801",
+        "id": "69c821f6-6ff3-4dbf-b7a5-7dc2c465c50f",
         "deptCode": "EC",
         "catNo": "ECON 110",
         "section": "E",
@@ -828,7 +1476,7 @@
         "remarks": "ALL SLOTS FOR 3RD YEAR BS COMTECH MAJORS. ALL SLOTS FOR 3RD YEAR BS MGT-H MAJORS. ALL SLOTS FOR 3RD YEAR BS AMDSc-M DSc MAJORS. ALL SLOTS FOR 3RD YEAR BS MA MAJORS. ALL SLOTS FOR 3RD YEAR BSM AMF MAJORS. ALL SLOTS FOR 4TH YEAR BS MGT MAJORS. ALL SLOTS FOR 4TH YEAR BS MAC MAJORS."
     },
     {
-        "id": "490dedbb-ea49-4426-adc4-f7655818df31",
+        "id": "5fa97c44-f2a4-4ab0-a54d-ca4787c0bd60",
         "deptCode": "EC",
         "catNo": "ECON 111",
         "section": "E",
@@ -840,7 +1488,7 @@
         "remarks": "-"
     },
     {
-        "id": "bdd5bd46-bcc8-4cf1-9e36-e17bddbeec91",
+        "id": "77f99416-8d9e-4ecc-af73-fc49b3fbe901",
         "deptCode": "EC",
         "catNo": "ECON 185.69i",
         "section": "F",
@@ -852,7 +1500,7 @@
         "remarks": "-"
     },
     {
-        "id": "57457d34-08fe-4664-8274-2c5e0489226e",
+        "id": "b4f338a5-443c-4fc7-ac4c-c514174ab8b4",
         "deptCode": "EC",
         "catNo": "ECON 185.69i",
         "section": "G",
@@ -864,7 +1512,7 @@
         "remarks": "-"
     },
     {
-        "id": "d0ef3ca8-5ab7-4c9b-b4b4-c87b3966e241",
+        "id": "9dd39e96-b3d8-462f-abbd-0c2fc2d9bd58",
         "deptCode": "EC",
         "catNo": "ECON 197",
         "section": "SXS1b",
@@ -876,7 +1524,7 @@
         "remarks": "-"
     },
     {
-        "id": "990cf718-90f7-4f9f-abba-7862499fd166",
+        "id": "1c9cba59-99dd-4986-8828-e7b3ba91f586",
         "deptCode": "EC",
         "catNo": "ECON 296",
         "section": "COMP",
@@ -888,7 +1536,7 @@
         "remarks": "-"
     },
     {
-        "id": "37915c4f-ca1c-471b-bb68-d9829dc0a460",
+        "id": "aeebcc22-94e2-4a18-92dc-6ea57a378407",
         "deptCode": "EC",
         "catNo": "ECON 396",
         "section": "COMP",
@@ -900,7 +1548,7 @@
         "remarks": "-"
     },
     {
-        "id": "a2a707c8-cee3-4f14-ae59-d0461ad0bb96",
+        "id": "13fe65a5-9c01-429b-84e2-48fb158b3a2a",
         "deptCode": "EC",
         "catNo": "ECON 399.7",
         "section": "YYY",
@@ -912,7 +1560,7 @@
         "remarks": "-"
     },
     {
-        "id": "a2161ca4-9d72-485f-a30f-4b698dcae370",
+        "id": "a5fe9699-e37c-4592-878b-6806b81a0e8c",
         "deptCode": "ECE",
         "catNo": "ENGG 21",
         "section": "A",
@@ -924,7 +1572,7 @@
         "remarks": "-"
     },
     {
-        "id": "2dfdcc5f-4505-4300-a59f-c75034917776",
+        "id": "0f41b5e5-fa6c-4fd8-8e77-876b4138d2d7",
         "deptCode": "ECE",
         "catNo": "ENGG 21",
         "section": "B",
@@ -936,7 +1584,7 @@
         "remarks": "-"
     },
     {
-        "id": "15660da3-057d-4fb4-9ec1-3478c2fb9ef5",
+        "id": "757b2b36-cc61-4e6e-8c87-939c17c23463",
         "deptCode": "ECE",
         "catNo": "ENGG 122.01",
         "section": "B",
@@ -948,7 +1596,19 @@
         "remarks": "-"
     },
     {
-        "id": "9277af8c-0106-4150-8f9f-cb5dd51d6a5d",
+        "id": "03f0fda7-567b-4a15-bc08-34d116cbfc4a",
+        "deptCode": "ECE",
+        "catNo": "ENGG 122.02",
+        "section": "ZZZ",
+        "courseTitle": "MICROPROCESSORS AND MICROCONTROLLERS, LABORATORY",
+        "units": "1",
+        "time": "TUTORIAL 0000-0000",
+        "room": "F-323",
+        "instructor": "OPPUS, CARLOS M.",
+        "remarks": "*Lab Schedule is M 1300-1600; W 1300-1600"
+    },
+    {
+        "id": "10a6b86c-bf4d-40d2-96c6-9f790e174846",
         "deptCode": "ECE",
         "catNo": "ENGG 197",
         "section": "SXS1",
@@ -960,7 +1620,7 @@
         "remarks": "-"
     },
     {
-        "id": "7a4c2c44-b6d1-45e6-94e5-b38f77c4c804",
+        "id": "96f21ced-b4a8-4206-b02c-ff0e8ee64bb6",
         "deptCode": "ECE",
         "catNo": "ENGG 197",
         "section": "SXS1a",
@@ -972,7 +1632,7 @@
         "remarks": "-"
     },
     {
-        "id": "cf082988-a509-4f72-b3bb-db77a83e3013",
+        "id": "cd86df3b-6a94-4d55-9ae0-aad3d23c9890",
         "deptCode": "EN",
         "catNo": "ENE 13.03i",
         "section": "A",
@@ -984,7 +1644,7 @@
         "remarks": "-"
     },
     {
-        "id": "8352d15e-61c6-41c1-bdc7-afe46206978e",
+        "id": "aa0fd23d-bdee-40f2-bf61-52d459dbb564",
         "deptCode": "EN",
         "catNo": "ENE 13.03i",
         "section": "B",
@@ -996,7 +1656,7 @@
         "remarks": "-"
     },
     {
-        "id": "a2425e9b-a961-4207-ba09-37a027f76b56",
+        "id": "eb0a5e57-a5b6-4a8f-9aa0-8ec9689d316a",
         "deptCode": "EN",
         "catNo": "ENE 13.04i",
         "section": "B",
@@ -1008,7 +1668,7 @@
         "remarks": "-"
     },
     {
-        "id": "0c75fa8a-ed1d-4350-a918-84213c94aece",
+        "id": "ec4a39a9-f2e0-4c4b-9ac8-091e03099ab5",
         "deptCode": "EN",
         "catNo": "ENE 13.04i",
         "section": "B1",
@@ -1020,7 +1680,7 @@
         "remarks": "-"
     },
     {
-        "id": "55429248-4814-4f2f-ba2c-8d986e1830ed",
+        "id": "86270495-27ae-4d35-84e9-237aabdbcd4a",
         "deptCode": "EN",
         "catNo": "ENE 13.04i",
         "section": "B2",
@@ -1032,7 +1692,7 @@
         "remarks": "-"
     },
     {
-        "id": "b91c324f-022f-46b0-b85e-c778621c549f",
+        "id": "50fccba0-cf23-400b-ab95-c8132b591177",
         "deptCode": "EN",
         "catNo": "ENE 13.04i",
         "section": "C",
@@ -1044,7 +1704,7 @@
         "remarks": "-"
     },
     {
-        "id": "827f1495-1d25-4758-86c5-994380667d13",
+        "id": "5a0a3bf5-516b-4bda-a1f8-92551dc0f967",
         "deptCode": "EN",
         "catNo": "ENE 13.04i",
         "section": "C1",
@@ -1056,7 +1716,7 @@
         "remarks": "-"
     },
     {
-        "id": "4678a821-1dbc-44aa-bbd8-759f87acf262",
+        "id": "e7655138-af8e-4b02-85bb-3e092c17bb8d",
         "deptCode": "EN",
         "catNo": "ENE 13.04i",
         "section": "D",
@@ -1068,7 +1728,7 @@
         "remarks": "-"
     },
     {
-        "id": "a9671175-48bd-470b-bd8a-79aca517bb8d",
+        "id": "ce7062f3-29d7-4ac5-9cf2-5834c3712ccb",
         "deptCode": "EN",
         "catNo": "ENE 13.04i",
         "section": "D1",
@@ -1080,7 +1740,7 @@
         "remarks": "-"
     },
     {
-        "id": "cb3c2d61-117a-4c2a-9248-8cef0d629d2e",
+        "id": "a7e00926-4bec-4cc7-968a-e24cc697b4f4",
         "deptCode": "EN",
         "catNo": "ENE 13.04i",
         "section": "E",
@@ -1092,7 +1752,7 @@
         "remarks": "-"
     },
     {
-        "id": "dc726c08-8d16-4110-92b4-2ccf74f73f06",
+        "id": "b79b305e-077e-48e8-b7f7-6c46d892e546",
         "deptCode": "EN",
         "catNo": "ENE 13.04i",
         "section": "F",
@@ -1104,7 +1764,7 @@
         "remarks": "-"
     },
     {
-        "id": "8cce87b1-4314-409b-ad4e-f61f247c5768",
+        "id": "15c1a665-2de8-4a18-ad3c-2aa9073e0733",
         "deptCode": "EN",
         "catNo": "ENE 13.04i",
         "section": "F1",
@@ -1116,7 +1776,7 @@
         "remarks": "-"
     },
     {
-        "id": "6bc65cbb-c0ec-4711-9a12-069b91278e73",
+        "id": "bdcdd3ea-eb3e-4603-acab-6a87cf4fd8ae",
         "deptCode": "EN",
         "catNo": "ENE 13.05i",
         "section": "A",
@@ -1128,7 +1788,7 @@
         "remarks": "-"
     },
     {
-        "id": "8a9f5ca2-5fd2-4ce0-8fd1-118500c48652",
+        "id": "777f9242-7a46-4f0c-b678-455ed6b406d1",
         "deptCode": "EN",
         "catNo": "ENE 13.05i",
         "section": "A1",
@@ -1140,7 +1800,7 @@
         "remarks": "-"
     },
     {
-        "id": "53aa5ddf-2cb3-463b-97bd-311fbfc36eb4",
+        "id": "6811cb67-dac9-40f3-9861-16a7b8b9c6f9",
         "deptCode": "EN",
         "catNo": "ENE 13.05i",
         "section": "C",
@@ -1152,7 +1812,7 @@
         "remarks": "-"
     },
     {
-        "id": "7c6d087e-1eab-4df4-b038-e55cb5c2e971",
+        "id": "42f72b13-a4b2-46b2-a379-86aa3e4544da",
         "deptCode": "EN",
         "catNo": "ENE 13.05i",
         "section": "D",
@@ -1164,7 +1824,7 @@
         "remarks": "-"
     },
     {
-        "id": "7882b106-da6f-44d3-9931-a48694fca0c4",
+        "id": "acab136e-ec1e-46d0-b6c9-f7fc05b9f5db",
         "deptCode": "EN",
         "catNo": "ENE 13.05i",
         "section": "E",
@@ -1176,7 +1836,7 @@
         "remarks": "-"
     },
     {
-        "id": "2d3c2506-bf93-4c6e-b266-6d39d16daa06",
+        "id": "7766a17b-cc9f-4820-af71-d67b4b6e1bb1",
         "deptCode": "EN",
         "catNo": "ENE 13.05i",
         "section": "F",
@@ -1188,7 +1848,7 @@
         "remarks": "-"
     },
     {
-        "id": "9000d53f-0eeb-4480-b970-4e527710dee9",
+        "id": "afea5388-9013-48d7-861f-ada4b17dec64",
         "deptCode": "EN",
         "catNo": "ENE 13.06i",
         "section": "C",
@@ -1200,7 +1860,7 @@
         "remarks": "-"
     },
     {
-        "id": "5d4e4de5-f7d0-4dd1-b83d-6457300b465a",
+        "id": "dc2e601f-9f06-4867-9614-09851a4e58cf",
         "deptCode": "EN",
         "catNo": "ENE 13.06i",
         "section": "D",
@@ -1212,7 +1872,7 @@
         "remarks": "-"
     },
     {
-        "id": "5376e64f-f970-486f-a639-cf4b9bad8cb2",
+        "id": "065e0761-5999-46e7-bcbd-c7b9e1112eef",
         "deptCode": "EN",
         "catNo": "ENE 13.06i",
         "section": "E",
@@ -1224,7 +1884,19 @@
         "remarks": "-"
     },
     {
-        "id": "209e513e-a3ba-4e44-953e-abeac534ba5a",
+        "id": "9786a909-55ef-4d1b-aa3e-cd00615622d9",
+        "deptCode": "EN",
+        "catNo": "ENGL 206",
+        "section": "TH-GH-S-AC",
+        "courseTitle": "PRINCIPLES AND PRACTICES OF LITERATURE TEACHING",
+        "units": "3",
+        "time": "SAT 0800-1100; TH 1700-2130",
+        "room": "CTC 104; CTC 104",
+        "instructor": "SORIANO, ANNETTE A.",
+        "remarks": "-"
+    },
+    {
+        "id": "507a7e11-f50e-4f32-91d6-6353f4267a7f",
         "deptCode": "EN",
         "catNo": "ENGL 298",
         "section": "CAPS",
@@ -1236,7 +1908,7 @@
         "remarks": "-"
     },
     {
-        "id": "c9e980bc-4778-4e48-97bf-0d7794f5bf6d",
+        "id": "8c798cf4-d6da-4560-b7fb-905fc66f85a5",
         "deptCode": "EN",
         "catNo": "ENGL 299.1",
         "section": "THES/DISS1",
@@ -1248,7 +1920,7 @@
         "remarks": "-"
     },
     {
-        "id": "f494e9dc-e29a-46a9-9354-0e0912057a0a",
+        "id": "f2334a17-6e56-40a6-bf95-d023f2ec9db0",
         "deptCode": "EN",
         "catNo": "ENGL 299.1",
         "section": "THES/DISS2",
@@ -1260,7 +1932,7 @@
         "remarks": "-"
     },
     {
-        "id": "02e970ca-f89a-4161-ba1a-87d8cef690a0",
+        "id": "8353ec08-5390-4b89-95c1-6f87a76c2bb6",
         "deptCode": "EN",
         "catNo": "ENGL 299.1",
         "section": "THES/DISS3",
@@ -1272,7 +1944,7 @@
         "remarks": "-"
     },
     {
-        "id": "bebeb0f3-689a-48d7-965e-76a0ae4bdec0",
+        "id": "7224ea48-a330-43df-92ea-62babdfd19ff",
         "deptCode": "EN",
         "catNo": "ENGL 299.1",
         "section": "THES/DISS4",
@@ -1284,7 +1956,7 @@
         "remarks": "-"
     },
     {
-        "id": "ce9d8994-c2e8-4860-a788-5d9e955fc2cc",
+        "id": "de944536-ac4f-4622-ba6d-2e8abf398c49",
         "deptCode": "EN",
         "catNo": "ENGL 299.1",
         "section": "THES/DISS5",
@@ -1296,7 +1968,7 @@
         "remarks": "-"
     },
     {
-        "id": "28a24a64-e5b5-4d0e-be4c-8e195491fcec",
+        "id": "1103199f-4503-4bfb-97e8-eea6ce2694c6",
         "deptCode": "EN",
         "catNo": "ENGL 299.1",
         "section": "THES/DISS6",
@@ -1308,7 +1980,7 @@
         "remarks": "-"
     },
     {
-        "id": "e470dd6a-1a3c-4668-ad0b-e1a4b3d55b82",
+        "id": "5cbb7bae-6dca-4f70-b8e1-b89d8194afcf",
         "deptCode": "EN",
         "catNo": "ENGL 299.2",
         "section": "THES/DISS1",
@@ -1320,7 +1992,7 @@
         "remarks": "-"
     },
     {
-        "id": "11ed09ae-f4a9-4536-a507-cc973946a65e",
+        "id": "d7c02155-c605-415b-8b4c-6c30ef640b7f",
         "deptCode": "EN",
         "catNo": "ENGL 299.2",
         "section": "THES/DISS2",
@@ -1332,7 +2004,7 @@
         "remarks": "-"
     },
     {
-        "id": "e85cf425-bd8d-4b24-9515-179510b60c96",
+        "id": "48e4594d-210d-4bc2-b3fa-6bebdd62efce",
         "deptCode": "EN",
         "catNo": "ENGL 299.2",
         "section": "THES/DISS3",
@@ -1344,7 +2016,7 @@
         "remarks": "-"
     },
     {
-        "id": "2ceb347c-5f3c-442d-81b1-6009c4d32398",
+        "id": "7d045333-9e01-4eb7-8b6a-86d35ddb749f",
         "deptCode": "EN",
         "catNo": "ENGL 299.2",
         "section": "THES/DISS4",
@@ -1356,7 +2028,7 @@
         "remarks": "-"
     },
     {
-        "id": "de8f9870-70ce-42f4-9b05-9e2b28a48e99",
+        "id": "5f19c928-1c40-4790-950c-61aae2a24fd6",
         "deptCode": "EN",
         "catNo": "ENGL 299.2",
         "section": "THES/DISS5",
@@ -1368,7 +2040,7 @@
         "remarks": "-"
     },
     {
-        "id": "9092593c-9cde-4241-8842-9b1ba62279c8",
+        "id": "980b70b6-63d6-42ac-ab07-495413975205",
         "deptCode": "EN",
         "catNo": "ENGL 299.6",
         "section": "SUB-A",
@@ -1380,7 +2052,7 @@
         "remarks": "-"
     },
     {
-        "id": "1cacbf41-7845-4fd7-8dc2-4dd4f56cc6ea",
+        "id": "37d3a323-66ae-401a-ab81-091810586901",
         "deptCode": "EN",
         "catNo": "ENGL 299.7",
         "section": "SUB-B",
@@ -1392,7 +2064,7 @@
         "remarks": "-"
     },
     {
-        "id": "cf4e6c3d-ea2d-4cd2-a650-d8e6fde0b8d1",
+        "id": "54eae635-e709-4408-b248-a0da03871db0",
         "deptCode": "EN",
         "catNo": "ENLL 396",
         "section": "COMP",
@@ -1404,7 +2076,7 @@
         "remarks": "-"
     },
     {
-        "id": "a83ca09e-cda2-41f8-b5ab-710932a49364",
+        "id": "c53e67ed-54e6-45f4-b1f8-50aa3d8783f3",
         "deptCode": "EN",
         "catNo": "ENLL 399.1",
         "section": "THES/DISS1",
@@ -1416,7 +2088,7 @@
         "remarks": "-"
     },
     {
-        "id": "9699ac2b-874d-4f8c-8f4b-2e0acc23a286",
+        "id": "0d621556-1479-4949-9cad-96e184d19bbd",
         "deptCode": "EN",
         "catNo": "ENLL 399.1",
         "section": "THES/DISS2",
@@ -1428,7 +2100,7 @@
         "remarks": "-"
     },
     {
-        "id": "57f7ad53-1a0d-4cc5-85f1-c0b370a9db67",
+        "id": "e03394eb-befa-4ca0-9bf2-9f48e4e8c37a",
         "deptCode": "EN",
         "catNo": "ENLL 399.1",
         "section": "THES/DISS3",
@@ -1440,7 +2112,7 @@
         "remarks": "-"
     },
     {
-        "id": "a807cb31-b8f3-40c2-90c7-939436db15f6",
+        "id": "73796cd6-128a-4cca-b03d-68a55c38335e",
         "deptCode": "EN",
         "catNo": "ENLL 399.1",
         "section": "THES/DISS4",
@@ -1452,7 +2124,7 @@
         "remarks": "-"
     },
     {
-        "id": "5dd772da-1bd9-47f5-9e5a-aae8f0643782",
+        "id": "f32c4c5f-8b29-4963-a2f7-2fa5dd897ed5",
         "deptCode": "EN",
         "catNo": "ENLL 399.1",
         "section": "THES/DISS5",
@@ -1464,7 +2136,7 @@
         "remarks": "-"
     },
     {
-        "id": "6a66a591-8493-4e6b-b9ae-48ba38731ca4",
+        "id": "385e4cc2-e837-425f-a2e6-402d034b0422",
         "deptCode": "EN",
         "catNo": "ENLL 399.1",
         "section": "THES/DISS6",
@@ -1476,7 +2148,7 @@
         "remarks": "-"
     },
     {
-        "id": "7a924ccf-e3e4-454d-8333-24852682f90c",
+        "id": "50766f39-ceb2-44b8-b4bb-c9647f325b8c",
         "deptCode": "EN",
         "catNo": "ENLL 399.1",
         "section": "THES/DISS7",
@@ -1488,7 +2160,7 @@
         "remarks": "-"
     },
     {
-        "id": "fcb73a21-8e22-4da9-a6f5-65d18219915b",
+        "id": "ba863668-779e-4f7b-99af-0a06ec1d6b29",
         "deptCode": "EN",
         "catNo": "ENLL 399.1",
         "section": "THES/DISS8",
@@ -1500,7 +2172,7 @@
         "remarks": "-"
     },
     {
-        "id": "8f1602b9-200c-4747-8383-f35fd4685c64",
+        "id": "46be7143-3a23-4e54-9eb5-d9825060933e",
         "deptCode": "EN",
         "catNo": "ENLL 399.2",
         "section": "THES/DISS1",
@@ -1512,7 +2184,7 @@
         "remarks": "-"
     },
     {
-        "id": "f7cde5a4-f3f2-4cb0-a836-76c3e538b7d0",
+        "id": "659971de-7372-4b30-b928-1e6cdf5d5ad6",
         "deptCode": "EN",
         "catNo": "ENLL 399.2",
         "section": "THES/DISS2",
@@ -1524,7 +2196,7 @@
         "remarks": "-"
     },
     {
-        "id": "0b7f6086-c2c9-4e5c-b151-54e94dcbc804",
+        "id": "68871f8e-d02f-4778-8a66-d6baea022b15",
         "deptCode": "EN",
         "catNo": "ENLL 399.2",
         "section": "THES/DISS3",
@@ -1536,7 +2208,7 @@
         "remarks": "-"
     },
     {
-        "id": "5401c506-98a5-46ae-b80c-f9e77b13c74c",
+        "id": "a7147be9-bd85-4743-bfd8-0cb1765ee7ba",
         "deptCode": "EN",
         "catNo": "ENLL 399.2",
         "section": "THES/DISS4",
@@ -1548,7 +2220,7 @@
         "remarks": "-"
     },
     {
-        "id": "c0a9676e-d635-4dc4-931c-5e522e7730f5",
+        "id": "544f9289-e1aa-4a7e-8de7-05e9a707323b",
         "deptCode": "EN",
         "catNo": "ENLL 399.2",
         "section": "THES/DISS5",
@@ -1560,7 +2232,7 @@
         "remarks": "-"
     },
     {
-        "id": "2ac2a835-d0c4-4c34-b976-cb487f6c57af",
+        "id": "3ab79205-7b27-4ab2-b4ab-ce66e97960a0",
         "deptCode": "EN",
         "catNo": "ENLL 399.2",
         "section": "THES/DISS6",
@@ -1572,7 +2244,7 @@
         "remarks": "-"
     },
     {
-        "id": "0b6be64e-c374-4080-859b-9c3c8801ecfd",
+        "id": "3f258f45-18cb-4dc4-906a-6d93faff9c36",
         "deptCode": "EN",
         "catNo": "ENLL 399.2",
         "section": "THES/DISS7",
@@ -1584,7 +2256,7 @@
         "remarks": "-"
     },
     {
-        "id": "1457df48-6972-4345-8b61-0ed2b208df1c",
+        "id": "b2f8229f-d5a4-4957-b587-fd8f645d6673",
         "deptCode": "EN",
         "catNo": "ENLL 399.6",
         "section": "SUB-A",
@@ -1596,7 +2268,7 @@
         "remarks": "-"
     },
     {
-        "id": "d33f6cb4-a500-4028-a57c-920897d2859b",
+        "id": "e6699ff1-d858-4a71-90f6-66a4a45c3689",
         "deptCode": "EN",
         "catNo": "ENLL 399.7",
         "section": "SUB-B",
@@ -1608,7 +2280,7 @@
         "remarks": "-"
     },
     {
-        "id": "a09b8c95-e6dc-47e1-b91a-a634806f9ef3",
+        "id": "c600b55a-d2af-4793-a1cb-25706d9265b6",
         "deptCode": "ES",
         "catNo": "DIRR 298.1",
         "section": "CAPS",
@@ -1620,7 +2292,7 @@
         "remarks": "-"
     },
     {
-        "id": "a7f1334c-4f7c-4222-8064-ffb2c91fd105",
+        "id": "2a2f1a03-0bb8-4960-90ec-5f7d802a166b",
         "deptCode": "ES",
         "catNo": "DIRR 298.2",
         "section": "CAPS",
@@ -1632,7 +2304,7 @@
         "remarks": "-"
     },
     {
-        "id": "0491b20a-f028-4de6-aca4-3a238cba655a",
+        "id": "e194c7b9-c8f8-40b4-9811-fbae8bb1e9ed",
         "deptCode": "ES",
         "catNo": "ENVI 10.01",
         "section": "A",
@@ -1644,7 +2316,7 @@
         "remarks": "12 SLOT(S) FOR ECE STUDENTS. 18 SLOT(S) FOR BS ES MAJORS."
     },
     {
-        "id": "1a2459d4-12ef-4890-96bb-64cefd347d44",
+        "id": "669d012c-ba9b-4e87-a9c4-d4519fb81084",
         "deptCode": "ES",
         "catNo": "ENVI 10.01",
         "section": "C",
@@ -1656,7 +2328,7 @@
         "remarks": "5 SLOT(S) FOR BS CS MAJORS. 5 SLOT(S) FOR BS CS-DGDD MAJORS. *Free for all"
     },
     {
-        "id": "f6c61684-bd01-4a56-b6ff-80ac6b1ffd7d",
+        "id": "c901ad1b-731a-4886-811c-6147c51f4c88",
         "deptCode": "ES",
         "catNo": "ENVI 10.01",
         "section": "D",
@@ -1668,7 +2340,7 @@
         "remarks": "-"
     },
     {
-        "id": "ea3ddf6d-de24-4c1b-bcfa-4276b4a6c9f5",
+        "id": "f40ae07f-64b6-4bc6-9667-8efe0780c7d0",
         "deptCode": "ES",
         "catNo": "ENVI 100.03",
         "section": "B",
@@ -1680,7 +2352,7 @@
         "remarks": "-"
     },
     {
-        "id": "77e5eb69-37c1-465e-a0c7-112fddb5037a",
+        "id": "ff8e4bf9-6fb4-4f81-be1c-6ad58fa57b71",
         "deptCode": "ES",
         "catNo": "ENVI 100.03",
         "section": "B1",
@@ -1692,7 +2364,7 @@
         "remarks": "-"
     },
     {
-        "id": "12e31af2-70c8-4f15-9aef-8c1609d0e1b3",
+        "id": "0e05b074-462b-43e2-b8ea-696222049fde",
         "deptCode": "ES",
         "catNo": "ENVI 172i",
         "section": "C",
@@ -1700,11 +2372,11 @@
         "units": "3",
         "time": "D 1100-1230",
         "room": "SEC-A205",
-        "instructor": "SATUMBAGA, DAWN IVA P.",
+        "instructor": "DAYRIT, SOPHIA ANGELI S.",
         "remarks": "-"
     },
     {
-        "id": "b02f48ac-ddf6-47f0-a504-52beb9c84ee1",
+        "id": "365c0a75-8bc6-4062-a602-13ad877795d1",
         "deptCode": "ES",
         "catNo": "ENVI 172i",
         "section": "D",
@@ -1716,7 +2388,7 @@
         "remarks": "10 SLOT(S) FOR BS CS MAJORS. 10 SLOT(S) FOR BS CS-DGDD MAJORS."
     },
     {
-        "id": "30156af7-b3cd-4208-b05f-1c58a1f6ffb6",
+        "id": "a37e096d-84fc-493f-b15b-e03965b9628b",
         "deptCode": "ES",
         "catNo": "ENVI 396",
         "section": "YYY2",
@@ -1724,11 +2396,11 @@
         "units": "0",
         "time": "TBA",
         "room": "TBA",
-        "instructor": "BUENAFLOR, Katherine",
+        "instructor": "MENDOZA, Milette",
         "remarks": "-"
     },
     {
-        "id": "ae092c1f-5470-4bc9-8a12-3b4db7a8067c",
+        "id": "83093674-9d48-46ff-a9f2-39f96aac1e90",
         "deptCode": "ES",
         "catNo": "ENVI 399.11",
         "section": "YYY",
@@ -1740,7 +2412,7 @@
         "remarks": "*Ariadne Pada - de Vera Mark Xaiver Bailon"
     },
     {
-        "id": "4f1c6f62-bba9-473a-87eb-d5724b0fb6f1",
+        "id": "4f3632a9-a84b-4b26-9b3d-4f1f2298af76",
         "deptCode": "ES",
         "catNo": "ENVI 399.12",
         "section": "YYY",
@@ -1752,7 +2424,7 @@
         "remarks": "*For Alen Clyde Canlas"
     },
     {
-        "id": "0d4a19d5-aa3b-478f-a642-3e117cd645e8",
+        "id": "56cb0b16-1a26-40e7-9b74-5f5c195ff24b",
         "deptCode": "ES",
         "catNo": "MEM 296",
         "section": "COMP",
@@ -1760,11 +2432,11 @@
         "units": "0",
         "time": "TBA",
         "room": "TBA",
-        "instructor": "BUENAFLOR, Katherine",
+        "instructor": "MENDOZA, Milette",
         "remarks": "-"
     },
     {
-        "id": "6620b9ca-80b4-4d22-9209-dc6c6efb54c1",
+        "id": "bc8daa0d-7592-4309-940b-8fab93f42b79",
         "deptCode": "ES",
         "catNo": "MEM 298",
         "section": "THES",
@@ -1776,31 +2448,31 @@
         "remarks": "-"
     },
     {
-        "id": "6e61f53f-e1c1-4a4f-bc80-242bf9b66e53",
+        "id": "b00d9e08-daf5-4d1d-a8c4-92011f4d625c",
         "deptCode": "EU",
         "catNo": "EURO 23i",
         "section": "J",
         "courseTitle": "INTERDISCIPLINARY ELECTIVE: EUROPE, GLOBALIZATION AND POPULAR CULTURE",
         "units": "3",
         "time": "M 1130-1500; TH 1200-1600",
-        "room": "K-204; K-204",
+        "room": "CTC 118; CTC 118",
         "instructor": "ENVERGA III, MANUEL R.",
         "remarks": "-"
     },
     {
-        "id": "89a3e4fa-4a4f-4f24-9829-243a846a31f7",
+        "id": "e181f234-1a40-40c9-8d94-7ca82f3aecf1",
         "deptCode": "EU",
         "catNo": "EURO 197",
         "section": "SXS1",
         "courseTitle": "INTEGRATING CLASS",
         "units": "3",
         "time": "SAT 0800-1100; SAT 1230-1700",
-        "room": "K-204; K-204",
+        "room": "CTC 118; CTC 118",
         "instructor": "TIONLOC, JAVIER RICO ISRAEL R.",
         "remarks": "-"
     },
     {
-        "id": "15889704-62c2-42ff-bcf1-85cc60e54865",
+        "id": "31fb6feb-0796-44b7-835e-280fea1157a9",
         "deptCode": "FIL",
         "catNo": "FILI 12",
         "section": "I",
@@ -1812,7 +2484,7 @@
         "remarks": "-"
     },
     {
-        "id": "a3daf262-91a4-4f82-8314-02895606b4cf",
+        "id": "835b8aec-44a0-45d0-8b9c-18a21f7920cb",
         "deptCode": "FIL",
         "catNo": "PNTKN 135.03i",
         "section": "SXW2",
@@ -1824,7 +2496,7 @@
         "remarks": "-"
     },
     {
-        "id": "6216eb98-b698-411a-87b0-04cd11c08b17",
+        "id": "39a29d99-c820-4df2-a889-ad198928c56d",
         "deptCode": "FIL",
         "catNo": "PNTKN 149.03i",
         "section": "SXW1",
@@ -1836,7 +2508,151 @@
         "remarks": "-"
     },
     {
-        "id": "bfd52082-8206-4d09-a671-ce376ecde077",
+        "id": "b59b4821-2397-4041-99c1-0f01f233b9aa",
+        "deptCode": "FAA",
+        "catNo": "ACCT 115",
+        "section": "I",
+        "courseTitle": "FINANCIAL ACCOUNTING",
+        "units": "3",
+        "time": "M 0800-1130; TH 0800-1200",
+        "room": "SOM 102; SOM 102",
+        "instructor": "CHUA, Alexis",
+        "remarks": "-"
+    },
+    {
+        "id": "914251ab-7c92-4eee-94e5-44a6c3ddce27",
+        "deptCode": "FAA",
+        "catNo": "ACCT 135",
+        "section": "C",
+        "courseTitle": "ADVANCED MANAGERIAL ACCOUNTING",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "CTC 308",
+        "instructor": "CASTOLO, Lester Joseph",
+        "remarks": "*COMPETITION CLASS"
+    },
+    {
+        "id": "c9cb6d85-d880-4105-b0da-53a02eaacb00",
+        "deptCode": "FAA",
+        "catNo": "FINN 113",
+        "section": "A",
+        "courseTitle": "PRINCIPLES OF FINANCE",
+        "units": "3",
+        "time": "D 0800-0930",
+        "room": "CTC 406",
+        "instructor": "MADARANG, Emmanuel Richard",
+        "remarks": "-"
+    },
+    {
+        "id": "5717c2cd-9115-4106-bb5b-c7f8e15baa14",
+        "deptCode": "FAA",
+        "catNo": "FINN 115",
+        "section": "B",
+        "courseTitle": "FINANCIAL MANAGEMENT",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "CTC 308",
+        "instructor": "CASTOLO, Lester Joseph",
+        "remarks": "ALL SLOTS FOR BS ME MAJORS."
+    },
+    {
+        "id": "5d132d52-0c55-478d-a8dd-d2357865e025",
+        "deptCode": "FAA",
+        "catNo": "FINN 115",
+        "section": "N",
+        "courseTitle": "FINANCIAL MANAGEMENT",
+        "units": "3",
+        "time": "F 1200-1600; T 1130-1500",
+        "room": "SOM 102; SOM 102",
+        "instructor": "GARCIA, Igor Expeditus",
+        "remarks": "ALL SLOTS FOR BS COMTECH MAJORS."
+    },
+    {
+        "id": "a3f5f135-2035-4910-bb05-97700e9b8cab",
+        "deptCode": "FAA",
+        "catNo": "FINN 117",
+        "section": "B",
+        "courseTitle": "ENTREPRENEURIAL FINANCE",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "CTC 406",
+        "instructor": "MADARANG, Emmanuel Richard",
+        "remarks": "ALL SLOTS FOR BS MGT-H MAJORS. ALL SLOTS FOR BS ITE MAJORS."
+    },
+    {
+        "id": "9eafed4a-0674-4a9f-87dc-a1cdeeda2c78",
+        "deptCode": "FAA",
+        "catNo": "FINN 117",
+        "section": "O",
+        "courseTitle": "ENTREPRENEURIAL FINANCE",
+        "units": "3",
+        "time": "F 1600-2000; T 1500-1830",
+        "room": "SOM 102; SOM 102",
+        "instructor": "GARCIA, Igor Expeditus",
+        "remarks": "ALL SLOTS FOR BS MGT MAJORS."
+    },
+    {
+        "id": "3057c18e-161f-4c5b-987f-f193a9876a42",
+        "deptCode": "FA",
+        "catNo": "ARTS 197",
+        "section": "YYY",
+        "courseTitle": "INTERNSHIP AND PROFESSIONAL EXPOSURE",
+        "units": "3",
+        "time": "TBA",
+        "room": "TBA",
+        "instructor": "VELASCO-WANSOM, MOLINIA ANNE T.",
+        "remarks": "-"
+    },
+    {
+        "id": "2fd1d376-3da4-4709-970e-01bea1a94156",
+        "deptCode": "FA",
+        "catNo": "ARTS 197",
+        "section": "YYY1",
+        "courseTitle": "INTERNSHIP AND PROFESSIONAL EXPOSURE",
+        "units": "3",
+        "time": "TBA",
+        "room": "NATIONAL BOOKSTORE ATELIER",
+        "instructor": "CALARA, RAZELLE D.",
+        "remarks": "-"
+    },
+    {
+        "id": "db395cec-2e2e-4e4d-87f3-29f138cb1e5a",
+        "deptCode": "FA",
+        "catNo": "ARTS 197",
+        "section": "YYY2",
+        "courseTitle": "INTERNSHIP AND PROFESSIONAL EXPOSURE",
+        "units": "3",
+        "time": "TBA",
+        "room": "TBA",
+        "instructor": "AQUINO, Kaisa",
+        "remarks": "-"
+    },
+    {
+        "id": "7415272a-5bdd-4fdf-9866-8e8b6fd0b52a",
+        "deptCode": "FA",
+        "catNo": "ARTS 197",
+        "section": "YYY3",
+        "courseTitle": "INTERNSHIP AND PROFESSIONAL EXPOSURE",
+        "units": "3",
+        "time": "TBA",
+        "room": "TBA",
+        "instructor": "YEE, CHARLES IVAN, JR.",
+        "remarks": "-"
+    },
+    {
+        "id": "0dbcea9a-2461-4c6e-9d46-3701944cca5c",
+        "deptCode": "FA",
+        "catNo": "ARTS 197",
+        "section": "YYY4",
+        "courseTitle": "INTERNSHIP AND PROFESSIONAL EXPOSURE",
+        "units": "3",
+        "time": "TBA",
+        "room": "TBA",
+        "instructor": "YEE, CHARLES IVAN, JR.",
+        "remarks": "-"
+    },
+    {
+        "id": "8bb85086-587e-46ff-9c79-f3530850fe7f",
         "deptCode": "HSP",
         "catNo": "HSCI 30i",
         "section": "N",
@@ -1848,7 +2664,7 @@
         "remarks": "*IE for Non-Health Science Students"
     },
     {
-        "id": "6ba163f5-e925-4acb-a6a5-570b38dd87aa",
+        "id": "c069fcfb-ab9e-4943-a57f-b020d8c80c00",
         "deptCode": "HSP",
         "catNo": "HSCI 50",
         "section": "D",
@@ -1860,7 +2676,7 @@
         "remarks": "-"
     },
     {
-        "id": "750e6090-f320-4e7d-8aa7-bc3b25578d46",
+        "id": "d42db07d-3d89-429f-8b26-fd9f0e9a8ed7",
         "deptCode": "HSP",
         "catNo": "HSCI 60i",
         "section": "D",
@@ -1872,7 +2688,7 @@
         "remarks": "-"
     },
     {
-        "id": "a596aacc-8347-477c-a340-4c2a694ea024",
+        "id": "6cb17d9d-32a5-4a78-9217-1d72c9af0137",
         "deptCode": "HSP",
         "catNo": "HSCI 61i",
         "section": "B",
@@ -1884,7 +2700,7 @@
         "remarks": "*For pre-enlisted students only."
     },
     {
-        "id": "50556595-2886-4367-b1a7-cff079ccdeea",
+        "id": "ca21385e-fe7a-4189-a612-636eaffbed92",
         "deptCode": "HSP",
         "catNo": "HSCI 100.1",
         "section": "BC",
@@ -1896,7 +2712,7 @@
         "remarks": "-"
     },
     {
-        "id": "d0583d45-0ad6-404c-bf28-a06b63e46a5e",
+        "id": "8524af19-7e1a-4e7d-8440-69746b2c3335",
         "deptCode": "HSP",
         "catNo": "HSCI 192",
         "section": "C",
@@ -1908,7 +2724,7 @@
         "remarks": "-"
     },
     {
-        "id": "883bc2d6-ec96-4297-a3e3-863071c7bd16",
+        "id": "c0db2a18-de32-4937-9c8e-87b45da15818",
         "deptCode": "HSP",
         "catNo": "HSCI 199.2",
         "section": "GH",
@@ -1920,7 +2736,7 @@
         "remarks": "*Room: CTC 414"
     },
     {
-        "id": "343b07bd-3586-40b4-93a7-d4fcc1db00ef",
+        "id": "4ebcf2cf-d599-42ba-a3ad-b99c6a0fed77",
         "deptCode": "HSP",
         "catNo": "HSCI 199.2",
         "section": "GH1",
@@ -1932,7 +2748,7 @@
         "remarks": "*Room: CTC 414"
     },
     {
-        "id": "cd4ed6ec-927d-47a3-ae94-d647939e82ac",
+        "id": "c5ac502a-d961-438b-bbb1-9b4103cf6e34",
         "deptCode": "HSP",
         "catNo": "HSCI 199.2",
         "section": "GH10",
@@ -1944,7 +2760,7 @@
         "remarks": "*Room: CTC 414"
     },
     {
-        "id": "072ff6bc-6b57-4618-940d-dfd3ad44af6e",
+        "id": "87f155ef-604e-4fa4-b91b-e41f9a1fb576",
         "deptCode": "HSP",
         "catNo": "HSCI 199.2",
         "section": "GH2",
@@ -1956,7 +2772,7 @@
         "remarks": "*Room: CTC 414"
     },
     {
-        "id": "f727d3c4-9dfa-4ebe-bc7d-dacd4869d83c",
+        "id": "db04cc97-a200-4be7-bc6b-0fe389bc3e55",
         "deptCode": "HSP",
         "catNo": "HSCI 199.2",
         "section": "GH3",
@@ -1968,7 +2784,7 @@
         "remarks": "*Room: CTC 414"
     },
     {
-        "id": "7c098cbf-f965-4614-bde0-2e85275336f0",
+        "id": "fa056a79-58dd-4c33-9e2e-6b41f91035a0",
         "deptCode": "HSP",
         "catNo": "HSCI 199.2",
         "section": "GH4",
@@ -1980,7 +2796,7 @@
         "remarks": "*Room: CTC 414"
     },
     {
-        "id": "51565d5d-55f8-48da-aa0e-acb8024a9899",
+        "id": "f13b9f37-ba66-41cd-bd3d-9b72e261b74c",
         "deptCode": "HSP",
         "catNo": "HSCI 199.2",
         "section": "GH5",
@@ -1992,7 +2808,7 @@
         "remarks": "*Room: CTC 414"
     },
     {
-        "id": "f96513b7-cc83-4b81-9e24-f697d7162a74",
+        "id": "181bec37-f537-453e-8c19-61ee4bbba3c9",
         "deptCode": "HSP",
         "catNo": "HSCI 199.2",
         "section": "GH6",
@@ -2004,7 +2820,7 @@
         "remarks": "*Room: CTC 414"
     },
     {
-        "id": "58deeaa4-53df-4051-9eae-f69ae9d9b029",
+        "id": "70c8b41d-d61c-4027-b0aa-861221fcd5dc",
         "deptCode": "HSP",
         "catNo": "HSCI 199.2",
         "section": "GH8",
@@ -2016,7 +2832,7 @@
         "remarks": "*Room: CTC 414"
     },
     {
-        "id": "468319e9-11f4-4ab0-95ee-705bce79ac66",
+        "id": "d32a2efa-287d-4787-b46e-744d90f0ea21",
         "deptCode": "HSP",
         "catNo": "HSCI 199.2",
         "section": "GH9",
@@ -2028,7 +2844,7 @@
         "remarks": "*Room: CTC 414"
     },
     {
-        "id": "8d85dfa2-ed0c-4fb7-af1e-992413b4b68b",
+        "id": "d144a34c-d693-4555-a6e1-ddf9eb939aef",
         "deptCode": "HSP",
         "catNo": "HSCI 199.3",
         "section": "ZZZ",
@@ -2040,7 +2856,7 @@
         "remarks": "-"
     },
     {
-        "id": "4d8f7a12-ed77-48b6-90be-6c4471866cdb",
+        "id": "41e6e7ea-81ab-4e11-be9d-7b4af23392b8",
         "deptCode": "HI",
         "catNo": "HISTO 11",
         "section": "A",
@@ -2052,7 +2868,7 @@
         "remarks": "-"
     },
     {
-        "id": "16cdfd7b-1830-44a5-bada-be6fb2447745",
+        "id": "9a85ec1b-cf87-45f2-9485-af5eb641514b",
         "deptCode": "HI",
         "catNo": "HISTO 11",
         "section": "B",
@@ -2064,7 +2880,7 @@
         "remarks": "-"
     },
     {
-        "id": "667c0092-e614-4506-80ea-e4f0d612bea4",
+        "id": "bd3ab339-7d4e-46c3-b3b2-6d847fdca897",
         "deptCode": "HI",
         "catNo": "HISTO 11",
         "section": "C",
@@ -2076,7 +2892,7 @@
         "remarks": "-"
     },
     {
-        "id": "c6d40666-9f9b-4bbd-967c-f3b943dddc96",
+        "id": "706475e2-f8cd-43c6-8361-759c4a822cae",
         "deptCode": "HI",
         "catNo": "HISTO 11",
         "section": "C1",
@@ -2088,7 +2904,7 @@
         "remarks": "-"
     },
     {
-        "id": "f73ad16c-4ed6-4509-a8b6-9ea3b6ec3468",
+        "id": "3c043f0e-b787-47aa-a3ab-1f6aa87e5df9",
         "deptCode": "HI",
         "catNo": "HISTO 11",
         "section": "D",
@@ -2100,7 +2916,7 @@
         "remarks": "-"
     },
     {
-        "id": "1c6b2a1d-9e2b-4e0e-a47b-5bee52b64f40",
+        "id": "85ee72ac-6e0e-4c27-b562-659dedd193bd",
         "deptCode": "HI",
         "catNo": "HISTO 11",
         "section": "D1",
@@ -2108,11 +2924,11 @@
         "units": "3",
         "time": "D 1230-1400",
         "room": "B-209",
-        "instructor": "CABALQUINTO, Alvin",
+        "instructor": "MANAOIS, NEVILLE JAY C.",
         "remarks": "-"
     },
     {
-        "id": "ba98ad19-bef7-4d37-a816-3e46220c7acf",
+        "id": "4928d669-022a-4b0b-8a53-89380fe81efc",
         "deptCode": "HI",
         "catNo": "HISTO 11",
         "section": "E",
@@ -2124,7 +2940,7 @@
         "remarks": "-"
     },
     {
-        "id": "da35c87f-b7a6-48b6-973c-337b44f5e360",
+        "id": "68c5c7a7-d7ba-49c6-834e-9915bb764b41",
         "deptCode": "HI",
         "catNo": "HISTO 12",
         "section": "A",
@@ -2132,11 +2948,11 @@
         "units": "3",
         "time": "D 0800-0930",
         "room": "BEL-209",
-        "instructor": "DACUDAO, PATRICIA IRENE N.",
+        "instructor": "CRUZ-CLAUDIO, Valerie May",
         "remarks": "-"
     },
     {
-        "id": "76758e6f-bbb7-450a-b87d-4459e1e4f071",
+        "id": "a08ce787-2a29-4c75-af61-eae9ca627882",
         "deptCode": "HI",
         "catNo": "HISTO 12",
         "section": "A1",
@@ -2148,7 +2964,7 @@
         "remarks": "-"
     },
     {
-        "id": "c5dc5e5a-618d-4aa1-9940-04cde9735535",
+        "id": "bc11a1a3-067e-4399-ad80-28e0639dcac2",
         "deptCode": "HI",
         "catNo": "HISTO 12",
         "section": "B",
@@ -2156,11 +2972,11 @@
         "units": "3",
         "time": "D 0930-1100",
         "room": "BEL-209",
-        "instructor": "DACUDAO, PATRICIA IRENE N.",
+        "instructor": "CRUZ-CLAUDIO, Valerie May",
         "remarks": "-"
     },
     {
-        "id": "6ca5f0f0-1d73-4483-b329-3eff06f4d0f7",
+        "id": "be142500-fbef-4b8f-84cf-4122a3e2dd2a",
         "deptCode": "HI",
         "catNo": "HISTO 12",
         "section": "B1",
@@ -2172,7 +2988,7 @@
         "remarks": "-"
     },
     {
-        "id": "62d718e9-cad6-439b-8f3f-e71efb95e075",
+        "id": "7646907f-8167-4c9c-90eb-d628e322dd81",
         "deptCode": "HI",
         "catNo": "HISTO 12",
         "section": "B2",
@@ -2184,7 +3000,7 @@
         "remarks": "-"
     },
     {
-        "id": "023cf941-31b6-400c-b3eb-65c13b9c5d7d",
+        "id": "76984afb-eb91-4c0f-8152-bd76eb1c465c",
         "deptCode": "HI",
         "catNo": "HISTO 12",
         "section": "C",
@@ -2196,7 +3012,7 @@
         "remarks": "-"
     },
     {
-        "id": "f6dea024-2d2c-4f07-a4f7-1c7cd820dd7a",
+        "id": "aa890fad-d518-49d0-879c-60790fec24e9",
         "deptCode": "HI",
         "catNo": "HISTO 12",
         "section": "C1",
@@ -2208,7 +3024,7 @@
         "remarks": "-"
     },
     {
-        "id": "605362b6-e5a4-4230-bb11-2ddfe107f134",
+        "id": "b4127062-b4a3-47ea-909a-bd3fb6886aca",
         "deptCode": "HI",
         "catNo": "HISTO 12",
         "section": "D",
@@ -2220,7 +3036,7 @@
         "remarks": "-"
     },
     {
-        "id": "c296bbfd-47db-4fdf-bf77-f68dc957edc5",
+        "id": "00b6b6e4-6b3e-4146-9034-b1b14d9d55fc",
         "deptCode": "HI",
         "catNo": "HISTO 12",
         "section": "D1",
@@ -2232,7 +3048,7 @@
         "remarks": "-"
     },
     {
-        "id": "e5d1271e-659b-4515-81ec-336d5f8fc129",
+        "id": "55a5feaf-0030-4428-9f92-1b886c091bfb",
         "deptCode": "HI",
         "catNo": "HISTO 12",
         "section": "E",
@@ -2244,7 +3060,7 @@
         "remarks": "-"
     },
     {
-        "id": "68cf13f2-7ba6-45c4-a791-8d97356a65d3",
+        "id": "eb56afd1-f033-45af-8a53-98a676051ecd",
         "deptCode": "HI",
         "catNo": "HISTO 12",
         "section": "E2",
@@ -2256,7 +3072,7 @@
         "remarks": "-"
     },
     {
-        "id": "7da14b66-7195-4d08-a922-c5836aa0ef94",
+        "id": "cb1fd564-a509-4c53-8c7d-261aea94f866",
         "deptCode": "HI",
         "catNo": "HISTO 12",
         "section": "F",
@@ -2268,7 +3084,7 @@
         "remarks": "-"
     },
     {
-        "id": "456cbf10-02c0-4e92-af4b-200e58bb3773",
+        "id": "03e5fba3-96ce-4c93-b3f7-20a00d13d415",
         "deptCode": "HI",
         "catNo": "HISTO 197",
         "section": "SXS1",
@@ -2280,7 +3096,7 @@
         "remarks": "-"
     },
     {
-        "id": "f415d816-0092-4b1f-bae0-8fca00b72671",
+        "id": "6615f90d-8c0b-49fa-bd83-d405d6f019bf",
         "deptCode": "HI",
         "catNo": "HISTO 202.04",
         "section": "F",
@@ -2292,7 +3108,7 @@
         "remarks": "-"
     },
     {
-        "id": "4282537d-a8c8-4e94-a8af-8490d1f2f095",
+        "id": "67e19119-d666-4702-8766-00f879bdfd55",
         "deptCode": "HI",
         "catNo": "HISTO 298",
         "section": "CAPS1",
@@ -2304,7 +3120,7 @@
         "remarks": "-"
     },
     {
-        "id": "249101ad-91b1-40ee-acc3-849b76b9d5ac",
+        "id": "055007e3-a445-4024-8ecd-863eb06df0d7",
         "deptCode": "HI",
         "catNo": "HISTO 299.2",
         "section": "THES/DISS1",
@@ -2316,7 +3132,7 @@
         "remarks": "-"
     },
     {
-        "id": "468a7999-08d4-43b3-a354-539d0fde8ed7",
+        "id": "a3075996-96ea-4c00-aeee-8f5af96a4f69",
         "deptCode": "HI",
         "catNo": "HISTO 299.2",
         "section": "THES/DISS2",
@@ -2328,7 +3144,211 @@
         "remarks": "-"
     },
     {
-        "id": "cac0f74f-88db-4862-8b81-191085c05ee5",
+        "id": "2d2ea6b8-274e-4da2-9e08-3c7a85601929",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "I",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "M 0800-1130; TH 0800-1200",
+        "room": "INNOVATION 202; INNOVATION 202",
+        "instructor": "DE GUZMAN, Myra Rosalea Angeles",
+        "remarks": "-"
+    },
+    {
+        "id": "f9df59e0-bcf9-4482-b5d5-45a5d7908381",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "I1",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "M 0800-1130; TH 0800-1200",
+        "room": "INNOVATION 201; INNOVATION 201",
+        "instructor": "YEE, CHARLES IVAN, JR.",
+        "remarks": "-"
+    },
+    {
+        "id": "55d8e58a-1efe-4ad5-8d35-9f09b7ed5d8f",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "I2",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "M 0800-1130; TH 0800-1200",
+        "room": "ABS CBN CORPORATION INNOVATION CLASSROOM; ABS CBN CORPORATION INNOVATION CLASSROOM",
+        "instructor": "DELGADO, Gian Carlo",
+        "remarks": "-"
+    },
+    {
+        "id": "3c3d7004-70be-4645-9e12-716fda2151ff",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "J",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "M 1130-1500; TH 1200-1600",
+        "room": "INNOVATION 202; INNOVATION 202",
+        "instructor": "VAN DER WALL, Hidde Tjakke",
+        "remarks": "-"
+    },
+    {
+        "id": "7bd3a350-9e22-411c-89c2-cdfae611d8bd",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "J1",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "M 1130-1500; TH 1200-1600",
+        "room": "NATIONAL BOOKSTORE ATELIER; NATIONAL BOOKSTORE ATELIER",
+        "instructor": "DY, S.J., JASON K.",
+        "remarks": "-"
+    },
+    {
+        "id": "eb266bed-fe01-4c78-a0bc-e9e55e831028",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "J2",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "M 1130-1500; TH 1200-1600",
+        "room": "INNOVATION 201; INNOVATION 201",
+        "instructor": "SANDOVAL, Christian Hereson",
+        "remarks": "-"
+    },
+    {
+        "id": "887f3c8d-a4ab-4f74-a41d-1de28bbcbdcc",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "K",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "M 1500-1830; TH 1600-2000",
+        "room": "INNOVATION 202; INNOVATION 202",
+        "instructor": "VAN DER WALL, Hidde Tjakke",
+        "remarks": "-"
+    },
+    {
+        "id": "74df4ccc-62ba-400a-8202-7d23567f226c",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "K1",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "M 1500-1830; TH 1600-2000",
+        "room": "NATIONAL BOOKSTORE ATELIER; NATIONAL BOOKSTORE ATELIER",
+        "instructor": "DY, S.J., JASON K.",
+        "remarks": "-"
+    },
+    {
+        "id": "b971c83e-ead8-449f-ac2a-39a77e166f73",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "K2",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "M 1500-1830; TH 1600-2000",
+        "room": "INNOVATION 201; INNOVATION 201",
+        "instructor": "SANDOVAL, Christian Hereson",
+        "remarks": "-"
+    },
+    {
+        "id": "b9c258c1-cbdf-4d2f-ac8b-ab83fac3dd96",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "M",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "F 0800-1200; T 0800-1130",
+        "room": "INNOVATION 202; INNOVATION 202",
+        "instructor": "MA-ALAT, Pauline Bianca",
+        "remarks": "-"
+    },
+    {
+        "id": "7216516e-e9f3-4301-ba33-8735038a38ee",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "M1",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "F 0800-1200; T 0800-1130",
+        "room": "NATIONAL BOOKSTORE ATELIER; NATIONAL BOOKSTORE ATELIER",
+        "instructor": "DAGMANG, Nathalie",
+        "remarks": "-"
+    },
+    {
+        "id": "da97181e-1ab0-4729-b359-1e80bed38719",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "N",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "F 1200-1600; T 1130-1500",
+        "room": "INNOVATION 201; INNOVATION 201",
+        "instructor": "TUVIERA, Frederick",
+        "remarks": "-"
+    },
+    {
+        "id": "340f6fae-f607-45a9-b278-cd79fac100bb",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "N1",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "F 1200-1600; T 1130-1500",
+        "room": "INNOVATION 202; INNOVATION 202",
+        "instructor": "MA-ALAT, Pauline Bianca",
+        "remarks": "-"
+    },
+    {
+        "id": "88d474e3-8665-4751-8b39-e160ee8acc4b",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "N2",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "F 1200-1600; T 1130-1500",
+        "room": "NATIONAL BOOKSTORE ATELIER; NATIONAL BOOKSTORE ATELIER",
+        "instructor": "DAGMANG, Nathalie",
+        "remarks": "-"
+    },
+    {
+        "id": "5ea48e44-d592-40f1-8b67-d8d16024ee5d",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "N3",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "F 1200-1600; T 1130-1500",
+        "room": "ABS CBN CORPORATION INNOVATION CLASSROOM; ABS CBN CORPORATION INNOVATION CLASSROOM",
+        "instructor": "GAMALINDA, Carla",
+        "remarks": "-"
+    },
+    {
+        "id": "4c068347-9896-4e1a-af38-efb56743aba6",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "O",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "F 1600-2000; T 1500-1830",
+        "room": "INNOVATION 201; INNOVATION 201",
+        "instructor": "TUVIERA, Frederick",
+        "remarks": "-"
+    },
+    {
+        "id": "86d35034-14fb-41d7-b5ab-4db6ac95d34d",
+        "deptCode": "SOHUM",
+        "catNo": "ArtAp 10",
+        "section": "O1",
+        "courseTitle": "ART APPRECIATION",
+        "units": "3",
+        "time": "F 1600-2000; T 1500-1830",
+        "room": "ABS CBN CORPORATION INNOVATION CLASSROOM; ABS CBN CORPORATION INNOVATION CLASSROOM",
+        "instructor": "GAMALINDA, Carla",
+        "remarks": "-"
+    },
+    {
+        "id": "d5d28391-f408-4c0b-900f-aacb68217bfd",
         "deptCode": "DISCS",
         "catNo": "CSCI 22",
         "section": "E",
@@ -2340,7 +3360,7 @@
         "remarks": "ALL SLOTS FOR BS ITE MAJORS."
     },
     {
-        "id": "ae808d5e-fe12-4ebb-aa7f-fd6cb3df0a36",
+        "id": "769d8063-07e8-4d57-ae18-98cf6c5e63e2",
         "deptCode": "DISCS",
         "catNo": "CSCI 22",
         "section": "F",
@@ -2352,7 +3372,7 @@
         "remarks": "ALL SLOTS FOR BS ITE MAJORS."
     },
     {
-        "id": "9b942f9d-5c2a-4f65-bde4-6e096ddc5796",
+        "id": "5b421a3f-455a-4f6c-a94b-172ec63f8b6b",
         "deptCode": "DISCS",
         "catNo": "CSCI 41",
         "section": "ZZZ",
@@ -2364,7 +3384,7 @@
         "remarks": "ALL SLOTS FOR BS CS-DGDD MAJORS. ALL SLOTS FOR BS CS MAJORS. *For CS and CS-DGDD JTA students only. Tutorial Schedule will be determined based on common available time."
     },
     {
-        "id": "f1716177-241b-465e-a2c7-ba12c8af4eb1",
+        "id": "9cd24613-e995-401e-81b0-82bf008cda02",
         "deptCode": "DISCS",
         "catNo": "CSCI 111",
         "section": "G",
@@ -2372,11 +3392,23 @@
         "units": "3",
         "time": "D 1700-1830",
         "room": "F-227",
-        "instructor": "RAMOS, Juris David",
-        "remarks": "*For DSA Minors and DSA Specialization takers ONLY."
+        "instructor": "TBA, -",
+        "remarks": "ALL SLOTS FOR DATA SCIENCE AND ANALYTICS SPECIALIZATION. *For DSA Minors and DSA Specialization takers ONLY."
     },
     {
-        "id": "71537d97-a437-4f7c-8e56-6b03e01574eb",
+        "id": "a2790d8d-98fa-4e12-b079-4230b4f347f5",
+        "deptCode": "DISCS",
+        "catNo": "CSCI 111",
+        "section": "H",
+        "courseTitle": "INTRODUCTION TO ARTIFICIAL INTELLIGENCE",
+        "units": "3",
+        "time": "D 1830-2000",
+        "room": "F-227",
+        "instructor": "RAMOS, Juris David",
+        "remarks": "ALL SLOTS FOR DATA SCIENCE AND ANALYTICS SPECIALIZATION. *For DSA Minors and DSA Specialization takers ONLY."
+    },
+    {
+        "id": "8b4598d1-321b-48a1-8083-11cd19be8d65",
         "deptCode": "DISCS",
         "catNo": "CSCI 117i",
         "section": "C",
@@ -2385,10 +3417,10 @@
         "time": "D 1100-1230",
         "room": "F-228",
         "instructor": "DUE\u00d1AS, Lorenzo",
-        "remarks": "ALL SLOTS FOR DATA SCIENCE AND ANALYTICS SPECIALIZATION."
+        "remarks": "ALL SLOTS FOR DATA SCIENCE AND ANALYTICS SPECIALIZATION. 2 SLOT(S) FOR AB IS MAJORS. *For DSA Minors and DSA Specialization takers ONLY."
     },
     {
-        "id": "ea03fe13-e4eb-42bf-a982-bd2b01f47af8",
+        "id": "0a6a5276-a248-4eb3-a487-4f2c56855167",
         "deptCode": "DISCS",
         "catNo": "CSCI 117i",
         "section": "D",
@@ -2397,10 +3429,10 @@
         "time": "D 1230-1400",
         "room": "F-228",
         "instructor": "DUE\u00d1AS, Lorenzo",
-        "remarks": "ALL SLOTS FOR DATA SCIENCE AND ANALYTICS SPECIALIZATION."
+        "remarks": "ALL SLOTS FOR DATA SCIENCE AND ANALYTICS SPECIALIZATION. 2 SLOT(S) FOR AB IS MAJORS. *For DSA Minors and DSA Specialization takers ONLY."
     },
     {
-        "id": "0739235e-3423-4c89-9bd9-2b0980d66560",
+        "id": "c46e36d8-4000-46ab-a2e4-b908ac958616",
         "deptCode": "DISCS",
         "catNo": "CSCI 134.1i",
         "section": "D",
@@ -2408,11 +3440,11 @@
         "units": "3",
         "time": "D 1230-1400",
         "room": "CTC 112",
-        "instructor": "CAOILE, Paolo Santino",
-        "remarks": "*For non-DISCS IE takers only"
+        "instructor": "CAOILE, Paolo Santino, SANCHEZ, Roswold Jemuel",
+        "remarks": "2 SLOT(S) FOR AB IS MAJORS. *For non-DISCS IE takers only"
     },
     {
-        "id": "74a9aa7b-a892-441c-b1e5-2a8aaa061c31",
+        "id": "9b1613fa-b3f4-42f4-820e-4ebce78a5771",
         "deptCode": "DISCS",
         "catNo": "CSCI 134.1i",
         "section": "E",
@@ -2424,7 +3456,7 @@
         "remarks": "10 SLOT(S) FOR DISCS STUDENTS."
     },
     {
-        "id": "e8e28c9e-b602-4a6a-b378-f2aef0c41506",
+        "id": "5efaed88-5959-47c6-895d-8dab7026c74a",
         "deptCode": "DISCS",
         "catNo": "CSCI 142i",
         "section": "A",
@@ -2436,7 +3468,7 @@
         "remarks": "5 SLOT(S) FOR DISCS STUDENTS. 3 SLOT(S) FOR 4TH YEAR AB IS MAJORS."
     },
     {
-        "id": "7b53ddc3-4be0-475d-bc50-4cf056b3883c",
+        "id": "140c40aa-a17d-4cbc-944a-2eb07a5b9dcc",
         "deptCode": "DISCS",
         "catNo": "CSCI 152",
         "section": "F",
@@ -2448,7 +3480,7 @@
         "remarks": "ALL SLOTS FOR BS CS MAJORS. ALL SLOTS FOR BS CS-DGDD MAJORS. CLASS IS RESTRICTED. 2 SLOT(S) FOR 3RD YEAR AB IS MAJORS."
     },
     {
-        "id": "ba4a44df-c9a8-472c-964c-6b53d14f69e9",
+        "id": "f036bc1b-aae2-4073-b94d-221c7803aeaf",
         "deptCode": "DISCS",
         "catNo": "CSCI 181.04",
         "section": "D",
@@ -2460,7 +3492,7 @@
         "remarks": "ALL SLOTS FOR ENTERPRISE SYSTEMS SPECIALIZATION. ALL SLOTS FOR INTERACTIVE MULTIMEDIA SPECIALIZATION. ALL SLOTS FOR DISCS STUDENTS."
     },
     {
-        "id": "3c3722b4-7de3-4294-8a8f-cd61dd12b073",
+        "id": "b1384a51-5af6-4f44-bec1-be942adb2a2b",
         "deptCode": "DISCS",
         "catNo": "CSCI 186.53",
         "section": "E",
@@ -2472,7 +3504,7 @@
         "remarks": "ALL SLOTS FOR DATA SCIENCE AND ANALYTICS SPECIALIZATION. ALL SLOTS FOR ENTERPRISE SYSTEMS SPECIALIZATION. ALL SLOTS FOR DISCS STUDENTS."
     },
     {
-        "id": "651c49c2-f45a-4bd1-b586-034f4c4b8bdb",
+        "id": "bfc2baa1-a896-4886-8981-f370183cb889",
         "deptCode": "DISCS",
         "catNo": "CSCI 197",
         "section": "YYY1",
@@ -2484,7 +3516,7 @@
         "remarks": "ALL SLOTS FOR 4TH YEAR BS CS MAJORS. ALL SLOTS FOR 4TH YEAR BS CS-DGDD MAJORS. ALL SLOTS FOR 4TH YEAR BSMS CS MAJORS. ALL SLOTS FOR 5TH YEAR BS CS-DGDD MAJORS."
     },
     {
-        "id": "8ea36147-f219-4cd4-a732-8dd627944c18",
+        "id": "fefc2ebe-5e5a-4b8a-8622-f5cfa8727cd3",
         "deptCode": "DISCS",
         "catNo": "CSCI 197",
         "section": "YYY2",
@@ -2496,7 +3528,7 @@
         "remarks": "ALL SLOTS FOR 4TH YEAR BS CS MAJORS. ALL SLOTS FOR 4TH YEAR BS CS-DGDD MAJORS. ALL SLOTS FOR 4TH YEAR BSMS CS MAJORS. ALL SLOTS FOR 5TH YEAR BS CS-DGDD MAJORS."
     },
     {
-        "id": "21ba9cca-cd6b-47cf-acb2-0a7f20b4a9b2",
+        "id": "c3427357-be2c-42d7-996c-ca3d8a173fcc",
         "deptCode": "DISCS",
         "catNo": "CSCI 197",
         "section": "ZZZ",
@@ -2505,10 +3537,10 @@
         "time": "TUTORIAL 0000-0000()",
         "room": "CS DEPT",
         "instructor": "RESTOLES, Dan Mark, SUGAY, JESSICA O.",
-        "remarks": "ALL SLOTS FOR DISCS STUDENTS. *For DISCS Interns working on Mapping Project."
+        "remarks": "ALL SLOTS FOR 4TH YEAR DISCS STUDENTS. ALL SLOTS FOR 5TH YEAR DISCS STUDENTS. *For DISCS Interns working on Mapping Project."
     },
     {
-        "id": "39bde669-164c-4540-9017-a2c462b3edae",
+        "id": "8538c33f-591e-4703-a6c5-f299ce70ab44",
         "deptCode": "DISCS",
         "catNo": "CSCI 213",
         "section": "ZZZ",
@@ -2517,10 +3549,22 @@
         "time": "TUTORIAL 0000-0000()",
         "room": "TBA",
         "instructor": "BAUTISTA, Philippe Anthony",
+        "remarks": "**Tutorial Schedule will be determined based on common available time."
+    },
+    {
+        "id": "276c8820-081f-46a3-9865-30c88421fe5d",
+        "deptCode": "DISCS",
+        "catNo": "CSCI 217",
+        "section": "O",
+        "courseTitle": "DATA VISUALIZATION",
+        "units": "3",
+        "time": "F 1600-2000; T 1500-1830",
+        "room": "CTC 215; CTC 215",
+        "instructor": "ALAMPAY, RAPHAEL B.",
         "remarks": "-"
     },
     {
-        "id": "99adc408-be9c-4c52-a012-d0ac1ff48ae6",
+        "id": "0ad4837f-a4e4-44a7-afc8-2f06be18412a",
         "deptCode": "DISCS",
         "catNo": "CSCI 234.1",
         "section": "E",
@@ -2529,10 +3573,10 @@
         "time": "D 1400-1530",
         "room": "CTC 112",
         "instructor": "AMANTE, Francesco",
-        "remarks": "-"
+        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
     },
     {
-        "id": "4bd03f64-332e-42c0-b949-9205e39e63b3",
+        "id": "09e0edf9-91cf-4062-a357-882e9c1dc821",
         "deptCode": "DISCS",
         "catNo": "CSCI 242",
         "section": "ZZZ",
@@ -2541,10 +3585,10 @@
         "time": "TUTORIAL 0000-0000()",
         "room": "TBA",
         "instructor": "ANTIPORDA, MA. ALYYANA P.",
-        "remarks": "*Tutorial Schedule will be determined based on common available time."
+        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS. *Tutorial Schedule will be determined based on common available time."
     },
     {
-        "id": "84fde3b7-82c1-4552-9bc4-6044b3a7b039",
+        "id": "94ba8ac9-bd31-44e7-a9c6-bf0c8d7b662b",
         "deptCode": "DISCS",
         "catNo": "CSCI 261.03",
         "section": "ZZZ",
@@ -2553,10 +3597,10 @@
         "time": "TUTORIAL 0000-0000()",
         "room": "TBA",
         "instructor": "ESPINA, KENNEDY E.",
-        "remarks": "-"
+        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS. *Tutorial Schedule will be determined based on common available time."
     },
     {
-        "id": "74b8a60c-d60c-4edf-a1b5-00bd1738da54",
+        "id": "e306a659-c4e5-4daa-94d3-d32e9253bd5e",
         "deptCode": "DISCS",
         "catNo": "CSCI 281.04",
         "section": "D",
@@ -2568,19 +3612,19 @@
         "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
     },
     {
-        "id": "70d7735a-648f-4262-8517-c047c6506668",
+        "id": "c90f8958-f6c1-4b7e-b9a0-41df03fae008",
         "deptCode": "DISCS",
         "catNo": "CSCI 286.51",
-        "section": "D",
+        "section": "ZZZ",
         "courseTitle": "SPECIAL TOPICS: BUSINESS PROGRAMMING",
         "units": "3",
-        "time": "D 1230-1400",
-        "room": "CTC 201C",
+        "time": "TUTORIAL 0000-0000()",
+        "room": "TBA",
         "instructor": "PULMANO, CHRISTIAN E.",
-        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
+        "remarks": "*Tutorial Schedule will be determined based on common available time."
     },
     {
-        "id": "c6c837d8-23ff-479e-8447-c93b2071a6b8",
+        "id": "28653814-6728-4a39-ac25-e2bab4422bf5",
         "deptCode": "DISCS",
         "catNo": "CSCI 292",
         "section": "K",
@@ -2589,10 +3633,10 @@
         "time": "M 1500-1830; TH 1600-2000",
         "room": "CTC 215; CTC 215",
         "instructor": "ESPINA, KENNEDY E., ESTUAR, MA. REGINA J. E.",
-        "remarks": "-"
+        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
     },
     {
-        "id": "d881668f-b72c-455f-9ef1-ffce95add272",
+        "id": "a60ba286-fd88-4c13-9109-04ad02ddbc8b",
         "deptCode": "DISCS",
         "catNo": "CSCI 296",
         "section": "COMP",
@@ -2604,187 +3648,7 @@
         "remarks": "-"
     },
     {
-        "id": "cf58e530-1709-4211-a8f9-c4343787b11f",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 298.1",
-        "section": "CAPS1",
-        "courseTitle": "INDEPENDENT PROJECT I",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "CORONEL, ANDREI D.",
-        "remarks": "-"
-    },
-    {
-        "id": "742244dd-6895-43be-842a-632b4a1eee4a",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 298.1",
-        "section": "CAPS2",
-        "courseTitle": "INDEPENDENT PROJECT I",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "ESTUAR, MA. REGINA J. E.",
-        "remarks": "-"
-    },
-    {
-        "id": "1d6caf5d-b325-49f8-a47a-9afd1f128a46",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 298.1",
-        "section": "CAPS3",
-        "courseTitle": "INDEPENDENT PROJECT I",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "MAGUYON, ARIEL A.",
-        "remarks": "-"
-    },
-    {
-        "id": "060fb996-43b7-41a6-ad31-9438475b4c16",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 298.1",
-        "section": "CAPS4",
-        "courseTitle": "INDEPENDENT PROJECT I",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "DE LEON, MARLENE M.",
-        "remarks": "-"
-    },
-    {
-        "id": "e86a7250-1418-44d3-abd5-969281c02fc3",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 298.2",
-        "section": "CAPS1",
-        "courseTitle": "INDEPENDENT PROJECT II",
-        "units": "6",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "CORONEL, ANDREI D.",
-        "remarks": "-"
-    },
-    {
-        "id": "71022bbf-6efe-43c4-a0d5-19fe25b85d26",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 298.2",
-        "section": "CAPS2",
-        "courseTitle": "INDEPENDENT PROJECT II",
-        "units": "6",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "DE LEON, MARLENE M.",
-        "remarks": "-"
-    },
-    {
-        "id": "4f6963ff-d576-497d-b5a4-8b91d8e54270",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 298.2",
-        "section": "CAPS3",
-        "courseTitle": "INDEPENDENT PROJECT II",
-        "units": "6",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "ESTUAR, MA. REGINA J. E.",
-        "remarks": "-"
-    },
-    {
-        "id": "c94f138e-0496-499c-9bd4-9afef503e788",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 298.2",
-        "section": "CAPS4",
-        "courseTitle": "INDEPENDENT PROJECT II",
-        "units": "6",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "MAGUYON, ARIEL A.",
-        "remarks": "-"
-    },
-    {
-        "id": "ed8c9f61-6ed0-4fa9-94b2-6531ef3afc81",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 298.3",
-        "section": "CAPS",
-        "courseTitle": "INNOVATION PROJECT 1",
-        "units": "3",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "RODRIGO, MARIA MERCEDES T.",
-        "remarks": "-"
-    },
-    {
-        "id": "f25e645d-ad60-4c5f-b8e6-4f7188eaefc1",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 298.4",
-        "section": "CAPS",
-        "courseTitle": "INNOVATION PROJECT 2",
-        "units": "6",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "RODRIGO, MARIA MERCEDES T.",
-        "remarks": "-"
-    },
-    {
-        "id": "82acaff4-44ef-4338-a831-9cc0e6ac26f7",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 298.5",
-        "section": "CAPS1",
-        "courseTitle": "DATA SCIENCE PROJECT I",
-        "units": "3",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "CORONEL, ANDREI D.",
-        "remarks": "-"
-    },
-    {
-        "id": "a0199734-5f5d-4f0e-85ee-cd4ab392bf55",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 298.5",
-        "section": "CAPS2",
-        "courseTitle": "DATA SCIENCE PROJECT I",
-        "units": "3",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "CORONEL, ANDREI D.",
-        "remarks": "-"
-    },
-    {
-        "id": "cc81ecbd-a540-478f-817e-0653db1f5dae",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 298.6",
-        "section": "CAPS1",
-        "courseTitle": "DATA SCIENCE PROJECT II",
-        "units": "3",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "VERGARA, JOHN PAUL C.",
-        "remarks": "-"
-    },
-    {
-        "id": "60feae7b-db48-464e-821b-bd261360fb6c",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 298.6",
-        "section": "CAPS2",
-        "courseTitle": "DATA SCIENCE PROJECT II",
-        "units": "3",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "CORONEL, ANDREI D.",
-        "remarks": "-"
-    },
-    {
-        "id": "0c49f718-0048-49db-ac02-98decb8eadac",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 299.1",
-        "section": "THES/DISS",
-        "courseTitle": "THESIS I",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "YU, WILLIAM EMMANUEL S.",
-        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
-    },
-    {
-        "id": "0db23336-2d28-435c-bc87-97db5cf97105",
+        "id": "852be392-91f3-45cb-a878-db7ffe21a44f",
         "deptCode": "DISCS",
         "catNo": "CSCI 299.1",
         "section": "THES/DISS1",
@@ -2792,23 +3656,11 @@
         "units": "0",
         "time": "TBA()",
         "room": "TBA",
-        "instructor": "ABU, PATRICIA ANGELA R.",
-        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
-    },
-    {
-        "id": "12f767de-d605-4921-9c39-86b2899a381d",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 299.1",
-        "section": "THES/DISS10",
-        "courseTitle": "THESIS I",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
         "instructor": "VERGARA, JOHN PAUL C.",
         "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
     },
     {
-        "id": "18280036-fec6-41a7-bd97-41131096d717",
+        "id": "e42beb21-3dda-4edd-b287-bbb54ef9839e",
         "deptCode": "DISCS",
         "catNo": "CSCI 299.1",
         "section": "THES/DISS2",
@@ -2816,50 +3668,14 @@
         "units": "0",
         "time": "TBA()",
         "room": "TBA",
-        "instructor": "ALAMPAY, RAPHAEL B.",
-        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
-    },
-    {
-        "id": "b8934c17-bcad-459b-b5d7-f38d0eeae357",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 299.1",
-        "section": "THES/DISS3",
-        "courseTitle": "THESIS I",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
         "instructor": "CORONEL, ANDREI D.",
         "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
     },
     {
-        "id": "1c32b8d6-e95d-413c-9421-a71b0293fbf7",
+        "id": "fddc8532-bc0b-41d9-9fc6-4097ee3a0ab8",
         "deptCode": "DISCS",
         "catNo": "CSCI 299.1",
-        "section": "THES/DISS4",
-        "courseTitle": "THESIS I",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "DE LEON, MARLENE M.",
-        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
-    },
-    {
-        "id": "fa89e9b7-f5cc-4cca-997f-4c4b73d7c415",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 299.1",
-        "section": "THES/DISS5",
-        "courseTitle": "THESIS I",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "DE VERA, JOSE ALFREDO III A.",
-        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
-    },
-    {
-        "id": "94c2e934-abed-46dd-b212-9c8e399c609f",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 299.1",
-        "section": "THES/DISS6",
+        "section": "THES/DISS3",
         "courseTitle": "THESIS I",
         "units": "0",
         "time": "TBA()",
@@ -2868,34 +3684,10 @@
         "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
     },
     {
-        "id": "1198df99-54be-42f1-b024-d16ef529bd82",
+        "id": "4db9ffc7-4c92-4340-927b-0de42bad54cf",
         "deptCode": "DISCS",
         "catNo": "CSCI 299.1",
-        "section": "THES/DISS7",
-        "courseTitle": "THESIS I",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "FERNANDEZ, PROCESO, JR. L.",
-        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
-    },
-    {
-        "id": "a3de2108-70ab-41f5-bbf3-0ec6ba16eb9a",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 299.1",
-        "section": "THES/DISS8",
-        "courseTitle": "THESIS I",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "MAGUYON, ARIEL A.",
-        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
-    },
-    {
-        "id": "42928c0f-bc21-489b-baee-b2dfd94dcb62",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 299.1",
-        "section": "THES/DISS9",
+        "section": "THES/DISS4",
         "courseTitle": "THESIS I",
         "units": "0",
         "time": "TBA()",
@@ -2904,7 +3696,7 @@
         "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
     },
     {
-        "id": "3544d289-7c68-4ae6-8f09-5c68e14c7ab7",
+        "id": "dac9dab6-0445-466c-911c-a340148de979",
         "deptCode": "DISCS",
         "catNo": "CSCI 299.2",
         "section": "THES/DISS1",
@@ -2912,11 +3704,11 @@
         "units": "0",
         "time": "TBA()",
         "room": "TBA",
-        "instructor": "ESTUAR, MA. REGINA J. E.",
+        "instructor": "ALAMPAY, RAPHAEL B.",
         "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
     },
     {
-        "id": "606bd5d8-6239-40fd-9283-fc12432dae75",
+        "id": "8c357bd5-ec91-41f2-927c-415ebc8dfc38",
         "deptCode": "DISCS",
         "catNo": "CSCI 299.2",
         "section": "THES/DISS2",
@@ -2928,7 +3720,7 @@
         "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
     },
     {
-        "id": "e00d74d6-438f-4ad6-904a-35241e17437d",
+        "id": "e156fd40-02cb-44aa-a9f2-fde61da9222e",
         "deptCode": "DISCS",
         "catNo": "CSCI 299.2",
         "section": "THES/DISS3",
@@ -2940,7 +3732,7 @@
         "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
     },
     {
-        "id": "6b12fc5d-e471-414c-83ea-3af2779902a3",
+        "id": "ecc4b9f7-931e-44f3-8b5d-30e1f05275b1",
         "deptCode": "DISCS",
         "catNo": "CSCI 299.2",
         "section": "THES/DISS4",
@@ -2948,47 +3740,11 @@
         "units": "0",
         "time": "TBA()",
         "room": "TBA",
-        "instructor": "ALAMPAY, RAPHAEL B.",
+        "instructor": "VICTORINO, JOHN NOEL C.",
         "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
     },
     {
-        "id": "6d4fdba7-7086-4b44-8ffd-c18e04c1e0a4",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 299.2",
-        "section": "THES/DISS5",
-        "courseTitle": "THESIS II",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "ABU, PATRICIA ANGELA R.",
-        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
-    },
-    {
-        "id": "795ceb9c-db96-4d60-9133-1a00ab537f56",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 299.2",
-        "section": "THES/DISS6",
-        "courseTitle": "THESIS II",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "VERGARA, JOHN PAUL C.",
-        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
-    },
-    {
-        "id": "1463cd2c-2e07-4975-a8ce-855f34983e2a",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 299.2",
-        "section": "THES/DISS7",
-        "courseTitle": "THESIS II",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "MAGUYON, ARIEL A.",
-        "remarks": "ALL SLOTS FOR GRAD SCHOOL DISCS STUDENTS."
-    },
-    {
-        "id": "7958565f-f1e9-446b-b1a4-adf955530a0e",
+        "id": "1eade1a6-8c7b-43f6-9ae8-4c706203d262",
         "deptCode": "DISCS",
         "catNo": "CSCI 299.6",
         "section": "SUB-A",
@@ -3000,7 +3756,7 @@
         "remarks": "-"
     },
     {
-        "id": "5fc04d42-ea6e-4517-b45b-418041246506",
+        "id": "26503ad9-cc13-4e5e-b933-730121c1fab2",
         "deptCode": "DISCS",
         "catNo": "CSCI 299.7",
         "section": "SUB-B",
@@ -3012,7 +3768,7 @@
         "remarks": "-"
     },
     {
-        "id": "3f4ddd7a-af88-4ccd-90ea-6521763e6e76",
+        "id": "80650912-6c68-4de8-ae79-9ce131c61732",
         "deptCode": "DISCS",
         "catNo": "CSCI 396",
         "section": "COMP",
@@ -3024,7 +3780,19 @@
         "remarks": "-"
     },
     {
-        "id": "7df35e13-2278-49c3-be0d-202132c39b6a",
+        "id": "a437f05a-280f-4049-a7db-3bb83c9a2fb5",
+        "deptCode": "DISCS",
+        "catNo": "CSCI 399.1",
+        "section": "THES/DISS1",
+        "courseTitle": "DISSERTATION I",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "ABU, PATRICIA ANGELA R.",
+        "remarks": "-"
+    },
+    {
+        "id": "a5bc0482-61f3-4f47-99d5-47c2beabd32c",
         "deptCode": "DISCS",
         "catNo": "CSCI 399.19",
         "section": "DWPD",
@@ -3036,7 +3804,7 @@
         "remarks": "-"
     },
     {
-        "id": "6820a8f2-56a9-4d34-97cf-41c8e071c10b",
+        "id": "57a20805-4195-4520-acec-6c496aaaa4fe",
         "deptCode": "DISCS",
         "catNo": "CSCI 399.2",
         "section": "THES/DISS1",
@@ -3044,23 +3812,11 @@
         "units": "0",
         "time": "TBA()",
         "room": "TBA",
-        "instructor": "FERNANDEZ, PROCESO, JR. L.",
+        "instructor": "RODRIGO, MARIA MERCEDES T.",
         "remarks": "ALL SLOTS FOR DISCS STUDENTS."
     },
     {
-        "id": "0636f747-5b42-45bc-acf9-ba5490a0fabb",
-        "deptCode": "DISCS",
-        "catNo": "CSCI 399.2",
-        "section": "THES/DISS2",
-        "courseTitle": "DISSERTATION II",
-        "units": "0",
-        "time": "TBA()",
-        "room": "TBA",
-        "instructor": "ESTUAR, MA. REGINA J. E.",
-        "remarks": "-"
-    },
-    {
-        "id": "7990deba-5495-43a1-a17a-9fe627e401e3",
+        "id": "3778b6ad-15f7-4a9e-9160-9364b3b767b5",
         "deptCode": "DISCS",
         "catNo": "CSCI 399.6",
         "section": "SUB-A",
@@ -3072,7 +3828,7 @@
         "remarks": "-"
     },
     {
-        "id": "f13c690f-43ba-4125-b074-d933616d807f",
+        "id": "e1543b13-935f-4dbf-ac2a-f4fff4506e2a",
         "deptCode": "DISCS",
         "catNo": "CSCI 399.7",
         "section": "SUB-B",
@@ -3084,7 +3840,7 @@
         "remarks": "-"
     },
     {
-        "id": "8a787bcc-9659-48ac-af14-c8e6ab45c0fe",
+        "id": "b3d5c370-3c58-4f34-b2c2-8c1041cb96e1",
         "deptCode": "DISCS",
         "catNo": "GDEV 20i",
         "section": "A",
@@ -3096,7 +3852,7 @@
         "remarks": "3 SLOT(S) FOR 4TH YEAR AB IS MAJORS. *For non-DISCS IE takers only"
     },
     {
-        "id": "e83ce07f-8513-41bc-97d4-10c4f7b2abf3",
+        "id": "df2ac5f4-a594-40b5-8f4e-2c03cba36532",
         "deptCode": "DISCS",
         "catNo": "GDEV 20i",
         "section": "B",
@@ -3108,7 +3864,7 @@
         "remarks": "ALL SLOTS FOR BS CS-DGDD MAJORS."
     },
     {
-        "id": "3369bc5c-6b0d-4f64-b9d9-46e047cf5eb9",
+        "id": "d46656e7-e87d-4126-b390-d904de86fbac",
         "deptCode": "DISCS",
         "catNo": "GDEV 20i",
         "section": "F",
@@ -3120,7 +3876,7 @@
         "remarks": "ALL SLOTS FOR BS CS-DGDD MAJORS. ALL SLOTS FOR INTERACTIVE MULTIMEDIA SPECIALIZATION."
     },
     {
-        "id": "7f662987-b7aa-4404-9d8a-bccc2dc8ee05",
+        "id": "f2f31b7e-1bd9-4949-acb0-dd72358ebc4b",
         "deptCode": "DISCS",
         "catNo": "GDEV 198.1",
         "section": "CAPS1",
@@ -3132,7 +3888,7 @@
         "remarks": "ALL SLOTS FOR BS CS-DGDD MAJORS."
     },
     {
-        "id": "b02b9582-4c55-47ee-a9ba-0286d92627fc",
+        "id": "7892caa1-7bff-413e-a350-6742856e1d40",
         "deptCode": "DISCS",
         "catNo": "GDEV 198.1",
         "section": "CAPS2",
@@ -3144,7 +3900,7 @@
         "remarks": "ALL SLOTS FOR BS CS-DGDD MAJORS."
     },
     {
-        "id": "6d9e732a-26a2-4bec-9c88-b7cc86922498",
+        "id": "0de60238-cc9a-4323-92df-c5607faee2ce",
         "deptCode": "DISCS",
         "catNo": "GDEV 198.1",
         "section": "CAPS3",
@@ -3156,7 +3912,7 @@
         "remarks": "ALL SLOTS FOR BS CS-DGDD MAJORS."
     },
     {
-        "id": "0fee276e-b9de-441c-a251-f704af3411ac",
+        "id": "6ea2e5b2-5ab8-4831-b624-94cbb7ef404d",
         "deptCode": "DISCS",
         "catNo": "GDEV 198.1",
         "section": "CAPS4",
@@ -3168,7 +3924,7 @@
         "remarks": "ALL SLOTS FOR BS CS-DGDD MAJORS."
     },
     {
-        "id": "b076f339-82d2-4b7f-94ac-5c543555f87e",
+        "id": "a75b3239-a7a5-494f-a551-ddf41fd0322f",
         "deptCode": "DISCS",
         "catNo": "GDEV 198.1",
         "section": "CAPS5",
@@ -3180,7 +3936,7 @@
         "remarks": "ALL SLOTS FOR BS CS-DGDD MAJORS."
     },
     {
-        "id": "b004eb63-228f-4f77-a005-fdf09731f927",
+        "id": "1927913b-abfe-4785-ab0c-763de4276955",
         "deptCode": "DISCS",
         "catNo": "MSYS 30",
         "section": "ZZZ",
@@ -3192,43 +3948,55 @@
         "remarks": "ALL SLOTS FOR BS MIS MAJORS. *For MIS JTA students only. Tutorial Schedule will be determined based on common available time."
     },
     {
-        "id": "c6a4fe05-f7c8-48a0-b59e-713e1dca1103",
+        "id": "54d9f7e7-c8fd-416f-a16e-5e459cb8b2d3",
         "deptCode": "DISCS",
         "catNo": "MSYS 40",
-        "section": "C",
+        "section": "C1",
         "courseTitle": "BUSINESS APPLICATIONS DEVELOPMENT 1",
         "units": "3",
         "time": "D 1100-1230",
         "room": "F-227",
         "instructor": "AGLORO, GUILLERMO PAOLO JR. M.",
-        "remarks": "ALL SLOTS FOR BS MIS MAJORS."
+        "remarks": "-"
     },
     {
-        "id": "ba367e79-5c8d-4399-b946-fc3d84d16c5d",
+        "id": "b3ab8371-00c8-4efb-bebe-235e38a50d88",
         "deptCode": "DISCS",
         "catNo": "MSYS 40",
-        "section": "D1",
+        "section": "C2",
+        "courseTitle": "BUSINESS APPLICATIONS DEVELOPMENT 1",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "CTC 214",
+        "instructor": "BAROT, ANTONN BENJAMIN D., MEJILLA, Mar Joseph Aureos",
+        "remarks": "-"
+    },
+    {
+        "id": "6007f4d8-63c6-4b4b-9c5e-59d866f41071",
+        "deptCode": "DISCS",
+        "catNo": "MSYS 40",
+        "section": "D",
         "courseTitle": "BUSINESS APPLICATIONS DEVELOPMENT 1",
         "units": "3",
         "time": "D 1230-1400",
         "room": "F-227",
         "instructor": "AGLORO, GUILLERMO PAOLO JR. M.",
-        "remarks": "ALL SLOTS FOR BS MIS MAJORS."
+        "remarks": "-"
     },
     {
-        "id": "8b8d3c43-30e7-4ae6-9b21-05435b8cc2dc",
+        "id": "b5ff2289-54aa-4a1b-b5a4-acdcdb7d364a",
         "deptCode": "DISCS",
         "catNo": "MSYS 40",
-        "section": "H",
+        "section": "G",
         "courseTitle": "BUSINESS APPLICATIONS DEVELOPMENT 1",
         "units": "3",
-        "time": "D 1830-2000",
-        "room": "F-227",
+        "time": "D 1700-1830",
+        "room": "F-228",
         "instructor": "CHONG, Joanna Sylvia",
         "remarks": "ALL SLOTS FOR BS MIS MAJORS."
     },
     {
-        "id": "b7564db4-5c18-4a5c-b9ac-5fc0b76e143d",
+        "id": "8e6b1b70-7e19-4d12-9f04-60e6181e9b71",
         "deptCode": "DISCS",
         "catNo": "MSYS 41",
         "section": "ZZZ",
@@ -3240,7 +4008,7 @@
         "remarks": "ALL SLOTS FOR BS MIS MAJORS. *For MIS JTA students only. Tutorial Schedule will be determined based on common available time."
     },
     {
-        "id": "f7cb8386-fb21-4996-822b-5bd1cc04005b",
+        "id": "6b6c2519-ad18-4797-b089-291e6390aa3e",
         "deptCode": "DISCS",
         "catNo": "MSYS 197",
         "section": "YYY1",
@@ -3252,7 +4020,7 @@
         "remarks": "ALL SLOTS FOR BS MIS MAJORS. ALL SLOTS FOR BSMIS-MSCS MAJORS."
     },
     {
-        "id": "953b9638-f275-4fd5-841a-67254862fa40",
+        "id": "4166e173-c30c-492e-aa13-6f1c969e900b",
         "deptCode": "DISCS",
         "catNo": "MSYS 197",
         "section": "YYY2",
@@ -3264,7 +4032,7 @@
         "remarks": "ALL SLOTS FOR BS MIS MAJORS. ALL SLOTS FOR BSMIS-MSCS MAJORS."
     },
     {
-        "id": "d2010151-aa02-4465-94b4-e3fa8a001d28",
+        "id": "82e6bd7b-e7a4-4530-8f82-3dc1fdf32124",
         "deptCode": "DISCS",
         "catNo": "MSYS 197",
         "section": "YYY3",
@@ -3276,7 +4044,19 @@
         "remarks": "ALL SLOTS FOR BS MIS MAJORS. ALL SLOTS FOR BSMIS-MSCS MAJORS."
     },
     {
-        "id": "739edca1-15f2-4686-80d7-b2e0e28ca016",
+        "id": "8de374fa-94f9-4780-b87f-27858f8074bb",
+        "deptCode": "DISCS",
+        "catNo": "MSYS 197",
+        "section": "ZZZ",
+        "courseTitle": "PRACTICUM",
+        "units": "3",
+        "time": "TUTORIAL 0000-0000()",
+        "room": "TBA",
+        "instructor": "RESTOLES, Dan Mark, SUGAY, JESSICA O.",
+        "remarks": "*For DISCS Interns working on Mapping Project."
+    },
+    {
+        "id": "55867b54-533c-42b3-971c-e631b589e069",
         "deptCode": "IS",
         "catNo": "IDS 121.15i",
         "section": "M",
@@ -3288,7 +4068,7 @@
         "remarks": "10 SLOT(S) FOR AB IS MAJORS."
     },
     {
-        "id": "fd74bd07-8265-44b2-8c53-6300a68af2c1",
+        "id": "5f822765-17fd-405d-9f04-90cbdd128c8b",
         "deptCode": "IS",
         "catNo": "IDS 121.15i",
         "section": "N",
@@ -3300,7 +4080,7 @@
         "remarks": "10 SLOT(S) FOR AB IS MAJORS."
     },
     {
-        "id": "1500fa73-d185-4de9-9759-24e0a23ad0f8",
+        "id": "3d8e125b-d0bd-4a8b-8746-e81480b19881",
         "deptCode": "IS",
         "catNo": "IDS 132.05i",
         "section": "J",
@@ -3312,7 +4092,7 @@
         "remarks": "5 SLOT(S) FOR AB IS MAJORS."
     },
     {
-        "id": "a1bce4b6-33cb-4160-bb1c-0b87466e4ae6",
+        "id": "867708ba-e720-4a2d-b452-b9ee0635d7ab",
         "deptCode": "IS",
         "catNo": "IDS 133.04i",
         "section": "K",
@@ -3324,7 +4104,7 @@
         "remarks": "*."
     },
     {
-        "id": "584802e8-90e2-4705-9b48-9ba19d151cc2",
+        "id": "7882780f-ed0a-4def-b893-52ddf590b013",
         "deptCode": "IS",
         "catNo": "IDS 162.13i",
         "section": "J",
@@ -3336,7 +4116,7 @@
         "remarks": "5 SLOT(S) FOR BFA ID MAJORS. 10 SLOT(S) FOR AB IS MAJORS."
     },
     {
-        "id": "e10ea8fd-f585-4388-b2d5-be73d1ea4100",
+        "id": "a6f1ba5d-2894-4882-a0e8-a5d18e4f5273",
         "deptCode": "IS",
         "catNo": "IDS 180.13i",
         "section": "J",
@@ -3348,7 +4128,7 @@
         "remarks": "5 SLOT(S) FOR AB IS MAJORS."
     },
     {
-        "id": "8c4ed256-cad4-421c-ba62-380b48974f05",
+        "id": "deaab7ae-9030-4e68-b1cd-b15514a317a7",
         "deptCode": "JSP",
         "catNo": "JPN 11",
         "section": "A",
@@ -3360,7 +4140,7 @@
         "remarks": "-"
     },
     {
-        "id": "4027da47-e683-4759-8978-ff1f613f16b0",
+        "id": "a1d99075-a747-41e9-9b8a-e1cf43d9cf30",
         "deptCode": "JSP",
         "catNo": "JPN 11",
         "section": "B",
@@ -3372,7 +4152,7 @@
         "remarks": "-"
     },
     {
-        "id": "9771234a-1b2b-4876-ac77-d10074049e95",
+        "id": "e1f4afd9-3b62-4737-8a7b-87024f012a40",
         "deptCode": "JSP",
         "catNo": "JPN 11",
         "section": "C",
@@ -3384,7 +4164,7 @@
         "remarks": "-"
     },
     {
-        "id": "bd386f0b-e963-4c24-8752-c1ca6c9e1abe",
+        "id": "023bd5ae-c16d-4b99-ab2c-b19f3a1c377d",
         "deptCode": "JSP",
         "catNo": "JPN 11",
         "section": "D",
@@ -3396,7 +4176,7 @@
         "remarks": "-"
     },
     {
-        "id": "1359712b-1043-49fd-9f0f-bd02e70ff546",
+        "id": "12dc5785-e695-434a-9747-50e94d93f577",
         "deptCode": "JSP",
         "catNo": "JPN 11",
         "section": "E",
@@ -3408,7 +4188,7 @@
         "remarks": "-"
     },
     {
-        "id": "e750a308-abf6-42b8-acbf-159a18362ade",
+        "id": "50a1a026-46cc-46b3-8511-f09bbc70fdff",
         "deptCode": "JSP",
         "catNo": "JPN 11",
         "section": "F",
@@ -3420,7 +4200,7 @@
         "remarks": "-"
     },
     {
-        "id": "f2099594-9f9b-4497-a551-7647849c8efb",
+        "id": "3121fc91-4296-4bdc-bab3-fa9f38b21b0a",
         "deptCode": "JSP",
         "catNo": "JPN 14",
         "section": "E",
@@ -3432,7 +4212,7 @@
         "remarks": "*Pre-requisite: JPN 13 or assessment and approval of the JSP Director."
     },
     {
-        "id": "e9195676-9253-47b4-803d-c4ec555076ab",
+        "id": "69cf5768-31f7-45a5-af8b-c45a22ef8082",
         "deptCode": "KSP",
         "catNo": "KRN 11",
         "section": "C",
@@ -3444,7 +4224,7 @@
         "remarks": "-"
     },
     {
-        "id": "c24eec92-098c-443e-9206-6b934e9d17de",
+        "id": "d47df880-5e8e-40f0-b38f-91b0e4308200",
         "deptCode": "KSP",
         "catNo": "KRN 11",
         "section": "D",
@@ -3456,7 +4236,7 @@
         "remarks": "-"
     },
     {
-        "id": "4707c827-d404-4ebc-bb67-5792e43d1cb4",
+        "id": "f3736064-9a4d-4b3f-8b10-a86a77ee9db8",
         "deptCode": "KSP",
         "catNo": "KRN 11",
         "section": "E",
@@ -3468,7 +4248,7 @@
         "remarks": "-"
     },
     {
-        "id": "cd6072da-b3ad-40ff-8555-31ea45f609d7",
+        "id": "1e5bcc85-8bab-43a8-88fb-89a1f4dbaab3",
         "deptCode": "KSP",
         "catNo": "KRN 11",
         "section": "F",
@@ -3480,7 +4260,307 @@
         "remarks": "-"
     },
     {
-        "id": "f1232342-4d25-473e-b36f-ed1912e89a79",
+        "id": "50d6ffd5-9d00-4596-84c3-134783f05c69",
+        "deptCode": "LAS",
+        "catNo": "LAS 20",
+        "section": "D",
+        "courseTitle": "PHILIPPINE BUSINESS ENVIRONMENT: POLICIES AND PROGRAMS ON ENTERPRISE DEVELOPMENT",
+        "units": "3",
+        "time": "D 1230-1400",
+        "room": "SOM 211",
+        "instructor": "ILAGAN, JOSEPH BENJAMIN R.",
+        "remarks": "ALL SLOTS FOR BS ITE MAJORS."
+    },
+    {
+        "id": "7e273bfa-8797-4396-9762-d2643635fb19",
+        "deptCode": "LAS",
+        "catNo": "LAS 20",
+        "section": "I",
+        "courseTitle": "PHILIPPINE BUSINESS ENVIRONMENT: POLICIES AND PROGRAMS ON ENTERPRISE DEVELOPMENT",
+        "units": "3",
+        "time": "M 0800-1130; TH 0800-1200",
+        "room": "SOM 302; SOM 302",
+        "instructor": "PUEN, DAVID ALLEN Y.",
+        "remarks": "ALL SLOTS FOR BS REnt MAJORS."
+    },
+    {
+        "id": "660dabe4-7289-4796-8c48-fc6c9b75b4f2",
+        "deptCode": "LAS",
+        "catNo": "LAS 20",
+        "section": "J",
+        "courseTitle": "PHILIPPINE BUSINESS ENVIRONMENT: POLICIES AND PROGRAMS ON ENTERPRISE DEVELOPMENT",
+        "units": "3",
+        "time": "M 1130-1500; TH 1200-1600",
+        "room": "SOM 302; SOM 302",
+        "instructor": "PUEN, DAVID ALLEN Y.",
+        "remarks": "ALL SLOTS FOR BS REnt MAJORS."
+    },
+    {
+        "id": "586cf479-15bf-4640-ac03-329d3f3e2e6c",
+        "deptCode": "LAS",
+        "catNo": "LAS 50.2i",
+        "section": "I",
+        "courseTitle": "INTERDISCIPLINARY ISSUES IN SPORT MANAGEMENT",
+        "units": "3",
+        "time": "M 0800-1130; TH 0800-1200",
+        "room": "CTC 407; CTC 407",
+        "instructor": "LUMASANG, Eirenne Aleeseeyah",
+        "remarks": "-"
+    },
+    {
+        "id": "574fe9b4-4fcc-4c20-8a04-57cb8ae78e6a",
+        "deptCode": "LAS",
+        "catNo": "LAS 50.2i",
+        "section": "J",
+        "courseTitle": "INTERDISCIPLINARY ISSUES IN SPORT MANAGEMENT",
+        "units": "3",
+        "time": "M 1130-1500; TH 1200-1600",
+        "room": "SOM 205; SOM 205",
+        "instructor": "TONG, ALDO ZELIG U.",
+        "remarks": "-"
+    },
+    {
+        "id": "86d08764-ba4b-4838-abed-172110188a3f",
+        "deptCode": "LAS",
+        "catNo": "LAS 50.2i",
+        "section": "SXW1",
+        "courseTitle": "INTERDISCIPLINARY ISSUES IN SPORT MANAGEMENT",
+        "units": "3",
+        "time": "W 0800-1100; W 1230-1700",
+        "room": "SOM 302; SOM 302",
+        "instructor": "LUMASANG, Eirenne Aleeseeyah",
+        "remarks": "-"
+    },
+    {
+        "id": "efb2f496-b712-4521-ab69-7e20de13c335",
+        "deptCode": "LAS",
+        "catNo": "LAS 111",
+        "section": "N",
+        "courseTitle": "STRATEGIC HUMAN RESOURCE MANAGEMENT",
+        "units": "3",
+        "time": "F 1200-1600; T 1130-1500",
+        "room": "CTC 407; CTC 407",
+        "instructor": "LIZARES, ROBERT EDRIC JOSEF R.",
+        "remarks": "12 SLOT(S) FOR BS ITE MAJORS."
+    },
+    {
+        "id": "9839721a-d4d1-41ec-84c2-37e1c162685d",
+        "deptCode": "LAS",
+        "catNo": "LAS 111",
+        "section": "O",
+        "courseTitle": "STRATEGIC HUMAN RESOURCE MANAGEMENT",
+        "units": "3",
+        "time": "F 1600-2000; T 1500-1830",
+        "room": "CTC 407; CTC 407",
+        "instructor": "LIZARES, ROBERT EDRIC JOSEF R.",
+        "remarks": "12 SLOT(S) FOR BS ITE MAJORS."
+    },
+    {
+        "id": "ba3c861d-32a0-4e2e-a557-7e4fc2ac48a5",
+        "deptCode": "LAS",
+        "catNo": "LAS 112.73i",
+        "section": "SXW1",
+        "courseTitle": "LEADING TEAMS FOR INNOVATION",
+        "units": "3",
+        "time": "W 0800-1100; W 1230-1700",
+        "room": "SOM 302; SOM 302",
+        "instructor": "CANCINO, Mark Joseph",
+        "remarks": "*INTERDISCIPLINARY ELECTIVE"
+    },
+    {
+        "id": "f557c0e4-b675-417a-909f-7fb73e683208",
+        "deptCode": "LAS",
+        "catNo": "LAS 123",
+        "section": "J",
+        "courseTitle": "INTERNATIONAL BUSINESS AND TRADE",
+        "units": "3",
+        "time": "M 1130-1500; TH 1200-1600",
+        "room": "CTC 407; CTC 407",
+        "instructor": "SUGAY, Clayton",
+        "remarks": "ALL SLOTS FOR BS ME MAJORS."
+    },
+    {
+        "id": "29bd09ca-f35b-4e1b-bf10-daabcf017c93",
+        "deptCode": "LAS",
+        "catNo": "LAS 123",
+        "section": "W-EF-S-ABC",
+        "courseTitle": "INTERNATIONAL BUSINESS AND TRADE",
+        "units": "3",
+        "time": "SAT 0800-1230; W 1400-1700",
+        "room": "SOM 205; SOM 205",
+        "instructor": "MORADA, Kevin Henry",
+        "remarks": "ALL SLOTS FOR BS ME MAJORS."
+    },
+    {
+        "id": "8e190847-1807-4d3f-aa90-3954518f02be",
+        "deptCode": "LAS",
+        "catNo": "LAS 197.20",
+        "section": "AB-EFG",
+        "courseTitle": "WORK PRACTICUM",
+        "units": "3",
+        "time": "SAT 0800-1100; T 1500-1830",
+        "room": "SOM 103; SOM 103",
+        "instructor": "OLPOC, RAQUEL C.",
+        "remarks": "ALL SLOTS FOR 4TH YEAR BS LM MAJORS."
+    },
+    {
+        "id": "aa1abfa7-6fb6-4755-a51a-adcf3c22b97f",
+        "deptCode": "LAS",
+        "catNo": "LAS 197.20",
+        "section": "FGH-DEF",
+        "courseTitle": "WORK PRACTICUM",
+        "units": "3",
+        "time": "SAT 1230-1700; TH 1600-1900",
+        "room": "SOM 302; SOM 302",
+        "instructor": "OLPOC, RAQUEL C.",
+        "remarks": "ALL SLOTS FOR 4TH YEAR BS LM MAJORS."
+    },
+    {
+        "id": "b3ff3c2f-2b9f-4ea8-ba40-af1ba6eac0bc",
+        "deptCode": "LAS",
+        "catNo": "LAS 197.20",
+        "section": "STUWX",
+        "courseTitle": "WORK PRACTICUM",
+        "units": "3",
+        "time": "SAT 1230-1700; W 0800-1100",
+        "room": "SOM 205; SOM 205",
+        "instructor": "DE GUZMAN, Marie Catherine",
+        "remarks": "ALL SLOTS FOR 4TH YEAR BS COMTECH MAJORS."
+    },
+    {
+        "id": "69f79422-7aa2-4351-bdaf-dfb0570ade0e",
+        "deptCode": "LAS",
+        "catNo": "LAS 197.20",
+        "section": "SXS1",
+        "courseTitle": "WORK PRACTICUM",
+        "units": "3",
+        "time": "SAT 0800-1100; SAT 1230-1700",
+        "room": "SOM 302; SOM 302",
+        "instructor": "CARONO\u00d1GAN, MARIJO M.",
+        "remarks": "ALL SLOTS FOR 4TH YEAR BS LM MAJORS."
+    },
+    {
+        "id": "0e71604f-3247-4100-8362-ea41830e3faa",
+        "deptCode": "LAS",
+        "catNo": "LAS 197.20",
+        "section": "SXS1a",
+        "courseTitle": "WORK PRACTICUM",
+        "units": "3",
+        "time": "SAT 0800-1100; SAT 1230-1700",
+        "room": "CTC 407; CTC 407",
+        "instructor": "DURAN, Benedict James",
+        "remarks": "ALL SLOTS FOR 4TH YEAR BS LM MAJORS."
+    },
+    {
+        "id": "b8fe922f-8983-4f91-b3fb-269cc0d9fdd4",
+        "deptCode": "LAS",
+        "catNo": "LAS 197.20",
+        "section": "SXS1b",
+        "courseTitle": "WORK PRACTICUM",
+        "units": "3",
+        "time": "SAT 0800-1100; SAT 1230-1700",
+        "room": "SEC-A202; SEC-A202",
+        "instructor": "AMANTE, HELEN U.",
+        "remarks": "ALL SLOTS FOR 4TH YEAR BS COMTECH MAJORS."
+    },
+    {
+        "id": "dfc4b072-a3bc-4e5b-a041-d9b1a59fe2fa",
+        "deptCode": "LAS",
+        "catNo": "LAS 197.20",
+        "section": "SXS1c",
+        "courseTitle": "WORK PRACTICUM",
+        "units": "3",
+        "time": "SAT 0800-1100; SAT 1230-1700",
+        "room": "SOM 211; SOM 211",
+        "instructor": "BARCENA, Jan Arvin",
+        "remarks": "ALL SLOTS FOR 4TH YEAR BS COMTECH MAJORS."
+    },
+    {
+        "id": "97020ac0-5c21-4651-a71a-387887ea96df",
+        "deptCode": "LAS",
+        "catNo": "LAS 197.20",
+        "section": "TH-GH-S-DF",
+        "courseTitle": "WORK PRACTICUM",
+        "units": "3",
+        "time": "SAT 1230-1700; TH 1700-2000",
+        "room": "SOM 111; SOM 211",
+        "instructor": "MORADA, Kevin Henry",
+        "remarks": "18 SLOT(S) FOR 4TH YEAR BS MGT-H MAJORS. 20 SLOT(S) FOR CROSS-REG MAJORS. *--NUS exchange students"
+    },
+    {
+        "id": "f1669737-7165-4709-b21d-14dfa666e05d",
+        "deptCode": "LAS",
+        "catNo": "LAS 197.20",
+        "section": "WS-DEF",
+        "courseTitle": "WORK PRACTICUM",
+        "units": "3",
+        "time": "SAT 1230-1700; W 1230-1700",
+        "room": "CTC 407; CTC 407",
+        "instructor": "TRIVI\u00d1O, Jyro",
+        "remarks": "ALL SLOTS FOR 4TH YEAR BS COMTECH MAJORS."
+    },
+    {
+        "id": "bdfaa557-a98d-4f06-ac65-21057cbe5444",
+        "deptCode": "LAS",
+        "catNo": "LAS 197.33",
+        "section": "ABC-T",
+        "courseTitle": "WORK PRACTICUM",
+        "units": "1.5",
+        "time": "T 0800-1145",
+        "room": "SOM 302",
+        "instructor": "VERGARA, Leofel",
+        "remarks": "ALL SLOTS FOR BS REnt MAJORS."
+    },
+    {
+        "id": "8938dd32-3f78-42fe-87a6-f5cb011d10c9",
+        "deptCode": "LAS",
+        "catNo": "LAS 197.34",
+        "section": "DEF-T",
+        "courseTitle": "WORK PRACTICUM",
+        "units": "1.5",
+        "time": "T 1200-1545",
+        "room": "SOM 302",
+        "instructor": "VERGARA, Leofel",
+        "remarks": "ALL SLOTS FOR BS REnt MAJORS."
+    },
+    {
+        "id": "ef1a65cc-a301-482b-8177-3b6699880bd9",
+        "deptCode": "LAS",
+        "catNo": "SOMGT 296",
+        "section": "COMP",
+        "courseTitle": "COMPREHENSIVE EXAMINATIONS",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "OLPOC, RAQUEL C.",
+        "remarks": "-"
+    },
+    {
+        "id": "f04aead9-d426-4dc6-90f2-00ec8ef796a0",
+        "deptCode": "LAS",
+        "catNo": "SOMGT 299.6",
+        "section": "SUB-A",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "8f01756c-db74-401e-be90-a14dcfa8dc90",
+        "deptCode": "LAS",
+        "catNo": "SOMGT 396",
+        "section": "COMP",
+        "courseTitle": "COMPREHENSIVE EXAM",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "e5eda68d-2585-494d-bad1-743486d1d778",
         "deptCode": "MAL",
         "catNo": "LLAW 113",
         "section": "M",
@@ -3492,7 +4572,7 @@
         "remarks": "-"
     },
     {
-        "id": "9b32bf5a-abbd-4aed-8700-f28a8cc633e2",
+        "id": "8c46cec3-22cc-417e-bbb6-2e315f7f0295",
         "deptCode": "MAL",
         "catNo": "MKTG 118",
         "section": "N",
@@ -3504,7 +4584,7 @@
         "remarks": "*Pre Req: MKTG 111 or MKTG 111.03 or MKTG 111.04 or MKTG 111.30"
     },
     {
-        "id": "2e98eb28-665f-4e66-8bda-9d642d00da8b",
+        "id": "6690053d-2f24-45fa-8322-5f886dc0dc83",
         "deptCode": "MAL",
         "catNo": "MKTG 140.02",
         "section": "K",
@@ -3516,7 +4596,7 @@
         "remarks": "-"
     },
     {
-        "id": "c3955f2a-a2d2-4cd0-b071-23cb537e54fd",
+        "id": "148dd62a-9634-487c-a499-4f41951fdcaa",
         "deptCode": "MAL",
         "catNo": "MKTG 143.02",
         "section": "J",
@@ -3528,7 +4608,139 @@
         "remarks": "-"
     },
     {
-        "id": "7ab0e7e1-8e6d-4055-82e7-255c9f0e9dca",
+        "id": "79d9b179-1406-478b-baa9-556745eba58a",
+        "deptCode": "MA",
+        "catNo": "MATH 10",
+        "section": "B",
+        "courseTitle": "MATHEMATICS IN THE MODERN WORLD",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "SEC-A210",
+        "instructor": "GARCIA, MARK LESTER B., MEGHRAJANI, Jesus Krishna",
+        "remarks": "-"
+    },
+    {
+        "id": "05cdec3d-bf08-4d68-ae3c-be191e821e9b",
+        "deptCode": "MA",
+        "catNo": "MATH 10",
+        "section": "C",
+        "courseTitle": "MATHEMATICS IN THE MODERN WORLD",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "SEC-A210",
+        "instructor": "GARCIA, MARK LESTER B., MEGHRAJANI, Jesus Krishna",
+        "remarks": "-"
+    },
+    {
+        "id": "bdf7b6dc-5041-4530-ad15-f59bf19d638c",
+        "deptCode": "MA",
+        "catNo": "MATH 21",
+        "section": "A",
+        "courseTitle": "UNIVERSITY PRECALCULUS",
+        "units": "3",
+        "time": "D 0800-0930",
+        "room": "SEC-A208",
+        "instructor": "ROMERO, Iris Krisha",
+        "remarks": "-"
+    },
+    {
+        "id": "3f868d13-b2b0-4dc9-b2f4-1bb0375c926a",
+        "deptCode": "MA",
+        "catNo": "MATH 21",
+        "section": "B",
+        "courseTitle": "UNIVERSITY PRECALCULUS",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "SEC-A208",
+        "instructor": "ROMERO, Iris Krisha",
+        "remarks": "-"
+    },
+    {
+        "id": "71d3371b-d552-4edb-8758-ce445c7c0aae",
+        "deptCode": "MA",
+        "catNo": "MATH 30.13",
+        "section": "E",
+        "courseTitle": "APPLIED CALCULUS FOR BUSINESS AND ECONOMICS I",
+        "units": "3",
+        "time": "D 1400-1530",
+        "room": "SEC-A210",
+        "instructor": "DOMINGO, EURLYNE J.",
+        "remarks": "-"
+    },
+    {
+        "id": "0f6eb3da-56f2-4f4e-978b-ad959851008b",
+        "deptCode": "MA",
+        "catNo": "MATH 30.13",
+        "section": "F",
+        "courseTitle": "APPLIED CALCULUS FOR BUSINESS AND ECONOMICS I",
+        "units": "3",
+        "time": "D 1530-1700",
+        "room": "SEC-A210",
+        "instructor": "DOMINGO, EURLYNE J.",
+        "remarks": "-"
+    },
+    {
+        "id": "9ca53bb5-6c32-43c0-87bf-f6ca76e85a88",
+        "deptCode": "MA",
+        "catNo": "MATH 30.14",
+        "section": "B1",
+        "courseTitle": "APPLIED CALCULUS FOR BUSINESS AND ECONOMICS II",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "SEC-A209",
+        "instructor": "SILVESTRE, Luis Jr",
+        "remarks": "-"
+    },
+    {
+        "id": "5b52cbee-f7e2-4b13-96fa-b06d3838c69c",
+        "deptCode": "MA",
+        "catNo": "MATH 30.14",
+        "section": "C1",
+        "courseTitle": "APPLIED CALCULUS FOR BUSINESS AND ECONOMICS II",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "SEC-A208",
+        "instructor": "VISTRO-YU, CATHERINE P.",
+        "remarks": "-"
+    },
+    {
+        "id": "09556810-59da-4d8b-aeed-a3e21da1074c",
+        "deptCode": "MA",
+        "catNo": "MATH 30.14",
+        "section": "C2",
+        "courseTitle": "APPLIED CALCULUS FOR BUSINESS AND ECONOMICS II",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "SEC-A209",
+        "instructor": "TABARES, WINFER C.",
+        "remarks": "-"
+    },
+    {
+        "id": "e5bb54f1-1cfb-48d7-a35e-01ba274149c6",
+        "deptCode": "MA",
+        "catNo": "MATH 30.14",
+        "section": "D1",
+        "courseTitle": "APPLIED CALCULUS FOR BUSINESS AND ECONOMICS II",
+        "units": "3",
+        "time": "D 1230-1400",
+        "room": "SEC-A208",
+        "instructor": "SILVESTRE, Luis Jr",
+        "remarks": "-"
+    },
+    {
+        "id": "63155033-a836-4e76-baf9-c32479026fee",
+        "deptCode": "MA",
+        "catNo": "MATH 30.14",
+        "section": "D2",
+        "courseTitle": "APPLIED CALCULUS FOR BUSINESS AND ECONOMICS II",
+        "units": "3",
+        "time": "D 1230-1400",
+        "room": "SEC-A209",
+        "instructor": "YAP, ROMINA ANN S.",
+        "remarks": "-"
+    },
+    {
+        "id": "6875a0b7-0d7f-4d57-af2c-8b8a7a1bcb4f",
         "deptCode": "MA",
         "catNo": "MATH 30.14",
         "section": "E1",
@@ -3540,7 +4752,115 @@
         "remarks": "-"
     },
     {
-        "id": "7708e94e-e0ae-4904-949f-273c4f9e1665",
+        "id": "1cfc82d9-59f7-4bda-92df-7d7241f421c8",
+        "deptCode": "MA",
+        "catNo": "MATH 30.14",
+        "section": "E2",
+        "courseTitle": "APPLIED CALCULUS FOR BUSINESS AND ECONOMICS II",
+        "units": "3",
+        "time": "D 1400-1530",
+        "room": "SEC-A209",
+        "instructor": "FLORES, Richell Isaiah",
+        "remarks": "-"
+    },
+    {
+        "id": "de83c409-f899-4098-9b41-1f6555c107a3",
+        "deptCode": "MA",
+        "catNo": "MATH 30.23",
+        "section": "B",
+        "courseTitle": "APPLIED CALCULUS FOR SCIENCE AND ENGINEERING I",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "SEC-A215",
+        "instructor": "DAYAO, PAUL L.",
+        "remarks": "-"
+    },
+    {
+        "id": "58df14d7-a0ac-4d40-9db2-d3eb8937e562",
+        "deptCode": "MA",
+        "catNo": "MATH 30.23",
+        "section": "C",
+        "courseTitle": "APPLIED CALCULUS FOR SCIENCE AND ENGINEERING I",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "SEC-A215",
+        "instructor": "DAYAO, PAUL L.",
+        "remarks": "-"
+    },
+    {
+        "id": "b3c078d8-4eee-4a4a-b95f-3d3c99a3dc8a",
+        "deptCode": "MA",
+        "catNo": "MATH 30.24",
+        "section": "D",
+        "courseTitle": "APPLIED CALCULUS FOR SCIENCE AND ENGINEERING II",
+        "units": "3",
+        "time": "D 1230-1400",
+        "room": "SEC-A215",
+        "instructor": "MALLARI, JUAN CARLO F.",
+        "remarks": "-"
+    },
+    {
+        "id": "20fa0405-f1ff-4930-80b9-84f5f898c282",
+        "deptCode": "MA",
+        "catNo": "MATH 30.24",
+        "section": "F",
+        "courseTitle": "APPLIED CALCULUS FOR SCIENCE AND ENGINEERING II",
+        "units": "3",
+        "time": "D 1530-1700",
+        "room": "SEC-A214",
+        "instructor": "MALLARI, JUAN CARLO F.",
+        "remarks": "-"
+    },
+    {
+        "id": "ca763acf-9790-4a3d-b014-933c76822571",
+        "deptCode": "MA",
+        "catNo": "MATH 51.1",
+        "section": "A",
+        "courseTitle": "DISCRETE MATHEMATICS",
+        "units": "3",
+        "time": "D 0800-0930",
+        "room": "SEC-A214",
+        "instructor": "TABARES, WINFER C.",
+        "remarks": "-"
+    },
+    {
+        "id": "07489bba-6fc2-41e3-9a4f-aa671d737ed4",
+        "deptCode": "MA",
+        "catNo": "MATH 51.1",
+        "section": "B",
+        "courseTitle": "DISCRETE MATHEMATICS",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "SEC-A214",
+        "instructor": "BUOT, JUDE C.",
+        "remarks": "-"
+    },
+    {
+        "id": "acb70c4a-9161-44bd-baef-13d52a32b028",
+        "deptCode": "MA",
+        "catNo": "MATH 51.1",
+        "section": "C",
+        "courseTitle": "DISCRETE MATHEMATICS",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "SEC-A214",
+        "instructor": "BUOT, JUDE C.",
+        "remarks": "-"
+    },
+    {
+        "id": "0682ac2c-f171-4960-bd9d-dc3c832517df",
+        "deptCode": "MA",
+        "catNo": "MATH 55.1",
+        "section": "E",
+        "courseTitle": "FUNDAMENTAL CONCEPTS OF MATHEMATICS",
+        "units": "3",
+        "time": "D 1400-1530",
+        "room": "SEC-A303A",
+        "instructor": "CABRAL, EMMANUEL A.",
+        "remarks": "-"
+    },
+    {
+        "id": "f572e12b-215e-411b-968c-4c8e4a02903a",
         "deptCode": "MA",
         "catNo": "MATH 55.1",
         "section": "F",
@@ -3552,7 +4872,331 @@
         "remarks": "-"
     },
     {
-        "id": "df56c61f-094f-4333-a286-a88b135e9ec5",
+        "id": "883b96ba-1958-4a44-b9a4-102e0f0055f5",
+        "deptCode": "MA",
+        "catNo": "MATH 60.2",
+        "section": "A1",
+        "courseTitle": "INTRODUCTION TO STATISTICAL ANALYSIS",
+        "units": "3",
+        "time": "D 0800-0930",
+        "room": "SEC-A302A",
+        "instructor": "SANTOS, DURWIN C.",
+        "remarks": "-"
+    },
+    {
+        "id": "e423e6f5-515d-4df1-9a44-6d9005ffad12",
+        "deptCode": "MA",
+        "catNo": "MATH 60.2",
+        "section": "A2",
+        "courseTitle": "INTRODUCTION TO STATISTICAL ANALYSIS",
+        "units": "3",
+        "time": "D 0800-0930",
+        "room": "SEC-A303A",
+        "instructor": "TOMENES, Mark",
+        "remarks": "-"
+    },
+    {
+        "id": "3622b2a6-52ec-4b2b-9988-7e0661b6bc08",
+        "deptCode": "MA",
+        "catNo": "MATH 60.2",
+        "section": "B1",
+        "courseTitle": "INTRODUCTION TO STATISTICAL ANALYSIS",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "SEC-A302A",
+        "instructor": "SANTOS, DURWIN C.",
+        "remarks": "-"
+    },
+    {
+        "id": "233949b5-8a49-4eb4-a916-e0a25814bbb8",
+        "deptCode": "MA",
+        "catNo": "MATH 60.2",
+        "section": "B2",
+        "courseTitle": "INTRODUCTION TO STATISTICAL ANALYSIS",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "SEC-A303A",
+        "instructor": "FLORES, Richell Isaiah, MIJARES, Jim Ralphealo",
+        "remarks": "-"
+    },
+    {
+        "id": "7c20fada-fbc3-420c-8464-0f699d37ad2b",
+        "deptCode": "MA",
+        "catNo": "MATH 60.2",
+        "section": "C1",
+        "courseTitle": "INTRODUCTION TO STATISTICAL ANALYSIS",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "SEC-A302A",
+        "instructor": "LOYOLA, MARK L.",
+        "remarks": "-"
+    },
+    {
+        "id": "207fb09b-5bce-4bed-a82d-fdc7b8e28bfe",
+        "deptCode": "MA",
+        "catNo": "MATH 60.2",
+        "section": "C2",
+        "courseTitle": "INTRODUCTION TO STATISTICAL ANALYSIS",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "SEC-A303A",
+        "instructor": "TOMENES, Mark",
+        "remarks": "-"
+    },
+    {
+        "id": "25ee306b-5b85-4b1f-87a0-8627e4a48baf",
+        "deptCode": "MA",
+        "catNo": "MATH 60.2",
+        "section": "D1",
+        "courseTitle": "INTRODUCTION TO STATISTICAL ANALYSIS",
+        "units": "3",
+        "time": "D 1230-1400",
+        "room": "SEC-A302A",
+        "instructor": "GARCIA, Errol Matthew",
+        "remarks": "-"
+    },
+    {
+        "id": "8c6e1332-a6cd-4e54-abc4-b5837fff8a82",
+        "deptCode": "MA",
+        "catNo": "MATH 60.2",
+        "section": "D2",
+        "courseTitle": "INTRODUCTION TO STATISTICAL ANALYSIS",
+        "units": "3",
+        "time": "D 1230-1400",
+        "room": "SEC-A303A",
+        "instructor": "DE LOS SANTOS, Kurt Anthony, FLORES, Richell Isaiah",
+        "remarks": "-"
+    },
+    {
+        "id": "98da3abf-84ba-498b-bf6b-41511f6e5e60",
+        "deptCode": "MA",
+        "catNo": "MATH 60.2",
+        "section": "E",
+        "courseTitle": "INTRODUCTION TO STATISTICAL ANALYSIS",
+        "units": "3",
+        "time": "D 1400-1530",
+        "room": "SEC-A302A",
+        "instructor": "LOYOLA, MARK L.",
+        "remarks": "-"
+    },
+    {
+        "id": "1f8f29cb-3bc4-4494-b92c-732d131e5e36",
+        "deptCode": "MA",
+        "catNo": "MATH 60.2",
+        "section": "F",
+        "courseTitle": "INTRODUCTION TO STATISTICAL ANALYSIS",
+        "units": "3",
+        "time": "D 1530-1700",
+        "room": "SEC-A302A",
+        "instructor": "GARCIA, Errol Matthew",
+        "remarks": "-"
+    },
+    {
+        "id": "98d0e8ea-7bf9-4ed9-afa1-e4f8ca4f9f50",
+        "deptCode": "MA",
+        "catNo": "MATH 61.2",
+        "section": "D",
+        "courseTitle": "ELEMENTARY PROBABILITY THEORY",
+        "units": "3",
+        "time": "D 1230-1400",
+        "room": "SEC-A214",
+        "instructor": "ZOSA, ANTHONY R.",
+        "remarks": "-"
+    },
+    {
+        "id": "3aa7dfac-c981-46a4-b731-da434620ea85",
+        "deptCode": "MA",
+        "catNo": "MATH 61.2",
+        "section": "E1",
+        "courseTitle": "ELEMENTARY PROBABILITY THEORY",
+        "units": "3",
+        "time": "D 1400-1530",
+        "room": "SEC-A215",
+        "instructor": "GATPATAN, JANREE RUARK C.",
+        "remarks": "-"
+    },
+    {
+        "id": "234fb627-b5f6-4392-a2c3-21a734e3bfae",
+        "deptCode": "MA",
+        "catNo": "MATH 61.2",
+        "section": "E2",
+        "courseTitle": "ELEMENTARY PROBABILITY THEORY",
+        "units": "3",
+        "time": "D 1400-1530",
+        "room": "SEC-A214",
+        "instructor": "ZOSA, ANTHONY R.",
+        "remarks": "-"
+    },
+    {
+        "id": "0ab94967-6c51-43d4-9fb8-1bac1cffaf2d",
+        "deptCode": "MA",
+        "catNo": "MATH 61.2",
+        "section": "F",
+        "courseTitle": "ELEMENTARY PROBABILITY THEORY",
+        "units": "3",
+        "time": "D 1530-1700",
+        "room": "SEC-A215",
+        "instructor": "GATPATAN, JANREE RUARK C.",
+        "remarks": "-"
+    },
+    {
+        "id": "c32bb3f8-b928-4756-9d0b-059a8b33bf02",
+        "deptCode": "MA",
+        "catNo": "MATH 192",
+        "section": "ZZZ",
+        "courseTitle": "UNDERGRADUATE RESEARCH SEMINAR",
+        "units": "1",
+        "time": "TUTORIAL 0000-0000",
+        "room": "TBA",
+        "instructor": "GO, CLARK KENDRICK C.",
+        "remarks": "-"
+    },
+    {
+        "id": "945ae631-4876-456e-a02b-041d960bdabd",
+        "deptCode": "MA",
+        "catNo": "MATH 215.1",
+        "section": "ZZZ",
+        "courseTitle": "AN INTRODUCTION TO PROBABILITY",
+        "units": "3",
+        "time": "TUTORIAL 0000-0000",
+        "room": "TBA",
+        "instructor": "ZOSA, ANTHONY R.",
+        "remarks": "-"
+    },
+    {
+        "id": "ea28417a-7b13-4b8d-b779-17a692a5ab8a",
+        "deptCode": "MA",
+        "catNo": "MATH 232.1",
+        "section": "D",
+        "courseTitle": "FINANCIAL DERIVATIVES I",
+        "units": "3",
+        "time": "D 1230-1400",
+        "room": "SEC-A304A",
+        "instructor": "DE LARA-TUPRIO, ELVIRA P.",
+        "remarks": "-"
+    },
+    {
+        "id": "32781558-72eb-4f8e-905e-ab17fa07cb9d",
+        "deptCode": "MA",
+        "catNo": "MATH 271.1",
+        "section": "ZZZ",
+        "courseTitle": "STATISTICAL METHODS",
+        "units": "3",
+        "time": "TUTORIAL 0000-0000",
+        "room": "TBA",
+        "instructor": "CHAN SHIO, CHRISTIAN PAUL O.",
+        "remarks": "-"
+    },
+    {
+        "id": "4b437282-e644-40cc-a3c8-e95c754eab48",
+        "deptCode": "MA",
+        "catNo": "MATH 271.2",
+        "section": "B",
+        "courseTitle": "ADVANCED STATISTICAL METHODS",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "SEC-A304A",
+        "instructor": "CHAN SHIO, CHRISTIAN PAUL O.",
+        "remarks": "ALL SLOTS FOR M MathFin MAJORS."
+    },
+    {
+        "id": "5d13062a-db1f-4f2f-add6-9688f50b9796",
+        "deptCode": "MA",
+        "catNo": "MATH 271.2",
+        "section": "C",
+        "courseTitle": "ADVANCED STATISTICAL METHODS",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "SEC-A304A",
+        "instructor": "CHAN SHIO, CHRISTIAN PAUL O.",
+        "remarks": "ALL SLOTS FOR M DSc MAJORS."
+    },
+    {
+        "id": "6e249f7e-0cb7-46fa-b9a1-d1b380de7484",
+        "deptCode": "MA",
+        "catNo": "MATH 292",
+        "section": "ZZZ",
+        "courseTitle": "INTRODUCTION TO RESEARCH AND THESIS WRITING",
+        "units": "3",
+        "time": "TUTORIAL 0000-0000",
+        "room": "TBA",
+        "instructor": "LOYOLA, MARK L.",
+        "remarks": "-"
+    },
+    {
+        "id": "73e73d52-044e-4374-93d7-b88a773fc40b",
+        "deptCode": "MA",
+        "catNo": "MATH 299.6",
+        "section": "SUB-A",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "a748b1b5-560f-41a0-8ca7-f2718d70e84b",
+        "deptCode": "MA",
+        "catNo": "MATH 299.7",
+        "section": "SUB-B",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "0781d538-2819-4f94-88e0-24a27981ae6b",
+        "deptCode": "MA",
+        "catNo": "MATH 399.1",
+        "section": "THES/DISS2",
+        "courseTitle": "DISSERTATION I",
+        "units": "0",
+        "time": "TBA",
+        "room": "TBA",
+        "instructor": "BUOT, JUDE C.",
+        "remarks": "-"
+    },
+    {
+        "id": "3a962155-cfdf-447a-85ba-d0fa493042e7",
+        "deptCode": "MA",
+        "catNo": "MATH 399.19",
+        "section": "ZZZ",
+        "courseTitle": "DISSERTATION PROPOSAL DEFENSE",
+        "units": "0",
+        "time": "TUTORIAL 0000-0000",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "658213f3-d2ee-4f9c-8b82-46874a729ca8",
+        "deptCode": "MA",
+        "catNo": "MATH 399.6",
+        "section": "SUB-A",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "be89a4b5-483f-42ec-84aa-050c86ff54cc",
+        "deptCode": "MA",
+        "catNo": "MATH 399.7",
+        "section": "SUB-B",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "7cd14a4d-16b0-4b78-951d-fdf704e67b6a",
         "deptCode": "MA",
         "catNo": "MTHED 392.1",
         "section": "ZZZ1",
@@ -3564,7 +5208,7 @@
         "remarks": "-"
     },
     {
-        "id": "ed0efe16-d2d3-42d9-835f-e018d3b834a7",
+        "id": "3a2d5bc4-5ce7-4e2b-a801-5204e2edaddb",
         "deptCode": "MA",
         "catNo": "MTHED 392.1",
         "section": "ZZZ2",
@@ -3576,7 +5220,43 @@
         "remarks": "-"
     },
     {
-        "id": "28f22018-287c-4874-8469-30b454541da6",
+        "id": "a244c9a9-5625-434e-94df-ac66de369516",
+        "deptCode": "MA",
+        "catNo": "MTHED 399.5",
+        "section": "RESID",
+        "courseTitle": "RESIDENCY",
+        "units": "0",
+        "time": "TBA",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "dce38c73-bbde-43dc-b664-6ae2c49c2c70",
+        "deptCode": "MA",
+        "catNo": "MTHED 399.6",
+        "section": "SUB-A",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "172e6352-6744-43ce-a2a4-90a6f7861e48",
+        "deptCode": "MA",
+        "catNo": "MTHED 399.7",
+        "section": "SUB-B",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "a660dbd3-d7f2-4d48-8a9c-567eb352c9bf",
         "deptCode": "ML",
         "catNo": "FRE 11",
         "section": "A",
@@ -3588,7 +5268,7 @@
         "remarks": "-"
     },
     {
-        "id": "0dc9c240-9592-468d-8c44-8c3c7b3a8a0c",
+        "id": "5bc505c1-5380-4236-93e4-e9c2ef9b0ecd",
         "deptCode": "ML",
         "catNo": "FRE 11",
         "section": "B",
@@ -3600,7 +5280,7 @@
         "remarks": "-"
     },
     {
-        "id": "d23c6b1f-d2cb-4d4b-916f-fb5a71ca4a82",
+        "id": "d5f6eb59-ef81-4f5a-9312-35e80ceba5ad",
         "deptCode": "ML",
         "catNo": "FRE 11",
         "section": "C",
@@ -3612,7 +5292,7 @@
         "remarks": "-"
     },
     {
-        "id": "6f99da81-dbaf-43a4-830b-d8a53b3d0b73",
+        "id": "d1e33c7f-ebb6-4f5c-80f0-d290db4a4e45",
         "deptCode": "ML",
         "catNo": "FRE 11",
         "section": "D",
@@ -3624,7 +5304,7 @@
         "remarks": "-"
     },
     {
-        "id": "bbf4f8fb-b68a-4856-9a03-b8cc357efa98",
+        "id": "cdfcb88a-2232-442c-93f4-396055421517",
         "deptCode": "ML",
         "catNo": "FRE 11",
         "section": "E",
@@ -3636,7 +5316,7 @@
         "remarks": "-"
     },
     {
-        "id": "de2bae9e-d23a-4dcd-80bf-f5961592bf26",
+        "id": "ea424b6f-15af-4039-bdf0-8cd4257c3ee1",
         "deptCode": "ML",
         "catNo": "FRE 11",
         "section": "F",
@@ -3648,7 +5328,7 @@
         "remarks": "-"
     },
     {
-        "id": "ec29c015-18b6-4cd4-850d-ac39b2aa7309",
+        "id": "81feca52-2f49-458e-8a6b-3ea7083bd9a2",
         "deptCode": "ML",
         "catNo": "GER 11",
         "section": "A",
@@ -3660,7 +5340,7 @@
         "remarks": "-"
     },
     {
-        "id": "e73d4474-e6ec-4037-b768-f8cfaab1e83e",
+        "id": "9f7dcfc7-2f0d-4ae9-9540-577b260ff333",
         "deptCode": "ML",
         "catNo": "GER 11",
         "section": "B",
@@ -3672,7 +5352,7 @@
         "remarks": "-"
     },
     {
-        "id": "616f3714-3e5d-4f74-ba4d-9679699b2eda",
+        "id": "a620b3c1-5688-4c3d-8d89-c37731c3eb3d",
         "deptCode": "ML",
         "catNo": "GER 11",
         "section": "C",
@@ -3684,7 +5364,7 @@
         "remarks": "-"
     },
     {
-        "id": "5e37882a-213b-4999-9857-986ae9bf08ac",
+        "id": "7c741da1-4a92-45ce-96d5-1e4a35f97349",
         "deptCode": "ML",
         "catNo": "GER 11",
         "section": "D",
@@ -3696,7 +5376,7 @@
         "remarks": "-"
     },
     {
-        "id": "b58c5e00-8cea-4a4d-8a56-edc1349925c8",
+        "id": "38500b85-5605-4609-a284-fd92b009e3a6",
         "deptCode": "ML",
         "catNo": "RUSS 11",
         "section": "E",
@@ -3708,7 +5388,7 @@
         "remarks": "-"
     },
     {
-        "id": "1e04bbd6-9cf0-4acd-9c37-54918da7cca8",
+        "id": "f2d603af-0d1c-44e5-9626-fa600f565f25",
         "deptCode": "ML",
         "catNo": "RUSS 11",
         "section": "F",
@@ -3720,7 +5400,7 @@
         "remarks": "-"
     },
     {
-        "id": "7e863d65-6249-4c51-b805-2201af5554d9",
+        "id": "dbacb43b-ec8e-4c50-9787-3287f6e2ac2a",
         "deptCode": "ML",
         "catNo": "SPA 11",
         "section": "A",
@@ -3732,7 +5412,7 @@
         "remarks": "-"
     },
     {
-        "id": "2fcd1057-7f2b-4788-9290-4170ec16886e",
+        "id": "335fd8b9-3166-45ea-b013-8d4e815b660a",
         "deptCode": "ML",
         "catNo": "SPA 11",
         "section": "B",
@@ -3744,7 +5424,7 @@
         "remarks": "-"
     },
     {
-        "id": "9c12f324-4429-44ed-b2f0-8e988b029b48",
+        "id": "2e7dd9b8-3021-4380-8041-8e6d4a202380",
         "deptCode": "ML",
         "catNo": "SPA 11",
         "section": "C",
@@ -3756,7 +5436,7 @@
         "remarks": "-"
     },
     {
-        "id": "e8ded780-afe7-496d-bf32-858a82c308fc",
+        "id": "69ba9d48-ea9a-4e36-a72c-d468a84c3628",
         "deptCode": "ML",
         "catNo": "SPA 11",
         "section": "D",
@@ -3768,7 +5448,7 @@
         "remarks": "-"
     },
     {
-        "id": "637c298f-3f74-4917-a1d9-26f32adafa93",
+        "id": "5ce0b296-31e3-4368-9b77-5efe36af5084",
         "deptCode": "ML",
         "catNo": "SPA 11",
         "section": "E",
@@ -3780,7 +5460,7 @@
         "remarks": "-"
     },
     {
-        "id": "5e72374c-22c4-415f-a8b9-1ff1a37aec06",
+        "id": "08b7107a-5cf9-452e-8165-90cfdbfae53d",
         "deptCode": "ML",
         "catNo": "SPA 11",
         "section": "E1",
@@ -3792,7 +5472,7 @@
         "remarks": "-"
     },
     {
-        "id": "3f23ee8c-9c40-4e63-ab8c-5ebe928c026b",
+        "id": "b9455371-949a-4ad5-bae4-adc928daa0a9",
         "deptCode": "ML",
         "catNo": "SPA 11",
         "section": "F",
@@ -3804,7 +5484,7 @@
         "remarks": "-"
     },
     {
-        "id": "62de2b66-2fda-4c6e-bb45-8b9c1cb49306",
+        "id": "12f3c942-2727-45ae-940b-bf74ecac00f1",
         "deptCode": "ML",
         "catNo": "SPA 11",
         "section": "F1",
@@ -3816,7 +5496,79 @@
         "remarks": "-"
     },
     {
-        "id": "17b22aa3-43f0-45b4-9e28-3e165f6644d3",
+        "id": "5a972bbd-9833-4b22-826c-6be4076cf29f",
+        "deptCode": "ML",
+        "catNo": "SPA 28",
+        "section": "YYY",
+        "courseTitle": "SUMMER STUDY TOUR TO SPAIN",
+        "units": "6",
+        "time": "TBA",
+        "room": "TBA",
+        "instructor": "BAUTISTA, CARMINA MA. VERONICA L., YOUNG, MARIA LUISA P.",
+        "remarks": "-"
+    },
+    {
+        "id": "80d29768-0ed0-45b2-892e-810d8fe2a512",
+        "deptCode": "PH",
+        "catNo": "PHILO 215",
+        "section": "DEF-TTH",
+        "courseTitle": "HISTORY OF ANCIENT INDIAN THOUGHT",
+        "units": "3",
+        "time": "T 1230-1700; TH 1230-1530",
+        "room": "PH DEPT; PH DEPT",
+        "instructor": "GANGODAWILA, Chandima",
+        "remarks": "*Tuesday 12:30 to 5:00 PM; Thursday 12:30 to 3:30 PM"
+    },
+    {
+        "id": "b15b63ac-a700-4dca-ad5c-a1d006112270",
+        "deptCode": "PH",
+        "catNo": "PHILO 315",
+        "section": "DEF-TTH",
+        "courseTitle": "ANCIENT INDIAN THOUGHT",
+        "units": "3",
+        "time": "T 1230-1700; TH 1230-1530",
+        "room": "PH DEPT; PH DEPT",
+        "instructor": "GANGODAWILA, Chandima",
+        "remarks": "*Tuesday 12:30 to 5:00 PM; Thursday 12:30 to 3:30 PM"
+    },
+    {
+        "id": "3cabc646-29eb-4f44-9096-61d7c1605a28",
+        "deptCode": "PE",
+        "catNo": "PEPC 10",
+        "section": "II1a",
+        "courseTitle": "FUNDAMENTAL MOVEMENT FOR HEALTH AND FITNESS",
+        "units": "2",
+        "time": "M-TH 0800-1030",
+        "room": "MARTIAL ARTS RM",
+        "instructor": "JANEO, RYAN M.",
+        "remarks": "-"
+    },
+    {
+        "id": "69ae376b-8450-4959-8cda-d7c5486ecdb9",
+        "deptCode": "PE",
+        "catNo": "PEPC 11.15",
+        "section": "II1",
+        "courseTitle": "YOGA",
+        "units": "2",
+        "time": "M-TH 0800-1030",
+        "room": "DANCE AREA",
+        "instructor": "UNSON, MA. STELLA C.",
+        "remarks": "-"
+    },
+    {
+        "id": "e6f921ec-0eef-43f1-9ee1-5ce8e7316bcd",
+        "deptCode": "PE",
+        "catNo": "PHYED 128",
+        "section": "JJ",
+        "courseTitle": "FENCING",
+        "units": "2",
+        "time": "M-TH 1300-1530",
+        "room": "MARTIAL ARTS RM",
+        "instructor": "JANEO, RYAN M.",
+        "remarks": "-"
+    },
+    {
+        "id": "12ccaeec-0a34-48c1-a647-07e5cb491da4",
         "deptCode": "PS",
         "catNo": "ATMOS 299.6",
         "section": "SUB-A",
@@ -3828,7 +5580,7 @@
         "remarks": "-"
     },
     {
-        "id": "4f49e9fc-ecbc-454c-97f7-d3638bb9cc3c",
+        "id": "b69a9db6-52e2-4609-923c-99becf43ffcd",
         "deptCode": "PS",
         "catNo": "ATMOS 299.7",
         "section": "SUB-B",
@@ -3840,7 +5592,7 @@
         "remarks": "-"
     },
     {
-        "id": "6fbd581e-18e6-405e-aa9a-d130caa4675d",
+        "id": "6d2f9e92-f6cd-47dc-98a7-c6f32c2f0379",
         "deptCode": "PS",
         "catNo": "PHYS 33.01",
         "section": "C",
@@ -3852,7 +5604,7 @@
         "remarks": "-"
     },
     {
-        "id": "c26b64fe-26ec-4a26-83b4-6c69217997f6",
+        "id": "80ed9526-0250-450a-bc58-1b3af677172b",
         "deptCode": "PS",
         "catNo": "PHYS 33.01",
         "section": "C1",
@@ -3864,7 +5616,7 @@
         "remarks": "-"
     },
     {
-        "id": "7ae3c6f9-fecf-4190-9214-b4481618ea84",
+        "id": "5d94fb35-6461-4dda-9edf-c5596f61a84e",
         "deptCode": "PS",
         "catNo": "PHYS 33.01",
         "section": "C2",
@@ -3876,7 +5628,43 @@
         "remarks": "-"
     },
     {
-        "id": "5231eaa4-159d-468b-ab88-49c1648f00cc",
+        "id": "14089286-948d-4643-90cd-02542669985d",
+        "deptCode": "PS",
+        "catNo": "PHYS 33.02",
+        "section": "JWN",
+        "courseTitle": "ANALYTICAL PHYSICS III, LABORATORY",
+        "units": "1",
+        "time": "M-W-F 1300-1500",
+        "room": "SEC-C106A",
+        "instructor": "VARGAS, Noel",
+        "remarks": "-"
+    },
+    {
+        "id": "92bac183-b70a-4869-a8a1-78a62dbe839d",
+        "deptCode": "PS",
+        "catNo": "PHYS 33.02",
+        "section": "JWN1",
+        "courseTitle": "ANALYTICAL PHYSICS III, LABORATORY",
+        "units": "1",
+        "time": "F 1300-1500; M 1300-1500; W 1300-1500",
+        "room": "SEC-C105A; SEC-C105A; SEC-C105A",
+        "instructor": "BLANCAS, PHILIP JORDAN D.",
+        "remarks": "-"
+    },
+    {
+        "id": "540b443e-f311-464d-905a-f869464a5c4e",
+        "deptCode": "PS",
+        "catNo": "PHYS 33.02",
+        "section": "KWO",
+        "courseTitle": "ANALYTICAL PHYSICS III, LABORATORY",
+        "units": "1",
+        "time": "M-W-F 1500-1700",
+        "room": "SEC-C106A",
+        "instructor": "DACANAY, RODSON O.",
+        "remarks": "-"
+    },
+    {
+        "id": "7f01c572-7b2b-488d-81a2-c468e731906e",
         "deptCode": "PS",
         "catNo": "PHYS 34.01",
         "section": "D",
@@ -3888,7 +5676,19 @@
         "remarks": "-"
     },
     {
-        "id": "58e10678-7786-44a7-85bd-bf3691447a85",
+        "id": "5312cb5a-b3d2-45df-81ab-d529e4aa2769",
+        "deptCode": "PS",
+        "catNo": "PHYS 34.02",
+        "section": "KWO",
+        "courseTitle": "ANALYTICAL PHYSICS IV, LABORATORY",
+        "units": "1",
+        "time": "M-W-F 1500-1700",
+        "room": "F-305",
+        "instructor": "BLANCAS, PHILIP JORDAN D., VARGAS, Noel",
+        "remarks": "-"
+    },
+    {
+        "id": "3fb60846-2e55-4cc7-aefe-b2a9fbd01175",
         "deptCode": "PS",
         "catNo": "PHYS 111",
         "section": "B",
@@ -3900,7 +5700,7 @@
         "remarks": "-"
     },
     {
-        "id": "f169259a-0ce2-4d92-87ee-e5e7cb5831f0",
+        "id": "4b32a94a-be8a-4015-b76b-a9ff09d2ecc6",
         "deptCode": "PS",
         "catNo": "PHYS 180.5i",
         "section": "SXS1",
@@ -3912,7 +5712,7 @@
         "remarks": "-"
     },
     {
-        "id": "9a8a688c-a094-4264-9772-b3ae648a2b0d",
+        "id": "4ecdb353-f03d-4a0f-ad88-518986c6725c",
         "deptCode": "PS",
         "catNo": "PHYS 197",
         "section": "G",
@@ -3924,7 +5724,7 @@
         "remarks": "-"
     },
     {
-        "id": "e87c10ee-586c-403b-adde-f686e9ff9cf2",
+        "id": "5a798649-dfb7-4e7c-ae56-3c5319a6b6a8",
         "deptCode": "PS",
         "catNo": "PHYS 255",
         "section": "ZZZ",
@@ -3936,7 +5736,7 @@
         "remarks": "*This is a graduate class for PhD/MS PS students."
     },
     {
-        "id": "d1796993-eb0a-4033-ac8b-14b2bc8a5e3f",
+        "id": "46a6df31-444d-4ffc-b748-eb241afc1e9e",
         "deptCode": "PS",
         "catNo": "PHYS 299.6",
         "section": "SUB-A",
@@ -3948,7 +5748,7 @@
         "remarks": "-"
     },
     {
-        "id": "43d6baa8-ca17-470a-bce0-9e90dc9c3a06",
+        "id": "53fc3522-6d94-49b5-9682-417a49d849c4",
         "deptCode": "PS",
         "catNo": "PHYS 299.7",
         "section": "SUB-B",
@@ -3960,7 +5760,7 @@
         "remarks": "-"
     },
     {
-        "id": "fff95ae5-9a40-4e7a-979a-a5624632c5c6",
+        "id": "71dd0238-ee44-45d9-9911-1bae58841f62",
         "deptCode": "PS",
         "catNo": "PHYS 399.6",
         "section": "SUB-A",
@@ -3972,7 +5772,7 @@
         "remarks": "-"
     },
     {
-        "id": "27f50802-9c08-463c-a23e-ec3f5894d9cf",
+        "id": "dba50889-7a51-4ebe-a74c-6c9ad4549f9f",
         "deptCode": "PS",
         "catNo": "PHYS 399.7",
         "section": "SUB-B",
@@ -3984,7 +5784,19 @@
         "remarks": "-"
     },
     {
-        "id": "7aee3e35-10a2-4852-8353-f5af7311eaed",
+        "id": "e767fbd7-4f99-4c56-9b8f-4d5c96cec77f",
+        "deptCode": "POS",
+        "catNo": "POLSC 31",
+        "section": "ZZZ",
+        "courseTitle": "CONTEMPORARY POLITICAL THEORIES",
+        "units": "3",
+        "time": "TUTORIAL 0000-0000",
+        "room": "POS DEPT",
+        "instructor": "JULIANO, HANSLEY A.",
+        "remarks": "-"
+    },
+    {
+        "id": "1e6d83b4-40cb-4d4d-a96e-8b6c23c66943",
         "deptCode": "POS",
         "catNo": "POLSC 197",
         "section": "A",
@@ -3996,7 +5808,7 @@
         "remarks": "ALL SLOTS FOR AB Dip IR MAJORS."
     },
     {
-        "id": "f44f3592-16f0-4e8d-866f-a2ced9d69072",
+        "id": "0433a498-95bb-4081-8ff3-0f7d895571fb",
         "deptCode": "POS",
         "catNo": "POLSC 197",
         "section": "A1",
@@ -4008,7 +5820,7 @@
         "remarks": "ALL SLOTS FOR AB POS MAJORS. ALL SLOTS FOR AB MA-POS MAJORS. ALL SLOTS FOR AB POS-MPM MAJORS. *Venue: POS DEPT"
     },
     {
-        "id": "df0d5d3a-8fa6-4e11-8528-ef5dbde20d8e",
+        "id": "1bf9aaf2-f286-494d-8e9d-f2b357e2bf67",
         "deptCode": "POS",
         "catNo": "POLSC 197",
         "section": "B",
@@ -4020,7 +5832,7 @@
         "remarks": "ALL SLOTS FOR AB Dip IR MAJORS."
     },
     {
-        "id": "5e00bbc2-f8ee-449e-9b06-02128e11d524",
+        "id": "22cbbbf8-6e72-4029-bb65-2782bdd21504",
         "deptCode": "POS",
         "catNo": "POLSC 197",
         "section": "B1",
@@ -4032,7 +5844,7 @@
         "remarks": "ALL SLOTS FOR AB POS MAJORS. ALL SLOTS FOR AB MA-POS MAJORS. ALL SLOTS FOR AB POS-MPM MAJORS. *Venue: POS DEPT"
     },
     {
-        "id": "5373a040-1644-4f15-af4f-2a3efd1af56b",
+        "id": "cdd6a099-9d41-40b0-bbca-68ff58945589",
         "deptCode": "POS",
         "catNo": "POLSC 197",
         "section": "D",
@@ -4044,19 +5856,31 @@
         "remarks": "ALL SLOTS FOR AB POS MAJORS. ALL SLOTS FOR AB MA-POS MAJORS. ALL SLOTS FOR AB POS-MPM MAJORS. *Venue: POS Dept"
     },
     {
-        "id": "ab1d67a7-a825-4a04-9077-d9486f4d2363",
+        "id": "4c2606af-aa16-4c24-a3e9-b1133b6b35ed",
+        "deptCode": "POS",
+        "catNo": "POLSC 296",
+        "section": "COMP",
+        "courseTitle": "COMPREHENSIVE EXAMINATIONS",
+        "units": "0",
+        "time": "TBA",
+        "room": "TBA",
+        "instructor": "VENERACION, MARIA LOURDES G.",
+        "remarks": "-"
+    },
+    {
+        "id": "a4d5d70d-1269-4032-ad56-ff5b7aabdec0",
         "deptCode": "POS",
         "catNo": "SEAS 101",
-        "section": "B",
+        "section": "CD",
         "courseTitle": "SOUTHEAST ASIA IN-COUNTRY FIELD STUDY SUMMER PROGRAM",
         "units": "6",
-        "time": "D 0930-1100",
-        "room": "BEL-207",
+        "time": "D 1100-1400",
+        "room": "SOM 202",
         "instructor": "MENDOZA, DIANA J., TIONLOC, JAVIER RICO ISRAEL R.",
         "remarks": "-"
     },
     {
-        "id": "1cdaff64-fa64-4157-b21c-e2a87f00df97",
+        "id": "39827b33-d418-49db-a389-e3154be11b75",
         "deptCode": "POS",
         "catNo": "SEAS 103i",
         "section": "E",
@@ -4068,7 +5892,7 @@
         "remarks": "-"
     },
     {
-        "id": "390e91b8-17f4-4ee8-b586-09db61987ee3",
+        "id": "f1daed3b-96e8-4a8a-8477-f19cbfef6f18",
         "deptCode": "POS",
         "catNo": "SEAS 103i",
         "section": "E1",
@@ -4080,7 +5904,211 @@
         "remarks": "-"
     },
     {
-        "id": "7db06f78-68bb-438d-b74f-39d4bf25b8a1",
+        "id": "71f04338-d494-47af-a438-f411e94a6426",
+        "deptCode": "PSY",
+        "catNo": "LEAD 396",
+        "section": "COMP",
+        "courseTitle": "COMPREHENSIVE EXAMINATIONS",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "7c73d7e2-f169-4199-a73e-d5ac0c1c3d69",
+        "deptCode": "PSY",
+        "catNo": "PSYC 20",
+        "section": "A",
+        "courseTitle": "GENERAL PSYCHOLOGY",
+        "units": "3",
+        "time": "D 0800-0930",
+        "room": "PSY COMP RM",
+        "instructor": "SY, Janine Michelle",
+        "remarks": "*ALL SLOTS for accepted shiftees"
+    },
+    {
+        "id": "45b7cd7b-2660-4e97-a69a-2f3b6dcc1c0f",
+        "deptCode": "PSY",
+        "catNo": "PSYC 27",
+        "section": "ZZZ",
+        "courseTitle": "INDUSTRIAL ORGANIZATIONAL PSYCHOLOGY",
+        "units": "3",
+        "time": "TUTORIAL 0000-0000",
+        "room": "TBA",
+        "instructor": "CASILAO, Jelo Michael",
+        "remarks": "-"
+    },
+    {
+        "id": "6a835d3e-eb02-46f3-a9c0-bc29fb290018",
+        "deptCode": "PSY",
+        "catNo": "PSYC 70.09",
+        "section": "M",
+        "courseTitle": "POSITIVE PSYCHOLOGY",
+        "units": "3",
+        "time": "F 0800-1200; T 0800-1130",
+        "room": "SS EXP PSY LAB; SS EXP PSY LAB",
+        "instructor": "PATANA, Jaymar",
+        "remarks": "-"
+    },
+    {
+        "id": "615483d7-d700-4328-bb2e-f1be41087b77",
+        "deptCode": "PSY",
+        "catNo": "PSYC 90.01",
+        "section": "B",
+        "courseTitle": "PSYCHOLOGICAL STATISTICS, LECTURE",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "SS-284",
+        "instructor": "ILAGAN, JONATHAN ROBERT A.",
+        "remarks": "*ALL SLOTS for accepted shiftees"
+    },
+    {
+        "id": "9c600d59-b6e1-431e-98c0-411d9a29a220",
+        "deptCode": "PSY",
+        "catNo": "PSYC 90.02",
+        "section": "DEFG-MTH",
+        "courseTitle": "PSYCHOLOGICAL STATISTICS, LABORATORY",
+        "units": "2",
+        "time": "M 1200-1800; TH 1200-1800",
+        "room": "SS-284; SS-284",
+        "instructor": "CO, Trixia Anne",
+        "remarks": "-"
+    },
+    {
+        "id": "792d214c-51f2-4af5-affb-9f7ae3c8e2d9",
+        "deptCode": "PSY",
+        "catNo": "PSYC 197",
+        "section": "ABC-TH",
+        "courseTitle": "PRACTICUM",
+        "units": "3",
+        "time": "TH 0800-1200",
+        "room": "B-103",
+        "instructor": "AGBAYANI, Bianca Eloise",
+        "remarks": "-"
+    },
+    {
+        "id": "f1d3eb73-d2aa-4465-827d-b722e79b2ad6",
+        "deptCode": "PSY",
+        "catNo": "PSYC 197",
+        "section": "DEF-TH",
+        "courseTitle": "PRACTICUM",
+        "units": "3",
+        "time": "TH 1300-1700",
+        "room": "B-103",
+        "instructor": "AGBAYANI, Bianca Eloise",
+        "remarks": "-"
+    },
+    {
+        "id": "30e22add-2ce6-4671-97cb-6951020275a6",
+        "deptCode": "PSY",
+        "catNo": "PSYC 197",
+        "section": "JKL-T",
+        "courseTitle": "PRACTICUM",
+        "units": "3",
+        "time": "T 0800-1200",
+        "room": "B-103",
+        "instructor": "ALIANAN, ARSENIO, JR. S.",
+        "remarks": "-"
+    },
+    {
+        "id": "1c58a4c9-7172-40ef-8ea0-425ad5212099",
+        "deptCode": "PSY",
+        "catNo": "PSYC 197",
+        "section": "MNO-T",
+        "courseTitle": "PRACTICUM",
+        "units": "3",
+        "time": "T 1300-1700",
+        "room": "B-103",
+        "instructor": "DE GUZMAN, Mira Michelle Angeli",
+        "remarks": "-"
+    },
+    {
+        "id": "0b39e665-1b1d-4e8c-b393-23805c82ce4f",
+        "deptCode": "PSY",
+        "catNo": "PSYC 219.06",
+        "section": "K",
+        "courseTitle": "PSYCHOLOGY OF DISASTER RESPONSE",
+        "units": "3",
+        "time": "M 1500-1830; TH 1600-2000()",
+        "room": "SS EXP PSY LAB; SS EXP PSY LAB",
+        "instructor": "ACOSTA, AVEGALE C.",
+        "remarks": "-"
+    },
+    {
+        "id": "389befa3-c629-4a59-8dd5-8a7845261f59",
+        "deptCode": "PSY",
+        "catNo": "PSYC 296",
+        "section": "COMP",
+        "courseTitle": "COMPREHENSIVE EXAMINATIONS",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "8a760cb2-7694-40e9-b83e-12923dd66c80",
+        "deptCode": "PSY",
+        "catNo": "PSYC 298.66",
+        "section": "SUB-A",
+        "courseTitle": "SUBMISSION OF FINAL CAPSTONE PROJECT",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "4c130f4b-ba39-4970-bda0-77d7a81ef671",
+        "deptCode": "PSY",
+        "catNo": "PSYC 299.6",
+        "section": "SUB-A",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "22c26511-a460-4e65-b859-019a1c1c874a",
+        "deptCode": "PSY",
+        "catNo": "PSYC 396",
+        "section": "COMP",
+        "courseTitle": "COMPREHENSIVE EXAMINATIONS",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "d75736aa-256f-44eb-9c99-d999f9b43ed6",
+        "deptCode": "PSY",
+        "catNo": "PSYC 399.6",
+        "section": "SUB-A",
+        "courseTitle": "FINAL PAPER SUBMISSION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "TBA, -",
+        "remarks": "-"
+    },
+    {
+        "id": "ec0c0af7-f925-44fd-87f7-747a1fbb02d2",
+        "deptCode": "QMIT",
+        "catNo": "DECSC 22",
+        "section": "N",
+        "courseTitle": "INTRODUCTION TO DECISION MAKING AND MANAGEMENT SCIENCE",
+        "units": "3",
+        "time": "F 1200-1600; T 1130-1500",
+        "room": "QMIT OFFICE; QMIT OFFICE",
+        "instructor": "YAP, ALYSON L.",
+        "remarks": "-"
+    },
+    {
+        "id": "0af56bc0-6859-47a1-a6a7-e2c0f34b7118",
         "deptCode": "QMIT",
         "catNo": "DECSC 25",
         "section": "M",
@@ -4089,10 +6117,10 @@
         "time": "F 0800-1200; T 0800-1130",
         "room": "SOM 210; SOM 210",
         "instructor": "MARIANO-DIAZ, ANNALISA MARGARITA V.",
-        "remarks": "ALL SLOTS FOR BS REnt MAJORS."
+        "remarks": "ALL SLOTS FOR BS REnt MAJORS. *SHOULD BE PAIRED WITH ITMGT 20.51 SECTION E."
     },
     {
-        "id": "7271e6bd-923f-4990-a5b7-7d834c5981b5",
+        "id": "35f8625e-a876-446e-8b85-5945894d8f8e",
         "deptCode": "QMIT",
         "catNo": "DECSC 25",
         "section": "N",
@@ -4101,10 +6129,22 @@
         "time": "F 1200-1600; T 1130-1500",
         "room": "SOM 210; SOM 210",
         "instructor": "MARIANO-DIAZ, ANNALISA MARGARITA V.",
-        "remarks": "ALL SLOTS FOR BS REnt MAJORS."
+        "remarks": "ALL SLOTS FOR BS REnt MAJORS. *SHOULD BE PAIRED WITH ITMGT 20.51 SECTION A1."
     },
     {
-        "id": "862f7d7d-6f5b-4b41-994d-60715fd20324",
+        "id": "5e21103c-9dca-4848-bd79-3129d5832403",
+        "deptCode": "QMIT",
+        "catNo": "ITENT 157",
+        "section": "F",
+        "courseTitle": "TECHNOLOGY VENTURE START-UP I",
+        "units": "3",
+        "time": "D 1530-1700",
+        "room": "SOM 106",
+        "instructor": "ILAGAN, JOSEPH BENJAMIN R., MONTIEL, Andres",
+        "remarks": "-"
+    },
+    {
+        "id": "6f7e542d-bd01-4a34-96f2-59295e7e8c16",
         "deptCode": "QMIT",
         "catNo": "ITMGT 20.03",
         "section": "A",
@@ -4113,10 +6153,10 @@
         "time": "D 0800-0930",
         "room": "CTC 114",
         "instructor": "CABALLA, JOEL PATRICK L.",
-        "remarks": "ALL SLOTS FOR BS COMTECH MAJORS."
+        "remarks": "ALL SLOTS FOR BS COMTECH MAJORS. ALL SLOTS FOR BFA ID MAJORS."
     },
     {
-        "id": "c12a79a0-bd42-4bc4-8de7-97d201be4bdb",
+        "id": "4b4c0455-dad0-4372-854e-d540d0c7fdb0",
         "deptCode": "QMIT",
         "catNo": "ITMGT 20.03",
         "section": "B",
@@ -4128,7 +6168,67 @@
         "remarks": "ALL SLOTS FOR BS MAC MAJORS."
     },
     {
-        "id": "96d7b5d2-b0d9-4245-8915-97d7ba208b33",
+        "id": "d1e1ca2b-a9a8-4dbe-a2f5-39bf75c4bb01",
+        "deptCode": "QMIT",
+        "catNo": "ITMGT 20.12",
+        "section": "A1",
+        "courseTitle": "BASIC INFORMATION TECHNOLOGY APPLICATIONS IN BUSINESS: EXCEL + E-COMMERCE DEVELOPMENT",
+        "units": "3",
+        "time": "D 0800-0930",
+        "room": "SOM 204",
+        "instructor": "APILADO, Christine Jann",
+        "remarks": "*SHOULD BE PAIRED WITH DECSC 25 N."
+    },
+    {
+        "id": "ad8c3558-8943-409a-ad8d-1a05293a514a",
+        "deptCode": "QMIT",
+        "catNo": "ITMGT 20.12",
+        "section": "E",
+        "courseTitle": "BASIC INFORMATION TECHNOLOGY APPLICATIONS IN BUSINESS: EXCEL + E-COMMERCE DEVELOPMENT",
+        "units": "3",
+        "time": "D 1400-1530",
+        "room": "SOM 204",
+        "instructor": "CABASAG, Francisco Jr.",
+        "remarks": "*SHOULD BE PAIRED WITH DECSC 25 M."
+    },
+    {
+        "id": "7d7af9c4-cfc5-44ba-9401-607a93f63803",
+        "deptCode": "QMIT",
+        "catNo": "ITMGT 20.51",
+        "section": "SXS2",
+        "courseTitle": "BASIC INFORMATION TECHNOLOGY APPLICATIONS IN BUSINESS BYOD: EXCEL + DATA VISUALIZATION",
+        "units": "3",
+        "time": "SAT 0800-1230; SAT 1400-1700",
+        "room": "SOM 106; SOM 106",
+        "instructor": "BAGASBAS, Marc Jancent",
+        "remarks": "-"
+    },
+    {
+        "id": "0c903022-f204-4abf-89d1-b9c854b58599",
+        "deptCode": "QMIT",
+        "catNo": "ITMGT 25.03",
+        "section": "E",
+        "courseTitle": "INFORMATION TECHNOLOGY APPLICATION PROGRAMMING (BYOD)",
+        "units": "3",
+        "time": "D 1400-1530",
+        "room": "CTC 114",
+        "instructor": "ILAGAN, Jose Ramon",
+        "remarks": "-"
+    },
+    {
+        "id": "be6546ed-bc9b-4606-9c1f-763211cffb1d",
+        "deptCode": "QMIT",
+        "catNo": "ITMGT 25.03",
+        "section": "F",
+        "courseTitle": "INFORMATION TECHNOLOGY APPLICATION PROGRAMMING (BYOD)",
+        "units": "3",
+        "time": "D 1530-1700",
+        "room": "CTC 114",
+        "instructor": "ILAGAN, Jose Ramon",
+        "remarks": "-"
+    },
+    {
+        "id": "729637cc-fc70-454b-82d1-e77402d0fb09",
         "deptCode": "QMIT",
         "catNo": "QUANT 33",
         "section": "B",
@@ -4137,10 +6237,10 @@
         "time": "D 0930-1100",
         "room": "SOM 106",
         "instructor": "SY SIONG KIAO, Rogelio",
-        "remarks": "-"
+        "remarks": "ALL SLOTS FOR BS LM MAJORS. ALL SLOTS FOR BS MGT MAJORS. ALL SLOTS FOR BS REnt MAJORS."
     },
     {
-        "id": "e932ed16-e307-4175-8e24-7a677fffb096",
+        "id": "105d9bca-3545-4019-ae4b-64b7b4b3c019",
         "deptCode": "QMIT",
         "catNo": "QUANT 33",
         "section": "B1",
@@ -4149,10 +6249,10 @@
         "time": "D 0930-1100",
         "room": "SOM 204",
         "instructor": "AGBAYANI, VICTOR E.",
-        "remarks": "-"
+        "remarks": "ALL SLOTS FOR BS LM MAJORS. ALL SLOTS FOR BS MGT MAJORS. ALL SLOTS FOR BS REnt MAJORS."
     },
     {
-        "id": "7f700da9-2eff-41a1-ac90-7dedd90a5372",
+        "id": "e222967f-ed52-4f44-b4ce-5c48c15d05a7",
         "deptCode": "QMIT",
         "catNo": "QUANT 33",
         "section": "C",
@@ -4161,10 +6261,10 @@
         "time": "D 1100-1230",
         "room": "SOM 106",
         "instructor": "SY SIONG KIAO, Rogelio",
-        "remarks": "-"
+        "remarks": "ALL SLOTS FOR BS LM MAJORS. ALL SLOTS FOR BS MGT MAJORS. ALL SLOTS FOR BS REnt MAJORS."
     },
     {
-        "id": "6349dfc0-7f36-49bb-8c1c-98bcde9ff03b",
+        "id": "178107ee-16a6-473b-bac4-3be9b9790992",
         "deptCode": "QMIT",
         "catNo": "QUANT 33",
         "section": "C1",
@@ -4173,22 +6273,130 @@
         "time": "D 1100-1230",
         "room": "SOM 204",
         "instructor": "AGBAYANI, VICTOR E.",
-        "remarks": "-"
+        "remarks": "ALL SLOTS FOR BS LM MAJORS. ALL SLOTS FOR BS MGT MAJORS. ALL SLOTS FOR BS REnt MAJORS."
     },
     {
-        "id": "6b24d391-3b36-47b5-a40a-41657bb9d3a7",
+        "id": "9dac9c13-e023-454a-ab30-ba3614ee4b95",
         "deptCode": "QMIT",
         "catNo": "QUANT 192",
-        "section": "A1",
+        "section": "H",
         "courseTitle": "RESEARCH METHODS AND BUSINESS MODELLING TECHNIQUES",
         "units": "3",
-        "time": "D 0800-0930()",
-        "room": "TBA",
-        "instructor": "KHO, VINCE NATHAN O.",
+        "time": "D 1830-2000",
+        "room": "CTC 114",
+        "instructor": "GAW, Adriel Jeremy, YAP, ALYSON L.",
         "remarks": "-"
     },
     {
-        "id": "7d090c77-2285-4fa8-b0a2-405d59290ab9",
+        "id": "ca9774ba-b72e-4244-bd65-46614129815a",
+        "deptCode": "QMIT",
+        "catNo": "QUANT 192",
+        "section": "H2",
+        "courseTitle": "RESEARCH METHODS AND BUSINESS MODELLING TECHNIQUES",
+        "units": "3",
+        "time": "D 1830-2000",
+        "room": "SOM 204",
+        "instructor": "GAN, WILSON Q.",
+        "remarks": "-"
+    },
+    {
+        "id": "764948d3-2d6a-4560-8719-10d845249fee",
+        "deptCode": "QMIT",
+        "catNo": "QUANT 192",
+        "section": "H3",
+        "courseTitle": "RESEARCH METHODS AND BUSINESS MODELLING TECHNIQUES",
+        "units": "3",
+        "time": "D 1830-2000",
+        "room": "SOM 210",
+        "instructor": "GONZALES, JOAQUIN EMMANUEL J.",
+        "remarks": "-"
+    },
+    {
+        "id": "d59f433a-0204-4a9d-9a6d-bbb1dd433e78",
+        "deptCode": "SB",
+        "catNo": "STS 10",
+        "section": "A",
+        "courseTitle": "SCIENCE, TECHNOLOGY, AND SOCIETY",
+        "units": "3",
+        "time": "D 0800-0930",
+        "room": "G-305",
+        "instructor": "SANTOS, JOHN MICHAEL B.",
+        "remarks": "-"
+    },
+    {
+        "id": "b76bcd69-683c-469e-8cc2-8495e928bbec",
+        "deptCode": "SB",
+        "catNo": "STS 10",
+        "section": "B",
+        "courseTitle": "SCIENCE, TECHNOLOGY, AND SOCIETY",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "G-305",
+        "instructor": "CO, Rose Clarence, PETALIO, Syra Marie Norin",
+        "remarks": "-"
+    },
+    {
+        "id": "da4537a7-ac2c-4411-926d-d044d1dd24de",
+        "deptCode": "SB",
+        "catNo": "STS 10",
+        "section": "B1",
+        "courseTitle": "SCIENCE, TECHNOLOGY, AND SOCIETY",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "B-104",
+        "instructor": "FAVIS, ABIGAIL MARIE T.",
+        "remarks": "-"
+    },
+    {
+        "id": "e0d0f77d-b936-44c4-938c-2da308d6f692",
+        "deptCode": "SB",
+        "catNo": "STS 10",
+        "section": "B2",
+        "courseTitle": "SCIENCE, TECHNOLOGY, AND SOCIETY",
+        "units": "3",
+        "time": "D 0930-1100",
+        "room": "B-208",
+        "instructor": "DAYRIT, SOPHIA ANGELI S.",
+        "remarks": "-"
+    },
+    {
+        "id": "f68fdd98-7ba2-4f7d-b321-b7da83cb0e2c",
+        "deptCode": "SB",
+        "catNo": "STS 10",
+        "section": "C",
+        "courseTitle": "SCIENCE, TECHNOLOGY, AND SOCIETY",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "G-305",
+        "instructor": "CO, Rose Clarence, PETALIO, Syra Marie Norin",
+        "remarks": "-"
+    },
+    {
+        "id": "42868a12-8f0e-41c8-94ea-327a91175cd8",
+        "deptCode": "SB",
+        "catNo": "STS 10",
+        "section": "C1",
+        "courseTitle": "SCIENCE, TECHNOLOGY, AND SOCIETY",
+        "units": "3",
+        "time": "D 1100-1230",
+        "room": "B-104",
+        "instructor": "FAVIS, ABIGAIL MARIE T.",
+        "remarks": "-"
+    },
+    {
+        "id": "99a917de-cf66-4210-9ffc-35dea702db50",
+        "deptCode": "SB",
+        "catNo": "STS 10",
+        "section": "E",
+        "courseTitle": "SCIENCE, TECHNOLOGY, AND SOCIETY",
+        "units": "3",
+        "time": "D 1400-1530",
+        "room": "G-305",
+        "instructor": "GONZALEZ, PAOLO ANTONIO G.",
+        "remarks": "-"
+    },
+    {
+        "id": "bbfb97f4-a0f4-400c-a10e-fb8e73ca5497",
         "deptCode": "SOCSCI",
         "catNo": "SocSc 12",
         "section": "A",
@@ -4200,7 +6408,7 @@
         "remarks": "-"
     },
     {
-        "id": "229d79b9-17b6-4040-a6d4-3dcff4649f3b",
+        "id": "9085af37-37dd-41db-9b4d-27f258d1700f",
         "deptCode": "SOCSCI",
         "catNo": "SocSc 12",
         "section": "A1",
@@ -4212,7 +6420,7 @@
         "remarks": "-"
     },
     {
-        "id": "4e8eda4b-db70-4413-84d2-24d358e229ee",
+        "id": "a3ac4aa2-0d68-4b94-8b47-07a2a268b0d1",
         "deptCode": "SOCSCI",
         "catNo": "SocSc 12",
         "section": "B",
@@ -4224,7 +6432,7 @@
         "remarks": "-"
     },
     {
-        "id": "2619a540-16aa-4eba-bf90-a433060fff70",
+        "id": "bbf121ea-c1d6-4edf-a9a9-b7d87e876098",
         "deptCode": "SOCSCI",
         "catNo": "SocSc 12",
         "section": "B1",
@@ -4236,7 +6444,7 @@
         "remarks": "-"
     },
     {
-        "id": "80920554-0a78-48e2-93a3-c81b00aa7f59",
+        "id": "7bf7dfe7-0d06-42cb-a986-880017067aeb",
         "deptCode": "SOCSCI",
         "catNo": "SocSc 12",
         "section": "B2",
@@ -4248,7 +6456,7 @@
         "remarks": "-"
     },
     {
-        "id": "c4b29aa5-f192-4adc-bf41-1a0ad6694161",
+        "id": "43a12960-f950-494f-b2ed-bc8e5a889e5f",
         "deptCode": "SOCSCI",
         "catNo": "SocSc 12",
         "section": "C",
@@ -4260,7 +6468,7 @@
         "remarks": "-"
     },
     {
-        "id": "44a5d5d9-db70-4141-b267-431655d96683",
+        "id": "a026517d-e1b8-4f79-93d9-7b56b3115470",
         "deptCode": "SOCSCI",
         "catNo": "SocSc 12",
         "section": "C1",
@@ -4272,7 +6480,7 @@
         "remarks": "-"
     },
     {
-        "id": "adff0dbe-2055-4767-b07a-2e44bae93ab0",
+        "id": "3adbd5de-813b-4302-ba5b-723233e8418e",
         "deptCode": "SOCSCI",
         "catNo": "SocSc 12",
         "section": "F",
@@ -4284,7 +6492,7 @@
         "remarks": "-"
     },
     {
-        "id": "c10752bc-a414-4c1a-bfd0-4a675c0edb32",
+        "id": "473c67e8-2eea-4a9e-8b7a-6b4e4c1c6c75",
         "deptCode": "SOCSCI",
         "catNo": "SocSc 12",
         "section": "H",
@@ -4296,7 +6504,7 @@
         "remarks": "-"
     },
     {
-        "id": "3be9c716-46d1-4ee8-a44f-78ccff960154",
+        "id": "7f3e065e-4848-4adb-b45b-28972b37dea6",
         "deptCode": "SOCSCI",
         "catNo": "SocSc 14",
         "section": "C",
@@ -4308,7 +6516,7 @@
         "remarks": "-"
     },
     {
-        "id": "0f3bcbfa-bcc8-4439-8a90-68cd6a98b58e",
+        "id": "5fd8732f-8596-4f20-a680-d170d5b750cc",
         "deptCode": "SOCSCI",
         "catNo": "SocSc 14",
         "section": "J",
@@ -4317,10 +6525,10 @@
         "time": "M 1130-1500; TH 1200-1600",
         "room": "CTC 307; CTC 307",
         "instructor": "SUNGA, RICARDO III A.",
-        "remarks": "-"
+        "remarks": "ALL SLOTS FOR BS HS MAJORS."
     },
     {
-        "id": "c326430c-2a94-48b2-b803-e732649dd93d",
+        "id": "9c4a8ec8-7311-4b47-b5ff-a85bf4337286",
         "deptCode": "SOCSCI",
         "catNo": "SocSc 14",
         "section": "J1",
@@ -4329,10 +6537,10 @@
         "time": "M 1130-1500; TH 1200-1600",
         "room": "B-207; B-207",
         "instructor": "BARRETTO, BENJAMIN ROBERTO G.",
-        "remarks": "-"
+        "remarks": "ALL SLOTS FOR BS HS MAJORS."
     },
     {
-        "id": "10dc4844-2712-494d-b759-a05da1ba4a42",
+        "id": "e368fc32-9031-48de-be5a-2cbcb2a8349c",
         "deptCode": "SOCSCI",
         "catNo": "SocSc 14",
         "section": "K",
@@ -4341,10 +6549,10 @@
         "time": "M 1500-1830; TH 1600-2000",
         "room": "CTC 307; CTC 307",
         "instructor": "SUNGA, RICARDO III A.",
-        "remarks": "-"
+        "remarks": "ALL SLOTS FOR BS HS MAJORS."
     },
     {
-        "id": "de1a5bac-31fc-4b1f-a6fd-3d434fffc07d",
+        "id": "02447536-401d-4437-ac00-fe80a7456fa5",
         "deptCode": "SOCSCI",
         "catNo": "SocSc 14",
         "section": "K1",
@@ -4356,7 +6564,7 @@
         "remarks": "-"
     },
     {
-        "id": "d13c9c7f-27bf-45d2-9eba-e8dd70ae9b5f",
+        "id": "d963005e-84ff-47ff-ac0b-9929dea76b00",
         "deptCode": "SA",
         "catNo": "SOAN 197.1",
         "section": "E1",
@@ -4368,7 +6576,7 @@
         "remarks": "-"
     },
     {
-        "id": "c8ffcd46-b900-4893-b9bf-8b5948153a2a",
+        "id": "4edc5f20-39bb-4de0-92df-cb72c2421e91",
         "deptCode": "SA",
         "catNo": "SOAN 197.2",
         "section": "E",
@@ -4380,7 +6588,7 @@
         "remarks": "-"
     },
     {
-        "id": "2cc597eb-ef8e-456c-956a-c1b2429ba033",
+        "id": "f8c69e47-e192-4fa4-b096-8348b5b6632d",
         "deptCode": "SA",
         "catNo": "SOAN 292.1",
         "section": "ZZZ",
@@ -4392,7 +6600,7 @@
         "remarks": "-"
     },
     {
-        "id": "f4686f8a-174e-4f8a-af2c-49e7d6d41a50",
+        "id": "cda075f8-bfc6-4d7c-8cfa-6d8fd9811c1a",
         "deptCode": "SA",
         "catNo": "SOAN 292.1",
         "section": "ZZZ1",
@@ -4404,7 +6612,31 @@
         "remarks": "-"
     },
     {
-        "id": "a56cbe50-719b-4107-accc-8e6cfcf79f7e",
+        "id": "9e1d143a-8b2a-4719-945c-3e8b8c9e73a9",
+        "deptCode": "SA",
+        "catNo": "SOAN 292.1",
+        "section": "ZZZ10",
+        "courseTitle": "RESEARCH IN SOCIAL SYSTEMS",
+        "units": "3",
+        "time": "TUTORIAL 0000-0000",
+        "room": "TBA",
+        "instructor": "ZULUETA, JOHANNA O.",
+        "remarks": "-"
+    },
+    {
+        "id": "0ea74b8a-7511-4b8a-9049-f5bc69fa4e0e",
+        "deptCode": "SA",
+        "catNo": "SOAN 292.2",
+        "section": "ZZZ",
+        "courseTitle": "READINGS IN SOCIAL SYSTEMS",
+        "units": "3",
+        "time": "TUTORIAL 0000-0000",
+        "room": "TBA",
+        "instructor": "WUI, Ma. Glenda",
+        "remarks": "-"
+    },
+    {
+        "id": "9220f156-1abc-4fad-ae0c-2ac3ec1f0ec5",
         "deptCode": "SA",
         "catNo": "SOAN 296",
         "section": "COMP",
@@ -4416,7 +6648,31 @@
         "remarks": "-"
     },
     {
-        "id": "63a7922f-0a59-47be-95c7-de3747e6df18",
+        "id": "e18a0e10-528a-4c55-bf50-4337d33a845d",
+        "deptCode": "SA",
+        "catNo": "SOAN 296",
+        "section": "YYY",
+        "courseTitle": "COMPREHENSIVE EXAMINATIONS",
+        "units": "0",
+        "time": "TBA",
+        "room": "TBA",
+        "instructor": "NAVARRA, Melissa",
+        "remarks": "-"
+    },
+    {
+        "id": "92d2e394-887d-49cf-86da-e786c00ab782",
+        "deptCode": "SA",
+        "catNo": "SOAN 299.1",
+        "section": "THES/DISS",
+        "courseTitle": "THESIS I",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "WUI, Ma. Glenda",
+        "remarks": "-"
+    },
+    {
+        "id": "8c0e80c7-b28f-4cb2-be99-9adb4d01a279",
         "deptCode": "SA",
         "catNo": "SOAN 299.19",
         "section": "YYY",
@@ -4428,7 +6684,7 @@
         "remarks": "-"
     },
     {
-        "id": "47ada206-9ade-49ac-847f-1ed580abcfda",
+        "id": "f8d034bc-29ec-45e2-8394-4771716346ac",
         "deptCode": "SA",
         "catNo": "SOAN 299.2",
         "section": "THES/DISS3",
@@ -4440,7 +6696,19 @@
         "remarks": "-"
     },
     {
-        "id": "de083955-4652-4cf0-b70d-b5c15bc8f600",
+        "id": "f403d117-9199-4d84-9b93-f0c326140f78",
+        "deptCode": "SA",
+        "catNo": "SOAN 299.4",
+        "section": "YYY",
+        "courseTitle": "ORAL DEFENSE",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "NAVARRA, Melissa",
+        "remarks": "-"
+    },
+    {
+        "id": "25d37039-dc00-47e1-9c2b-a743919cb5f6",
         "deptCode": "SA",
         "catNo": "SOAN 299.6",
         "section": "SUB-A",
@@ -4448,11 +6716,11 @@
         "units": "0",
         "time": "TBA()",
         "room": "TBA",
-        "instructor": "TBA, -",
+        "instructor": "GAPPY, JOHN MARTIN B.",
         "remarks": "-"
     },
     {
-        "id": "d3c8c07b-afab-4d8a-a20b-998cf66455e0",
+        "id": "c235ccb6-7354-4fbc-b6c7-4eeaeee2a39b",
         "deptCode": "SA",
         "catNo": "SOAN 299.7",
         "section": "SUB-A",
@@ -4460,11 +6728,23 @@
         "units": "0",
         "time": "TBA()",
         "room": "TBA",
-        "instructor": "TBA, -",
+        "instructor": "NAVARRA, Melissa",
         "remarks": "-"
     },
     {
-        "id": "248f2c45-ee4d-4869-90cc-0abda95646be",
+        "id": "b79b961b-ab60-42cf-9616-4298d0168126",
+        "deptCode": "SA",
+        "catNo": "SOCDV 296",
+        "section": "COMP",
+        "courseTitle": "COMPREHENSIVE EXAMINATION",
+        "units": "0",
+        "time": "TBA()",
+        "room": "TBA",
+        "instructor": "NAVARRA, Melissa",
+        "remarks": "-"
+    },
+    {
+        "id": "436e94d7-418b-439d-8c02-26d39742f394",
         "deptCode": "TH",
         "catNo": "THEO 114.03i",
         "section": "B",
@@ -4476,7 +6756,7 @@
         "remarks": "-"
     },
     {
-        "id": "f4bfe8dc-c7ed-480d-83f8-bb581cbfc740",
+        "id": "fa46ed89-c7d9-487d-b08e-883e41061fca",
         "deptCode": "TH",
         "catNo": "THEO 114.03i",
         "section": "C",
