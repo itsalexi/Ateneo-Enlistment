@@ -61,8 +61,8 @@ const darkTheme = createTheme({
 
 const ITEMS_PER_PAGE = 10;
 
-const currentSemesterString = 'Intersession 2025-2026';
-const lastUpdated = 1749018930345;
+const currentSemesterString = 'First Semester 2025-2026';
+const lastUpdated = 1751206467372;
 
 function HomeContent() {
   const isMobile = useMediaQuery(darkTheme.breakpoints.down('sm'));
