@@ -1,5 +1,5 @@
-import { ChevronDown, ChevronUp, Heart } from 'lucide-react';
-import { Button } from './ui/button';
+import { ChevronDown, ChevronUp, Heart } from "lucide-react";
+import { Button } from "./ui/button";
 import {
   Table,
   TableBody,
@@ -7,8 +7,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from './ui/table';
-import { useState } from 'react';
+} from "./ui/table";
+import { useState } from "react";
 
 export default function OfferingsTable({
   offerings,
@@ -17,25 +17,25 @@ export default function OfferingsTable({
   onToggleFavorite,
 }) {
   const [sortConfig, setSortConfig] = useState({
-    key: 'code',
-    direction: 'asc',
+    key: "code",
+    direction: "asc",
   });
 
   const sortedCourses =
     offerings?.length > 0 &&
     [...offerings].sort((a, b) => {
       if (a[sortConfig.key] < b[sortConfig.key])
-        return sortConfig.direction === 'asc' ? -1 : 1;
+        return sortConfig.direction === "asc" ? -1 : 1;
       if (a[sortConfig.key] > b[sortConfig.key])
-        return sortConfig.direction === 'asc' ? 1 : -1;
+        return sortConfig.direction === "asc" ? 1 : -1;
       return 0;
     });
 
   const handleSort = (key) => {
     setSortConfig((prev) =>
       prev.key === key
-        ? { ...prev, direction: prev.direction === 'asc' ? 'desc' : 'asc' }
-        : { key, direction: 'asc' }
+        ? { ...prev, direction: prev.direction === "asc" ? "desc" : "asc" }
+        : { key, direction: "asc" }
     );
   };
 
@@ -49,13 +49,13 @@ export default function OfferingsTable({
       onClick={() => handleSort(column)}
       className="font-bold text-gray-300 hover:text-gray-100 hover:bg-gray-700"
     >
-      {column === 'catNo'
-        ? 'Course No'
-        : column === 'courseTitle'
-        ? 'Course Title'
+      {column === "catNo"
+        ? "Course No"
+        : column === "courseTitle"
+        ? "Course Title"
         : column.charAt(0).toUpperCase() + column.slice(1)}
       {sortConfig.key === column &&
-        (sortConfig.direction === 'asc' ? (
+        (sortConfig.direction === "asc" ? (
           <ChevronUp className="ml-2 h-4 w-4" />
         ) : (
           <ChevronDown className="ml-2 h-4 w-4" />
@@ -64,12 +64,17 @@ export default function OfferingsTable({
   );
 
   return offerings?.length > 0 ? (
-    <div className="rounded-md border border-gray-700 overflow-hidden">
+    <div
+      className="rounded-md border border-gray-700 overflow-hidden"
+      style={{
+        background: "none",
+      }}
+    >
       <Table>
         <TableHeader>
           <TableRow className="border-b border-gray-700 bg-gray-800">
             {visibleColumns.map((column, index) => (
-              <TableHead key={'column-01-' + index} className="text-center">
+              <TableHead key={"column-01-" + index} className="text-center">
                 <SortableHeader column={column} />
               </TableHead>
             ))}
@@ -86,7 +91,7 @@ export default function OfferingsTable({
             >
               {visibleColumns.map((column, index) => (
                 <TableCell
-                  key={'column-02-' + index}
+                  key={"column-02-" + index}
                   className="text-center text-gray-300"
                 >
                   {course[column]}
@@ -98,8 +103,8 @@ export default function OfferingsTable({
                   size="sm"
                   className={
                     favoriteCourses.includes(course.id)
-                      ? 'text-red-500 hover:text-red-400 hover:bg-red-900/20'
-                      : 'text-gray-400 hover:text-gray-200 hover:bg-gray-700'
+                      ? "text-red-500 hover:text-red-400 hover:bg-red-900/20"
+                      : "text-gray-400 hover:text-gray-200 hover:bg-gray-700"
                   }
                   onClick={() => onToggleFavorite(course.id)}
                 >
@@ -107,14 +112,14 @@ export default function OfferingsTable({
                     className="h-4 w-4"
                     fill={
                       favoriteCourses.includes(course.id)
-                        ? 'currentColor'
-                        : 'none'
+                        ? "currentColor"
+                        : "none"
                     }
                   />
                   <span className="sr-only">
                     {favoriteCourses.includes(course.id)
-                      ? 'Remove from Favorites'
-                      : 'Add to Favorites'}
+                      ? "Remove from Favorites"
+                      : "Add to Favorites"}
                   </span>
                 </Button>
               </TableCell>
