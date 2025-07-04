@@ -203,7 +203,7 @@ export default function CourseListSidebar({
                                 catNo: e.target.value,
                             })
                         }
-                        placeholder="e.g., MATH 21, NSTP 11, FLC 1"
+                        placeholder="e.g., MATH 21, NSTP 11, PHILO 11, FLC 1"
                         fullWidth
                         required
                         autoFocus

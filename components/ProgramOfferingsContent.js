@@ -242,6 +242,9 @@ export default function ProgramOfferingsContent({
             if (selectedCourse && /^nstp\s*/i.test(selectedCourse)) {
                 curriculumCatNos = [selectedCourse];
             }
+            if (selectedCourse && /^philo\s*/i.test(selectedCourse)) {
+                curriculumCatNos = [selectedCourse];
+            }
             if (
                 selectedCourse &&
                 /^(pathfit|pepc|phyed|pe)\s*/i.test(selectedCourse)
@@ -299,6 +302,14 @@ export default function ProgramOfferingsContent({
                             .startsWith(`NSTP ${nstpNum}`);
                         return nstpNum && match;
                     }
+                    if (/^philo\s*/i.test(cat)) {
+                        const philoNum = (cat.match(/^philo\s*(\d+)/i) ||
+                            [])[1]?.trim();
+                        const match = course.catNo
+                            .toUpperCase()
+                            .startsWith(`PHILO ${philoNum}`);
+                        return philoNum && match;
+                    }
                     if (/^(pathfit|pepc|phyed|pe)\s*/i.test(cat)) {
                         return course.deptCode === 'PE';
                     }
@@ -310,6 +321,7 @@ export default function ProgramOfferingsContent({
                 !/^natsc\s*/i.test(selectedCourse) &&
                 !/^flc\s*/i.test(selectedCourse) &&
                 !/^nstp\s*/i.test(selectedCourse) &&
+                !/^philo\s*/i.test(selectedCourse) &&
                 !/^(pathfit|pepc|phyed|pe)\s*/i.test(selectedCourse)
             ) {
                 filtered = filtered.filter(
@@ -320,6 +332,9 @@ export default function ProgramOfferingsContent({
                 curriculumCatNos = [selectedCourse];
             }
             if (selectedCourse && /^nstp\s*/i.test(selectedCourse)) {
+                curriculumCatNos = [selectedCourse];
+            }
+            if (selectedCourse && /^philo\s*/i.test(selectedCourse)) {
                 curriculumCatNos = [selectedCourse];
             }
             if (
@@ -516,7 +531,7 @@ export default function ProgramOfferingsContent({
                         >
                             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                                 <Typography variant="h6">
-                                    Program/IPS Filter
+                                    IPS Selector
                                 </Typography>
                             </AccordionSummary>
                             <AccordionDetails>
@@ -551,8 +566,7 @@ export default function ProgramOfferingsContent({
                         >
                             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                                 <Typography variant="h6">
-                                    Courses in this Semester (
-                                    {customCourses.length})
+                                    Your IPS ({customCourses.length})
                                 </Typography>
                             </AccordionSummary>
                             <AccordionDetails>
