@@ -20,7 +20,7 @@ const geistMono = localFont({
 
 export const metadata = {
     title: {
-        default: 'Ateneo Enlistment Helper - Course Registration Made Easy',
+        default: 'Ateneo Enlistment Helper',
         template: '%s | Ateneo Enlistment Helper',
     },
     description:
