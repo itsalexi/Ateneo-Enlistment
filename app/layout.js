@@ -56,7 +56,7 @@ export const metadata = {
         type: 'website',
         locale: 'en_US',
         url: 'https://schedule.alexi.life',
-        title: 'Ateneo Enlistment Helper - Course Registration Made Easy',
+        title: 'Ateneo Enlistment Helper',
         description:
             'Streamline your Ateneo course registration with our comprehensive enlistment helper. Browse available classes, filter by program, build your schedule, and plan your semester efficiently.',
         siteName: 'Ateneo Enlistment Helper',
