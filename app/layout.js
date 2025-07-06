@@ -3,6 +3,7 @@ import './globals.css';
 import {
     FavoriteCoursesProvider,
     SelectedCoursesProvider,
+    SchedulesProvider,
 } from '@/lib/context';
 import Nav from '@/components/Nav';
 import { Toaster } from '@/components/ui/toaster';
@@ -182,9 +183,11 @@ export default function RootLayout({ children }) {
             >
                 <SelectedCoursesProvider>
                     <FavoriteCoursesProvider>
-                        <Nav />
-                        <Toaster />
-                        {children}
+                        <SchedulesProvider>
+                            <Nav />
+                            <Toaster />
+                            {children}
+                        </SchedulesProvider>
                     </FavoriteCoursesProvider>
                 </SelectedCoursesProvider>
                 <script
