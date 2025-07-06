@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import Calendar from '@/components/Calendar';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useFavoriteCourses, useSelectedCourses } from '@/lib/context';
@@ -36,6 +36,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
+import { Search } from 'lucide-react';
 
 const darkTheme = createTheme({
     palette: {
@@ -61,6 +62,40 @@ export default function Page() {
     const [importModalOpen, setImportModalOpen] = useState(false);
     const [importType, setImportType] = useState('');
     const [importData, setImportData] = useState('');
+    const [favoriteSearchTerm, setFavoriteSearchTerm] = useState('');
+    const [selectedSearchTerm, setSelectedSearchTerm] = useState('');
+
+    // Filter favorite courses based on search term
+    const filteredFavoriteCourses = useMemo(() => {
+        if (!favoriteSearchTerm) return favoriteCourses;
+
+        const searchLower = favoriteSearchTerm.toLowerCase();
+        return favoriteCourses.filter(
+            (course) =>
+                course.catNo?.toLowerCase().includes(searchLower) ||
+                course.section?.toLowerCase().includes(searchLower) ||
+                course.courseTitle?.toLowerCase().includes(searchLower) ||
+                course.instructor?.toLowerCase().includes(searchLower) ||
+                course.time?.toLowerCase().includes(searchLower) ||
+                course.room?.toLowerCase().includes(searchLower)
+        );
+    }, [favoriteCourses, favoriteSearchTerm]);
+
+    // Filter selected courses based on search term
+    const filteredSelectedCourses = useMemo(() => {
+        if (!selectedSearchTerm) return selectedCourses;
+
+        const searchLower = selectedSearchTerm.toLowerCase();
+        return selectedCourses.filter(
+            (course) =>
+                course.catNo?.toLowerCase().includes(searchLower) ||
+                course.section?.toLowerCase().includes(searchLower) ||
+                course.courseTitle?.toLowerCase().includes(searchLower) ||
+                course.instructor?.toLowerCase().includes(searchLower) ||
+                course.time?.toLowerCase().includes(searchLower) ||
+                course.room?.toLowerCase().includes(searchLower)
+        );
+    }, [selectedCourses, selectedSearchTerm]);
 
     const exportTableAsImage = () => {
         if (tableRef.current) {
@@ -318,9 +353,24 @@ export default function Page() {
                                     gap: 2,
                                 }}
                             >
+                                <div className="relative">
+                                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+                                    <Input
+                                        placeholder="Search favorite courses..."
+                                        value={favoriteSearchTerm}
+                                        onChange={(e) =>
+                                            setFavoriteSearchTerm(
+                                                e.target.value
+                                            )
+                                        }
+                                        className="pl-10 bg-gray-800 border-gray-700 text-gray-100 placeholder-gray-400 focus:border-gray-600 focus:ring-gray-600"
+                                        autoComplete="off"
+                                        spellCheck="false"
+                                    />
+                                </div>
                                 <ScrollArea className="h-[300px]">
                                     <CourseTable
-                                        courses={favoriteCourses.filter(
+                                        courses={filteredFavoriteCourses.filter(
                                             (course) =>
                                                 !selectedCourses.some(
                                                     (sc) => sc.id === course.id
@@ -370,9 +420,24 @@ export default function Page() {
                                     gap: 2,
                                 }}
                             >
+                                <div className="relative">
+                                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+                                    <Input
+                                        placeholder="Search selected courses..."
+                                        value={selectedSearchTerm}
+                                        onChange={(e) =>
+                                            setSelectedSearchTerm(
+                                                e.target.value
+                                            )
+                                        }
+                                        className="pl-10 bg-gray-800 border-gray-700 text-gray-100 placeholder-gray-400 focus:border-gray-600 focus:ring-gray-600"
+                                        autoComplete="off"
+                                        spellCheck="false"
+                                    />
+                                </div>
                                 <ScrollArea className="h-[300px]">
                                     <CourseTable
-                                        courses={selectedCourses}
+                                        courses={filteredSelectedCourses}
                                         type="selected"
                                     />
                                 </ScrollArea>

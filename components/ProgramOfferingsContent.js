@@ -569,23 +569,82 @@ export default function ProgramOfferingsContent({
                                     Your IPS ({customCourses.length})
                                 </Typography>
                             </AccordionSummary>
-                            <AccordionDetails>
-                                <CourseListSidebar
-                                    selectedSemester={selectedSemester}
-                                    setSelectedSemester={setSelectedSemester}
-                                    selectedCourse={selectedCourse}
-                                    setSelectedCourse={setSelectedCourse}
-                                    customScrollbar
-                                    customCourses={customCourses}
-                                    onCustomCoursesChange={setCustomCourses}
-                                    onExportIPS={exportIPS}
-                                    onImportIPS={importIPS}
-                                />
+                            <AccordionDetails
+                                sx={{
+                                    padding: 0,
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    height: '350px',
+                                }}
+                            >
+                                <Box
+                                    sx={{
+                                        flex: 1,
+                                        overflow: 'auto',
+                                        padding: 2,
+                                        '&::-webkit-scrollbar': {
+                                            width: '8px',
+                                        },
+                                        '&::-webkit-scrollbar-track': {
+                                            background: '#2d2d2d',
+                                            borderRadius: '4px',
+                                        },
+                                        '&::-webkit-scrollbar-thumb': {
+                                            background: '#555',
+                                            borderRadius: '4px',
+                                            '&:hover': {
+                                                background: '#666',
+                                            },
+                                        },
+                                        // Firefox scrollbar
+                                        scrollbarWidth: 'thin',
+                                        scrollbarColor: '#555 #2d2d2d',
+                                    }}
+                                >
+                                    <CourseListSidebar
+                                        selectedSemester={selectedSemester}
+                                        setSelectedSemester={
+                                            setSelectedSemester
+                                        }
+                                        selectedCourse={selectedCourse}
+                                        setSelectedCourse={setSelectedCourse}
+                                        customScrollbar
+                                        customCourses={customCourses}
+                                        onCustomCoursesChange={setCustomCourses}
+                                        onExportIPS={exportIPS}
+                                        onImportIPS={importIPS}
+                                        listOnly={true}
+                                    />
+                                </Box>
+                                <Box
+                                    sx={{
+                                        flexShrink: 0,
+                                        padding: 2,
+                                        borderTop:
+                                            '1px solid rgba(255, 255, 255, 0.1)',
+                                        backgroundColor: '#1a1a1a',
+                                    }}
+                                >
+                                    <CourseListSidebar
+                                        selectedSemester={selectedSemester}
+                                        setSelectedSemester={
+                                            setSelectedSemester
+                                        }
+                                        selectedCourse={selectedCourse}
+                                        setSelectedCourse={setSelectedCourse}
+                                        customScrollbar
+                                        customCourses={customCourses}
+                                        onCustomCoursesChange={setCustomCourses}
+                                        onExportIPS={exportIPS}
+                                        onImportIPS={importIPS}
+                                        buttonsOnly={true}
+                                    />
+                                </Box>
                             </AccordionDetails>
                         </Accordion>
                         {/* Filters Accordion */}
                         <Accordion
-                            defaultExpanded={false}
+                            defaultExpanded={true}
                             sx={{
                                 width: { xs: '100%', md: '400px' },
                                 borderRadius: '6px',
@@ -608,6 +667,7 @@ export default function ProgramOfferingsContent({
                                         multiple
                                         options={instructors}
                                         value={selectedInstructors}
+                                        disableCloseOnSelect
                                         renderInput={(params) => (
                                             <TextField
                                                 {...params}
@@ -638,6 +698,7 @@ export default function ProgramOfferingsContent({
                                         multiple
                                         options={catNos}
                                         value={selectedCatNos}
+                                        disableCloseOnSelect
                                         renderInput={(params) => (
                                             <TextField
                                                 {...params}
@@ -668,6 +729,7 @@ export default function ProgramOfferingsContent({
                                         multiple
                                         options={courseTitles}
                                         value={selectedCourseTitles}
+                                        disableCloseOnSelect
                                         renderInput={(params) => (
                                             <TextField
                                                 {...params}
@@ -698,6 +760,7 @@ export default function ProgramOfferingsContent({
                                         multiple
                                         options={times}
                                         value={selectedTime}
+                                        disableCloseOnSelect
                                         renderInput={(params) => (
                                             <TextField
                                                 {...params}
