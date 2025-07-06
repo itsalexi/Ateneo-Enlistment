@@ -3,7 +3,7 @@
 import { Autocomplete, TextField } from '@mui/material';
 
 const departmentLabels = [
-  { label: 'ALL INTERDISCIPLINARY ELECTIVES', id: 'IE' },
+  { label: 'ALL INTERDISCIPLINARY ELECTIVES', id: '**IE**' },
   { label: 'BIOLOGY', id: 'BIO' },
   { label: 'CHEMISTRY', id: 'CH' },
   { label: 'CHINESE STUDIES PROGRAM', id: 'CHN' },

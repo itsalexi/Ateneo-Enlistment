@@ -42,30 +42,24 @@ export default function ProgramOfferingsContent({
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
 
-    // Filters for sidebar (optional, can be extended)
     const [selectedInstructors, setSelectedInstructors] = useState([]);
     const [selectedCatNos, setSelectedCatNos] = useState([]);
     const [selectedCourseTitles, setSelectedCourseTitles] = useState([]);
     const [selectedTime, setSelectedTime] = useState([]);
     const [selectedCourse, _setSelectedCourse] = useState(null);
 
-    // Stepper state
     const [programLabels, setProgramLabels] = useState([]);
     const [selectedProgram, setSelectedProgram] = useState(null);
     const [programData, setProgramData] = useState(null);
     const [selectedYear, setSelectedYear] = useState(null);
     const [selectedSemester, setSelectedSemester] = useState(null);
 
-    // Department override state
     const [selectedDepartment, setSelectedDepartment] = useState('');
-    // Track which filter was last changed
     const [activeFilter, setActiveFilter] = useState('program'); // 'department' or 'program'
 
-    // Custom IPS state - initialize empty, load from localStorage in useEffect
     const [customCourses, setCustomCourses] = useState([]);
     const [isHydrated, setIsHydrated] = useState(false);
 
-    // Restore data from localStorage after hydration
     useEffect(() => {
         setIsHydrated(true);
 
@@ -114,7 +108,6 @@ export default function ProgramOfferingsContent({
         }
     }, []);
 
-    // Save customCourses to localStorage whenever it changes (only after hydration)
     useEffect(() => {
         if (isHydrated) {
             localStorage.setItem(
@@ -124,7 +117,6 @@ export default function ProgramOfferingsContent({
         }
     }, [customCourses, isHydrated]);
 
-    // Save selectedSemester to localStorage whenever it changes (only after hydration)
     useEffect(() => {
         if (isHydrated && selectedSemester) {
             localStorage.setItem(
@@ -134,7 +126,6 @@ export default function ProgramOfferingsContent({
         }
     }, [selectedSemester, isHydrated]);
 
-    // Custom setter for selectedCourse to handle filter switching
     const setSelectedCourse = (course) => {
         setPage(1);
         _setSelectedCourse(course);
@@ -143,7 +134,6 @@ export default function ProgramOfferingsContent({
         }
     };
 
-    // Fetch program list on mount
     useEffect(() => {
         const fetchProgramList = async () => {
             const data = await fetch('/api/programs');
@@ -157,7 +147,6 @@ export default function ProgramOfferingsContent({
         fetchProgramList();
     }, []);
 
-    // Fetch program data when program changes
     useEffect(() => {
         setCurriculum({ courses: [] });
         setProgramData(null);
@@ -172,7 +161,6 @@ export default function ProgramOfferingsContent({
         }
     }, [selectedProgram]);
 
-    // Set year options when programData changes
     const yearOptions =
         programData && programData.length > 0
             ? programData[0].years.map((yearObj, index) => ({
@@ -182,7 +170,6 @@ export default function ProgramOfferingsContent({
               }))
             : [];
 
-    // Set semester options when selectedYear changes
     const semesterOptions =
         selectedYear && selectedYear.semesters
             ? selectedYear.semesters.map((semesterObj, index) => ({
@@ -192,7 +179,6 @@ export default function ProgramOfferingsContent({
               }))
             : [];
 
-    // When selectedSemester changes, update curriculum
     useEffect(() => {
         setCurriculum({ courses: selectedSemester?.courses || [] });
     }, [selectedSemester]);
@@ -211,7 +197,6 @@ export default function ProgramOfferingsContent({
         setPage(value);
     };
 
-    // Fetch all offerings on mount
     useEffect(() => {
         const fetchOffering = async () => {
             setIsLoading(true);
@@ -224,7 +209,6 @@ export default function ProgramOfferingsContent({
         fetchOffering();
     }, []);
 
-    // Filter offerings by the last active filter
     const filteredCourses = useMemo(() => {
         if (activeFilter === 'department' && selectedDepartment) {
             return subjectOffering.filter(
@@ -243,6 +227,12 @@ export default function ProgramOfferingsContent({
                 curriculumCatNos = [selectedCourse];
             }
             if (selectedCourse && /^philo\s*/i.test(selectedCourse)) {
+                curriculumCatNos = [selectedCourse];
+            }
+            if (selectedCourse && /^iscs\s*30\s*/i.test(selectedCourse)) {
+                curriculumCatNos = [selectedCourse];
+            }
+            if (selectedCourse && /^ie\s*/i.test(selectedCourse)) {
                 curriculumCatNos = [selectedCourse];
             }
             if (
@@ -310,6 +300,27 @@ export default function ProgramOfferingsContent({
                             .startsWith(`PHILO ${philoNum}`);
                         return philoNum && match;
                     }
+                    if (/^iscs\s*30\s*/i.test(cat)) {
+                        const courseParts = course.catNo.split(/\s+/);
+                        const dept = courseParts[0]?.toUpperCase();
+                        const num = courseParts[1];
+                        return dept === 'ISCS' && num && num.startsWith('30');
+                    }
+                    if (/^ie\s*/i.test(cat)) {
+                        const ieNum = (cat.match(/^ie\s*(\d+)/i) ||
+                            [])[1]?.trim();
+                        const isInterdisciplinary =
+                            course.deptCode === '**IE**';
+
+                        if (ieNum === '1') {
+                            return (
+                                isInterdisciplinary &&
+                                course.catNo.toUpperCase().startsWith('ENE')
+                            );
+                        }
+
+                        return isInterdisciplinary;
+                    }
                     if (/^(pathfit|pepc|phyed|pe)\s*/i.test(cat)) {
                         return course.deptCode === 'PE';
                     }
@@ -322,6 +333,8 @@ export default function ProgramOfferingsContent({
                 !/^flc\s*/i.test(selectedCourse) &&
                 !/^nstp\s*/i.test(selectedCourse) &&
                 !/^philo\s*/i.test(selectedCourse) &&
+                !/^iscs\s*30\s*/i.test(selectedCourse) &&
+                !/^ie\s*/i.test(selectedCourse) &&
                 !/^(pathfit|pepc|phyed|pe)\s*/i.test(selectedCourse)
             ) {
                 filtered = filtered.filter(
@@ -335,6 +348,12 @@ export default function ProgramOfferingsContent({
                 curriculumCatNos = [selectedCourse];
             }
             if (selectedCourse && /^philo\s*/i.test(selectedCourse)) {
+                curriculumCatNos = [selectedCourse];
+            }
+            if (selectedCourse && /^iscs\s*30\s*/i.test(selectedCourse)) {
+                curriculumCatNos = [selectedCourse];
+            }
+            if (selectedCourse && /^ie\s*/i.test(selectedCourse)) {
                 curriculumCatNos = [selectedCourse];
             }
             if (
