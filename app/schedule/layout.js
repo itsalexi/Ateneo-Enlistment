@@ -17,7 +17,7 @@ export const metadata = {
         'semester timetable',
     ],
     openGraph: {
-        title: 'My Schedule - Plan Your Semester | Ateneo Enlistment Helper',
+        title: 'My Schedule - Plan Your Semester',
         description:
             "View and manage your selected courses in an organized schedule format. Build your ideal timetable and ensure your classes don't conflict.",
         type: 'website',
@@ -32,7 +32,7 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'My Schedule - Plan Your Semester | Ateneo Enlistment Helper',
+        title: 'My Schedule - Plan Your Semester',
         description:
             "View and manage your selected courses in an organized schedule format. Build your ideal timetable and ensure your classes don't conflict.",
         images: ['/og-image.jpg'],
