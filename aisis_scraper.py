@@ -179,7 +179,7 @@ def main():
         return    
     
     dept_codes = [
-        "IE", 
+        "**IE**", 
         "BIO", "CH", "CHN", "COM", "CEPP", "CPA", "ELM", "DS", 
         "EC", "ECE", "EN", "ES", "EU", "FIL", "FAA", "FA", "HSP", 
         "HI", "SOHUM", "DISCS", "SALT", "INTAC", "IS", "JSP", "KSP", 
