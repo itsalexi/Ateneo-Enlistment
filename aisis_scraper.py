@@ -149,7 +149,7 @@ class AISISClient:
                     'section': re.sub(r'\s+', ' ', cells[1].text.strip().replace('\n', ' ')),
                     'courseTitle': re.sub(r'\s+', ' ', cells[2].text.strip().replace('\n', ' ')),
                     'units': re.sub(r'\s+', ' ', cells[3].text.strip().replace('\n', ' ')),
-                    'time': re.sub(r'\(FULLY ONSITE\)|\(FULLY ONLINE\)|~', '', re.sub(r'\s+', ' ', time_text.replace('\n', ' '))).strip(),
+                    'time': re.sub(r'\(FULLY ONSITE\)|\(FULLY ONLINE\)|~|\(\)$', '', re.sub(r'\s+', ' ', time_text.replace('\n', ' '))).strip(),
                     'room': "TBA" if "TBA" in cells[5].text else re.sub(r'\s+', ' ', cells[5].text.strip().replace('\n', ' ')),
                     'instructor': re.sub(r'\s+', ' ', cells[6].text.strip().replace('\n', ' ')),
                     'remarks': re.sub(r'\s+', ' ', cells[11].text.strip().replace('\n', ' '))
