@@ -114,7 +114,7 @@ export default function Page() {
     );
   }, [favoriteCourses, favoriteSearchTerm]);
 
-=  const filteredSelectedCourses = useMemo(() => {
+  const filteredSelectedCourses = useMemo(() => {
     if (!selectedSearchTerm) return selectedCourses;
 
     const searchLower = selectedSearchTerm.toLowerCase();
