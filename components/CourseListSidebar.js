@@ -413,7 +413,7 @@ export default function CourseListSidebar({
                             color="text.secondary"
                             sx={{ p: 2, textAlign: 'center' }}
                         >
-                            No courses found.
+                            Choose a semester or add a course to get started!
                         </Typography>
                     ) : (
                         filteredCourses.map((course) => (
