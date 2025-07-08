@@ -136,13 +136,19 @@ export default function ProgramOfferingsContent({
 
     useEffect(() => {
         const fetchProgramList = async () => {
-            const data = await fetch('/api/programs');
-            const list = await data.json();
-            const options = list.map((program) => ({
-                label: program.program_info,
-                id: program.id,
-            }));
-            setProgramLabels(options);
+            try {
+                const res = await fetch('/api/programs');
+                if (!res.ok) throw new Error('Failed to fetch programs');
+                const list = await res.json();
+                const options = list.map((program) => ({
+                    label: program.program_info,
+                    id: program.id,
+                }));
+                setProgramLabels(options);
+            } catch (err) {
+                console.error('Fetch programs failed:', err);
+                setProgramLabels([]);
+            }
         };
         fetchProgramList();
     }, []);
@@ -152,9 +158,16 @@ export default function ProgramOfferingsContent({
         setProgramData(null);
         setSelectedYear(null);
         setSelectedSemester(null);
-        const fetchProgramData = async (program) => {
-            const data = await fetch(`/api/programs/?id=${program}`);
-            setProgramData(await data.json());
+       const fetchProgramData = async (program) => {
+            try {
+                const res = await fetch(`/api/programs/?id=${program}`);
+                if (!res.ok) throw new Error('Invalid program response');
+                const json = await res.json();
+                setProgramData(json);
+            } catch (error) {
+                console.error('Fetch program data failed:', error);
+                setProgramData(null);
+            }
         };
         if (selectedProgram) {
             fetchProgramData(selectedProgram);
