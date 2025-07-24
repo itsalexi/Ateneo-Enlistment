@@ -27,7 +27,7 @@ const initialCardVisibility = {
 
 const ITEMS_PER_PAGE = 30;
 const currentSemesterString = 'First Semester 2025-2026';
-const lastUpdated = 1753344949275;
+const lastUpdated = 1753373540232;
 
 const darkTheme = createTheme({
     palette: {
