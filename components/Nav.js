@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import FavoritesPopout from './FavoritePopout';
-import { useFavoriteCourses } from '@/lib/context';
-import Link from 'next/link';
-import { useMediaQuery } from '@mui/material';
+import React from "react";
+import { motion } from "framer-motion";
+import FavoritesPopout from "./FavoritePopout";
+import { useFavoriteCourses } from "@/lib/context";
+import Link from "next/link";
+import { useMediaQuery } from "@mui/material";
 
 export default function Nav() {
   const { favoriteCourses, toggleFavorite } = useFavoriteCourses();
@@ -23,6 +23,7 @@ export default function Nav() {
 
         <NavLink href="/">Course Offerings</NavLink>
         <NavLink href="/schedule">Schedule</NavLink>
+        {/* <NavLink href="/wallpaper">Wallpaper</NavLink> */}
 
         <FavoritesPopout
           onRemoveFavorite={removeFavorite}
@@ -55,7 +56,7 @@ const Logo = () => {
 };
 
 const NavLink = ({ children, href }) => {
-  const isMobile = useMediaQuery('(max-width:600px)');
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   return (
     <Link href={href} passHref>
@@ -67,7 +68,7 @@ const NavLink = ({ children, href }) => {
         ) : (
           <motion.div
             whileHover={{ y: -20 }}
-            transition={{ ease: 'backInOut', duration: 0.5 }}
+            transition={{ ease: "backInOut", duration: 0.5 }}
             className="h-[20px]"
           >
             <span className="flex h-[20px] items-center">{children}</span>
