@@ -78,9 +78,12 @@ export default function PhoneWallpaper({
   use24Hour = false,
 }) {
   const [settings, setSettings] = useState(() => {
-    // Load settings from localStorage on component mount
-    const savedSettings = localStorage.getItem("phoneWallpaperSettings");
-    return savedSettings ? JSON.parse(savedSettings) : defaultSettings;
+    // Check if we're in a browser environment before accessing localStorage
+    if (typeof window !== 'undefined') {
+      const savedSettings = localStorage.getItem("phoneWallpaperSettings");
+      return savedSettings ? JSON.parse(savedSettings) : defaultSettings;
+    }
+    return defaultSettings;
   });
 
   const previewRef = useRef(null);
@@ -88,7 +91,9 @@ export default function PhoneWallpaper({
 
   // Save settings to localStorage whenever they change
   useEffect(() => {
-    localStorage.setItem("phoneWallpaperSettings", JSON.stringify(settings));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem("phoneWallpaperSettings", JSON.stringify(settings));
+    }
   }, [settings]);
 
   const colorCodes = {
