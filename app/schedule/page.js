@@ -533,9 +533,6 @@ export default function Page() {
                 <Plus size={16} />
                 New Schedule
               </Button>
-              <Button onClick={exportTableAsImage}>
-                Export Schedule as PNG
-              </Button>
             </div>
           </div>
 
