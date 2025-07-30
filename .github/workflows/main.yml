@@ -162,6 +162,7 @@ jobs:
       - name: Commit and push changes
         if: steps.scraper.outputs.scraper_success == 'true' && steps.check_changes.outputs.has_changes == 'true'
         run: |
+          git add .
           git pull --rebase origin main
           git add data/courses.json app/page.js
           git commit -m "🔄 Auto-update courses for period ${{ steps.set_period.outputs.period }}
