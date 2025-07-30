@@ -194,13 +194,21 @@ def main():
     client.warmup()
 
     for dept_code in dept_codes:
-        try:
-            courses = client.get_course_results(applicable_period, dept_code)
-            if courses:  # Only extend if courses were successfully retrieved
-                all_courses.extend(courses) 
-            time.sleep(1)
-        except Exception as e:
-            print(f"Error retrieving courses for {dept_code}: {e}")
+        attempt = 0
+        max_attempts = 2
+        while attempt < max_attempts:
+            try:
+                courses = client.get_course_results(applicable_period, dept_code)
+                if courses:
+                    all_courses.extend(courses)
+                time.sleep(1)
+                break  # Success, break out of retry loop
+            except Exception as e:
+                attempt += 1
+                print(f"Error retrieving courses for {dept_code} (attempt {attempt}): {e}")
+                if attempt >= max_attempts:
+                    print(f"Failed to retrieve courses for {dept_code} after {max_attempts} attempts. Exiting.")
+                    return
 
     # Create data directory if it doesn't exist
     os.makedirs('data', exist_ok=True)
