@@ -21,8 +21,7 @@ import { parseTimeRange } from "@/lib/helper";
 const defaultSettings = {
   timeFormat: "12h",
   backgroundColor: "#ffffff",
-  fontFamily:
-    "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+  fontFamily: "Sans Serif",
   layout: "weekly-grid",
   theme: "light",
   layoutSpacing: {
@@ -32,43 +31,12 @@ const defaultSettings = {
 };
 
 const fontOptions = [
-  {
-    value:
-      "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-    label: "System",
-    preview: "System",
-  },
-  { value: "Arial, sans-serif", label: "Arial", preview: "Arial" },
-  { value: "Helvetica, sans-serif", label: "Helvetica", preview: "Helvetica" },
-  { value: "Georgia, serif", label: "Georgia", preview: "Georgia" },
-  {
-    value: "Times New Roman, serif",
-    label: "Times New Roman",
-    preview: "Times New Roman",
-  },
-  {
-    value: "Courier New, monospace",
-    label: "Courier New",
-    preview: "Courier New",
-  },
-  { value: "Verdana, sans-serif", label: "Verdana", preview: "Verdana" },
-  { value: "Tahoma, sans-serif", label: "Tahoma", preview: "Tahoma" },
-  {
-    value: "Trebuchet MS, sans-serif",
-    label: "Trebuchet MS",
-    preview: "Trebuchet MS",
-  },
-  { value: "Impact, sans-serif", label: "Impact", preview: "Impact" },
-  {
-    value: "Comic Sans MS, cursive",
-    label: "Comic Sans MS",
-    preview: "Comic Sans MS",
-  },
-  {
-    value: "Lucida Console, monospace",
-    label: "Lucida Console",
-    preview: "Lucida Console",
-  },
+  { value: "Sans Serif", label: "Sans Serif" },
+  { value: "Serif", label: "Serif" },
+  { value: "Monospace", label: "Monospace" },
+  { value: "Cursive", label: "Cursive" },
+  { value: "Fantasy", label: "Fantasy" },
+  { value: "Parkinsans", label: "Parkinsans" },
 ];
 
 const allDaysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -77,24 +45,10 @@ export default function PhoneWallpaper({
   selectedCourses = [],
   use24Hour = false,
 }) {
-  const [settings, setSettings] = useState(() => {
-    // Check if we're in a browser environment before accessing localStorage
-    if (typeof window !== 'undefined') {
-      const savedSettings = localStorage.getItem("phoneWallpaperSettings");
-      return savedSettings ? JSON.parse(savedSettings) : defaultSettings;
-    }
-    return defaultSettings;
-  });
+  const [settings, setSettings] = useState(defaultSettings);
 
   const previewRef = useRef(null);
   const contentRef = useRef(null);
-
-  // Save settings to localStorage whenever they change
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem("phoneWallpaperSettings", JSON.stringify(settings));
-    }
-  }, [settings]);
 
   const colorCodes = {
     ACCT: "#00d4aa",
@@ -306,7 +260,7 @@ export default function PhoneWallpaper({
           quality: 1.0,
           pixelRatio: 3,
           backgroundColor:
-            settings.theme === "dark" ? "#334155" : settings.backgroundColor,
+            settings.theme === "dark" ? "#1E223C" : settings.backgroundColor,
           style: {
             transform: "scale(1)",
             transformOrigin: "top left",
@@ -352,15 +306,9 @@ export default function PhoneWallpaper({
     if (!time) return "";
     const [hours, minutes] = time.split(":").map(Number);
     if (settings.timeFormat === "12h") {
-      const ampm = hours >= 12 ? " PM" : " AM";
+      const ampm = hours >= 12 ? "pm" : "am";
       const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
-      if (minutes === 0) {
-        return `${formattedHours}${ampm}`;
-      } else {
-        return `${formattedHours}:${minutes
-          .toString()
-          .padStart(2, "0")}${ampm}`;
-      }
+      return `${formattedHours}${ampm}`;
     }
     return time;
   };
@@ -420,28 +368,25 @@ export default function PhoneWallpaper({
     return adjustedClasses;
   };
 
-  // Render the weekly grid
+  const fontMap = {
+    "Sans Serif": "ui-sans-serif, system-ui, sans-serif",
+    "Serif": "ui-serif, Georgia, serif",
+    "Monospace": "ui-monospace, SFMono-Regular, monospace",
+    "Cursive": '"Pacifico", cursive',
+    "Fantasy": '"Impact", fantasy',
+    "Parkinsans": '"Parkinsans", sans-serif',
+  };
+
+  // Render the weekly grid - IMPROVED VERSION
   const renderWeeklyGrid = () => {
     // Fixed time range from 7am to 9pm (7:00 to 21:00)
     const startHour = 7;
     const endHour = 21;
     const activeDays = getActiveDays();
 
-    // Find the latest class end time
-    let latestEndHour = startHour;
-    convertedClasses.forEach((cls) => {
-      const endHour = parseInt(cls.endTime.split(":")[0]);
-      if (endHour > latestEndHour) {
-        latestEndHour = endHour;
-      }
-    });
-
-    // Add 1 hour buffer after the latest class ends, but don't go past 9pm
-    const actualEndHour = Math.min(latestEndHour + 1, endHour);
-
     // Generate time slots
     const timeSlots = [];
-    for (let i = startHour; i < actualEndHour; i++) {
+    for (let i = startHour; i < endHour; i++) {
       timeSlots.push(`${i.toString().padStart(2, "0")}:00`);
     }
 
@@ -488,9 +433,10 @@ export default function PhoneWallpaper({
             {timeSlots.map((time) => (
               <div
                 key={time}
-                className={`flex items-center justify-center text-[8px] font-medium ${timeTextColorClass} time-label export-text-fix`}
+                className={`flex items-start justify-end pr-0 text-[8px] font-medium ${timeTextColorClass} time-label export-text-fix`}
                 style={{
                   height: `${100 / timeSlots.length}%`,
+                  paddingTop: "2px",
                 }}
               >
                 {formatTime(time)}
@@ -547,62 +493,58 @@ export default function PhoneWallpaper({
               return (
                 <div key={day} className="relative">
                   {adjustedClasses.map((cls) => {
-                    const dayStartMinutes = startHour * 60;
-                    const dayEndMinutes = actualEndHour * 60;
-                    const totalDayMinutes = dayEndMinutes - dayStartMinutes;
-
-                    // Use adjusted times for positioning
-                    const topPercent =
-                      ((cls.adjustedStartMinutes - dayStartMinutes) /
-                        totalDayMinutes) *
-                      100;
-                    const heightPercent =
-                      ((cls.adjustedEndMinutes - cls.adjustedStartMinutes) /
-                        totalDayMinutes) *
-                      100;
-                    const finalHeightPercent = Math.max(heightPercent, 8);
-
-                    // Format the display times (use original times for display)
-                    const displayStartTime = `${Math.floor(
-                      cls.originalStartMinutes / 60
-                    )
-                      .toString()
-                      .padStart(2, "0")}:${(cls.originalStartMinutes % 60)
-                      .toString()
-                      .padStart(2, "0")}`;
-                    const displayEndTime = `${Math.floor(
-                      cls.originalEndMinutes / 60
-                    )
-                      .toString()
-                      .padStart(2, "0")}:${(cls.originalEndMinutes % 60)
-                      .toString()
-                      .padStart(2, "0")}`;
+                    // Convert time strings to minutes for precise calculation
+                    const [startH, startM] = cls.startTime.split(":").map(Number);
+                    const [endH, endM] = cls.endTime.split(":").map(Number);
+                    
+                    const classStartMinutes = startH * 60 + startM;
+                    const classEndMinutes = endH * 60 + endM;
+                    
+                    // Grid boundaries in minutes
+                    const gridStartMinutes = startHour * 60; // 7:00 AM = 420 minutes
+                    const gridEndMinutes = endHour * 60;     // 9:00 PM = 1260 minutes
+                    const totalGridMinutes = gridEndMinutes - gridStartMinutes; // 840 minutes total
+                    
+                    // Calculate exact position within the grid
+                    // Top position: how far from grid start (as percentage)
+                    const topPercent = ((classStartMinutes - gridStartMinutes) / totalGridMinutes) * 100;
+                    
+                    // Height: duration as percentage of total grid time
+                    const durationMinutes = classEndMinutes - classStartMinutes;
+                    const heightPercent = (durationMinutes / totalGridMinutes) * 100;
+                    
+                    // Ensure minimum height for visibility
+                    const finalHeightPercent = Math.max(heightPercent, 3);
+                    
+                    // Clamp to grid boundaries
+                    const clampedTopPercent = Math.max(0, Math.min(topPercent, 100));
+                    const clampedHeightPercent = Math.max(0, Math.min(finalHeightPercent, 100 - clampedTopPercent));
 
                     return (
                       <div
                         key={cls.id}
-                        className="absolute left-0.5 right-0.5 p-0.5 text-white leading-tight rounded-md shadow-sm flex flex-col justify-center items-center text-center"
+                        className="absolute left-0.5 right-0.5 p-1 text-white leading-tight rounded-md shadow-sm flex flex-col items-center justify-center"
                         style={{
                           backgroundColor:
                             settings.theme === "dark"
                               ? cls.color + "cc"
                               : cls.color, // 'cc' is ~80% opacity
-                          top: `${Math.max(0, topPercent)}%`,
-                          height: `${finalHeightPercent}%`,
-                          minHeight: "18px",
+                          top: `${clampedTopPercent}%`,
+                          height: `${clampedHeightPercent}%`,
+                          minHeight: "20px",
                           zIndex: 10,
                         }}
                       >
-                        <div className="font-bold text-[6px] mb-0 leading-tight export-text-fix overflow-hidden">
-                          {cls.name}
+                        <div className="font-bold text-[6px] lg:text-[8px] mb-0 truncate leading-tight export-text-fix">
+                          {cls.name} 
                         </div>
-                        <div className="text-[5px] opacity-95 mb-0 break-words leading-tight export-text-fix">
-                          {formatTime(displayStartTime)}-
-                          {formatTime(displayEndTime)}
+                        <div className="text-[6px] lg:text-[8px] opacity-95 mb-0 break-words leading-tight export-text-fix">
+                          {formatTime(cls.startTime)}-
+                          {formatTime(cls.endTime)}
                         </div>
                         {cls.location && (
-                          <div className="text-[5px] opacity-90 break-words leading-tight export-text-fix">
-                            {cls.location}
+                          <div className="text-[4px] lg:text-[6px] opacity-90 break-words leading-tight export-text-fix">
+                            {cls.location} {cls.instructor && ` | ${cls.instructor}`}
                           </div>
                         )}
                       </div>
@@ -616,6 +558,9 @@ export default function PhoneWallpaper({
 
         {/* Custom styles for better text rendering */}
         <style jsx>{`
+          .phone-preview-font * {
+            font-family: ${fontMap[settings.fontFamily] || "ui-sans-serif, system-ui, sans-serif"} !important;
+          }
           .export-text-fix {
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -748,15 +693,29 @@ export default function PhoneWallpaper({
     }, {});
 
     const isDark = settings.theme === "dark";
-    const textColorClass = isDark ? "text-gray-300" : "text-gray-800";
+    const textColorClass = isDark ? "text-white" : "text-gray-800";
     const cardBgClass = isDark ? "bg-gray-700" : "bg-white";
-    const borderClass = isDark ? "border-gray-600" : "border-gray-100";
+    const borderClass = isDark ? "border-white" : "border-gray-100";
+
+    // Helper function to split classes into columns (max 3 per column)
+    const splitIntoColumns = (dayClasses) => {
+      const columns = [];
+      const maxPerColumn = 3;
+
+      for (let i = 0; i < dayClasses.length; i += maxPerColumn) {
+        columns.push(dayClasses.slice(i, i + maxPerColumn));
+      }
+
+      return columns;
+    };
 
     return (
       <div
         className="h-full flex flex-col"
         style={{
-          backgroundColor: isDark ? "#334155" : settings.backgroundColor,
+          backgroundColor: isDark
+            ? "#1E223C"
+            : settings.backgroundColor,
         }}
       >
         {/* Dynamic white space at top */}
@@ -772,49 +731,69 @@ export default function PhoneWallpaper({
           <div className="h-full flex flex-col gap-2">
             {activeDays
               .filter((day) => classesByDay[day].length > 0)
-              .map((day) => (
-                <div
-                  key={day}
-                  className={`${cardBgClass} rounded-lg p-2 shadow-sm border ${borderClass} flex flex-col`}
-                >
-                  <h3
-                    className={`font-bold text-[10px] mb-1 ${textColorClass} export-text-fix`}
+              .map((day) => {
+                const dayClasses = classesByDay[day];
+                const columns = splitIntoColumns(dayClasses);
+
+                return (
+                  <div
+                    key={day}
+                    className={`${cardBgClass} rounded-lg p-2 shadow-sm border ${borderClass} flex flex-col`}
                   >
-                    {day}
-                  </h3>
-                  <div className="flex-1 overflow-hidden">
-                    <div className="space-y-1">
-                      {classesByDay[day].map((cls) => (
-                        <div
-                          key={cls.id}
-                          className="p-1.5 rounded border-l-3"
-                          style={{
-                            backgroundColor: cls.color + "10",
-                            borderLeftColor: cls.color,
-                          }}
-                        >
+                    <h3
+                      className={`font-bold text-[10px] mb-1 ${textColorClass} export-text-fix`}
+                    >
+                      {day}
+                    </h3>
+                    <div className="flex-1 overflow-hidden">
+                      <div
+                        className={`flex gap-2 ${
+                          columns.length > 1 ? "justify-between" : ""
+                        }`}
+                      >
+                        {columns.map((columnClasses, columnIndex) => (
                           <div
-                            className={`text-[10px] ${textColorClass} export-text-fix`}
+                            key={columnIndex}
+                            className={`space-y-1 ${
+                              columns.length > 1 ? "flex-1" : "w-full"
+                            }`}
                           >
-                            <span className="font-semibold">{cls.name}</span>{" "}
-                            {cls.location && `(${cls.location})`}{" "}
-                            <span className="font-normal">
-                              {formatTime(cls.startTime)} -{" "}
-                              {formatTime(cls.endTime)}
-                            </span>
+                            {columnClasses.map((cls) => (
+                              <div
+                                key={cls.id}
+                                className="p-1.5 rounded border-l-3"
+                                style={{
+                                  backgroundColor: isDark ? cls.color + "80" : cls.color + "10",
+                                  borderLeftColor: cls.color,
+                                }}
+                              >
+                                <div
+                                  className={`text-[7px] ${textColorClass} truncate export-text-fix`}
+                                >
+                                  <span className="font-semibold">
+                                    {cls.name}
+                                  </span>{" "}
+                                  {cls.location && `(${cls.location})`}{" "}
+                                  <span className="font-normal">
+                                    {formatTime(cls.startTime)} -{" "}
+                                    {formatTime(cls.endTime)}
+                                  </span>
+                                </div>
+                              </div>
+                            ))}
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             {activeDays.filter((day) => classesByDay[day].length === 0)
               .length === activeDays.length && (
               <div className="flex-1 flex items-center justify-center">
                 <p
                   className={`text-sm ${
-                    isDark ? "text-gray-500" : "text-gray-400"
+                    isDark ? "text-white" : "text-gray-400"
                   } italic export-text-fix`}
                 >
                   No classes scheduled
@@ -828,11 +807,11 @@ export default function PhoneWallpaper({
   };
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen pt-10 px-5 md:px-20">
+    <div className="flex flex-col lg:flex-row min-h-screen pt-10">
       {/* Left Panel: Controls */}
-      <div className="w-full lg:w-1/2 p-4 lg:p-6 overflow-y-auto">
+      <div className="w-full lg:w-1/2 overflow-y-auto">
         {/* Settings */}
-        <Card className="mb-6 bg-slate-800/50 border-slate-700/50">
+        <Card className="mb-6  bg-[#161616] border-slate-700/50">
           <CardHeader>
             <CardTitle className="text-slate-100">Wallpaper Settings</CardTitle>
           </CardHeader>
@@ -891,10 +870,7 @@ export default function PhoneWallpaper({
                       className="text-white"
                     >
                       {settings.fontFamily && (
-                        <span
-                          style={{ fontFamily: settings.fontFamily }}
-                          className="text-white"
-                        >
+                        <span className="text-white">
                           {fontOptions.find(
                             (f) => f.value === settings.fontFamily
                           )?.label || "Select a font"}
@@ -909,11 +885,8 @@ export default function PhoneWallpaper({
                         value={option.value}
                         className="hover:bg-emerald-500/20 focus:bg-emerald-500/20 py-3 text-white"
                       >
-                        <span
-                          style={{ fontFamily: option.value }}
-                          className="text-base text-white"
-                        >
-                          {option.preview}
+                        <span className="text-base text-white">
+                          {option.label}
                         </span>
                       </SelectItem>
                     ))}
@@ -1114,14 +1087,14 @@ export default function PhoneWallpaper({
       </div>
 
       {/* Right Panel: Phone Preview */}
-      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-4 lg:p-6">
+      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center">
         <div
           ref={previewRef}
-          className="phone-preview relative w-[340px] h-[680px] lg:w-[360px] lg:h-[720px] border-[8px] lg:border-[10px] border-gray-800 rounded-[30px] lg:rounded-[40px] shadow-2xl overflow-hidden flex flex-col"
-          style={{ fontFamily: settings.fontFamily }}
+          className="phone-preview-font relative w-[340px] h-[680px] lg:w-[360px] lg:h-[720px] border-[8px] lg:border-[10px] border-gray-600 rounded-[30px] lg:rounded-[40px] shadow-2xl overflow-hidden flex flex-col"
+          style={{ fontFamily: fontMap[settings.fontFamily] || "ui-sans-serif, system-ui, sans-serif" }}
         >
           {/* Phone home indicator - modern design */}
-          <div className="phone-home-indicator absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-gray-800 rounded-full z-10"></div>
+          <div className="phone-home-indicator absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-gray-600 rounded-full z-10"></div>
 
           <div ref={contentRef} className="flex-1 overflow-hidden">
             {settings.layout === "weekly-grid"
