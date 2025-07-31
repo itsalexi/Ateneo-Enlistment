@@ -992,7 +992,6 @@ export default function PhoneWallpaper({
               </div>
             </div>
 
-            {/* Layout Spacing - Only show for appropriate view */}
             {settings.layout === "weekly-grid" && (
               <div>
                 <Label className="mb-3 block text-slate-100">
