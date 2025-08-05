@@ -126,19 +126,25 @@ jobs:
         run: |
           TIMESTAMP=$(python -c "import time; print(int(time.time() * 1000))")
           SEMESTER_STRING="${{ steps.set_semester.outputs.semester_string }}"
+          PERIOD="${{ steps.set_period.outputs.period }}"
 
           echo "Updating timestamp to: $TIMESTAMP"
           echo "Updating semester string to: $SEMESTER_STRING"
+          echo "Period: $PERIOD"
 
-          # Update timestamp
-          sed -i "s/const lastUpdated = [0-9]\+;/const lastUpdated = $TIMESTAMP;/" app/page.js
-
-          # Update semester string - escape single quotes for sed
-          SEMESTER_STRING_ESCAPED=$(echo "$SEMESTER_STRING" | sed "s/'/\\\\'/g")
-          sed -i "s/const currentSemesterString = '[^']*';/const currentSemesterString = '$SEMESTER_STRING_ESCAPED';/" app/page.js
+          # Create semester info JSON file
+          mkdir -p data
+          cat > data/semester-info.json << EOF
+          {
+            "period": "$PERIOD",
+            "semesterString": "$SEMESTER_STRING",
+            "lastUpdated": $TIMESTAMP
+          }
+          EOF
 
           echo "timestamp=$TIMESTAMP" >> $GITHUB_OUTPUT
           echo "semester_string=$SEMESTER_STRING" >> $GITHUB_OUTPUT
+          echo "period=$PERIOD" >> $GITHUB_OUTPUT
 
       - name: Clean up before commit
         run: |
@@ -164,10 +170,11 @@ jobs:
         run: |
           git add .
           git pull origin main
-          git add data/courses.json app/page.js
+          git add data/courses.json data/semester-info.json
           git commit -m "🔄 Auto-update courses for period ${{ steps.set_period.outputs.period }}
 
           - Updated course listings in data/courses.json
+          - Updated semester information in data/semester-info.json
           - Updated lastUpdated timestamp to ${{ steps.update_info.outputs.timestamp }}
           - Updated semester string to '${{ steps.update_info.outputs.semester_string }}'"
           git push origin main

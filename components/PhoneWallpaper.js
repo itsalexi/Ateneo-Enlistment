@@ -79,7 +79,7 @@ export default function PhoneWallpaper({
 }) {
   const [settings, setSettings] = useState(() => {
     // Check if we're in a browser environment before accessing localStorage
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const savedSettings = localStorage.getItem("phoneWallpaperSettings");
       return savedSettings ? JSON.parse(savedSettings) : defaultSettings;
     }
@@ -91,7 +91,7 @@ export default function PhoneWallpaper({
 
   // Save settings to localStorage whenever they change
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       localStorage.setItem("phoneWallpaperSettings", JSON.stringify(settings));
     }
   }, [settings]);
@@ -367,57 +367,29 @@ export default function PhoneWallpaper({
 
   // Helper function to detect overlapping classes and adjust positioning
   const getAdjustedClassPositions = (dayClasses) => {
-    const sortedClasses = [...dayClasses].sort((a, b) => {
-      const timeA = parseInt(a.startTime.replace(":", ""));
-      const timeB = parseInt(b.startTime.replace(":", ""));
-      return timeA - timeB;
-    });
+    // Simply return the classes sorted by start time, without position adjustments
+    // This ensures classes align properly with the time grid
+    return [...dayClasses]
+      .sort((a, b) => {
+        const timeA = parseInt(a.startTime.replace(":", ""));
+        const timeB = parseInt(b.startTime.replace(":", ""));
+        return timeA - timeB;
+      })
+      .map((cls) => {
+        const [startH, startM] = cls.startTime.split(":").map(Number);
+        const [endH, endM] = cls.endTime.split(":").map(Number);
 
-    const adjustedClasses = [];
-    const GAP_MINUTES = 7;
+        const startMinutes = startH * 60 + startM;
+        const endMinutes = endH * 60 + endM;
 
-    for (let i = 0; i < sortedClasses.length; i++) {
-      const currentClass = sortedClasses[i];
-      const [startH, startM] = currentClass.startTime.split(":").map(Number);
-      const [endH, endM] = currentClass.endTime.split(":").map(Number);
-
-      const startMinutes = startH * 60 + startM;
-      const endMinutes = endH * 60 + endM;
-
-      let adjustedClass = {
-        ...currentClass,
-        originalStartMinutes: startMinutes,
-        originalEndMinutes: endMinutes,
-        adjustedStartMinutes: startMinutes,
-        adjustedEndMinutes: endMinutes,
-      };
-
-      // Check for overlap with previous classes
-      for (let j = i - 1; j >= 0; j--) {
-        const prevClass = adjustedClasses[j];
-
-        // If current class starts before previous class ends (including gap)
-        if (
-          adjustedClass.adjustedStartMinutes <
-          prevClass.adjustedEndMinutes + GAP_MINUTES
-        ) {
-          // Adjust start time to when previous class ends plus gap
-          adjustedClass.adjustedStartMinutes =
-            prevClass.adjustedEndMinutes + GAP_MINUTES;
-
-          // Maintain original duration
-          const originalDuration =
-            adjustedClass.originalEndMinutes -
-            adjustedClass.originalStartMinutes;
-          adjustedClass.adjustedEndMinutes =
-            adjustedClass.adjustedStartMinutes + originalDuration;
-        }
-      }
-
-      adjustedClasses.push(adjustedClass);
-    }
-
-    return adjustedClasses;
+        return {
+          ...cls,
+          originalStartMinutes: startMinutes,
+          originalEndMinutes: endMinutes,
+          adjustedStartMinutes: startMinutes,
+          adjustedEndMinutes: endMinutes,
+        };
+      });
   };
 
   // Render the weekly grid

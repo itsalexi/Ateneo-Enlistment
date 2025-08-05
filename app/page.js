@@ -27,8 +27,6 @@ const initialCardVisibility = {
 };
 
 const ITEMS_PER_PAGE = 30;
-const currentSemesterString = "First Semester 2025-2026";
-const lastUpdated = 1753632727456;
 
 const darkTheme = createTheme({
   palette: {
@@ -42,8 +40,26 @@ const darkTheme = createTheme({
 export default function ProgramOfferingsPage() {
   const [prefillData, setPrefillData] = useState(null);
   const [isLoadingPrefill, setIsLoadingPrefill] = useState(false);
+  const [semesterInfo, setSemesterInfo] = useState({
+    semesterString: "Loading...",
+    lastUpdated: Date.now(),
+  });
 
   useEffect(() => {
+    fetch("/api/semester")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          setSemesterInfo({
+            semesterString: data.data.semesterString,
+            lastUpdated: data.data.lastUpdated,
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching semester info:", error);
+      });
+
     const urlParams = new URLSearchParams(window.location.search);
     const prefillToken = urlParams.get("prefill");
 
@@ -109,8 +125,8 @@ export default function ProgramOfferingsPage() {
           initialTableVisibility={initialTableVisibility}
           initialCardVisibility={initialCardVisibility}
           ITEMS_PER_PAGE={ITEMS_PER_PAGE}
-          currentSemesterString={currentSemesterString}
-          lastUpdated={lastUpdated}
+          currentSemesterString={semesterInfo.semesterString}
+          lastUpdated={semesterInfo.lastUpdated}
           prefillData={prefillData}
           isLoadingPrefill={isLoadingPrefill}
           setPrefillData={setPrefillData}
