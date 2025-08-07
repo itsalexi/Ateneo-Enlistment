@@ -535,15 +535,15 @@ export default function PhoneWallpaper({
                           zIndex: 10,
                         }}
                       >
-                        <div className="font-bold text-[6px] lg:text-[8px] mb-0 truncate leading-tight export-text-fix">
+                        <div className="font-bold text-[6px] lg:text-[6px] mb-0 truncate leading-tight export-text-fix">
                           {cls.name} 
                         </div>
-                        <div className="text-[6px] lg:text-[8px] opacity-95 mb-0 break-words leading-tight export-text-fix">
+                        <div className="text-[6px] lg:text-[6px] opacity-95 mb-0 break-words leading-tight export-text-fix">
                           {formatTime(cls.startTime)}-
                           {formatTime(cls.endTime)}
                         </div>
                         {cls.location && (
-                          <div className="text-[4px] lg:text-[6px] opacity-90 break-words leading-tight export-text-fix">
+                          <div className="text-[4px] lg:text-[5px] opacity-90 break-words leading-tight export-text-fix">
                             {cls.location} {cls.instructor && ` | ${cls.instructor}`}
                           </div>
                         )}
