@@ -6,6 +6,8 @@ from bs4 import BeautifulSoup
 import re
 import time
 import uuid
+import sys
+import traceback
 
 class AISISClient:
     def __init__(self):
@@ -32,8 +34,17 @@ class AISISClient:
         """Check if the session is still valid by making an authenticated request."""
         try:
             response = self.session.get(f"{self.base_url}/j_aisis/J_VMCS.do")
-            return response.ok and "MY INDIVIDUAL PROGRAM OF STUDY" in response.text
-        except requests.RequestException:
+            if not response.ok:
+                print(f"DEBUG: Session validation failed - HTTP {response.status_code}")
+                return False
+            if "MY INDIVIDUAL PROGRAM OF STUDY" not in response.text:
+                print("DEBUG: Session validation failed - 'MY INDIVIDUAL PROGRAM OF STUDY' not found in response")
+                print(f"DEBUG: Response URL: {response.url}")
+                print(f"DEBUG: Response preview (first 500 chars): {response.text[:500]}")
+                return False
+            return True
+        except requests.RequestException as e:
+            print(f"DEBUG: Session validation error: {e}")
             return False
 
     def login(self, username, password):
@@ -60,16 +71,31 @@ class AISISClient:
 
         try:
             response = self.session.post(login_url, data=form_data, headers=headers)
-            if response.ok and "User Identified As" in response.text:
-                self.logged_in = True
-                self._save_cookies()
-                print("Login successful and cookies saved.")
-                return True
-            else:
-                print("Login failed.")
+            print(f"DEBUG: Login response status: {response.status_code}")
+            print(f"DEBUG: Login response URL: {response.url}")
+            
+            if not response.ok:
+                print(f"DEBUG: Login failed - HTTP {response.status_code}")
+                print(f"DEBUG: Response preview (first 500 chars): {response.text[:500]}")
                 return False
+            
+            if "User Identified As" not in response.text:
+                print("DEBUG: Login failed - 'User Identified As' not found in response")
+                print(f"DEBUG: Response preview (first 500 chars): {response.text[:500]}")
+                # Check for common error messages
+                if "Invalid" in response.text or "incorrect" in response.text.lower():
+                    print("DEBUG: Possible invalid credentials")
+                elif "login" in response.text.lower():
+                    print("DEBUG: Response appears to be a login page (authentication may have failed)")
+                return False
+            
+            self.logged_in = True
+            self._save_cookies()
+            print("Login successful and cookies saved.")
+            return True
         except requests.RequestException as e:
-            print(f"Login error: {e}")
+            print(f"DEBUG: Login error: {e}")
+            print(f"DEBUG: Error type: {type(e).__name__}")
             return False
 
     def _save_cookies(self):
@@ -90,13 +116,28 @@ class AISISClient:
         }
 
         try:
+            print(f"DEBUG: Warmup request to {url}")
+            print(f"DEBUG: Warmup body: {body}")
             response = self.session.post(url, data=body)
+            print(f"DEBUG: Warmup response status: {response.status_code}")
+            print(f"DEBUG: Warmup response URL: {response.url}")
+            
             if not response.ok:
-                raise Exception(f"Request failed: {response.status_code}")
+                print(f"DEBUG: Warmup failed - HTTP {response.status_code}")
+                print(f"DEBUG: Response preview (first 500 chars): {response.text[:500]}")
+                return False
+            
+            # Check if we're still authenticated
+            if "login" in response.url.lower() or "sign in" in response.text.lower():
+                print("DEBUG: Warmup failed - redirected to login page (session expired)")
+                return False
+            
             print("Good to go, starting script.")
+            return True
         except requests.RequestException as e:
-            print(f"Error warming up: {e}")
-            return None
+            print(f"DEBUG: Warmup error: {e}")
+            print(f"DEBUG: Error type: {type(e).__name__}")
+            return False
         
     def get_course_results(self, applicable_period, dept_code):
         """Retrieve course results for a given period and department, parse them, and save to JSON."""
@@ -111,16 +152,32 @@ class AISISClient:
             "Referer": "https://aisis.ateneo.edu/j_aisis/J_VCSC.do"
         }
         try:
-            # if it doesn't work, remove the headers, run it, then add it back, why? idk
+            print(f"DEBUG: Fetching courses for dept_code={dept_code}, period={applicable_period}")
             response = self.session.post(url, data=body, headers=headers)
+            print(f"DEBUG: Course results response status: {response.status_code}")
+            print(f"DEBUG: Course results response URL: {response.url}")
+            
             if not response.ok:
+                print(f"DEBUG: Course results request failed - HTTP {response.status_code}")
+                print(f"DEBUG: Response preview (first 500 chars): {response.text[:500]}")
                 raise Exception(f"Request failed: {response.status_code}")
 
+            # Check if we're still authenticated
+            if "login" in response.url.lower() or "sign in" in response.text.lower():
+                print(f"DEBUG: Course results failed - redirected to login page (session expired)")
+                raise Exception("Session expired during course fetch")
+
             courses = self.parse_courses(response.text, dept_code)
+            print(f"DEBUG: Parsed {len(courses)} courses for {dept_code}")
             return courses
         except requests.RequestException as e:
-            print(f"Error fetching course results: {e}")
+            print(f"DEBUG: Error fetching course results for {dept_code}: {e}")
+            print(f"DEBUG: Error type: {type(e).__name__}")
             return None
+        except Exception as e:
+            print(f"DEBUG: Unexpected error fetching courses for {dept_code}: {e}")
+            print(f"DEBUG: Error type: {type(e).__name__}")
+            raise
 
     def parse_courses(self, html_content, dept_code):
         """
@@ -136,7 +193,15 @@ class AISISClient:
         courses = []
         
         course_cells = soup.find_all('td', class_='text02')
-        print(course_cells)
+        print(f"DEBUG: Found {len(course_cells)} course cells for {dept_code}")
+        
+        if len(course_cells) == 0:
+            print(f"DEBUG: No course cells found for {dept_code}")
+            print(f"DEBUG: HTML preview (first 1000 chars): {html_content[:1000]}")
+            # Check if we got an error page
+            if "error" in html_content.lower() or "not found" in html_content.lower():
+                print(f"DEBUG: Possible error page detected for {dept_code}")
+        
         for i in range(0, len(course_cells), 14):
             if i + 13 < len(course_cells):
                 cells = course_cells[i:i+14]
@@ -168,15 +233,21 @@ def main():
     
     if not username or not password:
         print("Error: AISIS credentials not found in environment variables")
-        return
+        sys.exit(1)
     
     print(f"Running scraper for period: {applicable_period}")
+    print(f"DEBUG: Username provided: {'Yes' if username else 'No'}")
+    print(f"DEBUG: Password provided: {'Yes' if password else 'No'}")
+    print(f"DEBUG: Cookies file exists: {os.path.exists(client.cookies_file)}")
+    print(f"DEBUG: Current session cookies: {len(client.session.cookies)} cookies")
     
     if not client.session.cookies:
-        print("Session expired.")
+        print("DEBUG: No cookies in session")
     if not client.login(username, password):
-        print("Login failed")
-        return    
+        print("DEBUG: Login failed - exiting")
+        sys.exit(1)
+    
+    print(f"DEBUG: After login - logged_in={client.logged_in}, cookies={len(client.session.cookies)}")
     
     dept_codes = [
         "**IE**", 
@@ -191,7 +262,10 @@ def main():
     all_courses = []
     
     # Run warmup before starting
-    client.warmup()
+    warmup_response = client.warmup()
+    if not warmup_response:
+        print("Warmup failed, aborting scraper run.")
+        sys.exit(1)
 
     for dept_code in dept_codes:
         attempt = 0
@@ -199,19 +273,36 @@ def main():
         while attempt < max_attempts:
             try:
                 courses = client.get_course_results(applicable_period, dept_code)
-                if courses:
+                if courses is None:
+                    print(f"DEBUG: get_course_results returned None for {dept_code}")
+                    attempt += 1
+                    if attempt >= max_attempts:
+                        print(f"DEBUG: Failed to retrieve courses for {dept_code} after {max_attempts} attempts (returned None). Exiting.")
+                        sys.exit(1)
+                    continue
+                elif len(courses) == 0:
+                    print(f"DEBUG: Warning - No courses found for {dept_code} (empty list)")
+                else:
                     all_courses.extend(courses)
+                    print(f"DEBUG: Successfully retrieved {len(courses)} courses for {dept_code}")
                 time.sleep(1)
                 break  # Success, break out of retry loop
             except Exception as e:
                 attempt += 1
-                print(f"Error retrieving courses for {dept_code} (attempt {attempt}): {e}")
+                print(f"DEBUG: Error retrieving courses for {dept_code} (attempt {attempt}/{max_attempts}): {e}")
+                print(f"DEBUG: Traceback:\n{traceback.format_exc()}")
                 if attempt >= max_attempts:
-                    print(f"Failed to retrieve courses for {dept_code} after {max_attempts} attempts. Exiting.")
-                    return
+                    print(f"DEBUG: Failed to retrieve courses for {dept_code} after {max_attempts} attempts. Exiting.")
+                    sys.exit(1)
+                time.sleep(2)  # Wait before retry
 
     # Create data directory if it doesn't exist
     os.makedirs('data', exist_ok=True)
+    
+    print(f"DEBUG: Total courses collected: {len(all_courses)}")
+    if len(all_courses) == 0:
+        print("DEBUG: WARNING - No courses were collected! This may indicate a problem.")
+        sys.exit(1)
     
     # Save to data/courses.json
     output_path = os.path.join('data', 'courses.json')
@@ -219,6 +310,7 @@ def main():
         json.dump(all_courses, json_file, indent=4)
 
     print(f"All courses have been written to {output_path}")
+    print(f"DEBUG: File size: {os.path.getsize(output_path)} bytes")
 
 if __name__ == "__main__":
     main()
