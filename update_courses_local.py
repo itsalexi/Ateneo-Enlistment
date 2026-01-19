@@ -119,7 +119,7 @@ def main():
             sys.exit(1)
         
         # Check output
-        courses_file = Path('data/courses.json')
+        courses_file = Path('src/data/courses.json')
         if not courses_file.exists() or courses_file.stat().st_size == 0:
             print("❌ No course data generated\n")
             sys.exit(1)
@@ -132,7 +132,7 @@ def main():
     # Update semester info
     print("📝 Updating semester info...")
     timestamp = int(time.time() * 1000)
-    Path('data').mkdir(exist_ok=True)
+    Path('src/data').mkdir(parents=True, exist_ok=True)
     
     semester_info = {
         'period': period,
@@ -140,7 +140,7 @@ def main():
         'lastUpdated': timestamp
     }
     
-    with open('data/semester-info.json', 'w', encoding='utf-8') as f:
+    with open('src/data/semester-info.json', 'w', encoding='utf-8') as f:
         json.dump(semester_info, f, indent=2, ensure_ascii=False)
     
     print("✅ Semester info updated\n")
@@ -176,7 +176,7 @@ def main():
 - Timestamp: {timestamp}"""
     
     print("\n📦 Committing...")
-    run_cmd(['git', 'add', 'data/courses.json', 'data/semester-info.json'])
+    run_cmd(['git', 'add', 'src/data/courses.json', 'src/data/semester-info.json'])
     run_cmd(['git', 'commit', '-m', commit_msg])
     print("✅ Committed\n")
     
@@ -206,4 +206,3 @@ if __name__ == '__main__':
     except Exception as e:
         print(f"\n❌ Error: {e}\n")
         sys.exit(1)
-

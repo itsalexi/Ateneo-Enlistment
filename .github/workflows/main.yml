@@ -113,7 +113,7 @@ jobs:
         run: |
           echo "Running scraper with configured credentials for period $APPLICABLE_PERIOD"
           python aisis_scraper.py
-          if [ -f "data/courses.json" ] && [ -s "data/courses.json" ]; then
+          if [ -f "src/data/courses.json" ] && [ -s "src/data/courses.json" ]; then
             echo "scraper_success=true" >> $GITHUB_OUTPUT
           else
             echo "scraper_success=false" >> $GITHUB_OUTPUT
@@ -133,8 +133,8 @@ jobs:
           echo "Period: $PERIOD"
 
           # Create semester info JSON file
-          mkdir -p data
-          cat > data/semester-info.json << EOF
+          mkdir -p src/data
+          cat > src/data/semester-info.json << EOF
           {
             "period": "$PERIOD",
             "semesterString": "$SEMESTER_STRING",
@@ -170,11 +170,11 @@ jobs:
         run: |
           git add .
           git pull origin main
-          git add data/courses.json data/semester-info.json
+          git add src/data/courses.json src/data/semester-info.json
           git commit -m "🔄 Auto-update courses for period ${{ steps.set_period.outputs.period }}
 
-          - Updated course listings in data/courses.json
-          - Updated semester information in data/semester-info.json
+          - Updated course listings in src/data/courses.json
+          - Updated semester information in src/data/semester-info.json
           - Updated lastUpdated timestamp to ${{ steps.update_info.outputs.timestamp }}
           - Updated semester string to '${{ steps.update_info.outputs.semester_string }}'"
           git push origin main

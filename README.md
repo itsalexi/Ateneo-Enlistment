@@ -1,23 +1,4 @@
-# Ateneo Enlistment System
-
-A Next.js application for managing and viewing Ateneo course offerings and schedules.
-
-## Features
-
-- **Course Offerings**: View and filter course offerings by program, department, and various criteria
-- **Schedule Management**: Create and manage personal course schedules
-- **Real-time Updates**: Automatically updated course data from AISIS
-- **Semester Information**: Dynamic semester information via API
-
-## API Endpoints
-
-- `GET /api/semester` - Returns current semester information (period, semester string, last updated)
-- `GET /api/schedule` - Retrieves schedule data using prefill tokens
-- `GET /api/offerings` - Returns course offerings data
-- `GET /api/programs` - Returns program information
-- `GET /api/calculator` - Returns calculator-related data
-
-For detailed API documentation, see [docs/api.md](docs/api.md).
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 

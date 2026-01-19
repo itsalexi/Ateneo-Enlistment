@@ -297,15 +297,15 @@ def main():
                 time.sleep(2)  # Wait before retry
 
     # Create data directory if it doesn't exist
-    os.makedirs('data', exist_ok=True)
+    os.makedirs(os.path.join('src', 'data'), exist_ok=True)
     
     print(f"DEBUG: Total courses collected: {len(all_courses)}")
     if len(all_courses) == 0:
         print("DEBUG: WARNING - No courses were collected! This may indicate a problem.")
         sys.exit(1)
     
-    # Save to data/courses.json
-    output_path = os.path.join('data', 'courses.json')
+    # Save to src/data/courses.json
+    output_path = os.path.join('src', 'data', 'courses.json')
     with open(output_path, "w") as json_file:
         json.dump(all_courses, json_file, indent=4)
 
