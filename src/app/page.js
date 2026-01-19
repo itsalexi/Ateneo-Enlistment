@@ -73,6 +73,22 @@ function toLegacyCourseList(courses) {
   }));
 }
 
+function areIpsCoursesEqual(a, b) {
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i += 1) {
+    const left = a[i];
+    const right = b[i];
+    if (
+      left.normalizedCatNo !== right.normalizedCatNo ||
+      left.catNo !== right.catNo ||
+      left.courseTitle !== right.courseTitle
+    ) {
+      return false;
+    }
+  }
+  return true;
+}
+
 function normalizeLegacyValue(value) {
   return String(value || "")
     .replace(/\(\)/g, "")
@@ -423,10 +439,7 @@ export default function Home() {
     (semester) => semester.index === selectedSemesterIndex
   );
 
-  const ipsCourses = useMemo(() => {
-    if (ipsMode === "custom") {
-      return customIpsCourses;
-    }
+  const programIpsCourses = useMemo(() => {
     const courses = selectedSemester?.courses || [];
     return courses.map((course, index) => ({
       id: course.id || `${normalizeCatNo(course.catNo)}-${index}`,
@@ -434,7 +447,23 @@ export default function Home() {
       courseTitle: course.courseTitle,
       normalizedCatNo: normalizeCatNo(course.catNo),
     }));
-  }, [customIpsCourses, ipsMode, selectedSemester]);
+  }, [selectedSemester]);
+
+  const ipsCourses = useMemo(() => {
+    if (ipsMode === "custom") {
+      return customIpsCourses;
+    }
+    return programIpsCourses;
+  }, [customIpsCourses, ipsMode, programIpsCourses]);
+
+  useEffect(() => {
+    if (!programIpsCourses.length) return;
+    if (ipsMode === "program" || customIpsCourses.length === 0) {
+      if (!areIpsCoursesEqual(customIpsCourses, programIpsCourses)) {
+        setCustomIpsCourses(programIpsCourses);
+      }
+    }
+  }, [customIpsCourses, ipsMode, programIpsCourses]);
 
   const offeringsIpsOptions = useMemo(() => {
     const seen = new Set();

@@ -334,7 +334,7 @@ export default function ProgramSidebar({
 
       {customModalOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-start justify-center bg-black/40 p-4 pt-10 backdrop-blur-sm sm:pt-16"
           role="dialog"
           aria-modal="true"
           aria-label="Add custom course"
