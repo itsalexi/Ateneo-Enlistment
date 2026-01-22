@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState, useEffect, useDeferredValue } from "react";
+import { useMemo, useState, useEffect, useDeferredValue, useRef } from "react";
+import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import coursesData from "@/data/courses.json";
 import programsData from "@/data/programs.json";
 import semesterInfo from "@/data/semester-info.json";
@@ -36,6 +37,33 @@ const LEGACY_SELECTED_COURSES_KEY = "selectedCourses";
 const FAVORITES_KEY = "rewrite-favorite-sections";
 const LEGACY_FAVORITES_KEY = "favoriteCourses";
 const OFFERINGS_PAGE_SIZE = 60;
+const DEFAULT_CALENDAR_DISPLAY = {
+  showCourse: true,
+  showSection: true,
+  showTime: true,
+  showRoom: false,
+  showInstructor: false,
+};
+const CALENDAR_DISPLAY_OPTIONS = [
+  { key: "showCourse", label: "Course code" },
+  { key: "showSection", label: "Section" },
+  { key: "showTime", label: "Time range" },
+  { key: "showRoom", label: "Room" },
+  { key: "showInstructor", label: "Instructor" },
+];
+
+function normalizeCalendarDisplay(value) {
+  if (!value || typeof value !== "object") {
+    return { ...DEFAULT_CALENDAR_DISPLAY };
+  }
+  return {
+    showCourse: value.showCourse !== false,
+    showSection: value.showSection !== false,
+    showTime: value.showTime !== false,
+    showRoom: Boolean(value.showRoom),
+    showInstructor: Boolean(value.showInstructor),
+  };
+}
 
 function safeParseJSON(value) {
   if (!value) return null;
@@ -128,6 +156,13 @@ export default function Home() {
   const [ipsMode, setIpsMode] = useState("program");
   const [hasHydrated, setHasHydrated] = useState(false);
   const [activeView, setActiveView] = useState("schedule");
+  const [showSidebar, setShowSidebar] = useState(true);
+  const [showDetails, setShowDetails] = useState(true);
+  const [calendarDisplay, setCalendarDisplay] = useState(
+    DEFAULT_CALENDAR_DISPLAY
+  );
+  const [isViewMenuOpen, setIsViewMenuOpen] = useState(false);
+  const [isExporting, setIsExporting] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [offeringsSearchTerm, setOfferingsSearchTerm] = useState("");
   const [offeringsDepartment, setOfferingsDepartment] = useState("");
@@ -149,10 +184,13 @@ export default function Home() {
   const [selectedSlotId, setSelectedSlotId] = useState("");
   const [selectedScheduledSection, setSelectedScheduledSection] = useState(null);
   const [selectedSlotOverride, setSelectedSlotOverride] = useState(null);
+  const [isSlotModalOpen, setIsSlotModalOpen] = useState(false);
   const [schedules, setSchedules] = useState([]);
   const [activeScheduleId, setActiveScheduleId] = useState("");
   const [conflictMessage, setConflictMessage] = useState("");
   const [offeringsOverrideKey, setOfferingsOverrideKey] = useState("");
+  const calendarRef = useRef(null);
+  const viewMenuRef = useRef(null);
 
   const isMobile = useMediaQuery("(max-width: 1279px)");
   const { catalog, courseList } = useMemo(
@@ -190,6 +228,7 @@ export default function Home() {
       selectedCourseKey: "",
       schedules: [],
       activeScheduleId: "",
+      calendarDisplay: { ...DEFAULT_CALENDAR_DISPLAY },
     };
 
     const resolveLegacyCourse = (course) => {
@@ -232,6 +271,11 @@ export default function Home() {
         resolved.schedules = normalizeSchedules(
           parsed.schedules,
           resolveLegacyCourse
+        );
+      }
+      if (parsed.calendarDisplay) {
+        resolved.calendarDisplay = normalizeCalendarDisplay(
+          parsed.calendarDisplay
         );
       }
       if (typeof parsed.activeScheduleId === "string") {
@@ -357,6 +401,7 @@ export default function Home() {
     setSelectedCourseKey(resolved.selectedCourseKey);
     setSchedules(resolved.schedules);
     setActiveScheduleId(resolved.activeScheduleId);
+    setCalendarDisplay(resolved.calendarDisplay);
     setHasHydrated(true);
   }, [sectionIndex]);
 
@@ -390,6 +435,28 @@ export default function Home() {
     const filtered = Array.from(next).filter((id) => sectionIndex.byId.has(id));
     setFavoriteSectionIds(filtered);
   }, [sectionIndex]);
+
+  useEffect(() => {
+    if (!isViewMenuOpen) return;
+    if (typeof document === "undefined") return;
+    const handleClick = (event) => {
+      if (!viewMenuRef.current) return;
+      if (!viewMenuRef.current.contains(event.target)) {
+        setIsViewMenuOpen(false);
+      }
+    };
+    const handleKey = (event) => {
+      if (event.key === "Escape") {
+        setIsViewMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("keydown", handleKey);
+    };
+  }, [isViewMenuOpen]);
 
   const programOptions = useMemo(() => {
     return Object.entries(programsData)
@@ -953,6 +1020,9 @@ export default function Home() {
     setSelectedSlotOverride(null);
     setSelectedScheduledSection(null);
     setConflictMessage("");
+    if (isMobile) {
+      setIsSlotModalOpen(true);
+    }
   };
 
   const handleScheduledClick = (block) => {
@@ -961,6 +1031,7 @@ export default function Home() {
     setSelectedSlotId("");
     setCatalogSearchTerm("");
     setOfferingsOverrideKey("");
+    setIsSlotModalOpen(false);
     setSelectedSlotOverride({
       type: "scheduled",
       id: `scheduled-${block.section.id}-${block.day}-${block.start}-${block.end}`,
@@ -1090,6 +1161,38 @@ export default function Home() {
     );
   };
 
+  const handleToggleDisplayOption = (key) => {
+    setCalendarDisplay((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  const handleExportImage = async () => {
+    if (!calendarRef.current || isExporting) return;
+    setIsExporting(true);
+    try {
+      const { toPng } = await import("html-to-image");
+      const dataUrl = await toPng(calendarRef.current, {
+        cacheBust: true,
+        pixelRatio: 2,
+        backgroundColor: "#fffaf2",
+      });
+      const name = (activeSchedule?.name || "schedule")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)+/g, "");
+      const link = document.createElement("a");
+      link.download = `${name || "schedule"}.png`;
+      link.href = dataUrl;
+      link.click();
+    } catch (error) {
+      console.error("Failed to export schedule image.", error);
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
   useEffect(() => {
     if (!hasHydrated) return;
     if (hasSetDefaultProgram) return;
@@ -1214,6 +1317,16 @@ export default function Home() {
   }, [selectedSlotId, visibleSlots]);
 
   useEffect(() => {
+    if (!isMobile) {
+      setIsSlotModalOpen(false);
+      return;
+    }
+    if (!selectedSlotId || selectedSlotOverride) {
+      setIsSlotModalOpen(false);
+    }
+  }, [isMobile, selectedSlotId, selectedSlotOverride]);
+
+  useEffect(() => {
     if (!selectedScheduledSection) return;
     const stillScheduled = scheduledSections.some(
       (section) => section.id === selectedScheduledSection.id
@@ -1236,6 +1349,7 @@ export default function Home() {
       schedules,
       activeScheduleId,
       scheduledSectionIds: scheduledSections.map((section) => section.id),
+      calendarDisplay,
     };
     window.localStorage.setItem(
       STORAGE_KEY,
@@ -1304,6 +1418,7 @@ export default function Home() {
     schedules,
     activeScheduleId,
     scheduledSections,
+    calendarDisplay,
   ]);
 
   useEffect(() => {
@@ -1318,12 +1433,39 @@ export default function Home() {
     }
   }, [favoriteSectionIds, hasHydrated]);
 
+  useEffect(() => {
+    if (showDetails) return;
+    setIsSlotModalOpen(false);
+  }, [showDetails]);
+
   const isOfferingsView = activeView === "offerings";
   const scheduleGridClass =
-    "grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)] xl:grid-cols-[320px_minmax(0,1fr)_360px]";
+    "grid gap-6 transition-[grid-template-columns] duration-300 ease-out";
   const offeringsGridClass =
     "grid min-h-0 gap-6 lg:grid-cols-[360px_minmax(0,1fr)] lg:items-stretch lg:h-[calc(100vh-220px)] lg:overflow-hidden";
-  const calendarRowHeight = isMobile ? 30 : 36;
+  const visiblePanels = Number(showSidebar) + Number(showDetails);
+  const calendarRowHeight = isMobile
+    ? 30
+    : visiblePanels === 0
+      ? 42
+      : visiblePanels === 1
+        ? 38
+        : 36;
+  const scheduleGridStyle = {
+    gridTemplateColumns: isMobile
+      ? "minmax(0,1fr)"
+      : `${showSidebar ? "320px" : "0px"} minmax(0,1fr) ${
+          showDetails ? "360px" : "0px"
+        }`,
+    ...(isMobile ? null : { columnGap: "0px" }),
+  };
+  const schedulePaddingClass = isMobile
+    ? ""
+    : `${showSidebar ? "pl-6" : ""} ${showDetails ? "pr-6" : ""}`.trim();
+  const sidebarColumnStyle = isMobile ? undefined : { gridColumn: "1 / 2" };
+  const scheduleColumnStyle = isMobile ? undefined : { gridColumn: "2 / 3" };
+  const detailsColumnStyle = isMobile ? undefined : { gridColumn: "3 / 4" };
+  const calendarMinWidth = isMobile ? "720px" : "100%";
   const showEmptyOverlay =
     !selectedCourseMeta && scheduledSections.length === 0;
   const showCatalogSearch =
@@ -1334,7 +1476,8 @@ export default function Home() {
     : null;
 
   return (
-    <div className="min-h-screen px-3 pb-4 pt-16 sm:px-4 sm:pb-6 sm:pt-20 lg:px-8 xl:px-10">
+    <LazyMotion features={domAnimation}>
+      <div className="min-h-screen px-3 pb-4 pt-16 sm:px-4 sm:pb-6 sm:pt-20 lg:px-8 xl:px-10">
       <nav className="fixed left-1/2 top-3 z-40 -translate-x-1/2">
         <div className="flex items-center gap-2 rounded-full border border-[color:var(--line)] bg-[color:var(--panel)]/90 px-2 py-1 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)] shadow-[0_12px_30px_-24px_rgba(16,24,40,0.6)] backdrop-blur">
           <button
@@ -1375,10 +1518,7 @@ export default function Home() {
       </header>
 
       {isOfferingsView ? (
-        <main
-          className={`${offeringsGridClass} fade-up mx-auto w-full max-w-[1400px]`}
-          style={{ animationDelay: "0.1s" }}
-        >
+        <main className={`${offeringsGridClass} mx-auto w-full max-w-[1400px]`}>
           <OfferingsFilters
             departmentOptions={offeringsDepartmentOptions}
             selectedDepartment={offeringsDepartment}
@@ -1426,35 +1566,53 @@ export default function Home() {
           />
         </main>
       ) : (
-        <main
-          className={`${scheduleGridClass} fade-up mx-auto w-full max-w-[1400px]`}
-          style={{ animationDelay: "0.1s" }}
+        <m.main
+          className={`${scheduleGridClass} mx-auto w-full max-w-[1400px]`}
+          style={scheduleGridStyle}
         >
-          <ProgramSidebar
-            ipsMode={ipsMode}
-            onIpsModeChange={setIpsMode}
-            programOptions={programOptions}
-            selectedProgramId={selectedProgramId}
-            onProgramChange={setSelectedProgramId}
-            yearOptions={yearOptions}
-            selectedYearIndex={selectedYearIndex}
-            onYearChange={setSelectedYearIndex}
-            semesterOptions={semesterOptions}
-            selectedSemesterIndex={selectedSemesterIndex}
-            onSemesterChange={setSelectedSemesterIndex}
-            ipsCourses={ipsCourses}
-            visibleCourses={rankedIpsCourses}
-            searchTerm={searchTerm}
-            onSearchTermChange={setSearchTerm}
-            selectedCourseKey={selectedCourseKey}
-            onSelectCourse={handleSelectCourse}
-            onClearSelection={clearSelectedCourse}
-            onAddCustomCourse={handleAddCustomCourse}
-            onRemoveCustomCourse={handleRemoveCustomCourse}
-            scheduledCountByCourse={scheduledCountByIpsKey}
-          />
+          <AnimatePresence initial={false}>
+            {showSidebar && (
+              <m.div
+                key="ips-sidebar"
+                className="min-w-0 overflow-hidden"
+                initial={{ scaleX: 0.96 }}
+                animate={{ scaleX: 1 }}
+                exit={{ scaleX: 0.96 }}
+                transition={{ type: "spring", stiffness: 220, damping: 24 }}
+                style={{ ...(sidebarColumnStyle || {}), originX: 0 }}
+              >
+                <ProgramSidebar
+                  ipsMode={ipsMode}
+                  onIpsModeChange={setIpsMode}
+                  programOptions={programOptions}
+                  selectedProgramId={selectedProgramId}
+                  onProgramChange={setSelectedProgramId}
+                  yearOptions={yearOptions}
+                  selectedYearIndex={selectedYearIndex}
+                  onYearChange={setSelectedYearIndex}
+                  semesterOptions={semesterOptions}
+                  selectedSemesterIndex={selectedSemesterIndex}
+                  onSemesterChange={setSelectedSemesterIndex}
+                  ipsCourses={ipsCourses}
+                  visibleCourses={rankedIpsCourses}
+                  searchTerm={searchTerm}
+                  onSearchTermChange={setSearchTerm}
+                  selectedCourseKey={selectedCourseKey}
+                  onSelectCourse={handleSelectCourse}
+                  onClearSelection={clearSelectedCourse}
+                  onAddCustomCourse={handleAddCustomCourse}
+                  onRemoveCustomCourse={handleRemoveCustomCourse}
+                  scheduledCountByCourse={scheduledCountByIpsKey}
+                  onHide={() => setShowSidebar(false)}
+                />
+              </m.div>
+            )}
+          </AnimatePresence>
 
-          <section className="flex flex-col gap-4">
+          <m.section
+            className={`flex min-w-0 flex-col gap-4 transition-[padding] duration-300 ease-out ${schedulePaddingClass}`}
+            style={scheduleColumnStyle}
+          >
             <div className="rounded-3xl border border-[color:var(--line)] bg-[color:var(--panel)]/85 p-4 shadow-[0_12px_30px_-24px_rgba(16,24,40,0.6)] backdrop-blur">
               <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
                 <div>
@@ -1478,7 +1636,7 @@ export default function Home() {
                   )}
                 </div>
                 <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-end">
-                  <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-[color:var(--line)] bg-white/70 px-3 py-2 text-xs text-[color:var(--muted)]">
+                  <div className="flex w-full flex-wrap items-center gap-2 rounded-2xl border border-[color:var(--line)] bg-white/70 px-3 py-2 text-xs text-[color:var(--muted)] sm:w-auto">
                     <span className="uppercase tracking-[0.3em]">Schedule</span>
                     <select
                       value={activeScheduleId}
@@ -1492,37 +1650,129 @@ export default function Home() {
                       ))}
                     </select>
                   </div>
-                  <div className="flex flex-wrap items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={handleCreateSchedule}
-                      className="rounded-full border border-[color:var(--accent)] bg-[color:var(--accent)]/10 px-3 py-2 text-xs uppercase tracking-[0.2em] text-[color:var(--accent)]"
-                    >
-                      New
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleRenameSchedule}
-                      className="rounded-full border border-[color:var(--line)] bg-white/70 px-3 py-2 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]"
-                    >
-                      Rename
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleDeleteSchedule}
-                      disabled={schedules.length <= 1}
-                      className="rounded-full border border-[color:var(--line)] bg-white/70 px-3 py-2 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)] disabled:opacity-50"
-                    >
-                      Delete
-                    </button>
+                  <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto">
+                    <div ref={viewMenuRef} className="relative">
+                      <button
+                        type="button"
+                        onClick={() => setIsViewMenuOpen((prev) => !prev)}
+                        className="w-full rounded-full border border-[color:var(--line)] bg-white/70 px-3 py-2 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)] sm:w-auto"
+                      >
+                        Controls
+                      </button>
+                    <AnimatePresence initial={false}>
+                      {isViewMenuOpen && (
+                        <m.div
+                          key="controls-popover"
+                          initial={{ scale: 0.96 }}
+                          animate={{ scale: 1 }}
+                          exit={{ scale: 0.96 }}
+                          transition={{ type: "spring", stiffness: 240, damping: 22 }}
+                          style={{ originX: 0.5, originY: 0 }}
+                          className="absolute left-1/2 top-full z-50 mt-2 max-h-[70vh] w-[min(92vw,20rem)] -translate-x-1/2 overflow-y-auto rounded-2xl border border-[color:var(--line)] bg-white/95 p-3 text-xs text-[color:var(--ink)] shadow-[0_16px_30px_-24px_rgba(15,23,42,0.5)] sm:left-auto sm:right-0 sm:translate-x-0 sm:w-64"
+                        >
+                          <div className="space-y-4">
+                            <div>
+                              <p className="text-[0.6rem] uppercase tracking-[0.3em] text-[color:var(--muted)]">
+                                Calendar info
+                              </p>
+                              <div className="mt-2 space-y-2">
+                                {CALENDAR_DISPLAY_OPTIONS.map((option) => (
+                                  <label
+                                    key={option.key}
+                                    className="flex items-center gap-2 text-xs text-[color:var(--muted)]"
+                                  >
+                                    <input
+                                      type="checkbox"
+                                      checked={Boolean(
+                                        calendarDisplay[option.key]
+                                      )}
+                                      onChange={() =>
+                                        handleToggleDisplayOption(option.key)
+                                      }
+                                      className="h-3 w-3 accent-[color:var(--accent)]"
+                                    />
+                                    {option.label}
+                                  </label>
+                                ))}
+                              </div>
+                            </div>
+                            <div className="h-px bg-[color:var(--line)]" />
+                            <div className="space-y-2">
+                              <p className="text-[0.6rem] uppercase tracking-[0.3em] text-[color:var(--muted)]">
+                                Schedule actions
+                              </p>
+                              <div className="flex flex-wrap gap-2">
+                                <button
+                                  type="button"
+                                  onClick={handleCreateSchedule}
+                                  className="rounded-full border border-[color:var(--accent)] bg-[color:var(--accent)]/10 px-3 py-2 text-[0.65rem] uppercase tracking-[0.2em] text-[color:var(--accent)]"
+                                >
+                                  New
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={handleRenameSchedule}
+                                  className="rounded-full border border-[color:var(--line)] bg-white/70 px-3 py-2 text-[0.65rem] uppercase tracking-[0.2em] text-[color:var(--muted)]"
+                                >
+                                  Rename
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={handleDeleteSchedule}
+                                  disabled={schedules.length <= 1}
+                                  className="rounded-full border border-[color:var(--line)] bg-white/70 px-3 py-2 text-[0.65rem] uppercase tracking-[0.2em] text-[color:var(--muted)] disabled:opacity-50"
+                                >
+                                  Delete
+                                </button>
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={handleExportImage}
+                              disabled={isExporting}
+                              className="w-full rounded-full border border-[color:var(--accent)] bg-[color:var(--accent)]/10 px-3 py-2 text-[0.65rem] uppercase tracking-[0.2em] text-[color:var(--accent)] disabled:opacity-50"
+                            >
+                              {isExporting ? "Exporting..." : "Export image"}
+                            </button>
+                          </div>
+                        </m.div>
+                      )}
+                    </AnimatePresence>
+                    </div>
                   </div>
-                  <div className="flex flex-wrap items-center gap-2" />
                 </div>
               </div>
 
+              {(!showSidebar || !showDetails) && (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {!showSidebar && (
+                    <button
+                      type="button"
+                      onClick={() => setShowSidebar(true)}
+                      className="rounded-full border border-[color:var(--line)] bg-white/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.2em] text-[color:var(--muted)]"
+                    >
+                      Show IPS
+                    </button>
+                  )}
+                  {!showDetails && (
+                    <button
+                      type="button"
+                      onClick={() => setShowDetails(true)}
+                      className="rounded-full border border-[color:var(--line)] bg-white/70 px-3 py-1 text-[0.65rem] uppercase tracking-[0.2em] text-[color:var(--muted)]"
+                    >
+                      Show details
+                    </button>
+                  )}
+                </div>
+              )}
+
               <div className="relative mt-4">
-                <div className="overflow-x-auto pb-2">
-                  <div className="min-w-0">
+                <div className="w-full min-w-0 max-w-full overflow-x-auto overscroll-x-contain pb-2">
+                  <m.div
+                    ref={calendarRef}
+                    className="min-w-0"
+                    style={{ minWidth: calendarMinWidth }}
+                  >
                     <CalendarGrid
                       days={DAYS}
                       timeSlots={timeSlots}
@@ -1534,10 +1784,11 @@ export default function Home() {
                       selectedSlotId={selectedSlotId}
                       selectedScheduledSlotId={selectedSlotOverride?.id}
                       dimScheduled={Boolean(selectedCourseKey)}
+                      displayOptions={calendarDisplay}
                       onSlotClick={handleSlotClick}
                       onScheduledClick={handleScheduledClick}
                     />
-                  </div>
+                  </m.div>
                 </div>
 
                 {showEmptyOverlay && (
@@ -1570,58 +1821,117 @@ export default function Home() {
                 </div>
               )}
             </div>
-          </section>
+          </m.section>
 
-          {!isMobile && (
-            <DetailsPanel
-              mode="panel"
-              open
-              selectedCourse={selectedCourseMeta}
-              selectedScheduledSection={selectedScheduledSection}
-              scheduledCourseSections={scheduledForSelectedCourse}
-              slotSections={slotSections}
-              scheduledSections={scheduledSections}
-              onAddSection={handleAddSection}
-              onRemoveSection={handleRemoveSection}
-              conflictMessage={conflictMessage}
-              showCatalogSearch={showCatalogSearch}
-              catalogSearchTerm={catalogSearchTerm}
-              onCatalogSearchTermChange={setCatalogSearchTerm}
-              catalogSearchResults={catalogSearchResults}
-              onCatalogCourseSelect={handleCatalogCourseSelect}
-              catalogOverrideCourse={catalogOverrideCourse}
-              onClearCatalogOverride={handleClearCatalogOverride}
-              favoriteSections={favoriteSections}
-              favoriteSectionIds={favoriteSectionIds}
-              onToggleFavorite={handleToggleFavoriteSection}
-            />
-          )}
+          <AnimatePresence initial={false}>
+            {!isMobile && showDetails && (
+              <m.div
+                key="details-panel"
+                className="min-w-0 overflow-hidden"
+                initial={{ scaleX: 0.96 }}
+                animate={{ scaleX: 1 }}
+                exit={{ scaleX: 0.96 }}
+                transition={{ type: "spring", stiffness: 220, damping: 24 }}
+                style={{ ...(detailsColumnStyle || {}), originX: 1 }}
+              >
+                <DetailsPanel
+                  mode="panel"
+                  open
+                  selectedCourse={selectedCourseMeta}
+                  selectedScheduledSection={selectedScheduledSection}
+                  scheduledCourseSections={scheduledForSelectedCourse}
+                  slotSections={slotSections}
+                  scheduledSections={scheduledSections}
+                  onAddSection={handleAddSection}
+                  onRemoveSection={handleRemoveSection}
+                  conflictMessage={conflictMessage}
+                  showCatalogSearch={showCatalogSearch}
+                  catalogSearchTerm={catalogSearchTerm}
+                  onCatalogSearchTermChange={setCatalogSearchTerm}
+                  catalogSearchResults={catalogSearchResults}
+                  onCatalogCourseSelect={handleCatalogCourseSelect}
+                  catalogOverrideCourse={catalogOverrideCourse}
+                  onClearCatalogOverride={handleClearCatalogOverride}
+                  favoriteSections={favoriteSections}
+                  favoriteSectionIds={favoriteSectionIds}
+                  onToggleFavorite={handleToggleFavoriteSection}
+                  onHide={() => {
+                    setShowDetails(false);
+                    setIsSlotModalOpen(false);
+                  }}
+                />
+              </m.div>
+            )}
+          </AnimatePresence>
           {isMobile && (
-            <DetailsPanel
-              mode="stack"
-              open
-              selectedCourse={selectedCourseMeta}
-              selectedScheduledSection={selectedScheduledSection}
-              scheduledCourseSections={scheduledForSelectedCourse}
-              slotSections={slotSections}
-              scheduledSections={scheduledSections}
-              onAddSection={handleAddSection}
-              onRemoveSection={handleRemoveSection}
-              conflictMessage={conflictMessage}
-              showCatalogSearch={showCatalogSearch}
-              catalogSearchTerm={catalogSearchTerm}
-              onCatalogSearchTermChange={setCatalogSearchTerm}
-              catalogSearchResults={catalogSearchResults}
-              onCatalogCourseSelect={handleCatalogCourseSelect}
-              catalogOverrideCourse={catalogOverrideCourse}
-              onClearCatalogOverride={handleClearCatalogOverride}
-              favoriteSections={favoriteSections}
-              favoriteSectionIds={favoriteSectionIds}
-              onToggleFavorite={handleToggleFavoriteSection}
-            />
+            <>
+              <DetailsPanel
+                mode="modal"
+                open={isSlotModalOpen}
+                onClose={() => setIsSlotModalOpen(false)}
+                selectedCourse={selectedCourseMeta}
+                selectedScheduledSection={selectedScheduledSection}
+                scheduledCourseSections={scheduledForSelectedCourse}
+                slotSections={slotSections}
+                scheduledSections={scheduledSections}
+                onAddSection={handleAddSection}
+                onRemoveSection={handleRemoveSection}
+                conflictMessage={conflictMessage}
+                showCatalogSearch={showCatalogSearch}
+                catalogSearchTerm={catalogSearchTerm}
+                onCatalogSearchTermChange={setCatalogSearchTerm}
+                catalogSearchResults={catalogSearchResults}
+                onCatalogCourseSelect={handleCatalogCourseSelect}
+                catalogOverrideCourse={catalogOverrideCourse}
+                onClearCatalogOverride={handleClearCatalogOverride}
+                favoriteSections={favoriteSections}
+                favoriteSectionIds={favoriteSectionIds}
+                onToggleFavorite={handleToggleFavoriteSection}
+              />
+              <AnimatePresence initial={false}>
+                {showDetails && (
+                  <m.div
+                    key="details-stack"
+                    initial={{ scaleY: 0.97 }}
+                    animate={{ scaleY: 1 }}
+                    exit={{ scaleY: 0.97 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 24 }}
+                    style={{ originY: 0 }}
+                  >
+                    <DetailsPanel
+                      mode="stack"
+                      open
+                      selectedCourse={selectedCourseMeta}
+                      selectedScheduledSection={selectedScheduledSection}
+                      scheduledCourseSections={scheduledForSelectedCourse}
+                      slotSections={slotSections}
+                      scheduledSections={scheduledSections}
+                      onAddSection={handleAddSection}
+                      onRemoveSection={handleRemoveSection}
+                      conflictMessage={conflictMessage}
+                      showCatalogSearch={showCatalogSearch}
+                      catalogSearchTerm={catalogSearchTerm}
+                      onCatalogSearchTermChange={setCatalogSearchTerm}
+                      catalogSearchResults={catalogSearchResults}
+                      onCatalogCourseSelect={handleCatalogCourseSelect}
+                      catalogOverrideCourse={catalogOverrideCourse}
+                      onClearCatalogOverride={handleClearCatalogOverride}
+                      favoriteSections={favoriteSections}
+                      favoriteSectionIds={favoriteSectionIds}
+                      onToggleFavorite={handleToggleFavoriteSection}
+                      onHide={() => {
+                        setShowDetails(false);
+                        setIsSlotModalOpen(false);
+                      }}
+                    />
+                  </m.div>
+                )}
+              </AnimatePresence>
+            </>
           )}
-        </main>
+        </m.main>
       )}
-    </div>
+      </div>
+    </LazyMotion>
   );
 }

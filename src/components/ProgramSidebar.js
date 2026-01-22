@@ -24,6 +24,7 @@ export default function ProgramSidebar({
   onAddCustomCourse,
   onRemoveCustomCourse,
   scheduledCountByCourse,
+  onHide,
 }) {
   const [customCatNo, setCustomCatNo] = useState("");
   const [customTitle, setCustomTitle] = useState("");
@@ -90,7 +91,7 @@ export default function ProgramSidebar({
   };
 
   return (
-    <aside className="flex min-h-0 flex-col gap-4 rounded-3xl border border-[color:var(--line)] bg-[color:var(--panel)]/85 p-3 shadow-[0_12px_30px_-24px_rgba(16,24,40,0.6)] backdrop-blur sm:p-4">
+    <aside className="flex min-h-0 w-full min-w-0 flex-col gap-4 rounded-3xl border border-[color:var(--line)] bg-[color:var(--panel)]/85 p-3 shadow-[0_12px_30px_-24px_rgba(16,24,40,0.6)] backdrop-blur transition-all duration-300 ease-out sm:p-4">
       <div className="flex flex-col gap-3">
         <div className="flex items-center justify-between">
           <div>
@@ -103,6 +104,15 @@ export default function ProgramSidebar({
             <span className="rounded-full border border-[color:var(--line)] px-2 py-1 text-xs text-[color:var(--muted)]">
               {ipsCourses.length} courses
             </span>
+            {onHide && (
+              <button
+                type="button"
+                onClick={onHide}
+                className="rounded-full border border-[color:var(--line)] px-2 py-1 text-[0.6rem] uppercase tracking-[0.2em] text-[color:var(--muted)]"
+              >
+                Hide
+              </button>
+            )}
           </div>
         </div>
 
@@ -148,7 +158,8 @@ export default function ProgramSidebar({
                     }
                   }}
                   placeholder="Select a program"
-                  className="w-full rounded-2xl border border-[color:var(--line)] bg-white/70 px-3 py-2 text-sm text-[color:var(--ink)]"
+                  title={programQuery}
+                  className="w-full truncate rounded-2xl border border-[color:var(--line)] bg-white/70 px-3 py-2 text-sm text-[color:var(--ink)]"
                 />
                 {programOpen && filteredPrograms.length > 0 && (
                   <div
@@ -160,13 +171,13 @@ export default function ProgramSidebar({
                         key={program.id}
                         type="button"
                         onClick={() => handleProgramSelect(program)}
-                        className="flex w-full flex-col gap-1 rounded-xl px-2 py-1 text-left transition hover:bg-[color:var(--panel-muted)]"
+                        className="flex w-full min-w-0 flex-col gap-1 rounded-xl px-2 py-1 text-left transition hover:bg-[color:var(--panel-muted)]"
                       >
-                        <span className="text-xs font-semibold">
+                        <span className="truncate text-xs font-semibold">
                           {program.label}
                         </span>
                         {program.meta && (
-                          <span className="text-[0.6rem] uppercase tracking-[0.2em] text-[color:var(--muted)]">
+                          <span className="truncate text-[0.6rem] uppercase tracking-[0.2em] text-[color:var(--muted)]">
                             {program.meta}
                           </span>
                         )}

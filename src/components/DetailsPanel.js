@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { DAYS, sortTimeslots } from "@/lib/time";
 import { findConflicts } from "@/lib/course-data";
 import FilterMultiSelect from "@/components/FilterMultiSelect";
@@ -553,17 +554,37 @@ export default function DetailsPanel({
   favoriteSections,
   favoriteSectionIds,
   onToggleFavorite,
+  onHide,
 }) {
+  const modalScrollRef = useRef(null);
+
+  useEffect(() => {
+    if (mode !== "modal" || !open) return;
+    if (typeof document === "undefined") return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    if (modalScrollRef.current) {
+      modalScrollRef.current.scrollTop = 0;
+    }
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [mode, open]);
+
   if (mode === "modal") {
     if (!open) return null;
-    return (
+    if (typeof document === "undefined") return null;
+    return createPortal(
       <div
-        className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 backdrop-blur-sm"
+        className="fixed inset-0 z-50 flex items-stretch justify-center bg-black/40 backdrop-blur-sm"
         role="dialog"
         aria-modal="true"
         aria-label="Schedule details"
       >
-        <div className="max-h-[85vh] w-full overflow-y-auto rounded-3xl border border-[color:var(--line)] bg-[color:var(--panel)] p-4 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.6)]">
+        <div
+          ref={modalScrollRef}
+          className="h-full w-full overflow-y-auto overscroll-contain border border-[color:var(--line)] bg-[color:var(--panel)] p-4 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.6)]"
+        >
           <div className="mb-3 flex justify-end">
             <button
               type="button"
@@ -594,7 +615,8 @@ export default function DetailsPanel({
             onToggleFavorite={onToggleFavorite}
           />
         </div>
-      </div>
+      </div>,
+      document.body
     );
   }
 
@@ -602,7 +624,18 @@ export default function DetailsPanel({
     if (!open) return null;
     return (
       <section className="w-full">
-        <div className="h-full rounded-3xl border border-[color:var(--line)] bg-[color:var(--panel)]/85 p-4 shadow-[0_12px_30px_-24px_rgba(16,24,40,0.6)] backdrop-blur">
+        <div className="h-full rounded-3xl border border-[color:var(--line)] bg-[color:var(--panel)]/85 p-4 shadow-[0_12px_30px_-24px_rgba(16,24,40,0.6)] backdrop-blur transition-all duration-300 ease-out">
+          {onHide && (
+            <div className="mb-3 flex justify-end">
+              <button
+                type="button"
+                onClick={onHide}
+                className="rounded-full border border-[color:var(--line)] px-3 py-1 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]"
+              >
+                Hide
+              </button>
+            </div>
+          )}
           <PanelContent
             selectedCourse={selectedCourse}
             selectedScheduledSection={selectedScheduledSection}
@@ -630,7 +663,18 @@ export default function DetailsPanel({
 
   return (
     <aside className="hidden w-full xl:block xl:w-[360px]">
-      <div className="h-full rounded-3xl border border-[color:var(--line)] bg-[color:var(--panel)]/85 p-4 shadow-[0_12px_30px_-24px_rgba(16,24,40,0.6)] backdrop-blur">
+      <div className="h-full rounded-3xl border border-[color:var(--line)] bg-[color:var(--panel)]/85 p-4 shadow-[0_12px_30px_-24px_rgba(16,24,40,0.6)] backdrop-blur transition-all duration-300 ease-out">
+        {onHide && (
+          <div className="mb-3 flex justify-end">
+            <button
+              type="button"
+              onClick={onHide}
+              className="rounded-full border border-[color:var(--line)] px-3 py-1 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]"
+            >
+              Hide
+            </button>
+          </div>
+        )}
         <PanelContent
           selectedCourse={selectedCourse}
           selectedScheduledSection={selectedScheduledSection}

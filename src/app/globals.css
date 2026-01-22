@@ -29,6 +29,7 @@ body {
     radial-gradient(1200px circle at 85% 0%, rgba(249, 115, 22, 0.2), transparent 55%),
     radial-gradient(900px circle at 10% 10%, rgba(15, 118, 110, 0.16), transparent 60%),
     var(--bg);
+  overflow-x: hidden;
   color: var(--ink);
   font-family: var(--font-sans);
 }
