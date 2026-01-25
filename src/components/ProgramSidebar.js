@@ -3,6 +3,11 @@
 import { useEffect, useMemo, useState } from "react";
 
 export default function ProgramSidebar({
+  activeView,
+  onActiveViewChange,
+  theme,
+  onThemeChange,
+  onSupportOpen,
   ipsMode,
   onIpsModeChange,
   programOptions,
@@ -16,21 +21,23 @@ export default function ProgramSidebar({
   onSemesterChange,
   ipsCourses,
   visibleCourses,
-  searchTerm,
-  onSearchTermChange,
   selectedCourseKey,
   onSelectCourse,
   onClearSelection,
   onAddCustomCourse,
   onRemoveCustomCourse,
   scheduledCountByCourse,
-  onHide,
 }) {
   const [customCatNo, setCustomCatNo] = useState("");
   const [customTitle, setCustomTitle] = useState("");
   const [customModalOpen, setCustomModalOpen] = useState(false);
+  const [showProgramSettings, setShowProgramSettings] = useState(true);
   const [programQuery, setProgramQuery] = useState("");
   const [programOpen, setProgramOpen] = useState(false);
+  const [yearQuery, setYearQuery] = useState("");
+  const [yearOpen, setYearOpen] = useState(false);
+  const [semesterQuery, setSemesterQuery] = useState("");
+  const [semesterOpen, setSemesterOpen] = useState(false);
   const scheduledCounts =
     scheduledCountByCourse instanceof Map ? scheduledCountByCourse : new Map();
   const selectedProgram = programOptions.find(
@@ -44,6 +51,28 @@ export default function ProgramSidebar({
       setProgramQuery("");
     }
   }, [selectedProgram, selectedProgramId]);
+
+  useEffect(() => {
+    if (selectedYearIndex === null || yearOptions.length === 0) {
+      setYearQuery("");
+      return;
+    }
+    const selectedYear = yearOptions.find(
+      (year) => year.index === selectedYearIndex
+    );
+    setYearQuery(selectedYear ? selectedYear.label : "");
+  }, [selectedYearIndex, yearOptions]);
+
+  useEffect(() => {
+    if (selectedSemesterIndex === null || semesterOptions.length === 0) {
+      setSemesterQuery("");
+      return;
+    }
+    const selectedSemester = semesterOptions.find(
+      (semester) => semester.index === selectedSemesterIndex
+    );
+    setSemesterQuery(selectedSemester ? selectedSemester.label : "");
+  }, [selectedSemesterIndex, semesterOptions]);
 
   useEffect(() => {
     if (ipsMode !== "custom") {
@@ -84,14 +113,152 @@ export default function ProgramSidebar({
       .slice(0, 8);
   }, [programOptions, programQuery]);
 
+  const filteredYears = useMemo(() => {
+    const term = yearQuery.trim().toLowerCase();
+    if (!term) return yearOptions;
+    return yearOptions
+      .filter((year) => year.label.toLowerCase().includes(term))
+      .slice(0, 8);
+  }, [yearOptions, yearQuery]);
+
+  const filteredSemesters = useMemo(() => {
+    const term = semesterQuery.trim().toLowerCase();
+    if (!term) return semesterOptions;
+    return semesterOptions
+      .filter((semester) => semester.label.toLowerCase().includes(term))
+      .slice(0, 8);
+  }, [semesterOptions, semesterQuery]);
+
   const handleProgramSelect = (program) => {
     setProgramQuery(program.label);
     onProgramChange(program.id);
     setProgramOpen(false);
   };
 
+  const handleYearSelect = (year) => {
+    setYearQuery(year.label);
+    onYearChange(year.index);
+    setYearOpen(false);
+  };
+
+  const handleSemesterSelect = (semester) => {
+    setSemesterQuery(semester.label);
+    onSemesterChange(semester.index);
+    setSemesterOpen(false);
+  };
+
+  const handleYearInputChange = (event) => {
+    const nextValue = event.target.value;
+    setYearQuery(nextValue);
+    if (!nextValue.trim()) {
+      onYearChange(null);
+      onSemesterChange(null);
+    }
+  };
+
+  const handleSemesterInputChange = (event) => {
+    const nextValue = event.target.value;
+    setSemesterQuery(nextValue);
+    if (!nextValue.trim()) {
+      onSemesterChange(null);
+    }
+  };
+  const handleThemeToggle = (nextTheme) => {
+    if (!onThemeChange) return;
+    onThemeChange(nextTheme);
+  };
+
   return (
-    <aside className="flex min-h-0 w-full min-w-0 flex-col gap-4 rounded-3xl border border-[color:var(--line)] bg-[color:var(--panel)]/85 p-3 shadow-[0_12px_30px_-24px_rgba(16,24,40,0.6)] backdrop-blur transition-all duration-300 ease-out sm:p-4">
+    <aside className="flex h-full min-h-0 w-full min-w-0 flex-col gap-4 bg-[color:var(--panel)]/35 p-3 transition-all duration-300 ease-out sm:p-4">
+      {onActiveViewChange && (
+        <div className="flex flex-col gap-3 border-b border-[color:var(--line)] pb-3">
+          <div>
+            <p className="text-[0.6rem] uppercase tracking-[0.35em] text-[color:var(--accent-2)]">
+              Ateneo enlistment
+            </p>
+            <h1 className="font-display text-2xl">Schedule Studio</h1>
+          </div>
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 rounded-full border border-[color:var(--line)] bg-[color:var(--panel)]/70 p-1 text-[0.6rem] uppercase tracking-[0.2em] text-[color:var(--muted)]">
+              <button
+                type="button"
+                onClick={() => onActiveViewChange("schedule")}
+                aria-pressed={activeView === "schedule"}
+                className={`rounded-full px-3 py-1 transition ${
+                  activeView !== "offerings"
+                    ? "bg-[color:var(--panel-muted)] text-[color:var(--ink)]"
+                    : "hover:text-[color:var(--ink)]"
+                }`}
+              >
+                Schedule
+              </button>
+              <button
+                type="button"
+                onClick={() => onActiveViewChange("offerings")}
+                aria-pressed={activeView === "offerings"}
+                className={`rounded-full px-3 py-1 transition ${
+                  activeView === "offerings"
+                    ? "bg-[color:var(--panel-muted)] text-[color:var(--ink)]"
+                    : "hover:text-[color:var(--ink)]"
+                }`}
+              >
+                Offerings
+              </button>
+            </div>
+            {onThemeChange && (
+              <div className="flex items-center gap-1 rounded-full border border-[color:var(--line)] bg-[color:var(--panel)]/70 p-1">
+                <button
+                  type="button"
+                  onClick={() => handleThemeToggle("light")}
+                  aria-pressed={theme === "light"}
+                  aria-label="Light mode"
+                  title="Light mode"
+                  className={`flex h-7 w-7 items-center justify-center rounded-full text-[color:var(--muted)] transition ${
+                    theme === "light"
+                      ? "bg-[color:var(--panel-muted)] text-[color:var(--ink)]"
+                      : "hover:text-[color:var(--ink)]"
+                  }`}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-3.5 w-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="4.5" />
+                    <path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleThemeToggle("dark")}
+                  aria-pressed={theme === "dark"}
+                  aria-label="Dark mode"
+                  title="Dark mode"
+                  className={`flex h-7 w-7 items-center justify-center rounded-full text-[color:var(--muted)] transition ${
+                    theme === "dark"
+                      ? "bg-[color:var(--panel-muted)] text-[color:var(--ink)]"
+                      : "hover:text-[color:var(--ink)]"
+                  }`}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-3.5 w-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    aria-hidden="true"
+                  >
+                    <path d="M20 14.5A7.5 7.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" />
+                  </svg>
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
       <div className="flex flex-col gap-3">
         <div className="flex items-center justify-between">
           <div>
@@ -104,19 +271,10 @@ export default function ProgramSidebar({
             <span className="rounded-full border border-[color:var(--line)] px-2 py-1 text-xs text-[color:var(--muted)]">
               {ipsCourses.length} courses
             </span>
-            {onHide && (
-              <button
-                type="button"
-                onClick={onHide}
-                className="rounded-full border border-[color:var(--line)] px-2 py-1 text-[0.6rem] uppercase tracking-[0.2em] text-[color:var(--muted)]"
-              >
-                Hide
-              </button>
-            )}
           </div>
         </div>
 
-        <div className="flex rounded-full border border-[color:var(--line)] bg-white/70 p-1 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
+        <div className="flex rounded-full border border-[color:var(--line)] bg-[color:var(--panel)]/70 p-1 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
           <button
             type="button"
             onClick={() => onIpsModeChange("program")}
@@ -143,101 +301,147 @@ export default function ProgramSidebar({
 
         {ipsMode === "program" ? (
           <div className="space-y-3">
-            <label className="block text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
-              Program
-              <div className="relative mt-2">
-                <input
-                  value={programQuery}
-                  onChange={handleProgramInputChange}
-                  onFocus={() => setProgramOpen(true)}
-                  onBlur={() => setProgramOpen(false)}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter" && filteredPrograms.length) {
-                      event.preventDefault();
-                      handleProgramSelect(filteredPrograms[0]);
-                    }
-                  }}
-                  placeholder="Select a program"
-                  title={programQuery}
-                  className="w-full truncate rounded-2xl border border-[color:var(--line)] bg-white/70 px-3 py-2 text-sm text-[color:var(--ink)]"
-                />
-                {programOpen && filteredPrograms.length > 0 && (
-                  <div
-                    className="absolute left-0 right-0 top-full z-10 mt-1 max-h-56 overflow-y-auto rounded-2xl border border-[color:var(--line)] bg-white/95 p-1 text-xs text-[color:var(--ink)] shadow-[0_16px_30px_-24px_rgba(15,23,42,0.5)]"
-                    onMouseDown={(event) => event.preventDefault()}
-                  >
-                    {filteredPrograms.map((program) => (
-                      <button
-                        key={program.id}
-                        type="button"
-                        onClick={() => handleProgramSelect(program)}
-                        className="flex w-full min-w-0 flex-col gap-1 rounded-xl px-2 py-1 text-left transition hover:bg-[color:var(--panel-muted)]"
+            <div className="flex items-center justify-between">
+              <p className="text-[0.65rem] uppercase tracking-[0.3em] text-[color:var(--muted)]">
+                Program settings
+              </p>
+              <button
+                type="button"
+                onClick={() => setShowProgramSettings((prev) => !prev)}
+                className="rounded-full border border-[color:var(--line)] px-2 py-1 text-[0.55rem] uppercase tracking-[0.2em] text-[color:var(--muted)]"
+              >
+                {showProgramSettings ? "Hide" : "Show"}
+              </button>
+            </div>
+            {showProgramSettings && (
+              <>
+                <label className="block text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
+                  Program
+                  <div className="relative mt-2">
+                    <input
+                      value={programQuery}
+                      onChange={handleProgramInputChange}
+                      onFocus={() => setProgramOpen(true)}
+                      onBlur={() => setProgramOpen(false)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" && filteredPrograms.length) {
+                          event.preventDefault();
+                          handleProgramSelect(filteredPrograms[0]);
+                        }
+                      }}
+                      placeholder="Select a program"
+                      title={programQuery}
+                      className="w-full truncate rounded-2xl border border-[color:var(--line)] bg-[color:var(--panel)]/70 px-3 py-2 text-sm text-[color:var(--ink)]"
+                    />
+                    {programOpen && filteredPrograms.length > 0 && (
+                      <div
+                        className="absolute left-0 right-0 top-full z-10 mt-1 max-h-56 overflow-y-auto rounded-2xl border border-[color:var(--line)] bg-[color:var(--panel)]/95 p-1 text-xs text-[color:var(--ink)] shadow-[0_16px_30px_-24px_rgba(15,23,42,0.5)]"
+                        onMouseDown={(event) => event.preventDefault()}
                       >
-                        <span className="truncate text-xs font-semibold">
-                          {program.label}
-                        </span>
-                        {program.meta && (
-                          <span className="truncate text-[0.6rem] uppercase tracking-[0.2em] text-[color:var(--muted)]">
-                            {program.meta}
-                          </span>
-                        )}
-                      </button>
-                    ))}
+                        {filteredPrograms.map((program) => (
+                          <button
+                            key={program.id}
+                            type="button"
+                            onClick={() => handleProgramSelect(program)}
+                            className="flex w-full min-w-0 flex-col gap-1 rounded-xl px-2 py-1 text-left transition hover:bg-[color:var(--panel-muted)]"
+                          >
+                            <span className="truncate text-xs font-semibold">
+                              {program.label}
+                            </span>
+                            {program.meta && (
+                              <span className="truncate text-[0.6rem] uppercase tracking-[0.2em] text-[color:var(--muted)]">
+                                {program.meta}
+                              </span>
+                            )}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
-              {selectedProgram?.meta && (
-                <p className="mt-2 text-[0.65rem] uppercase tracking-[0.2em] text-[color:var(--muted)]">
-                  {selectedProgram.meta}
-                </p>
-              )}
-            </label>
+                  {selectedProgram?.meta && (
+                    <p className="mt-2 text-[0.65rem] uppercase tracking-[0.2em] text-[color:var(--muted)]">
+                      {selectedProgram.meta}
+                    </p>
+                  )}
+                </label>
 
-            <label className="block text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
-              Year
-              <select
-                value={selectedYearIndex ?? ""}
-                onChange={(event) =>
-                  onYearChange(
-                    event.target.value === ""
-                      ? null
-                      : Number(event.target.value)
-                  )
-                }
-                className="mt-2 w-full rounded-2xl border border-[color:var(--line)] bg-white/70 px-3 py-2 text-sm text-[color:var(--ink)]"
-                disabled={!selectedProgramId}
-              >
-                <option value="">Select a year</option>
-                {yearOptions.map((year) => (
-                  <option key={year.index} value={year.index}>
-                    {year.label}
-                  </option>
-                ))}
-              </select>
-            </label>
+                <label className="block text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
+                  Year
+                  <div className="relative mt-2">
+                    <input
+                      value={yearQuery}
+                      onChange={handleYearInputChange}
+                      onFocus={() => setYearOpen(true)}
+                      onBlur={() => setYearOpen(false)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" && filteredYears.length) {
+                          event.preventDefault();
+                          handleYearSelect(filteredYears[0]);
+                        }
+                      }}
+                      placeholder="Select a year"
+                      className="w-full rounded-2xl border border-[color:var(--line)] bg-[color:var(--panel)]/70 px-3 py-2 text-sm text-[color:var(--ink)]"
+                      disabled={!selectedProgramId}
+                    />
+                    {yearOpen && filteredYears.length > 0 && (
+                      <div
+                        className="absolute left-0 right-0 top-full z-10 mt-1 max-h-48 overflow-y-auto rounded-2xl border border-[color:var(--line)] bg-[color:var(--panel)]/95 p-1 text-xs text-[color:var(--ink)] shadow-[0_16px_30px_-24px_rgba(15,23,42,0.5)]"
+                        onMouseDown={(event) => event.preventDefault()}
+                      >
+                        {filteredYears.map((year) => (
+                          <button
+                            key={year.index}
+                            type="button"
+                            onClick={() => handleYearSelect(year)}
+                            className="flex w-full rounded-xl px-2 py-1 text-left text-xs font-semibold transition hover:bg-[color:var(--panel-muted)]"
+                          >
+                            {year.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </label>
 
-            <label className="block text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
-              Semester
-              <select
-                value={selectedSemesterIndex ?? ""}
-                onChange={(event) =>
-                  onSemesterChange(
-                    event.target.value === ""
-                      ? null
-                      : Number(event.target.value)
-                  )
-                }
-                className="mt-2 w-full rounded-2xl border border-[color:var(--line)] bg-white/70 px-3 py-2 text-sm text-[color:var(--ink)]"
-                disabled={selectedYearIndex === null}
-              >
-                <option value="">Select a semester</option>
-                {semesterOptions.map((semester) => (
-                  <option key={semester.index} value={semester.index}>
-                    {semester.label}
-                  </option>
-                ))}
-              </select>
-            </label>
+                <label className="block text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
+                  Semester
+                  <div className="relative mt-2">
+                    <input
+                      value={semesterQuery}
+                      onChange={handleSemesterInputChange}
+                      onFocus={() => setSemesterOpen(true)}
+                      onBlur={() => setSemesterOpen(false)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" && filteredSemesters.length) {
+                          event.preventDefault();
+                          handleSemesterSelect(filteredSemesters[0]);
+                        }
+                      }}
+                      placeholder="Select a semester"
+                      className="w-full rounded-2xl border border-[color:var(--line)] bg-[color:var(--panel)]/70 px-3 py-2 text-sm text-[color:var(--ink)]"
+                      disabled={selectedYearIndex === null}
+                    />
+                    {semesterOpen && filteredSemesters.length > 0 && (
+                      <div
+                        className="absolute left-0 right-0 top-full z-10 mt-1 max-h-48 overflow-y-auto rounded-2xl border border-[color:var(--line)] bg-[color:var(--panel)]/95 p-1 text-xs text-[color:var(--ink)] shadow-[0_16px_30px_-24px_rgba(15,23,42,0.5)]"
+                        onMouseDown={(event) => event.preventDefault()}
+                      >
+                        {filteredSemesters.map((semester) => (
+                          <button
+                            key={semester.index}
+                            type="button"
+                            onClick={() => handleSemesterSelect(semester)}
+                            className="flex w-full rounded-xl px-2 py-1 text-left text-xs font-semibold transition hover:bg-[color:var(--panel-muted)]"
+                          >
+                            {semester.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </label>
+              </>
+            )}
           </div>
         ) : (
           <div className="space-y-2">
@@ -254,26 +458,10 @@ export default function ProgramSidebar({
           </div>
         )}
 
-        <label className="relative">
-          <span className="sr-only">Search IPS courses</span>
-          <input
-            type="search"
-            list="ips-course-options"
-            value={searchTerm}
-            onChange={(event) => onSearchTermChange(event.target.value)}
-            placeholder="Search within IPS"
-            className="w-full rounded-2xl border border-[color:var(--line)] bg-[color:var(--panel-muted)] px-4 py-2 text-sm text-[color:var(--ink)] placeholder:text-[color:var(--muted)] focus:border-[color:var(--accent)] focus:outline-none"
-          />
-          <datalist id="ips-course-options">
-            {ipsCourses.map((course) => (
-              <option key={course.id} value={course.catNo} />
-            ))}
-          </datalist>
-        </label>
       </div>
 
       <div className="flex-1 overflow-hidden">
-        <div className="h-full space-y-2 overflow-y-auto pr-2">
+        <div className="h-full divide-y divide-[color:var(--line)] overflow-y-auto pr-2">
           {visibleCourses.map((course) => {
             const isActive = course.normalizedCatNo === selectedCourseKey;
             const scheduledCount =
@@ -291,13 +479,13 @@ export default function ProgramSidebar({
                     onSelectCourse(course);
                   }
                 }}
-                className={`group relative flex cursor-pointer items-start justify-between gap-2 rounded-2xl border px-3 py-2 pr-10 transition ${
+                className={`group flex cursor-pointer items-start justify-between gap-3 px-2 py-3 transition ${
                   isActive
-                    ? "border-[color:var(--accent)] bg-[color:var(--panel-muted)] shadow-[0_8px_20px_-12px_rgba(0,0,0,0.4)]"
-                    : "border-transparent hover:border-[color:var(--line)] hover:bg-white/70"
+                    ? "bg-[color:var(--panel-muted)]"
+                    : "hover:bg-[color:var(--panel)]/50"
                 }`}
               >
-                <div className="flex flex-1 flex-col gap-1 text-left">
+                <div className="flex min-w-0 flex-1 flex-col gap-1 text-left">
                   <span className="text-sm font-semibold tracking-tight text-[color:var(--ink)]">
                     {course.catNo}
                   </span>
@@ -305,11 +493,12 @@ export default function ProgramSidebar({
                     {course.courseTitle || "Untitled course"}
                   </span>
                 </div>
-                <div
-                  className={`flex flex-col items-end gap-2 ${
-                    scheduledCount > 0 ? "pt-5" : ""
-                  }`}
-                >
+                <div className="flex shrink-0 items-center gap-2">
+                  {scheduledCount > 0 && (
+                    <span className="whitespace-nowrap rounded-full border border-[color:var(--accent)]/40 bg-[color:var(--accent)]/10 px-2 py-0.5 text-[0.55rem] uppercase tracking-[0.2em] text-[color:var(--accent)]">
+                      {scheduledCount} selected
+                    </span>
+                  )}
                   {ipsMode === "custom" && (
                     <button
                       type="button"
@@ -323,22 +512,32 @@ export default function ProgramSidebar({
                     </button>
                   )}
                 </div>
-                {scheduledCount > 0 && (
-                  <span className="absolute right-3 top-3 whitespace-nowrap rounded-full border border-[color:var(--accent)]/40 bg-[color:var(--accent)]/10 px-2 py-0.5 text-[0.55rem] uppercase tracking-[0.2em] text-[color:var(--accent)]">
-                    {scheduledCount} selected
-                  </span>
-                )}
               </div>
             );
           })}
           {visibleCourses.length === 0 && (
-            <div className="rounded-2xl border border-dashed border-[color:var(--line)] p-3 text-xs text-[color:var(--muted)]">
+            <div className="py-3 text-xs text-[color:var(--muted)]">
               {ipsCourses.length === 0
                 ? ipsMode === "program"
                   ? "Pick a program, year, and semester to load your IPS."
                   : "Start adding courses to build your custom IPS."
                 : "No courses match your search."}
             </div>
+          )}
+        </div>
+      </div>
+
+      <div className="mt-auto border-t border-[color:var(--line)] pt-3 text-[0.65rem] text-[color:var(--muted)]">
+        <div className="flex items-center justify-between gap-3">
+          <span>Made with &lt;3 by Alexi</span>
+          {onSupportOpen && (
+            <button
+              type="button"
+              onClick={onSupportOpen}
+              className="rounded-full border border-[color:var(--line)] px-2 py-1 text-[0.55rem] uppercase tracking-[0.2em] text-[color:var(--muted)] hover:text-[color:var(--ink)]"
+            >
+              Support
+            </button>
           )}
         </div>
       </div>
@@ -377,7 +576,7 @@ export default function ProgramSidebar({
                   value={customCatNo}
                   onChange={(event) => setCustomCatNo(event.target.value)}
                   placeholder="e.g. CSCI 20"
-                  className="mt-2 w-full rounded-2xl border border-[color:var(--line)] bg-white/70 px-3 py-2 text-sm text-[color:var(--ink)]"
+                  className="mt-2 w-full rounded-2xl border border-[color:var(--line)] bg-[color:var(--panel)]/70 px-3 py-2 text-sm text-[color:var(--ink)]"
                 />
               </label>
               <label className="block text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
@@ -386,7 +585,7 @@ export default function ProgramSidebar({
                   value={customTitle}
                   onChange={(event) => setCustomTitle(event.target.value)}
                   placeholder="Optional title"
-                  className="mt-2 w-full rounded-2xl border border-[color:var(--line)] bg-white/70 px-3 py-2 text-sm text-[color:var(--ink)]"
+                  className="mt-2 w-full rounded-2xl border border-[color:var(--line)] bg-[color:var(--panel)]/70 px-3 py-2 text-sm text-[color:var(--ink)]"
                 />
               </label>
               <div className="flex items-center justify-end gap-2">

@@ -46,7 +46,7 @@ export default function CourseSidebar({
                 className={`flex w-full flex-col gap-1 rounded-2xl border px-3 py-2 text-left transition ${
                   isActive
                     ? "border-[color:var(--accent)] bg-[color:var(--panel-muted)] shadow-[0_8px_20px_-12px_rgba(0,0,0,0.4)]"
-                    : "border-transparent hover:border-[color:var(--line)] hover:bg-white/70"
+                    : "border-transparent hover:border-[color:var(--line)] hover:bg-[color:var(--panel)]/70"
                 }`}
               >
                 <span className="text-sm font-semibold tracking-tight text-[color:var(--ink)]">
@@ -64,7 +64,7 @@ export default function CourseSidebar({
         </div>
       </div>
 
-      <div className="rounded-2xl border border-[color:var(--line)] bg-white/70 p-3">
+      <div className="rounded-2xl border border-[color:var(--line)] bg-[color:var(--panel)]/70 p-3">
         <div className="flex items-center justify-between">
           <p className="text-sm font-semibold text-[color:var(--ink)]">
             Scheduled

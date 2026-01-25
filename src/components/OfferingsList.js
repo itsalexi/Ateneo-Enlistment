@@ -58,7 +58,7 @@ export default function OfferingsList({
                 className={`group relative flex cursor-pointer flex-col gap-1 rounded-2xl border px-3 py-3 pr-20 text-left transition ${
                   isActive
                     ? "border-[color:var(--accent)] bg-[color:var(--panel-muted)] shadow-[0_8px_20px_-12px_rgba(0,0,0,0.4)]"
-                    : "border-transparent hover:border-[color:var(--line)] hover:bg-white/70"
+                    : "border-transparent hover:border-[color:var(--line)] hover:bg-[color:var(--panel)]/70"
                 }`}
               >
                 <span className="text-sm font-semibold tracking-tight text-[color:var(--ink)]">

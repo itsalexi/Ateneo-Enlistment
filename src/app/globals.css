@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
   --bg: #f6f1e8;
   --ink: #1f1a16;
   --muted: #6b645c;
@@ -10,6 +11,24 @@
   --panel-muted: #f2eadf;
   --line: rgba(31, 26, 22, 0.14);
   --grid-line: rgba(31, 26, 22, 0.08);
+  --bg-gradient-1: rgba(249, 115, 22, 0.2);
+  --bg-gradient-2: rgba(15, 118, 110, 0.16);
+}
+
+:root[data-theme="dark"],
+body[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f141b;
+  --ink: #f1f5f9;
+  --muted: #9aa4b2;
+  --accent: #f97316;
+  --accent-2: #38bdf8;
+  --panel: #151b24;
+  --panel-muted: #1f2632;
+  --line: rgba(148, 163, 184, 0.18);
+  --grid-line: rgba(148, 163, 184, 0.14);
+  --bg-gradient-1: rgba(249, 115, 22, 0.16);
+  --bg-gradient-2: rgba(56, 189, 248, 0.14);
 }
 
 @theme inline {
@@ -26,8 +45,8 @@
 body {
   min-height: 100vh;
   background:
-    radial-gradient(1200px circle at 85% 0%, rgba(249, 115, 22, 0.2), transparent 55%),
-    radial-gradient(900px circle at 10% 10%, rgba(15, 118, 110, 0.16), transparent 60%),
+    radial-gradient(1200px circle at 85% 0%, var(--bg-gradient-1), transparent 55%),
+    radial-gradient(900px circle at 10% 10%, var(--bg-gradient-2), transparent 60%),
     var(--bg);
   overflow-x: hidden;
   color: var(--ink);
@@ -44,7 +63,7 @@ a {
 }
 
 ::selection {
-  background: rgba(249, 115, 22, 0.2);
+  background: color-mix(in srgb, var(--accent) 25%, transparent);
 }
 
 @keyframes fade-up {

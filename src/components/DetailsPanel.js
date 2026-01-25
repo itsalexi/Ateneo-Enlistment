@@ -34,7 +34,7 @@ function SectionCard({
   const canAdd = !isScheduled && !isNoTime;
 
   return (
-    <div className="rounded-2xl border border-[color:var(--line)] bg-white/80 p-3 shadow-[0_12px_24px_-20px_rgba(15,23,42,0.5)]">
+    <div className="py-3">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-sm font-semibold text-[color:var(--ink)]">
@@ -133,6 +133,7 @@ function PanelContent({
   favoriteSections,
   favoriteSectionIds,
   onToggleFavorite,
+  onHide,
 }) {
   const focusCourse = selectedScheduledSection || selectedCourse;
   const hasCourseContext = Boolean(focusCourse);
@@ -272,18 +273,27 @@ function PanelContent({
 
   return (
     <div className="flex h-full min-h-0 flex-col gap-4">
-      <div className="flex items-start justify-between">
-        <div>
+      <div className="space-y-1">
+        <div className="flex items-center justify-between gap-3">
           <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[color:var(--accent-2)]">
             Details
           </p>
-          <h2 className="font-display text-xl">{headerTitle}</h2>
-          <p className="text-xs text-[color:var(--muted)]">{headerSubtitle}</p>
+          {onHide && (
+            <button
+              type="button"
+              onClick={onHide}
+              className="rounded-full border border-[color:var(--line)] px-2 py-1 text-[0.6rem] uppercase tracking-[0.2em] text-[color:var(--muted)]"
+            >
+              Hide
+            </button>
+          )}
         </div>
+        <h2 className="font-display text-xl">{headerTitle}</h2>
+        <p className="text-xs text-[color:var(--muted)]">{headerSubtitle}</p>
       </div>
 
       {showFavoritesTab && (
-        <div className="flex flex-wrap items-center gap-2 rounded-full border border-[color:var(--line)] bg-white/70 p-1 text-[0.6rem] uppercase tracking-[0.2em] text-[color:var(--muted)]">
+        <div className="flex flex-wrap items-center gap-2 rounded-full border border-[color:var(--line)] bg-[color:var(--panel)]/60 p-1 text-[0.6rem] uppercase tracking-[0.2em] text-[color:var(--muted)]">
           <button
             type="button"
             onClick={() => setActiveTab("sections")}
@@ -309,7 +319,7 @@ function PanelContent({
         </div>
       )}
       {hasCourseContext && (
-        <div className="rounded-2xl border border-[color:var(--line)] bg-white/80 p-3 text-xs text-[color:var(--muted)]">
+        <div className="border-t border-[color:var(--line)] pt-3 text-xs text-[color:var(--muted)]">
           <p className="text-[0.65rem] uppercase tracking-[0.2em] text-[color:var(--muted)]">
             Currently scheduled
           </p>
@@ -351,13 +361,13 @@ function PanelContent({
       )}
 
       {conflictMessage && (
-        <div className="rounded-2xl border border-rose-500/40 bg-rose-100/70 p-3 text-xs text-rose-700">
+        <div className="border-l-2 border-rose-400 bg-rose-50/70 px-3 py-2 text-xs text-rose-700">
           {conflictMessage}
         </div>
       )}
 
       {showCatalogSearch && !isFavoritesTab && hasCourseContext && (
-        <div className="rounded-2xl border border-dashed border-[color:var(--line)] bg-white/70 p-3 text-xs text-[color:var(--muted)]">
+        <div className="border-t border-dashed border-[color:var(--line)] pt-3 text-xs text-[color:var(--muted)]">
           <p className="text-[0.65rem] uppercase tracking-[0.3em] text-[color:var(--muted)]">
             Find a matching course
           </p>
@@ -370,10 +380,10 @@ function PanelContent({
             value={searchTerm}
             onChange={(event) => onCatalogSearchTermChange(event.target.value)}
             placeholder="Search all courses"
-            className="mt-3 w-full rounded-xl border border-[color:var(--line)] bg-white px-3 py-2 text-xs text-[color:var(--ink)]"
+            className="mt-3 w-full rounded-xl border border-[color:var(--line)] bg-[color:var(--panel)] px-3 py-2 text-xs text-[color:var(--ink)]"
           />
           {catalogOverrideCourse && (
-            <div className="mt-2 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-[color:var(--line)] bg-white/80 px-3 py-2 text-xs text-[color:var(--muted)]">
+            <div className="mt-2 flex flex-wrap items-center justify-between gap-2 rounded-xl border border-[color:var(--line)] bg-[color:var(--panel)]/80 px-3 py-2 text-xs text-[color:var(--muted)]">
               <span>
                 Viewing: {catalogOverrideCourse.catNo}{" "}
                 {catalogOverrideCourse.courseTitle
@@ -394,7 +404,7 @@ function PanelContent({
               Type at least 2 characters to search.
             </p>
           ) : searchResults.length ? (
-            <div className="mt-2 max-h-48 overflow-y-auto rounded-xl border border-[color:var(--line)] bg-white/90 p-1">
+            <div className="mt-2 max-h-48 overflow-y-auto rounded-xl border border-[color:var(--line)] bg-[color:var(--panel)]/90 p-1">
               {searchResults.map((course) => (
                 <button
                   key={course.key}
@@ -433,7 +443,7 @@ function PanelContent({
           </div>
           {hasCourseContext ? (
             <>
-              <div className="flex flex-col gap-2 rounded-2xl border border-[color:var(--line)] bg-white/70 p-2 text-xs text-[color:var(--muted)]">
+              <div className="flex flex-col gap-2 border-t border-[color:var(--line)] pt-3 text-xs text-[color:var(--muted)]">
                 <FilterMultiSelect
                   label="Instructor"
                   options={instructorOptions}
@@ -472,7 +482,7 @@ function PanelContent({
               {slotSections.length ? (
                 orderedSections.length ? (
                   <div className="max-h-[60vh] overflow-y-auto pr-2 sm:max-h-[65vh]">
-                    <div className="space-y-3">
+                    <div className="divide-y divide-[color:var(--line)]">
                       {orderedSections.map((section) => (
                         <SectionCard
                           key={section.id}
@@ -496,7 +506,7 @@ function PanelContent({
               )}
             </>
           ) : (
-            <div className="rounded-2xl border border-dashed border-[color:var(--line)] p-4 text-xs text-[color:var(--muted)]">
+            <div className="border-t border-dashed border-[color:var(--line)] pt-4 text-xs text-[color:var(--muted)]">
               Pick a course from the left list to see slots on the calendar.
             </div>
           )}
@@ -507,7 +517,7 @@ function PanelContent({
         <div className="flex flex-col gap-3">
           {favoritesList.length ? (
             <div className="max-h-[60vh] overflow-y-auto pr-2 sm:max-h-[65vh]">
-              <div className="space-y-3">
+              <div className="divide-y divide-[color:var(--line)]">
                 {orderFavoriteSections(favoritesList).map((section) => (
                   <SectionCard
                     key={section.id}
@@ -624,18 +634,7 @@ export default function DetailsPanel({
     if (!open) return null;
     return (
       <section className="w-full">
-        <div className="h-full rounded-3xl border border-[color:var(--line)] bg-[color:var(--panel)]/85 p-4 shadow-[0_12px_30px_-24px_rgba(16,24,40,0.6)] backdrop-blur transition-all duration-300 ease-out">
-          {onHide && (
-            <div className="mb-3 flex justify-end">
-              <button
-                type="button"
-                onClick={onHide}
-                className="rounded-full border border-[color:var(--line)] px-3 py-1 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]"
-              >
-                Hide
-              </button>
-            </div>
-          )}
+        <div className="h-full min-h-0 overflow-y-auto overscroll-contain bg-[color:var(--panel)]/35 p-4 transition-all duration-300 ease-out">
           <PanelContent
             selectedCourse={selectedCourse}
             selectedScheduledSection={selectedScheduledSection}
@@ -655,6 +654,7 @@ export default function DetailsPanel({
             favoriteSections={favoriteSections}
             favoriteSectionIds={favoriteSectionIds}
             onToggleFavorite={onToggleFavorite}
+            onHide={onHide}
           />
         </div>
       </section>
@@ -662,19 +662,8 @@ export default function DetailsPanel({
   }
 
   return (
-    <aside className="hidden w-full xl:block xl:w-[360px]">
-      <div className="h-full rounded-3xl border border-[color:var(--line)] bg-[color:var(--panel)]/85 p-4 shadow-[0_12px_30px_-24px_rgba(16,24,40,0.6)] backdrop-blur transition-all duration-300 ease-out">
-        {onHide && (
-          <div className="mb-3 flex justify-end">
-            <button
-              type="button"
-              onClick={onHide}
-              className="rounded-full border border-[color:var(--line)] px-3 py-1 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]"
-            >
-              Hide
-            </button>
-          </div>
-        )}
+    <aside className="w-full h-full">
+      <div className="h-full min-h-0 overflow-y-auto overscroll-contain bg-[color:var(--panel)]/35 p-4 transition-all duration-300 ease-out">
         <PanelContent
           selectedCourse={selectedCourse}
           selectedScheduledSection={selectedScheduledSection}
@@ -694,6 +683,7 @@ export default function DetailsPanel({
           favoriteSections={favoriteSections}
           favoriteSectionIds={favoriteSectionIds}
           onToggleFavorite={onToggleFavorite}
+          onHide={onHide}
         />
       </div>
     </aside>

@@ -85,11 +85,6 @@ export const metadata = {
   category: "education",
   classification: "Education",
   referrer: "origin-when-cross-origin",
-  colorScheme: "dark light",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#121212" },
-  ],
   applicationName: "Ateneo Enlistment Helper",
   appleWebApp: {
     title: "Ateneo Enlistment Helper",
@@ -125,12 +120,27 @@ export const viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
+  colorScheme: "dark light",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#121212" },
+  ],
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: dark)"
+          content="#0f141b"
+        />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: light)"
+          content="#f6f1e8"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -173,8 +183,15 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
+        suppressHydrationWarning
         className={`${spaceGrotesk.variable} ${fraunces.variable} antialiased`}
       >
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var t=localStorage.getItem('ui-theme');if(t==='dark'){document.body.setAttribute('data-theme','dark');}else{document.body.removeAttribute('data-theme');}}catch(e){}})();",
+          }}
+        />
         {children}
       </body>
     </html>

@@ -38,7 +38,7 @@ export default function FilterMultiSelect({
       <span className="text-[0.55rem] uppercase tracking-[0.2em] text-[color:var(--muted)]">
         {label}
       </span>
-      <div className="rounded-xl border border-[color:var(--line)] bg-white px-2 py-1">
+      <div className="rounded-xl border border-[color:var(--line)] bg-[color:var(--panel)] px-2 py-1">
         <div className="flex flex-wrap items-center gap-1">
           {values.map((item) => (
             <button
@@ -73,7 +73,7 @@ export default function FilterMultiSelect({
       </div>
       {open && filteredOptions.length > 0 && (
         <div
-          className="absolute left-0 right-0 top-full z-10 mt-1 max-h-40 overflow-y-auto rounded-xl border border-[color:var(--line)] bg-white/95 p-1 shadow-[0_16px_30px_-24px_rgba(15,23,42,0.5)]"
+          className="absolute left-0 right-0 top-full z-10 mt-1 max-h-40 overflow-y-auto rounded-xl border border-[color:var(--line)] bg-[color:var(--panel)]/95 p-1 shadow-[0_16px_30px_-24px_rgba(15,23,42,0.5)]"
           onMouseDown={(event) => event.preventDefault()}
         >
           {filteredOptions.map((option) => (

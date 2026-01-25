@@ -96,7 +96,7 @@ export default function OfferingsTable({
   };
 
   return (
-    <section className="flex h-full min-h-0 flex-col gap-4 rounded-3xl border border-[color:var(--line)] bg-[color:var(--panel)]/85 p-3 shadow-[0_12px_30px_-24px_rgba(16,24,40,0.6)] backdrop-blur sm:p-4">
+    <section className="flex h-full min-h-0 flex-col gap-4 bg-[color:var(--panel)]/35 px-3 pb-3 pt-4 sm:p-4">
       <header className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="text-[0.65rem] uppercase tracking-[0.35em] text-[color:var(--accent-2)]">
@@ -125,13 +125,13 @@ export default function OfferingsTable({
             <button
               type="button"
               onClick={() => setShowColumns((prev) => !prev)}
-              className="rounded-full border border-[color:var(--line)] bg-white/70 px-3 py-1 text-[0.55rem] uppercase tracking-[0.2em] text-[color:var(--muted)] transition hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
+              className="rounded-full border border-[color:var(--line)] bg-[color:var(--panel)]/70 px-3 py-1 text-[0.55rem] uppercase tracking-[0.2em] text-[color:var(--muted)] transition hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
             >
               Columns
             </button>
             {showColumns && (
               <div
-                className="absolute right-0 top-full z-10 mt-2 w-48 rounded-2xl border border-[color:var(--line)] bg-white/95 p-2 text-[0.6rem] uppercase tracking-[0.2em] text-[color:var(--muted)] shadow-[0_16px_30px_-24px_rgba(15,23,42,0.5)]"
+                className="absolute right-0 top-full z-10 mt-2 w-48 rounded-2xl border border-[color:var(--line)] bg-[color:var(--panel)]/95 p-2 text-[0.6rem] uppercase tracking-[0.2em] text-[color:var(--muted)] shadow-[0_16px_30px_-24px_rgba(15,23,42,0.5)]"
                 onMouseDown={(event) => event.preventDefault()}
               >
                 <div className="flex flex-col gap-2">
@@ -160,6 +160,32 @@ export default function OfferingsTable({
           </div>
         </div>
       </header>
+
+      {pageCount > 1 && (
+        <div className="flex flex-wrap items-center justify-between gap-3 border-y border-[color:var(--line)] py-2 text-xs text-[color:var(--muted)] lg:hidden">
+          <span>
+            Page {page} of {pageCount}
+          </span>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => onPageChange(Math.max(1, page - 1))}
+              disabled={page <= 1}
+              className="rounded-full border border-[color:var(--line)] px-3 py-1 text-[0.6rem] uppercase tracking-[0.2em] transition disabled:opacity-50"
+            >
+              Prev
+            </button>
+            <button
+              type="button"
+              onClick={() => onPageChange(Math.min(pageCount, page + 1))}
+              disabled={page >= pageCount}
+              className="rounded-full border border-[color:var(--line)] px-3 py-1 text-[0.6rem] uppercase tracking-[0.2em] transition disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      )}
 
       <div className="hidden min-h-0 flex-1 overflow-y-auto overscroll-contain pr-2 lg:block">
         <table className="w-full text-left text-xs">
@@ -209,7 +235,7 @@ export default function OfferingsTable({
           </tbody>
         </table>
         {sections.length === 0 && (
-          <div className="rounded-2xl border border-dashed border-[color:var(--line)] bg-white/70 p-3 text-xs text-[color:var(--muted)]">
+          <div className="rounded-2xl border border-dashed border-[color:var(--line)] bg-[color:var(--panel)]/70 p-3 text-xs text-[color:var(--muted)]">
             No sections match your filters yet.
           </div>
         )}
@@ -222,7 +248,7 @@ export default function OfferingsTable({
           return (
             <div
               key={section.id}
-              className={`rounded-2xl border border-[color:var(--line)] bg-white/80 p-3 shadow-[0_12px_24px_-20px_rgba(15,23,42,0.5)] ${
+              className={`rounded-2xl border border-[color:var(--line)] bg-[color:var(--panel)]/80 p-3 shadow-[0_12px_24px_-20px_rgba(15,23,42,0.5)] ${
                 isFavorite ? "border-[color:var(--accent)]/40" : ""
               }`}
             >
@@ -271,14 +297,14 @@ export default function OfferingsTable({
           );
         })}
         {sections.length === 0 && (
-          <div className="rounded-2xl border border-dashed border-[color:var(--line)] bg-white/70 p-3 text-xs text-[color:var(--muted)]">
+          <div className="rounded-2xl border border-dashed border-[color:var(--line)] bg-[color:var(--panel)]/70 p-3 text-xs text-[color:var(--muted)]">
             No sections match your filters yet.
           </div>
         )}
       </div>
 
       {pageCount > 1 && (
-        <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[color:var(--line)] bg-white/70 px-3 py-2 text-xs text-[color:var(--muted)]">
+        <div className="hidden flex-wrap items-center justify-between gap-3 border-y border-[color:var(--line)] py-2 text-xs text-[color:var(--muted)] lg:flex">
           <span>
             Page {page} of {pageCount}
           </span>
