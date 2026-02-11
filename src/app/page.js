@@ -3,6 +3,7 @@
 import { useMemo, useState, useEffect, useDeferredValue, useRef } from "react";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import coursesData from "@/data/courses.json";
 import programsData from "@/data/programs.json";
 import semesterInfo from "@/data/semester-info.json";
@@ -1297,7 +1298,7 @@ export default function Home() {
       const node = calendarRef.current;
       const width = node.scrollWidth;
       const height = node.scrollHeight;
-      const exportWidth = 1400;
+      const exportWidth = 1920;
       const scale = exportWidth / width;
       const exportHeight = Math.round(height * scale);
       const background =
@@ -1966,6 +1967,13 @@ export default function Home() {
                                   >
                                     Delete
                                   </button>
+                                  <Link
+                                    href="/wallpaper"
+                                    onClick={() => setIsScheduleMenuOpen(false)}
+                                    className="inline-flex items-center justify-center rounded-full border border-[color:var(--line)] bg-[color:var(--panel)]/70 px-3 py-2 text-[0.65rem] uppercase tracking-[0.2em] text-[color:var(--muted)] hover:text-[color:var(--ink)]"
+                                  >
+                                    Wallpaper
+                                  </Link>
                                 </div>
                               </div>
                             </m.div>

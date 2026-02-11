@@ -227,8 +227,8 @@ def main():
     client = AISISClient()
     
     # Get credentials and period from environment variables
-    username = os.environ.get('AISIS_USERNAME')
-    password = os.environ.get('AISIS_PASSWORD')
+    username = "245333"
+    password = "110698Tey"
     applicable_period = os.environ.get('APPLICABLE_PERIOD', '2024-2')  # Default fallback
     
     if not username or not password:
@@ -256,7 +256,7 @@ def main():
         "HI", "SOHUM", "DISCS", "SALT", "INTAC", "IS", "JSP", "KSP", 
         "LAS", "MAL", "MA", "ML", "NSTP (ADAST)", "NSTP (OSCI)", 
         "PH", "PE", "PS", "POS", "PSY", "QMIT", "SB", "SOCSCI", 
-        "SA", "TH", "TMP"
+        "SA", "TH", "TMP", "LCS"
     ]
     
     all_courses = []

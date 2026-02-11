@@ -116,7 +116,7 @@ export default function CalendarGrid({
                     key={slot.id}
                     type="button"
                     onClick={() => onSlotClick(slot)}
-                    className={`pointer-events-auto absolute left-1 right-1 flex flex-col items-center justify-center gap-1 rounded-xl border-2 px-1.5 py-1 text-center text-[0.65rem] font-semibold shadow-[0_12px_20px_-18px_rgba(15,23,42,0.6)] transition sm:left-2 sm:right-2 sm:px-2 sm:text-[0.75rem] ${className} ${
+                    className={`pointer-events-auto absolute left-1 right-1 flex flex-col items-center justify-center gap-0.5 rounded-lg border px-1.5 py-1 text-center text-[0.65rem] font-semibold shadow-[0_8px_18px_-14px_rgba(15,23,42,0.45)] transition sm:left-2 sm:right-2 sm:px-2 sm:text-[0.75rem] ${className} ${
                       isSelected && !suppressHighlights
                         ? "ring-2 ring-[color:var(--accent)]"
                         : ""
@@ -127,7 +127,7 @@ export default function CalendarGrid({
                       slot.end
                     )} on ${day.full}`}
                   >
-                    <span className="uppercase leading-tight tracking-[0.12em]">
+                    <span className="uppercase leading-tight tracking-[0.1em]">
                       {slot.sections.length} option
                       {slot.sections.length === 1 ? "" : "s"}
                     </span>
@@ -147,14 +147,14 @@ export default function CalendarGrid({
                     key: "course",
                     text: block.section.catNo,
                     className:
-                      "uppercase text-[0.65rem] font-semibold tracking-[0.08em]",
+                      "uppercase text-[0.7rem] font-semibold tracking-[0.1em]",
                   });
                 }
                 if (display.showSection) {
                   detailLines.push({
                     key: "section",
                     text: block.section.section,
-                    className: "text-[0.6rem] font-medium",
+                    className: "text-[0.6rem] font-semibold opacity-90",
                   });
                 }
                 if (display.showTime) {
@@ -183,7 +183,7 @@ export default function CalendarGrid({
                     key={blockId}
                     type="button"
                     onClick={() => onScheduledClick(block)}
-                    className={`pointer-events-auto absolute left-1 right-1 flex flex-col items-center justify-center gap-1 overflow-hidden rounded-xl border-2 px-1.5 py-1 text-center text-[0.65rem] font-semibold shadow-[0_10px_20px_-16px_rgba(15,23,42,0.6)] sm:left-2 sm:right-2 sm:px-2 sm:text-[0.75rem] ${block.section.colorClass} ${
+                    className={`pointer-events-auto absolute left-1 right-1 flex flex-col items-center justify-center gap-0.5 overflow-hidden rounded-lg border px-1.5 py-1 text-center text-[0.65rem] font-medium shadow-[0_8px_18px_-14px_rgba(15,23,42,0.45)] sm:left-2 sm:right-2 sm:px-2 sm:text-[0.75rem] ${block.section.colorClass} ${
                       dimScheduled && !isSelected ? "opacity-60" : ""
                     } ${
                       isSelected && !suppressHighlights

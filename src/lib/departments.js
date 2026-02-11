@@ -33,6 +33,7 @@ export const DEPARTMENT_OPTIONS = [
   { label: "JAPANESE STUDIES PROGRAM", id: "JSP" },
   { label: "KOREAN STUDIES PROGRAM", id: "KSP" },
   { label: "LEADERSHIP AND STRATEGY", id: "LAS" },
+  { label: "LITERARY AND CULTURAL STUDIES PROGRAM", id: "LCS" },
   { label: "MARKETING AND LAW", id: "MAL" },
   { label: "MATHEMATICS", id: "MA" },
   { label: "MODERN LANGUAGES", id: "ML" },

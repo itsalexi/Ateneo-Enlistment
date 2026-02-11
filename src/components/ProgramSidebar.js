@@ -43,6 +43,20 @@ export default function ProgramSidebar({
   const selectedProgram = programOptions.find(
     (program) => program.id === selectedProgramId
   );
+  const selectedYearLabel = useMemo(() => {
+    if (selectedYearIndex === null) return "";
+    const selectedYear = yearOptions.find(
+      (year) => year.index === selectedYearIndex
+    );
+    return selectedYear ? selectedYear.label : "";
+  }, [selectedYearIndex, yearOptions]);
+  const selectedSemesterLabel = useMemo(() => {
+    if (selectedSemesterIndex === null) return "";
+    const selectedSemester = semesterOptions.find(
+      (semester) => semester.index === selectedSemesterIndex
+    );
+    return selectedSemester ? selectedSemester.label : "";
+  }, [selectedSemesterIndex, semesterOptions]);
 
   useEffect(() => {
     if (selectedProgram) {
@@ -115,19 +129,23 @@ export default function ProgramSidebar({
 
   const filteredYears = useMemo(() => {
     const term = yearQuery.trim().toLowerCase();
-    if (!term) return yearOptions;
+    const selectedTerm = selectedYearLabel.trim().toLowerCase();
+    if (!term || (yearOpen && selectedTerm && term === selectedTerm)) {
+      return yearOptions;
+    }
     return yearOptions
-      .filter((year) => year.label.toLowerCase().includes(term))
-      .slice(0, 8);
-  }, [yearOptions, yearQuery]);
+      .filter((year) => year.label.toLowerCase().includes(term));
+  }, [yearOptions, yearQuery, yearOpen, selectedYearLabel]);
 
   const filteredSemesters = useMemo(() => {
     const term = semesterQuery.trim().toLowerCase();
-    if (!term) return semesterOptions;
+    const selectedTerm = selectedSemesterLabel.trim().toLowerCase();
+    if (!term || (semesterOpen && selectedTerm && term === selectedTerm)) {
+      return semesterOptions;
+    }
     return semesterOptions
-      .filter((semester) => semester.label.toLowerCase().includes(term))
-      .slice(0, 8);
-  }, [semesterOptions, semesterQuery]);
+      .filter((semester) => semester.label.toLowerCase().includes(term));
+  }, [semesterOptions, semesterQuery, semesterOpen, selectedSemesterLabel]);
 
   const handleProgramSelect = (program) => {
     setProgramQuery(program.label);
@@ -376,7 +394,12 @@ export default function ProgramSidebar({
                       onKeyDown={(event) => {
                         if (event.key === "Enter" && filteredYears.length) {
                           event.preventDefault();
-                          handleYearSelect(filteredYears[0]);
+                          const match = filteredYears.find(
+                            (year) =>
+                              year.label.toLowerCase() ===
+                              yearQuery.trim().toLowerCase()
+                          );
+                          handleYearSelect(match || filteredYears[0]);
                         }
                       }}
                       placeholder="Select a year"
@@ -414,7 +437,12 @@ export default function ProgramSidebar({
                       onKeyDown={(event) => {
                         if (event.key === "Enter" && filteredSemesters.length) {
                           event.preventDefault();
-                          handleSemesterSelect(filteredSemesters[0]);
+                          const match = filteredSemesters.find(
+                            (semester) =>
+                              semester.label.toLowerCase() ===
+                              semesterQuery.trim().toLowerCase()
+                          );
+                          handleSemesterSelect(match || filteredSemesters[0]);
                         }
                       }}
                       placeholder="Select a semester"
